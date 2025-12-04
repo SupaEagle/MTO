@@ -5,9 +5,18 @@ const Login = () => {
     const navigate = useNavigate();
     const [mode, setMode] = useState<'agency' | 'client'>('agency');
 
-    const handleLogin = (e: React.FormEvent) => {
+    const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Simulate login
+        // TODO: Implement actual Firebase login
+        // try {
+        //   await signInWithEmailAndPassword(auth, email, password);
+        //   if (mode === 'agency') navigate('/agency');
+        //   else navigate('/client');
+        // } catch (error) {
+        //   console.error(error);
+        // }
+
+        // For now, simulate login
         if (mode === 'agency') {
             navigate('/agency');
         } else {
@@ -29,8 +38,8 @@ const Login = () => {
                     <div className="flex bg-gray-700 rounded-lg p-1 mb-6">
                         <button
                             className={`flex-1 py-2 rounded-md text-sm font-medium transition-all ${mode === 'agency'
-                                    ? 'bg-gray-600 text-white shadow-sm'
-                                    : 'text-gray-400 hover:text-gray-200'
+                                ? 'bg-gray-600 text-white shadow-sm'
+                                : 'text-gray-400 hover:text-gray-200'
                                 }`}
                             onClick={() => setMode('agency')}
                         >
@@ -38,8 +47,8 @@ const Login = () => {
                         </button>
                         <button
                             className={`flex-1 py-2 rounded-md text-sm font-medium transition-all ${mode === 'client'
-                                    ? 'bg-gray-600 text-white shadow-sm'
-                                    : 'text-gray-400 hover:text-gray-200'
+                                ? 'bg-gray-600 text-white shadow-sm'
+                                : 'text-gray-400 hover:text-gray-200'
                                 }`}
                             onClick={() => setMode('client')}
                         >
@@ -68,8 +77,8 @@ const Login = () => {
                         <button
                             type="submit"
                             className={`w-full py-2.5 rounded-lg font-semibold text-white transition-all ${mode === 'agency'
-                                    ? 'bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500'
-                                    : 'bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-500 hover:to-emerald-500'
+                                ? 'bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500'
+                                : 'bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-500 hover:to-emerald-500'
                                 }`}
                         >
                             Sign In
