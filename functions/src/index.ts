@@ -1,5 +1,10 @@
 import * as functions from "firebase-functions";
 import * as admin from "firebase-admin";
+import { generateCreativeContent } from "./ai";
+import { schedulePost } from "./social";
+import { checkScheduledPosts } from "./scheduler";
+import { receiveMessageWebhook, sendMessage } from "./inbox";
+import { aggregateDailyAnalytics } from "./analytics";
 
 admin.initializeApp();
 
@@ -25,3 +30,24 @@ export const generateStrategy = functions.https.onCall(async (data, context) => 
         }
     };
 });
+
+export const generateContent = functions.https.onCall(async (data, context) => {
+    if (!context.auth) {
+        throw new functions.https.HttpsError(
+            "unauthenticated",
+            "The function must be called while authenticated."
+        );
+    }
+
+    const { platform, topic, tone, additionalInstructions } = data;
+
+    const content = await generateCreativeContent(platform, topic, tone, additionalInstructions);
+
+    return { content };
+});
+
+export const scheduleSocialPost = schedulePost;
+export const runScheduler = checkScheduledPosts;
+export const incomingMessageHook = receiveMessageWebhook;
+export const sendReply = sendMessage;
+export const runAnalyticsAggregation = aggregateDailyAnalytics;
