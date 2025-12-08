@@ -236,7 +236,7 @@ const LandingPage: React.FC = () => {
             </section>
 
             {/* 4. Feature Showcase (9 Pillars) */}
-            <section id="features" className="py-24 bg-black/20">
+            <section id="features" className="py-24">
                 <div className="container mx-auto px-6">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl font-bold mb-4">Scalable Marketing Operating System</h2>
@@ -255,8 +255,8 @@ const LandingPage: React.FC = () => {
                             "Settings & Admin",
                             "Global Dashboard"
                         ].map((title, i) => (
-                            <div key={i} className="glass p-6 rounded-xl border border-white/5 hover:border-brand-purple/50 transition-colors group">
-                                <div className="text-brand-gold text-opacity-50 text-4xl font-black absolute top-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                            <div key={i} className="glass p-6 rounded-xl border border-white/5 hover:border-brand-purple/50 transition-colors group relative">
+                                <div className="text-brand-gold text-4xl font-black absolute top-4 right-4">
                                     0{i + 1}
                                 </div>
                                 <h3 className="text-lg font-bold text-white mb-2">{title}</h3>
