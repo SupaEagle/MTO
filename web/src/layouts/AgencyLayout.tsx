@@ -1,21 +1,30 @@
 import { Outlet, Link } from 'react-router-dom';
+import logo from '../assets/logo.png';
+import GlobalClientSelector from '../components/GlobalClientSelector';
 
 const AgencyLayout = () => {
     return (
-        <div className="flex h-screen bg-gray-900 text-white font-sans">
+        <div className="flex h-screen bg-slate-900 text-white font-sans">
             {/* Sidebar */}
-            <aside className="w-64 bg-gray-800 border-r border-gray-700 flex flex-col">
-                <div className="p-6 border-b border-gray-700">
-                    <h1 className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
-                        Mansa Tina
-                    </h1>
-                    <p className="text-xs text-gray-400 mt-1">Agency Command Center</p>
+            <aside className="w-64 bg-slate-800 border-r border-slate-700 flex flex-col">
+                <div className="p-6 flex items-center justify-center border-b border-slate-700">
+                    <img src={logo} alt="Mansa Tina" className="h-12 object-contain" />
+                </div>
+
+                <div className="px-4 pt-4">
+                    <GlobalClientSelector />
                 </div>
 
                 <nav className="flex-1 p-4 space-y-2">
-                    <Link to="/agency" className="block px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors text-gray-300 hover:text-white">
-                        Dashboard
+                    <Link to="/agency" className="block px-4 py-2 rounded-lg hover:bg-slate-700 transition-colors text-slate-300 hover:text-white">
+                        Global Dashboard
                     </Link>
+                    <Link to="/agency/manager" className="block px-4 py-2 rounded-lg hover:bg-slate-700 transition-colors text-slate-300 hover:text-white">
+                        Manager Workspace
+                    </Link>
+                    <div className="pt-4 pb-2 px-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                        Strategy
+                    </div>
                     <Link to="/agency/clients" className="block px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors text-gray-300 hover:text-white">
                         Clients
                     </Link>

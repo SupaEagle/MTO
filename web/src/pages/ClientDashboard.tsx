@@ -1,3 +1,6 @@
+import ExecutiveSummary from '../components/dashboard/client/ExecutiveSummary';
+import ActionFeed from '../components/dashboard/client/ActionFeed';
+
 const ClientDashboard = () => {
     return (
         <div className="space-y-6">
@@ -10,33 +13,67 @@ const ClientDashboard = () => {
                 </button>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {/* Metric Card */}
-                <div className="bg-slate-800 p-6 rounded-xl border border-slate-700">
-                    <h3 className="text-slate-400 text-sm font-medium">Total Reach</h3>
-                    <p className="text-3xl font-bold text-white mt-2">45.2K</p>
-                    <span className="text-emerald-400 text-sm flex items-center gap-1 mt-2">
-                        <span>↑ 8.5%</span>
-                    </span>
+            {/* Executive Summary */}
+            <ExecutiveSummary />
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                {/* Main Content Area (2/3) */}
+                <div className="lg:col-span-2 space-y-6">
+                    {/* Metric Card */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="bg-slate-800 p-6 rounded-xl border border-slate-700">
+                            <h3 className="text-slate-400 text-sm font-medium">Total Reach</h3>
+                            <p className="text-3xl font-bold text-white mt-2">45.2K</p>
+                            <span className="text-emerald-400 text-sm flex items-center gap-1 mt-2">
+                                <span>↑ 8.5%</span>
+                            </span>
+                        </div>
+
+                        <div className="bg-slate-800 p-6 rounded-xl border border-slate-700">
+                            <h3 className="text-slate-400 text-sm font-medium">Engagement Rate</h3>
+                            <p className="text-3xl font-bold text-white mt-2">4.8%</p>
+                            <span className="text-emerald-400 text-sm flex items-center gap-1 mt-2">
+                                <span>↑ 1.2%</span>
+                            </span>
+                        </div>
+
+                        <div className="bg-slate-800 p-6 rounded-xl border border-slate-700">
+                            <h3 className="text-slate-400 text-sm font-medium">Leads Generated</h3>
+                            <p className="text-3xl font-bold text-white mt-2">128</p>
+                            <span className="text-emerald-400 text-sm flex items-center gap-1 mt-2">
+                                <span>↑ 15%</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    {/* Upcoming Content Preview */}
+                    <div className="bg-slate-800 p-6 rounded-xl border border-slate-700">
+                        <h3 className="text-lg font-semibold text-white mb-4">Upcoming Content</h3>
+                        <div className="space-y-4">
+                            {[1, 2].map((i) => (
+                                <div key={i} className="flex gap-4 p-4 bg-slate-700/30 rounded-lg border border-slate-700/50">
+                                    <div className="w-24 h-24 bg-slate-600 rounded-lg flex-shrink-0"></div>
+                                    <div>
+                                        <div className="flex gap-2 mb-2">
+                                            <span className="px-2 py-0.5 bg-blue-500/20 text-blue-400 text-xs rounded-full">LinkedIn</span>
+                                            <span className="px-2 py-0.5 bg-slate-600 text-slate-300 text-xs rounded-full">Draft</span>
+                                        </div>
+                                        <h4 className="text-white font-medium mb-1">5 Ways to Optimize Your Workflow</h4>
+                                        <p className="text-sm text-slate-400 line-clamp-2">
+                                            Discover the secrets to boosting productivity without burning out. In this post we cover...
+                                        </p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
 
-                <div className="bg-slate-800 p-6 rounded-xl border border-slate-700">
-                    <h3 className="text-slate-400 text-sm font-medium">Engagement Rate</h3>
-                    <p className="text-3xl font-bold text-white mt-2">4.8%</p>
-                    <span className="text-emerald-400 text-sm flex items-center gap-1 mt-2">
-                        <span>↑ 1.2%</span>
-                    </span>
-                </div>
-
-                <div className="bg-slate-800 p-6 rounded-xl border border-slate-700">
-                    <h3 className="text-slate-400 text-sm font-medium">Leads Generated</h3>
-                    <p className="text-3xl font-bold text-white mt-2">128</p>
-                    <span className="text-emerald-400 text-sm flex items-center gap-1 mt-2">
-                        <span>↑ 15%</span>
-                    </span>
+                {/* Sidebar (1/3) */}
+                <div className="space-y-6">
+                    <ActionFeed />
                 </div>
             </div>
-
             {/* Content Calendar Preview */}
             <div className="bg-slate-800 p-6 rounded-xl border border-slate-700">
                 <div className="flex items-center justify-between mb-6">
