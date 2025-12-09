@@ -30,12 +30,14 @@ import TeamSettings from './pages/client/TeamSettings';
 import Login from './pages/Login';
 import LandingPage from './pages/LandingPage';
 import OnboardingWizard from './pages/OnboardingWizard';
+import Signup from './pages/Signup';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
 
         {/* Agency Routes */}
         <Route path="/agency" element={<AgencyLayout />}>
