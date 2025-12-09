@@ -170,6 +170,82 @@ const DiscoveryWizard = () => {
                 {/* Grid Overlay */}
                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+
+                {/* AI Circuit Overlay (Only for AI Section) */}
+                {currentSection.id === 'ai_calibration' && (
+                    <div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
+                        <svg className="w-full h-full" preserveAspectRatio="none">
+                            <defs>
+                                <linearGradient id="circuit-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stopColor="transparent" />
+                                    <stop offset="50%" stopColor="#10B981" /> {/* Emerald-500 */}
+                                    <stop offset="100%" stopColor="transparent" />
+                                </linearGradient>
+                                <filter id="glow">
+                                    <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur" />
+                                        <feMergeNode in="SourceGraphic" />
+                                    </feMerge>
+                                </filter>
+                            </defs>
+
+                            {/* Circuit Lines */}
+                            <g stroke="rgba(16, 185, 129, 0.2)" strokeWidth="1" fill="none">
+                                {/* Top Left -> Center */}
+                                <path d="M0,100 H100 L150,150 V300" className="circuit-path" />
+                                <path d="M50,0 V100 L100,150 H300" className="circuit-path" style={{ animationDelay: '0.2s' }} />
+
+                                {/* Top Right -> Center */}
+                                <path d="M100%,100 H90% L85%,150 V300" className="circuit-path" style={{ animationDelay: '0.4s' }} />
+                                <path d="M95%,0 V100 L90%,150 H70%" className="circuit-path" style={{ animationDelay: '0.6s' }} />
+
+                                {/* Bottom Lines */}
+                                <path d="M0,90% H100 L150,85% V70%" className="circuit-path" style={{ animationDelay: '0.3s' }} />
+                                <path d="M100%,90% H90% L85%,85% V70%" className="circuit-path" style={{ animationDelay: '0.5s' }} />
+                            </g>
+
+                            {/* Pulsating Signals (circles moving along paths) */}
+                            {/* We use basic CSS animations on circles matching the path shapes roughly or exact overlapping paths */}
+                            <g filter="url(#glow)">
+                                <circle r="3" fill="#34D399">
+                                    <animateMotion
+                                        dur="3s"
+                                        repeatCount="indefinite"
+                                        path="M0,100 H100 L150,150 V300"
+                                    />
+                                    <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite" />
+                                </circle>
+                                <circle r="3" fill="#34D399">
+                                    <animateMotion
+                                        dur="4s"
+                                        begin="1s"
+                                        repeatCount="indefinite"
+                                        path="M100%,100 H90% L85%,150 V300"
+                                    />
+                                    <animate attributeName="opacity" values="0;1;0" dur="4s" repeatCount="indefinite" />
+                                </circle>
+                                <circle r="3" fill="#10B981">
+                                    <animateMotion
+                                        dur="2.5s"
+                                        begin="0.5s"
+                                        repeatCount="indefinite"
+                                        path="M50,0 V100 L100,150 H300"
+                                    />
+                                    <animate attributeName="opacity" values="0;1;0" dur="2.5s" repeatCount="indefinite" />
+                                </circle>
+                                <circle r="4" fill="#6EE7B7">
+                                    <animateMotion
+                                        dur="5s"
+                                        repeatCount="indefinite"
+                                        path="M0,50% H100% M100%,50% H0" // Crossing
+                                    />
+                                    <animate attributeName="opacity" values="0;1;1;0" dur="5s" repeatCount="indefinite" />
+                                </circle>
+                            </g>
+                        </svg>
+                    </div>
+                )}
             </div>
 
             {/* Left Vertical Art */}
@@ -289,6 +365,25 @@ const DiscoveryWizard = () => {
                 .animate-pulse-slow { animation: pulse-slow 8s infinite cubic-bezier(0.4, 0, 0.6, 1); }
                 .animate-pulse-slower { animation: pulse-slower 12s infinite cubic-bezier(0.4, 0, 0.6, 1); }
                 .animate-blob { animation: blob 20s infinite; }
+                
+                .circuit-path {
+                    stroke-dasharray: 1000;
+                    stroke-dashoffset: 1000;
+                    animation: circuit-draw 2s ease-out forwards;
+                }
+                .signal-pulse {
+                    offset-path: path("M0,50 Q25,50 40,20 T80,20 T100,50");
+                    animation: move-signal 3s linear infinite;
+                }
+                @keyframes circuit-draw {
+                    to { stroke-dashoffset: 0; }
+                }
+                @keyframes move-signal {
+                    0% { offset-distance: 0%; opacity: 0; }
+                    10% { opacity: 1; }
+                    90% { opacity: 1; }
+                    100% { offset-distance: 100%; opacity: 0; }
+                }
             `}</style>
         </div>
     );
