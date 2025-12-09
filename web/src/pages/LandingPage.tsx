@@ -1,7 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import logo from '../assets/logo.png';
 
 const LandingPage: React.FC = () => {
+    const navigate = useNavigate();
     return (
         <div className="radix-page-bg text-slate-100 min-h-screen font-sans selection:bg-brand-pink selection:text-white">
             {/* Top Banner */}
@@ -40,8 +42,11 @@ const LandingPage: React.FC = () => {
                     <button className="hidden md:block px-4 py-2 text-sm font-medium text-slate-300 hover:text-white transition-colors">
                         Log In
                     </button>
-                    <button className="px-6 py-2 bg-gradient-to-r from-brand-pink to-brand-purple text-white text-sm font-bold rounded-full hover:opacity-90 transition-all shadow-lg shadow-brandSoft">
-                        Get Agency Demo
+                    <button
+                        onClick={() => navigate('/signup')}
+                        className="px-6 py-2 bg-gradient-to-r from-brand-pink to-brand-purple text-white text-sm font-bold rounded-full hover:opacity-90 transition-all shadow-lg shadow-brandSoft"
+                    >
+                        Sign Up
                     </button>
                 </div>
             </nav>
