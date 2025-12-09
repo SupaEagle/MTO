@@ -13,6 +13,10 @@ import ApprovalLoop from './pages/client/ApprovalLoop';
 import Calendar from './pages/client/Calendar';
 import Inbox from './pages/client/Inbox';
 import BrandVoiceCalibration from './pages/client/BrandVoiceCalibration';
+import CoreIdentity from './pages/client/CoreIdentity';
+import BrandPersona from './pages/client/BrandPersona';
+import StrategicDifferentiation from './pages/client/StrategicDifferentiation';
+import AudienceDefinition from './pages/client/AudienceDefinition';
 import ValuePropBuilder from './pages/client/ValuePropBuilder';
 import ScalingFocus from './pages/client/ScalingFocus';
 import VisualAssets from './pages/client/VisualAssets';
@@ -59,6 +63,10 @@ function App() {
           <Route path="calendar" element={<Calendar />} />
           <Route path="inbox" element={<Inbox />} />
           <Route path="strategy/voice" element={<BrandVoiceCalibration />} />
+          <Route path="strategy/identity" element={<CoreIdentity />} />
+          <Route path="strategy/persona" element={<BrandPersona />} />
+          <Route path="strategy/differentiation" element={<StrategicDifferentiation />} />
+          <Route path="strategy/audience" element={<AudienceDefinition />} />
           <Route path="strategy/value-prop" element={<ValuePropBuilder />} />
           <Route path="strategy/scaling" element={<ScalingFocus />} />
           <Route path="creative/visuals" element={<VisualAssets />} />

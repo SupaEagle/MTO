@@ -7,12 +7,13 @@ const ClientLayout = () => {
 
     const navSections = [
         {
-            title: 'Strategy',
+            title: 'Brand DNA',
             icon: '🎯',
             items: [
-                { title: 'Brand Voice', path: '/client/strategy/voice' },
-                { title: 'Value Prop', path: '/client/strategy/value-prop' },
-                { title: 'Scaling & Focus', path: '/client/strategy/scaling' },
+                { title: 'Core Identity', path: '/client/strategy/identity' },
+                { title: 'Brand Persona', path: '/client/strategy/persona' },
+                { title: 'Audience Definition', path: '/client/strategy/audience' },
+                { title: 'Strategic Diff.', path: '/client/strategy/differentiation' },
             ]
         },
         {

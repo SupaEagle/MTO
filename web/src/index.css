@@ -8,6 +8,11 @@
 
   --shadow-brandSoft: 0 18px 45px rgba(255, 62, 165, 0.35);
   --shadow-brandStrong: 0 24px 60px rgba(157, 78, 221, 0.4);
+
+  --color-surface-dark: #151b2e;
+  --color-surface-card: #151b2e;
+  --color-surface-hover: #1e2538;
+  --color-surface-border: #2a324a;
 }
 
 /* Base Styles */
@@ -17,7 +22,7 @@
   font-weight: 400;
   color-scheme: dark;
   color: rgba(255, 255, 255, 0.92);
-  background-color: #050816;
+  background-color: #151b2e;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -38,7 +43,7 @@ body {
   background:
     radial-gradient(circle at top left, rgba(255, 62, 165, 0.3), transparent 55%),
     radial-gradient(circle at bottom right, rgba(157, 78, 221, 0.25), transparent 55%),
-    #050816;
+    #151b2e;
 }
 
 /* Glassmorphism card shell */

@@ -23,7 +23,7 @@ const AgencyLayout = () => {
                         Manager Workspace
                     </Link>
                     <div className="pt-4 pb-2 px-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                        Strategy
+                        Brand DNA
                     </div>
                     <Link to="/agency/clients" className="block px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors text-gray-300 hover:text-white">
                         Clients
