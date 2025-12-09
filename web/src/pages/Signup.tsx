@@ -69,7 +69,19 @@ const Signup = () => {
                 <div className="p-8 md:p-12">
                     {/* Header */}
                     {step < 4 && (
-                        <div className="mb-8 text-center">
+                        <div className="mb-8 text-center relative">
+                            {/* Home Button (Step 1 only) */}
+                            {step === 1 && (
+                                <button
+                                    onClick={() => navigate('/')}
+                                    className="absolute top-1 left-0 text-slate-500 hover:text-white transition-colors flex items-center gap-1 text-xs font-bold uppercase tracking-wider"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                                    </svg>
+                                    Home
+                                </button>
+                            )}
                             <h2 className="text-2xl font-bold text-white mb-2">Create Your Account</h2>
                             <p className="text-slate-400 text-sm">Step {step} of 3</p>
                         </div>
