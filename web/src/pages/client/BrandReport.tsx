@@ -93,7 +93,7 @@ const BrandReport = () => {
 
 const ReportCard = ({ number, title, description }: { number: string; title: string; description: string }) => {
     return (
-        <div className="bg-surface-dark border border-surface-border p-6 rounded-xl hover:border-brand-purple transition-colors group">
+        <div className="bg-surface-dark border border-brand-purple p-6 rounded-xl transition-colors group">
             <div className="flex items-start justify-between mb-3">
                 <div className="flex items-center gap-3">
                     <span className="flex items-center justify-center w-8 h-8 rounded-full bg-surface-card border border-surface-border text-brand-pink font-bold text-sm">
