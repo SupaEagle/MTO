@@ -49,7 +49,11 @@ const Signup = () => {
     };
 
     const handleStartSetup = () => {
-        navigate('/client/strategy/voice'); // Direct to Brand DNA setup
+        if (formData.tier === 'Starter (Solo)') {
+            navigate('/discovery');
+        } else {
+            navigate('/client/strategy/voice'); // Direct to Brand DNA setup
+        }
     };
 
     return (
