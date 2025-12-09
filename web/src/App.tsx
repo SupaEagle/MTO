@@ -16,6 +16,8 @@ import BrandVoiceCalibration from './pages/client/BrandVoiceCalibration';
 import CoreIdentity from './pages/client/CoreIdentity';
 import BrandPersona from './pages/client/BrandPersona';
 import StrategicDifferentiation from './pages/client/StrategicDifferentiation';
+import ContentPillars from './pages/client/ContentPillars';
+import CompetitorRecon from './pages/client/CompetitorRecon';
 import AudienceDefinition from './pages/client/AudienceDefinition';
 import ValuePropBuilder from './pages/client/ValuePropBuilder';
 import ScalingFocus from './pages/client/ScalingFocus';
@@ -66,6 +68,8 @@ function App() {
           <Route path="strategy/identity" element={<CoreIdentity />} />
           <Route path="strategy/persona" element={<BrandPersona />} />
           <Route path="strategy/differentiation" element={<StrategicDifferentiation />} />
+          <Route path="strategy/content-pillars" element={<ContentPillars />} />
+          <Route path="strategy/competitors" element={<CompetitorRecon />} />
           <Route path="strategy/audience" element={<AudienceDefinition />} />
           <Route path="strategy/value-prop" element={<ValuePropBuilder />} />
           <Route path="strategy/scaling" element={<ScalingFocus />} />

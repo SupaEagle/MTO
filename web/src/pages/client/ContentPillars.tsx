@@ -1,20 +1,19 @@
 import { useState } from 'react';
 
-const StrategicDifferentiation = () => {
+const ContentPillars = () => {
     const [isEditing, setIsEditing] = useState(false);
     const [formData, setFormData] = useState({
-        usp: '',
-        marketGap: '',
-        dreamOutcome: '',
-        likelihoodAchievement: '',
-        timeDelay: '',
-        effortSacrifice: '',
-        pricingStrategy: '',
-        freeOffer: '',
-        growthStrategy: ''
+        pillar1: '',
+        pillar2: '',
+        pillar3: '',
+        pillar4: '',
+        postingFrequency: '',
+        platformMix: '',
+        trendTopics: '',
+        evergreenTopics: ''
     });
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
     };
@@ -32,139 +31,124 @@ const StrategicDifferentiation = () => {
         <div className="space-y-6">
             <div className="glass-panel p-8 rounded-2xl border border-surface-border">
                 <div className="mb-8">
-                    <h2 className="text-3xl font-bold text-white mb-2">Strategic Differentiation (USP)</h2>
-                    <p className="text-slate-400">Defining why the brand wins in the market.</p>
+                    <h2 className="text-3xl font-bold text-white mb-2">Content Pillars & Mix</h2>
+                    <p className="text-slate-400">The recurring themes that the AI will schedule into the calendar.</p>
                 </div>
 
                 <form className="space-y-8">
                     <div className="space-y-6">
-                        <h3 className="text-xl font-bold text-brand-gold border-b border-surface-border pb-2">Value Proposition</h3>
-
-                        <div className="space-y-2">
-                            <label className="text-sm font-medium text-slate-300">Unique Selling Proposition (USP)</label>
-                            <textarea
-                                name="usp"
-                                value={formData.usp}
-                                onChange={handleChange}
-                                rows={3}
-                                disabled={!isEditing}
-                                className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
-                                placeholder="The assertive, defensible statement of difference."
-                            />
-                        </div>
-
-                        <div className="space-y-2">
-                            <label className="text-sm font-medium text-slate-300">Market Gap Identified</label>
-                            <textarea
-                                name="marketGap"
-                                value={formData.marketGap}
-                                onChange={handleChange}
-                                rows={3}
-                                disabled={!isEditing}
-                                className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
-                                placeholder="The specific opportunity missed by competitors."
-                            />
-                        </div>
+                        <h3 className="text-xl font-bold text-brand-gold border-b border-surface-border pb-2">Core Themes</h3>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Dream Outcome</label>
+                                <label className="text-sm font-medium text-slate-300">Content Pillar 1 (Primary)</label>
                                 <input
                                     type="text"
-                                    name="dreamOutcome"
-                                    value={formData.dreamOutcome}
+                                    name="pillar1"
+                                    value={formData.pillar1}
                                     onChange={handleChange}
                                     disabled={!isEditing}
                                     className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                                    placeholder="The 'Value Equation' variable defining the perfect result."
+                                    placeholder="e.g., Education/How-to"
                                 />
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Perceived Likelihood of Achievement</label>
+                                <label className="text-sm font-medium text-slate-300">Content Pillar 2 (Secondary)</label>
                                 <input
                                     type="text"
-                                    name="likelihoodAchievement"
-                                    value={formData.likelihoodAchievement}
+                                    name="pillar2"
+                                    value={formData.pillar2}
                                     onChange={handleChange}
                                     disabled={!isEditing}
                                     className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                                    placeholder="Proof points that the result is attainable."
+                                    placeholder="e.g., Behind the Scenes/Culture"
                                 />
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Time Delay</label>
+                                <label className="text-sm font-medium text-slate-300">Content Pillar 3 (Tertiary)</label>
                                 <input
                                     type="text"
-                                    name="timeDelay"
-                                    value={formData.timeDelay}
+                                    name="pillar3"
+                                    value={formData.pillar3}
                                     onChange={handleChange}
                                     disabled={!isEditing}
                                     className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                                    placeholder="Speed of result (How fast will they get it?)."
+                                    placeholder="e.g., Social Proof/Testimonials"
                                 />
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Effort & Sacrifice</label>
+                                <label className="text-sm font-medium text-slate-300">Content Pillar 4 (Quaternary)</label>
                                 <input
                                     type="text"
-                                    name="effortSacrifice"
-                                    value={formData.effortSacrifice}
+                                    name="pillar4"
+                                    value={formData.pillar4}
                                     onChange={handleChange}
                                     disabled={!isEditing}
                                     className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                                    placeholder="Ease of use (How hard do they have to work?)."
+                                    placeholder="e.g., Sales/Promotional"
                                 />
                             </div>
                         </div>
                     </div>
 
                     <div className="space-y-6">
-                        <h3 className="text-xl font-bold text-brand-gold border-b border-surface-border pb-2">Market Position</h3>
+                        <h3 className="text-xl font-bold text-brand-gold border-b border-surface-border pb-2">Strategy & Mix</h3>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Pricing Strategy</label>
+                                <label className="text-sm font-medium text-slate-300">Posting Frequency Goal</label>
                                 <input
                                     type="text"
-                                    name="pricingStrategy"
-                                    value={formData.pricingStrategy}
+                                    name="postingFrequency"
+                                    value={formData.postingFrequency}
                                     onChange={handleChange}
                                     disabled={!isEditing}
                                     className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                                    placeholder="e.g., Premium, Economy"
+                                    placeholder="e.g., 1/day LinkedIn, 3/week IG"
                                 />
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Free/Low-Price Offer</label>
+                                <label className="text-sm font-medium text-slate-300">Platform Mix</label>
                                 <input
                                     type="text"
-                                    name="freeOffer"
-                                    value={formData.freeOffer}
+                                    name="platformMix"
+                                    value={formData.platformMix}
                                     onChange={handleChange}
                                     disabled={!isEditing}
                                     className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                                    placeholder="Introductory offer strategy (Lead Magnet)."
+                                    placeholder="e.g., Instagram, LinkedIn, TikTok"
                                 />
                             </div>
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-sm font-medium text-slate-300">Growth Strategy Decision</label>
-                            <select
-                                name="growthStrategy"
-                                value={formData.growthStrategy}
+                            <label className="text-sm font-medium text-slate-300">Trend-Jacking Topics</label>
+                            <textarea
+                                name="trendTopics"
+                                value={formData.trendTopics}
                                 onChange={handleChange}
+                                rows={2}
                                 disabled={!isEditing}
-                                className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all appearance-none disabled:opacity-50 disabled:cursor-not-allowed"
-                            >
-                                <option value="">Select strategy...</option>
-                                <option value="Optimization">Optimization ("Better")</option>
-                                <option value="Volume">Volume ("More")</option>
-                            </select>
+                                className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                                placeholder="Specific niches to monitor for viral audio/trends."
+                            />
+                        </div>
+
+                        <div className="space-y-2">
+                            <label className="text-sm font-medium text-slate-300">Evergreen Content Topics</label>
+                            <textarea
+                                name="evergreenTopics"
+                                value={formData.evergreenTopics}
+                                onChange={handleChange}
+                                rows={2}
+                                disabled={!isEditing}
+                                className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                                placeholder="Subjects that remain relevant for recycling 6 months later."
+                            />
                         </div>
                     </div>
 
@@ -175,7 +159,7 @@ const StrategicDifferentiation = () => {
                                 onClick={() => setIsEditing(true)}
                                 className="px-8 py-3 bg-brand-purple hover:bg-brand-purple/90 text-white font-bold rounded-lg shadow-lg transition-all transform hover:scale-105"
                             >
-                                Edit Strategy
+                                Edit Content Strategy
                             </button>
                         ) : (
                             <>
@@ -202,4 +186,4 @@ const StrategicDifferentiation = () => {
     );
 };
 
-export default StrategicDifferentiation;
+export default ContentPillars;

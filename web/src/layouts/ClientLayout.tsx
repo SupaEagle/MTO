@@ -14,6 +14,8 @@ const ClientLayout = () => {
                 { title: 'Brand Persona', path: '/client/strategy/persona' },
                 { title: 'Audience Definition', path: '/client/strategy/audience' },
                 { title: 'Strategic Diff.', path: '/client/strategy/differentiation' },
+                { title: 'Content Pillars', path: '/client/strategy/content-pillars' },
+                { title: 'Competitor Recon', path: '/client/strategy/competitors' },
             ]
         },
         {
