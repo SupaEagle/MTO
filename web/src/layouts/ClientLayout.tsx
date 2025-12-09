@@ -76,8 +76,8 @@ const ClientLayout = () => {
                         <Link
                             to="/client"
                             className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group ${location.pathname === '/client'
-                                    ? 'bg-brand-purple/10 text-brand-purple border border-brand-purple/20 shadow-[0_0_15px_rgba(157,78,221,0.15)]'
-                                    : 'hover:bg-surface-hover text-slate-400 hover:text-white'
+                                ? 'bg-brand-purple/10 text-brand-purple border border-brand-purple/20 shadow-[0_0_15px_rgba(157,78,221,0.15)]'
+                                : 'hover:bg-surface-hover text-slate-400 hover:text-white'
                                 }`}
                         >
                             <span className="text-xl">🏠</span>
@@ -112,8 +112,8 @@ const ClientLayout = () => {
                                             key={item.path}
                                             to={item.path}
                                             className={`block px-3 py-2 rounded-lg text-sm transition-colors ${location.pathname === item.path
-                                                    ? 'bg-brand-pink/10 text-brand-pink'
-                                                    : 'text-slate-300 hover:bg-surface-hover hover:text-white'
+                                                ? 'bg-brand-pink/10 text-brand-pink'
+                                                : 'text-slate-300 hover:bg-surface-hover hover:text-white'
                                                 }`}
                                         >
                                             {item.title}
@@ -139,7 +139,7 @@ const ClientLayout = () => {
             </aside>
 
             {/* Main Content */}
-            <main className="flex-1 overflow-auto bg-surface-dark relative z-0">
+            <main className="flex-1 overflow-auto radix-page-bg relative z-0">
                 <header className="h-20 border-b border-surface-border flex items-center justify-between px-8 bg-surface-dark/80 backdrop-blur-xl sticky top-0 z-40">
                     <div>
                         <h2 className="text-xl font-bold text-white">

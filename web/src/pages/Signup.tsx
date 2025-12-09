@@ -297,15 +297,30 @@ const Signup = () => {
                                 Your agency account for <span className="text-white font-bold">{formData.agencyName || 'your team'}</span> is ready. Let's get your first client set up.
                             </p>
 
-                            <div className="bg-surface-card border border-white/5 rounded-xl p-6 mb-8 max-w-sm mx-auto text-left">
-                                <p className="text-xs font-bold text-brand-gold uppercase tracking-wider mb-2">Next Task</p>
-                                <p className="text-white font-medium">Configure Client Brand DNA</p>
-                                <p className="text-xs text-slate-500 mt-1">Required to calibrate AI content generation.</p>
+                            <div className="relative group p-[1px] rounded-2xl bg-gradient-to-r from-brand-pink via-purple-500 to-brand-gold mb-8 max-w-sm mx-auto shadow-[0_0_30px_rgba(255,255,255,0.1)]">
+                                <div className="absolute inset-0 bg-gradient-to-r from-brand-pink via-purple-500 to-brand-gold opacity-20 blur-xl group-hover:opacity-40 transition-opacity duration-700"></div>
+                                <div className="relative bg-[#0f1016]/90 backdrop-blur-xl rounded-2xl p-6 text-left overflow-hidden">
+                                    {/* Decorative background element */}
+                                    <div className="absolute top-0 right-0 w-32 h-32 bg-brand-purple/20 rounded-full blur-[50px] -mr-16 -mt-16"></div>
+
+                                    <div className="relative z-10 flex items-start gap-4">
+                                        <div className="p-3 rounded-lg bg-gradient-to-br from-white/10 to-white/5 border border-white/10 shadow-inner">
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-brand-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <p className="text-xs font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand-pink to-brand-gold uppercase tracking-wider mb-1">Next Quest</p>
+                                            <p className="text-white font-bold text-lg leading-tight mb-1">Configure Brand DNA</p>
+                                            <p className="text-xs text-slate-400">Calibrate the AI with your client's unique voice.</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             <button
                                 onClick={handleStartSetup}
-                                className="px-8 py-4 bg-white text-black font-bold rounded-full hover:bg-slate-200 transition-all shadow-lg transform hover:-translate-y-1"
+                                className="px-8 py-4 bg-brand-pink text-white font-bold rounded-full hover:bg-pink-600 transition-all shadow-lg shadow-brand-pink/30 transform hover:-translate-y-1"
                             >
                                 Start Client Setup Wizard
                             </button>
