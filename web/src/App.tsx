@@ -31,6 +31,7 @@ import Login from './pages/Login';
 import LandingPage from './pages/LandingPage';
 import OnboardingWizard from './pages/OnboardingWizard';
 import Signup from './pages/Signup';
+import DiscoveryWizard from './pages/DiscoveryWizard';
 
 function App() {
   return (
@@ -75,6 +76,7 @@ function App() {
         </Route>
 
         <Route path="/onboarding" element={<OnboardingWizard />} />
+        <Route path="/discovery" element={<DiscoveryWizard />} />
         <Route path="/" element={<LandingPage />} />
       </Routes>
     </BrowserRouter>
