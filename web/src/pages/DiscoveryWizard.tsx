@@ -172,6 +172,28 @@ const DiscoveryWizard = () => {
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px]"></div>
             </div>
 
+            {/* Left Vertical Art */}
+            <div className="fixed left-0 top-0 bottom-0 w-24 hidden xl:flex flex-col justify-between py-12 items-center z-20 pointer-events-none">
+                <div className="h-32 w-px bg-gradient-to-b from-transparent to-white/20"></div>
+                <div className="flex-1 flex flex-col justify-center gap-12 text-[10px] font-mono text-white/20 uppercase tracking-[0.3em] [writing-mode:vertical-lr] rotate-180">
+                    <span>Mansa Tina Ops</span>
+                    <span className={`text-${currentSection.color.split(' ')[1]}`}>Discovery Mode</span>
+                    <span>v2.0</span>
+                </div>
+                <div className="h-32 w-px bg-gradient-to-t from-transparent to-white/20"></div>
+            </div>
+
+            {/* Right Vertical Art */}
+            <div className="fixed right-0 top-0 bottom-0 w-24 hidden xl:flex flex-col justify-between py-12 items-center z-20 pointer-events-none">
+                <div className="h-full w-px bg-white/5 relative">
+                    {/* Animated Progress indicator on the vertical line */}
+                    <div
+                        className={`absolute top-0 w-0.5 -left-px bg-gradient-to-b ${currentSection.color} transition-all duration-700 ease-out shadow-[0_0_15px_currentColor]`}
+                        style={{ height: `${progress}%` }}
+                    ></div>
+                </div>
+            </div>
+
             <div className={`relative z-10 container mx-auto px-6 py-12 max-w-4xl transition-opacity duration-300 ${isAnimating ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
 
                 {/* Header / Nav */}
