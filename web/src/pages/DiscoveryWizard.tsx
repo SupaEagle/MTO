@@ -42,7 +42,7 @@ const SECTIONS = [
     {
         id: 'value',
         title: 'Value & Differentiation',
-        description: 'Why you? The USP and Value Equation.',
+        description: 'Why you? Your Unique Selling Point and Value Equation.',
         color: 'from-amber-500 to-orange-500',
         questions: [
             { id: 'usp', label: 'Unique Selling Proposition (USP)', subtext: 'Why choose you? One thing you do better/different that is defensible.' },
