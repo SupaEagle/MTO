@@ -6,7 +6,7 @@ const Signup = () => {
     const [step, setStep] = useState(1);
     const [formData, setFormData] = useState({
         // Step 1: Tier & Credentials
-        tier: 'Tier 2 (Growth/Pro)', // Default to Growth
+        tier: 'Growth (Pro)', // Default to Growth
         email: '',
         password: '',
         confirmPassword: '',
@@ -27,7 +27,7 @@ const Signup = () => {
     };
 
     const handleNext = () => {
-        if (step === 1 && formData.tier === 'Tier 1 (Starter/Solo)') {
+        if (step === 1 && formData.tier === 'Starter (Solo)') {
             setStep(3); // Skip Agency Identification for Solo
         } else {
             setStep(prev => prev + 1);
@@ -35,7 +35,7 @@ const Signup = () => {
     };
 
     const handleBack = () => {
-        if (step === 3 && formData.tier === 'Tier 1 (Starter/Solo)') {
+        if (step === 3 && formData.tier === 'Starter (Solo)') {
             setStep(1);
         } else {
             setStep(prev => prev - 1);
@@ -81,7 +81,7 @@ const Signup = () => {
                             <div>
                                 <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Select Your Plan</label>
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                                    {['Tier 1 (Starter/Solo)', 'Tier 2 (Growth/Pro)', 'Tier 3 (Agency/CMO)'].map((t) => (
+                                    {['Starter (Solo)', 'Growth (Pro)', 'Agency (CMO)'].map((t) => (
                                         <button
                                             key={t}
                                             onClick={() => updateFormData('tier', t)}
@@ -93,8 +93,8 @@ const Signup = () => {
                                             <div className={`w-4 h-4 rounded-full border mb-3 flex items-center justify-center ${formData.tier === t ? 'border-brand-purple' : 'border-slate-500'}`}>
                                                 {formData.tier === t && <div className="w-2 h-2 rounded-full bg-brand-purple"></div>}
                                             </div>
-                                            <span className="text-sm font-bold text-white block">{t.split('(')[1].replace(')', '')}</span>
-                                            <span className="text-xs text-slate-400 block mt-1">{t.split(' ')[0]} {t.split(' ')[1]}</span>
+                                            <span className="text-sm font-bold text-white block">{t.split('(')[0].trim()}</span>
+                                            <span className="text-xs text-slate-400 block mt-1">{t.split('(')[1].replace(')', '')}</span>
                                         </button>
                                     ))}
                                 </div>
@@ -223,14 +223,14 @@ const Signup = () => {
                                     <div className="flex justify-between py-2 border-b border-white/10">
                                         <span className="text-slate-400">Monthly Cost</span>
                                         <span className="font-bold text-white">
-                                            {formData.tier.includes('Tier 1') ? '$99/mo' :
-                                                formData.tier.includes('Tier 2') ? '$299/mo' : '$999/mo'}
+                                            {formData.tier.includes('Starter') ? '$99/mo' :
+                                                formData.tier.includes('Growth') ? '$299/mo' : '$999/mo'}
                                         </span>
                                     </div>
                                     <div className="pt-2">
                                         <span className="text-slate-400 block mb-2">Included Features:</span>
                                         <ul className="list-disc pl-4 space-y-1 text-slate-300">
-                                            {formData.tier.includes('Tier 1') ? (
+                                            {formData.tier.includes('Starter') ? (
                                                 <>
                                                     <li>1 User Account</li>
                                                     <li>3 Client Profiles</li>
