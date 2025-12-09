@@ -18,7 +18,7 @@ const SECTIONS = [
     {
         id: 'goals',
         title: 'Goals & Measurement',
-        description: 'Turning vague aspirations into SMART goals.',
+        description: 'Turning aspirations into SMART goals.',
         color: 'from-green-500 to-emerald-500',
         questions: [
             { id: 'highLevelAim', label: 'High-Level Aim (12 Months)', subtext: 'The single biggest goal (Revenue, Market Share, etc.).' },
