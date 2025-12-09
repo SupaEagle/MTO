@@ -7,60 +7,64 @@ const ClientLayout = () => {
 
     const navSections = [
         {
-            title: 'Brand DNA',
+            name: 'Brand DNA',
             icon: '🎯',
             items: [
-                { title: 'Core Identity', path: '/client/strategy/identity' },
-                { title: 'Brand Persona', path: '/client/strategy/persona' },
-                { title: 'Audience Definition', path: '/client/strategy/audience' },
-                { title: 'Strategic Diff.', path: '/client/strategy/differentiation' },
-                { title: 'Content Pillars', path: '/client/strategy/content-pillars' },
-                { title: 'Competitor Recon', path: '/client/strategy/competitors' },
+                { name: 'Core Identity & Basics', path: '/client/strategy/identity' },
+                { name: 'AI Voice Calibration', path: '/client/strategy/persona' },
+                { name: 'Audience Definition', path: '/client/strategy/audience' },
+                { name: 'Strategic Differentiation', path: '/client/strategy/differentiation' },
+                { name: 'Content Pillars & Mix', path: '/client/strategy/content-pillars' },
+                { name: 'Competitor Recon', path: '/client/strategy/competitors' },
+                { name: 'Brand Report', path: '/client/strategy/reports' },
             ]
         },
         {
-            title: 'Content',
+            name: 'Creative Studio',
             icon: '🎨',
             items: [
-                { title: 'AI Wizard', path: '/client/content-wizard' },
-                { title: 'Visual Assets', path: '/client/creative/visuals' },
-                { title: 'Video Tools', path: '/client/creative/video' },
-                { title: 'Swipe File', path: '/client/creative/swipe' },
-                { title: 'Calendar', path: '/client/calendar' },
-                { title: 'Inbox', path: '/client/inbox' },
-                { title: 'Platforms', path: '/client/engagement/platforms' },
-                { title: 'Automation', path: '/client/engagement/automation' },
+                { name: 'Visual Assets', path: '/client/creative/visuals' },
+                { name: 'Video Optimization', path: '/client/creative/video' },
+                { name: 'Swipe File', path: '/client/creative/swipe' },
             ]
         },
         {
-            title: 'Growth',
-            icon: '📈',
+            name: 'Engagement',
+            icon: '💬',
             items: [
-                { title: 'Funnel Analysis', path: '/client/analytics/funnel' },
-                { title: 'Competitor Spy', path: '/client/analytics/competitors' },
+                { name: 'Platform Config', path: '/client/engagement/platforms' },
+                { name: 'Lead Automation', path: '/client/engagement/automation' },
             ]
         },
         {
-            title: 'Paid Media',
-            icon: '💸',
+            name: 'Analytics & ROI',
+            icon: '📊',
             items: [
-                { title: 'Campaign Builder', path: '/client/ads/campaigns' },
-                { title: 'Budget Optimizer', path: '/client/ads/budget' },
+                { name: 'Funnel Analysis', path: '/client/analytics/funnel' },
+                { name: 'Competitor Spy', path: '/client/analytics/competitors' },
             ]
         },
         {
-            title: 'Sales',
+            name: 'Ad Management',
+            icon: '📢',
+            items: [
+                { name: 'Campaign Builder', path: '/client/ads/campaigns' },
+                { name: 'Budget Optimizer', path: '/client/ads/budget' },
+            ]
+        },
+        {
+            name: 'Sales',
             icon: '🤝',
             items: [
-                { title: 'CRM Pipeline', path: '/client/crm' },
+                { name: 'CRM Pipeline', path: '/client/crm' },
+                { name: 'Support Center', path: '/client/support' },
             ]
         },
         {
-            title: 'Account',
+            name: 'Settings',
             icon: '⚙️',
             items: [
-                { title: 'Team', path: '/client/settings/team' },
-                { title: 'Support', path: '/client/support' },
+                { name: 'Team Settings', path: '/client/settings/team' },
             ]
         }
     ];
@@ -68,8 +72,8 @@ const ClientLayout = () => {
     return (
         <div className="flex h-screen bg-surface-dark text-white font-sans overflow-hidden">
             {/* Sidebar */}
-            <aside className="w-20 lg:w-64 bg-surface-card border-r border-surface-border flex flex-col z-50 transition-all duration-300">
-                <div className="h-20 flex items-center justify-center border-b border-surface-border">
+            <aside className="w-20 lg:w-64 bg-surface-card flex flex-col z-50 transition-all duration-300">
+                <div className="h-20 flex items-center justify-center">
                     <img src={logo} alt="Mansa Tina" className="h-10 object-contain" />
                 </div>
 
@@ -95,11 +99,11 @@ const ClientLayout = () => {
 
                     {/* Sections with Flyouts */}
                     {navSections.map((section) => (
-                        <div key={section.title} className="px-3 relative group">
+                        <div key={section.name} className="px-3 relative group">
                             <button className="w-full flex items-center justify-between px-4 py-3 rounded-xl hover:bg-surface-hover transition-colors text-slate-400 hover:text-white group-hover:text-white">
                                 <div className="flex items-center gap-3">
                                     <span className="text-xl">{section.icon}</span>
-                                    <span className="font-medium hidden lg:block">{section.title}</span>
+                                    <span className="font-medium hidden lg:block">{section.name}</span>
                                 </div>
                                 <span className="text-xs opacity-0 lg:opacity-50 group-hover:opacity-100 transition-opacity text-brand-gold">▶</span>
                             </button>
@@ -107,7 +111,7 @@ const ClientLayout = () => {
                             {/* Flyout Menu */}
                             <div className="absolute left-[calc(100%-0.5rem)] top-0 w-56 bg-surface-card border border-surface-border rounded-xl shadow-2xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-x-2 group-hover:translate-x-4 z-50">
                                 <div className="px-3 py-2 border-b border-surface-border mb-2">
-                                    <span className="text-xs font-bold text-brand-gold uppercase tracking-wider">{section.title}</span>
+                                    <span className="text-xs font-bold text-brand-gold uppercase tracking-wider">{section.name}</span>
                                 </div>
                                 <div className="space-y-1">
                                     {section.items.map((item) => (
@@ -119,7 +123,7 @@ const ClientLayout = () => {
                                                 : 'text-slate-300 hover:bg-surface-hover hover:text-white'
                                                 }`}
                                         >
-                                            {item.title}
+                                            {item.name}
                                         </Link>
                                     ))}
                                 </div>
@@ -128,8 +132,8 @@ const ClientLayout = () => {
                     ))}
                 </nav>
 
-                <div className="p-4 border-t border-surface-border bg-surface-card">
-                    <div className="bg-surface-dark p-4 rounded-xl border border-surface-border">
+                <div className="p-4 bg-surface-card">
+                    <div className="bg-surface-dark p-4 rounded-xl">
                         <div className="flex justify-between items-end mb-2">
                             <p className="text-xs font-bold text-slate-400">Referral Status</p>
                             <p className="text-xs font-bold text-brand-gold">66%</p>
@@ -143,10 +147,10 @@ const ClientLayout = () => {
 
             {/* Main Content */}
             <main className="flex-1 overflow-auto radix-page-bg relative z-0">
-                <header className="h-20 border-b border-surface-border flex items-center justify-between px-8 bg-surface-dark/80 backdrop-blur-xl sticky top-0 z-40">
+                <header className="h-20 flex items-center justify-between px-8 bg-surface-dark/80 backdrop-blur-xl sticky top-0 z-40">
                     <div>
                         <h2 className="text-xl font-bold text-white">
-                            {navSections.flatMap(s => s.items).find(i => i.path === location.pathname)?.title || 'Overview'}
+                            {navSections.flatMap(s => s.items).find(i => i.path === location.pathname)?.name || 'Overview'}
                         </h2>
                         <p className="text-sm text-slate-400">Welcome back, Sarah</p>
                     </div>

@@ -38,7 +38,7 @@ const CoreIdentity = () => {
 
     return (
         <div className="space-y-6">
-            <div className="glass-panel p-8 rounded-2xl border border-surface-border">
+            <div className="glass-panel p-8 rounded-2xl">
                 <div className="flex justify-between items-start mb-8">
                     <div>
                         <h2 className="text-3xl font-bold text-white mb-2">Core Identity & Basics</h2>
@@ -53,56 +53,56 @@ const CoreIdentity = () => {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Company Name</label>
+                                <label className="text-sm font-medium text-white">Company Name</label>
                                 <input
                                     type="text"
                                     name="companyName"
                                     value={formData.companyName}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                     placeholder="The official name of the business entity"
                                 />
                                 <p className="text-xs text-slate-500">For legal and official documentation.</p>
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Website URL</label>
+                                <label className="text-sm font-medium text-white">Website URL</label>
                                 <input
                                     type="url"
                                     name="websiteUrl"
                                     value={formData.websiteUrl}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                     placeholder="https://example.com"
                                 />
                                 <p className="text-xs text-slate-500">Primary domain for AI scraping and calibration.</p>
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Industry / Niche</label>
+                                <label className="text-sm font-medium text-white">Industry / Niche</label>
                                 <input
                                     type="text"
                                     name="industry"
                                     value={formData.industry}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                     placeholder="e.g. Healthcare, Real Estate"
                                 />
                                 <p className="text-xs text-slate-500">Specific market sector for template matching.</p>
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Company Physical Address</label>
+                                <label className="text-sm font-medium text-white">Company Physical Address</label>
                                 <input
                                     type="text"
                                     name="address"
                                     value={formData.address}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                     placeholder="HQ Location"
                                 />
                                 <p className="text-xs text-slate-500">For local SEO and map services.</p>
@@ -115,7 +115,7 @@ const CoreIdentity = () => {
                         <h3 className="text-xl font-bold text-brand-gold border-b border-surface-border pb-2">Visual Identity</h3>
 
                         <div className="space-y-2">
-                            <label className="text-sm font-medium text-slate-300">Brand Logo</label>
+                            <label className="text-sm font-medium text-white">Brand Logo</label>
                             <div className={`border-2 border-dashed border-surface-border rounded-xl p-8 text-center transition-colors bg-surface-dark/50 ${isEditing ? 'hover:border-brand-purple cursor-pointer' : 'opacity-50 cursor-not-allowed'}`}>
                                 <span className="text-4xl mb-2 block">🖼️</span>
                                 <span className="text-slate-400">High-resolution upload (PNG/SVG)</span>
@@ -125,7 +125,7 @@ const CoreIdentity = () => {
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Primary Brand Color</label>
+                                <label className="text-sm font-medium text-white">Primary Brand Color</label>
                                 <div className="flex gap-2">
                                     <input
                                         type="color"
@@ -147,7 +147,7 @@ const CoreIdentity = () => {
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Secondary Brand Color</label>
+                                <label className="text-sm font-medium text-white">Secondary Brand Color</label>
                                 <div className="flex gap-2">
                                     <input
                                         type="color"
@@ -169,7 +169,7 @@ const CoreIdentity = () => {
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Accent Color</label>
+                                <label className="text-sm font-medium text-white">Accent Color</label>
                                 <div className="flex gap-2">
                                     <input
                                         type="color"
@@ -192,7 +192,7 @@ const CoreIdentity = () => {
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-sm font-medium text-slate-300">Fonts / Typography</label>
+                            <label className="text-sm font-medium text-white">Fonts / Typography</label>
                             <div className="border border-surface-border rounded-lg p-4 bg-surface-dark/50">
                                 <input
                                     type="text"
@@ -217,40 +217,40 @@ const CoreIdentity = () => {
                         <h3 className="text-xl font-bold text-brand-gold border-b border-surface-border pb-2">Brand Core</h3>
 
                         <div className="space-y-2">
-                            <label className="text-sm font-medium text-slate-300">Mission Statement</label>
+                            <label className="text-sm font-medium text-white">Mission Statement</label>
                             <textarea
                                 name="missionStatement"
                                 value={formData.missionStatement}
                                 onChange={handleChange}
                                 rows={3}
                                 disabled={!isEditing}
-                                className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                                 placeholder="The organization's purpose (Why, Who, How)"
                             />
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-sm font-medium text-slate-300">Vision Statement</label>
+                            <label className="text-sm font-medium text-white">Vision Statement</label>
                             <textarea
                                 name="visionStatement"
                                 value={formData.visionStatement}
                                 onChange={handleChange}
                                 rows={3}
                                 disabled={!isEditing}
-                                className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                                 placeholder="The long-term aspiration of the brand"
                             />
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-sm font-medium text-slate-300">Brand Promise</label>
+                            <label className="text-sm font-medium text-white">Brand Promise</label>
                             <textarea
                                 name="brandPromise"
                                 value={formData.brandPromise}
                                 onChange={handleChange}
                                 rows={2}
                                 disabled={!isEditing}
-                                className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                                 placeholder="The solidified expectation customers have of the brand"
                             />
                         </div>
@@ -262,14 +262,14 @@ const CoreIdentity = () => {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Founder / Spokesperson Name</label>
+                                <label className="text-sm font-medium text-white">Founder / Spokesperson Name</label>
                                 <input
                                     type="text"
                                     name="founderName"
                                     value={formData.founderName}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                     placeholder="For personal branding or 'Founder's Voice'"
                                 />
                             </div>

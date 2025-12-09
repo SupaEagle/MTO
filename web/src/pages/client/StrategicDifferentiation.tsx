@@ -30,7 +30,7 @@ const StrategicDifferentiation = () => {
 
     return (
         <div className="space-y-6">
-            <div className="glass-panel p-8 rounded-2xl border border-surface-border">
+            <div className="glass-panel p-8 rounded-2xl">
                 <div className="mb-8">
                     <h2 className="text-3xl font-bold text-white mb-2">Strategic Differentiation (USP)</h2>
                     <p className="text-slate-400">Defining why the brand wins in the market.</p>
@@ -41,80 +41,80 @@ const StrategicDifferentiation = () => {
                         <h3 className="text-xl font-bold text-brand-gold border-b border-surface-border pb-2">Value Proposition</h3>
 
                         <div className="space-y-2">
-                            <label className="text-sm font-medium text-slate-300">Unique Selling Proposition (USP)</label>
+                            <label className="text-sm font-medium text-white">Unique Selling Proposition (USP)</label>
                             <textarea
                                 name="usp"
                                 value={formData.usp}
                                 onChange={handleChange}
                                 rows={3}
                                 disabled={!isEditing}
-                                className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                                 placeholder="The assertive, defensible statement of difference."
                             />
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-sm font-medium text-slate-300">Market Gap Identified</label>
+                            <label className="text-sm font-medium text-white">Market Gap Identified</label>
                             <textarea
                                 name="marketGap"
                                 value={formData.marketGap}
                                 onChange={handleChange}
                                 rows={3}
                                 disabled={!isEditing}
-                                className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                                 placeholder="The specific opportunity missed by competitors."
                             />
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Dream Outcome</label>
+                                <label className="text-sm font-medium text-white">Dream Outcome</label>
                                 <input
                                     type="text"
                                     name="dreamOutcome"
                                     value={formData.dreamOutcome}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                     placeholder="The 'Value Equation' variable defining the perfect result."
                                 />
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Perceived Likelihood of Achievement</label>
+                                <label className="text-sm font-medium text-white">Perceived Likelihood of Achievement</label>
                                 <input
                                     type="text"
                                     name="likelihoodAchievement"
                                     value={formData.likelihoodAchievement}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                     placeholder="Proof points that the result is attainable."
                                 />
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Time Delay</label>
+                                <label className="text-sm font-medium text-white">Time Delay</label>
                                 <input
                                     type="text"
                                     name="timeDelay"
                                     value={formData.timeDelay}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                     placeholder="Speed of result (How fast will they get it?)."
                                 />
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Effort & Sacrifice</label>
+                                <label className="text-sm font-medium text-white">Effort & Sacrifice</label>
                                 <input
                                     type="text"
                                     name="effortSacrifice"
                                     value={formData.effortSacrifice}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                     placeholder="Ease of use (How hard do they have to work?)."
                                 />
                             </div>
@@ -126,40 +126,40 @@ const StrategicDifferentiation = () => {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Pricing Strategy</label>
+                                <label className="text-sm font-medium text-white">Pricing Strategy</label>
                                 <input
                                     type="text"
                                     name="pricingStrategy"
                                     value={formData.pricingStrategy}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                     placeholder="e.g., Premium, Economy"
                                 />
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Free/Low-Price Offer</label>
+                                <label className="text-sm font-medium text-white">Free/Low-Price Offer</label>
                                 <input
                                     type="text"
                                     name="freeOffer"
                                     value={formData.freeOffer}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                     placeholder="Introductory offer strategy (Lead Magnet)."
                                 />
                             </div>
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-sm font-medium text-slate-300">Growth Strategy Decision</label>
+                            <label className="text-sm font-medium text-white">Growth Strategy Decision</label>
                             <select
                                 name="growthStrategy"
                                 value={formData.growthStrategy}
                                 onChange={handleChange}
                                 disabled={!isEditing}
-                                className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all appearance-none disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all appearance-none disabled:opacity-50 disabled:cursor-not-allowed"
                             >
                                 <option value="">Select strategy...</option>
                                 <option value="Optimization">Optimization ("Better")</option>

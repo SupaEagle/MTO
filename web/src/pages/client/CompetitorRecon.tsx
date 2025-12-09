@@ -29,7 +29,7 @@ const CompetitorRecon = () => {
 
     return (
         <div className="space-y-6">
-            <div className="glass-panel p-8 rounded-2xl border border-surface-border">
+            <div className="glass-panel p-8 rounded-2xl">
                 <div className="mb-8">
                     <h2 className="text-3xl font-bold text-white mb-2">Competitor Reconnaissance</h2>
                     <p className="text-slate-400">Inputs for the AI to monitor and reverse-engineer.</p>
@@ -42,7 +42,7 @@ const CompetitorRecon = () => {
                         {/* Competitor 1 */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-surface-dark border border-surface-border p-6 rounded-xl">
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Competitor 1 Name (Top Direct)</label>
+                                <label className="text-sm font-medium text-white">Competitor 1 Name (Top Direct)</label>
                                 <input
                                     type="text"
                                     name="comp1Name"
@@ -54,7 +54,7 @@ const CompetitorRecon = () => {
                                 />
                             </div>
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Website/Social URL</label>
+                                <label className="text-sm font-medium text-white">Website/Social URL</label>
                                 <input
                                     type="url"
                                     name="comp1Url"
@@ -70,7 +70,7 @@ const CompetitorRecon = () => {
                         {/* Competitor 2 */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-surface-dark border border-surface-border p-6 rounded-xl">
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Competitor 2 Name (Secondary)</label>
+                                <label className="text-sm font-medium text-white">Competitor 2 Name (Secondary)</label>
                                 <input
                                     type="text"
                                     name="comp2Name"
@@ -82,7 +82,7 @@ const CompetitorRecon = () => {
                                 />
                             </div>
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Website/Social URL</label>
+                                <label className="text-sm font-medium text-white">Website/Social URL</label>
                                 <input
                                     type="url"
                                     name="comp2Url"
@@ -98,7 +98,7 @@ const CompetitorRecon = () => {
                         {/* Competitor 3 */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-surface-dark border border-surface-border p-6 rounded-xl">
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Competitor 3 Name (Tertiary)</label>
+                                <label className="text-sm font-medium text-white">Competitor 3 Name (Tertiary)</label>
                                 <input
                                     type="text"
                                     name="comp3Name"
@@ -110,7 +110,7 @@ const CompetitorRecon = () => {
                                 />
                             </div>
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Website/Social URL</label>
+                                <label className="text-sm font-medium text-white">Website/Social URL</label>
                                 <input
                                     type="url"
                                     name="comp3Url"
@@ -129,27 +129,27 @@ const CompetitorRecon = () => {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Competitor 4 Name</label>
+                                <label className="text-sm font-medium text-white">Competitor 4 Name</label>
                                 <input
                                     type="text"
                                     name="comp4Name"
                                     value={formData.comp4Name}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                     placeholder="Optional"
                                 />
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Competitor 5 Name</label>
+                                <label className="text-sm font-medium text-white">Competitor 5 Name</label>
                                 <input
                                     type="text"
                                     name="comp5Name"
                                     value={formData.comp5Name}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                     placeholder="Optional"
                                 />
                             </div>

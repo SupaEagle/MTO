@@ -31,7 +31,7 @@ const BrandPersona = () => {
 
     return (
         <div className="space-y-6">
-            <div className="glass-panel p-8 rounded-2xl border border-surface-border">
+            <div className="glass-panel p-8 rounded-2xl">
                 <div className="mb-8">
                     <h2 className="text-3xl font-bold text-white mb-2">AI Voice Calibration</h2>
                     <p className="text-slate-400">Configuration for the AI to "think" and "write" like the specific brand.</p>
@@ -43,34 +43,34 @@ const BrandPersona = () => {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Brand Persona Type</label>
+                                <label className="text-sm font-medium text-white">Brand Persona Type</label>
                                 <input
                                     type="text"
                                     name="personaType"
                                     value={formData.personaType}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                     placeholder="e.g., Witty, Professional, Authoritative"
                                 />
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Reading Level Target</label>
+                                <label className="text-sm font-medium text-white">Reading Level Target</label>
                                 <input
                                     type="text"
                                     name="readingLevel"
                                     value={formData.readingLevel}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                     placeholder="e.g., 3rd Grade, 8th Grade"
                                 />
                             </div>
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-sm font-medium text-slate-300">Voice Intensity Slider (1-10)</label>
+                            <label className="text-sm font-medium text-white">Voice Intensity Slider (1-10)</label>
                             <div className={`flex items-center gap-4 ${!isEditing ? 'opacity-50' : ''}`}>
                                 <span className="text-xs text-slate-500">Subtle</span>
                                 <input
@@ -90,27 +90,27 @@ const BrandPersona = () => {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Forbidden Words</label>
+                                <label className="text-sm font-medium text-white">Forbidden Words</label>
                                 <textarea
                                     name="forbiddenWords"
                                     value={formData.forbiddenWords}
                                     onChange={handleChange}
                                     rows={3}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                                     placeholder="List of negative keywords or slang to strictly avoid"
                                 />
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Required Terminology</label>
+                                <label className="text-sm font-medium text-white">Required Terminology</label>
                                 <textarea
                                     name="requiredTerminology"
                                     value={formData.requiredTerminology}
                                     onChange={handleChange}
                                     rows={3}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                                     placeholder="Industry-specific terms that must be used correctly"
                                 />
                             </div>
@@ -118,7 +118,7 @@ const BrandPersona = () => {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Emoji Usage Preference</label>
+                                <label className="text-sm font-medium text-white">Emoji Usage Preference</label>
                                 <select
                                     name="emojiUsage"
                                     value={formData.emojiUsage}
@@ -135,21 +135,21 @@ const BrandPersona = () => {
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Hook Style Preference</label>
+                                <label className="text-sm font-medium text-white">Hook Style Preference</label>
                                 <input
                                     type="text"
                                     name="hookStyle"
                                     value={formData.hookStyle}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                     placeholder="e.g., Question, Shock Statement, Story"
                                 />
                             </div>
                         </div>
 
                         <div className="space-y-4">
-                            <label className="text-sm font-medium text-slate-300">Past Successful Posts (Style Mimicry)</label>
+                            <label className="text-sm font-medium text-white">Past Successful Posts (Style Mimicry)</label>
 
                             <div className="space-y-2">
                                 <label className="text-xs text-slate-500">Link 1</label>
@@ -159,7 +159,7 @@ const BrandPersona = () => {
                                     value={formData.link1}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                     placeholder="https://..."
                                 />
                             </div>
@@ -171,7 +171,7 @@ const BrandPersona = () => {
                                     value={formData.link2}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                     placeholder="https://..."
                                 />
                             </div>
@@ -183,7 +183,7 @@ const BrandPersona = () => {
                                     value={formData.link3}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                     placeholder="https://..."
                                 />
                             </div>

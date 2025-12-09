@@ -28,7 +28,7 @@ const AudienceDefinition = () => {
 
     return (
         <div className="space-y-6">
-            <div className="glass-panel p-8 rounded-2xl border border-surface-border">
+            <div className="glass-panel p-8 rounded-2xl">
                 <div className="mb-8">
                     <h2 className="text-3xl font-bold text-white mb-2">Audience Definition</h2>
                     <p className="text-slate-400">Deep psychographic profiling to replace standard demographic targeting.</p>
@@ -40,54 +40,54 @@ const AudienceDefinition = () => {
                         <h3 className="text-xl font-bold text-brand-gold border-b border-surface-border pb-2">Ideal Client Avatar (ICA)</h3>
 
                         <div className="space-y-2">
-                            <label className="text-sm font-medium text-slate-300">Ideal Client Avatar Name</label>
+                            <label className="text-sm font-medium text-white">Ideal Client Avatar Name</label>
                             <input
                                 type="text"
                                 name="icaName"
                                 value={formData.icaName}
                                 onChange={handleChange}
                                 disabled={!isEditing}
-                                className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                 placeholder="e.g., Busy Bob, Corporate Carla"
                             />
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-sm font-medium text-slate-300">Target Market Description</label>
+                            <label className="text-sm font-medium text-white">Target Market Description</label>
                             <textarea
                                 name="marketDescription"
                                 value={formData.marketDescription}
                                 onChange={handleChange}
                                 rows={2}
                                 disabled={!isEditing}
-                                className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                                 placeholder="Broad definition of the market segment"
                             />
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Audience Demographics</label>
+                                <label className="text-sm font-medium text-white">Audience Demographics</label>
                                 <textarea
                                     name="demographics"
                                     value={formData.demographics}
                                     onChange={handleChange}
                                     rows={3}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                                     placeholder="Age, Gender, Income, Location data"
                                 />
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300">Audience Psychographics</label>
+                                <label className="text-sm font-medium text-white">Audience Psychographics</label>
                                 <textarea
                                     name="psychographics"
                                     value={formData.psychographics}
                                     onChange={handleChange}
                                     rows={3}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                                     placeholder="Values, beliefs, and lifestyle traits"
                                 />
                             </div>
@@ -99,40 +99,40 @@ const AudienceDefinition = () => {
                         <h3 className="text-xl font-bold text-brand-gold border-b border-surface-border pb-2">Misery & Miracle Mapping</h3>
 
                         <div className="space-y-2">
-                            <label className="text-sm font-medium text-slate-300">Customer Misery 1 (Fear)</label>
+                            <label className="text-sm font-medium text-white">Customer Misery 1 (Fear)</label>
                             <input
                                 type="text"
                                 name="misery1"
                                 value={formData.misery1}
                                 onChange={handleChange}
                                 disabled={!isEditing}
-                                className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                 placeholder="The primary fear the customer wants to avoid"
                             />
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-sm font-medium text-slate-300">Customer Misery 2 (Pain)</label>
+                            <label className="text-sm font-medium text-white">Customer Misery 2 (Pain)</label>
                             <input
                                 type="text"
                                 name="misery2"
                                 value={formData.misery2}
                                 onChange={handleChange}
                                 disabled={!isEditing}
-                                className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                 placeholder="The active pain point they are experiencing now"
                             />
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-sm font-medium text-slate-300">Customer Misery 3 (Problem)</label>
+                            <label className="text-sm font-medium text-white">Customer Misery 3 (Problem)</label>
                             <input
                                 type="text"
                                 name="misery3"
                                 value={formData.misery3}
                                 onChange={handleChange}
                                 disabled={!isEditing}
-                                className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                 placeholder="The specific problem they are trying to escape"
                             />
                         </div>
