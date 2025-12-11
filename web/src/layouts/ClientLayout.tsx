@@ -17,12 +17,14 @@ const ClientLayout = () => {
                 { name: 'Content Pillars & Mix', path: '/client/strategy/content-pillars' },
                 { name: 'Competitor Recon', path: '/client/strategy/competitors' },
                 { name: 'Brand Report', path: '/client/strategy/reports' },
+                { name: "Creative Studio", path: "/client/creative-studio" },
             ]
         },
         {
             name: 'Creative Studio',
             icon: '🎨',
             items: [
+                { name: 'Input Wizard', path: '/client/creative-studio' },
                 { name: 'Visual Assets', path: '/client/creative/visuals' },
                 { name: 'Video Optimization', path: '/client/creative/video' },
                 { name: 'Swipe File', path: '/client/creative/swipe' },
@@ -150,7 +152,7 @@ const ClientLayout = () => {
                 <header className="h-20 flex items-center justify-between px-8 bg-surface-dark/80 backdrop-blur-xl sticky top-0 z-40">
                     <div>
                         <h2 className="text-xl font-bold text-white">
-                            {navSections.flatMap(s => s.items).find(i => i.path === location.pathname)?.name || 'Overview'}
+                            {navSections.flatMap(s => s.items).find(i => 'path' in i && i.path === location.pathname)?.name || 'Overview'}
                         </h2>
                         <p className="text-sm text-slate-400">Welcome back, Sarah</p>
                     </div>

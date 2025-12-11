@@ -48,7 +48,7 @@ const ContentPillars = () => {
                                     value={formData.pillar1}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
                                     placeholder="e.g., Education/How-to"
                                 />
                             </div>
@@ -61,7 +61,7 @@ const ContentPillars = () => {
                                     value={formData.pillar2}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
                                     placeholder="e.g., Behind the Scenes/Culture"
                                 />
                             </div>
@@ -74,7 +74,7 @@ const ContentPillars = () => {
                                     value={formData.pillar3}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
                                     placeholder="e.g., Social Proof/Testimonials"
                                 />
                             </div>
@@ -87,7 +87,7 @@ const ContentPillars = () => {
                                     value={formData.pillar4}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
                                     placeholder="e.g., Sales/Promotional"
                                 />
                             </div>
@@ -106,7 +106,7 @@ const ContentPillars = () => {
                                     value={formData.postingFrequency}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
                                     placeholder="e.g., 1/day LinkedIn, 3/week IG"
                                 />
                             </div>
@@ -119,7 +119,7 @@ const ContentPillars = () => {
                                     value={formData.platformMix}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
                                     placeholder="e.g., Instagram, LinkedIn, TikTok"
                                 />
                             </div>
@@ -133,7 +133,7 @@ const ContentPillars = () => {
                                 onChange={handleChange}
                                 rows={2}
                                 disabled={!isEditing}
-                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:cursor-not-allowed"
                                 placeholder="Specific niches to monitor for viral audio/trends."
                             />
                         </div>
@@ -146,7 +146,7 @@ const ContentPillars = () => {
                                 onChange={handleChange}
                                 rows={2}
                                 disabled={!isEditing}
-                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:cursor-not-allowed"
                                 placeholder="Subjects that remain relevant for recycling 6 months later."
                             />
                         </div>

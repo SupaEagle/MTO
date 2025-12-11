@@ -40,7 +40,7 @@ const CompetitorRecon = () => {
                         <h3 className="text-xl font-bold text-brand-gold border-b border-surface-border pb-2">Primary Competitors</h3>
 
                         {/* Competitor 1 */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-surface-dark border border-surface-border p-6 rounded-xl">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-surface-dark border border-brand-purple p-6 rounded-xl">
                             <div className="space-y-2">
                                 <label className="text-sm font-medium text-white">Competitor 1 Name (Top Direct)</label>
                                 <input
@@ -49,7 +49,7 @@ const CompetitorRecon = () => {
                                     value={formData.comp1Name}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-card border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-card border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
                                     placeholder="e.g., Competitor A"
                                 />
                             </div>
@@ -61,14 +61,14 @@ const CompetitorRecon = () => {
                                     value={formData.comp1Url}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-card border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-card border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
                                     placeholder="https://..."
                                 />
                             </div>
                         </div>
 
                         {/* Competitor 2 */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-surface-dark border border-surface-border p-6 rounded-xl">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-surface-dark border border-brand-purple p-6 rounded-xl">
                             <div className="space-y-2">
                                 <label className="text-sm font-medium text-white">Competitor 2 Name (Secondary)</label>
                                 <input
@@ -77,7 +77,7 @@ const CompetitorRecon = () => {
                                     value={formData.comp2Name}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-card border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-card border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
                                     placeholder="e.g., Competitor B"
                                 />
                             </div>
@@ -89,14 +89,14 @@ const CompetitorRecon = () => {
                                     value={formData.comp2Url}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-card border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-card border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
                                     placeholder="https://..."
                                 />
                             </div>
                         </div>
 
                         {/* Competitor 3 */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-surface-dark border border-surface-border p-6 rounded-xl">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-surface-dark border border-brand-purple p-6 rounded-xl">
                             <div className="space-y-2">
                                 <label className="text-sm font-medium text-white">Competitor 3 Name (Tertiary)</label>
                                 <input
@@ -105,7 +105,7 @@ const CompetitorRecon = () => {
                                     value={formData.comp3Name}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-card border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-card border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
                                     placeholder="e.g., Competitor C"
                                 />
                             </div>
@@ -117,7 +117,7 @@ const CompetitorRecon = () => {
                                     value={formData.comp3Url}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-card border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-card border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
                                     placeholder="https://..."
                                 />
                             </div>
@@ -136,7 +136,7 @@ const CompetitorRecon = () => {
                                     value={formData.comp4Name}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
                                     placeholder="Optional"
                                 />
                             </div>
@@ -149,7 +149,7 @@ const CompetitorRecon = () => {
                                     value={formData.comp5Name}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
                                     placeholder="Optional"
                                 />
                             </div>

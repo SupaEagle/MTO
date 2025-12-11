@@ -50,7 +50,7 @@ const BrandPersona = () => {
                                     value={formData.personaType}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
                                     placeholder="e.g., Witty, Professional, Authoritative"
                                 />
                             </div>
@@ -63,7 +63,7 @@ const BrandPersona = () => {
                                     value={formData.readingLevel}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
                                     placeholder="e.g., 3rd Grade, 8th Grade"
                                 />
                             </div>
@@ -97,7 +97,7 @@ const BrandPersona = () => {
                                     onChange={handleChange}
                                     rows={3}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:cursor-not-allowed"
                                     placeholder="List of negative keywords or slang to strictly avoid"
                                 />
                             </div>
@@ -110,7 +110,7 @@ const BrandPersona = () => {
                                     onChange={handleChange}
                                     rows={3}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:cursor-not-allowed"
                                     placeholder="Industry-specific terms that must be used correctly"
                                 />
                             </div>
@@ -124,7 +124,7 @@ const BrandPersona = () => {
                                     value={formData.emojiUsage}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all appearance-none disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all appearance-none disabled:cursor-not-allowed"
                                 >
                                     <option value="">Select preferences...</option>
                                     <option value="None">None</option>
@@ -142,7 +142,7 @@ const BrandPersona = () => {
                                     value={formData.hookStyle}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
                                     placeholder="e.g., Question, Shock Statement, Story"
                                 />
                             </div>
@@ -159,7 +159,7 @@ const BrandPersona = () => {
                                     value={formData.link1}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
                                     placeholder="https://..."
                                 />
                             </div>
@@ -171,7 +171,7 @@ const BrandPersona = () => {
                                     value={formData.link2}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
                                     placeholder="https://..."
                                 />
                             </div>

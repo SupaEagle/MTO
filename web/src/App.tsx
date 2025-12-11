@@ -19,6 +19,7 @@ import StrategicDifferentiation from './pages/client/StrategicDifferentiation';
 import ContentPillars from './pages/client/ContentPillars';
 import CompetitorRecon from './pages/client/CompetitorRecon';
 import BrandReport from './pages/client/BrandReport';
+import CreativeStudio from './pages/client/CreativeStudio';
 import AudienceDefinition from './pages/client/AudienceDefinition';
 import ValuePropBuilder from './pages/client/ValuePropBuilder';
 import ScalingFocus from './pages/client/ScalingFocus';
@@ -72,6 +73,7 @@ function App() {
           <Route path="strategy/content-pillars" element={<ContentPillars />} />
           <Route path="strategy/competitors" element={<CompetitorRecon />} />
           <Route path="strategy/reports" element={<BrandReport />} />
+          <Route path="creative-studio" element={<CreativeStudio />} />
           <Route path="strategy/audience" element={<AudienceDefinition />} />
           <Route path="strategy/value-prop" element={<ValuePropBuilder />} />
           <Route path="strategy/scaling" element={<ScalingFocus />} />

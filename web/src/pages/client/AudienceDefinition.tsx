@@ -47,7 +47,7 @@ const AudienceDefinition = () => {
                                 value={formData.icaName}
                                 onChange={handleChange}
                                 disabled={!isEditing}
-                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
                                 placeholder="e.g., Busy Bob, Corporate Carla"
                             />
                         </div>
@@ -60,7 +60,7 @@ const AudienceDefinition = () => {
                                 onChange={handleChange}
                                 rows={2}
                                 disabled={!isEditing}
-                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:cursor-not-allowed"
                                 placeholder="Broad definition of the market segment"
                             />
                         </div>
@@ -74,7 +74,7 @@ const AudienceDefinition = () => {
                                     onChange={handleChange}
                                     rows={3}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:cursor-not-allowed"
                                     placeholder="Age, Gender, Income, Location data"
                                 />
                             </div>
@@ -87,7 +87,7 @@ const AudienceDefinition = () => {
                                     onChange={handleChange}
                                     rows={3}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:cursor-not-allowed"
                                     placeholder="Values, beliefs, and lifestyle traits"
                                 />
                             </div>
@@ -106,7 +106,7 @@ const AudienceDefinition = () => {
                                 value={formData.misery1}
                                 onChange={handleChange}
                                 disabled={!isEditing}
-                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
                                 placeholder="The primary fear the customer wants to avoid"
                             />
                         </div>
@@ -119,7 +119,7 @@ const AudienceDefinition = () => {
                                 value={formData.misery2}
                                 onChange={handleChange}
                                 disabled={!isEditing}
-                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
                                 placeholder="The active pain point they are experiencing now"
                             />
                         </div>
@@ -132,7 +132,7 @@ const AudienceDefinition = () => {
                                 value={formData.misery3}
                                 onChange={handleChange}
                                 disabled={!isEditing}
-                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
                                 placeholder="The specific problem they are trying to escape"
                             />
                         </div>

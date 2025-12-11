@@ -48,7 +48,7 @@ const StrategicDifferentiation = () => {
                                 onChange={handleChange}
                                 rows={3}
                                 disabled={!isEditing}
-                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:cursor-not-allowed"
                                 placeholder="The assertive, defensible statement of difference."
                             />
                         </div>
@@ -61,7 +61,7 @@ const StrategicDifferentiation = () => {
                                 onChange={handleChange}
                                 rows={3}
                                 disabled={!isEditing}
-                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:cursor-not-allowed"
                                 placeholder="The specific opportunity missed by competitors."
                             />
                         </div>
@@ -75,7 +75,7 @@ const StrategicDifferentiation = () => {
                                     value={formData.dreamOutcome}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
                                     placeholder="The 'Value Equation' variable defining the perfect result."
                                 />
                             </div>
@@ -88,7 +88,7 @@ const StrategicDifferentiation = () => {
                                     value={formData.likelihoodAchievement}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
                                     placeholder="Proof points that the result is attainable."
                                 />
                             </div>
@@ -101,7 +101,7 @@ const StrategicDifferentiation = () => {
                                     value={formData.timeDelay}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
                                     placeholder="Speed of result (How fast will they get it?)."
                                 />
                             </div>
@@ -114,7 +114,7 @@ const StrategicDifferentiation = () => {
                                     value={formData.effortSacrifice}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
                                     placeholder="Ease of use (How hard do they have to work?)."
                                 />
                             </div>
@@ -133,7 +133,7 @@ const StrategicDifferentiation = () => {
                                     value={formData.pricingStrategy}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
                                     placeholder="e.g., Premium, Economy"
                                 />
                             </div>
@@ -146,7 +146,7 @@ const StrategicDifferentiation = () => {
                                     value={formData.freeOffer}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
                                     placeholder="Introductory offer strategy (Lead Magnet)."
                                 />
                             </div>
@@ -159,7 +159,7 @@ const StrategicDifferentiation = () => {
                                 value={formData.growthStrategy}
                                 onChange={handleChange}
                                 disabled={!isEditing}
-                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all appearance-none disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all appearance-none disabled:cursor-not-allowed"
                             >
                                 <option value="">Select strategy...</option>
                                 <option value="Optimization">Optimization ("Better")</option>

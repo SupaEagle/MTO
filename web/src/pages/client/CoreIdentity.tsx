@@ -60,7 +60,7 @@ const CoreIdentity = () => {
                                     value={formData.companyName}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
                                     placeholder="The official name of the business entity"
                                 />
                                 <p className="text-xs text-slate-500">For legal and official documentation.</p>
@@ -74,7 +74,7 @@ const CoreIdentity = () => {
                                     value={formData.websiteUrl}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
                                     placeholder="https://example.com"
                                 />
                                 <p className="text-xs text-slate-500">Primary domain for AI scraping and calibration.</p>
@@ -88,7 +88,7 @@ const CoreIdentity = () => {
                                     value={formData.industry}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
                                     placeholder="e.g. Healthcare, Real Estate"
                                 />
                                 <p className="text-xs text-slate-500">Specific market sector for template matching.</p>
@@ -102,7 +102,7 @@ const CoreIdentity = () => {
                                     value={formData.address}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
                                     placeholder="HQ Location"
                                 />
                                 <p className="text-xs text-slate-500">For local SEO and map services.</p>
@@ -141,7 +141,7 @@ const CoreIdentity = () => {
                                         value={formData.primaryColor}
                                         onChange={handleChange}
                                         disabled={!isEditing}
-                                        className="flex-1 bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white font-mono uppercase disabled:opacity-50 disabled:cursor-not-allowed"
+                                        className="flex-1 bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white font-mono uppercase disabled:cursor-not-allowed"
                                     />
                                 </div>
                             </div>
@@ -163,7 +163,7 @@ const CoreIdentity = () => {
                                         value={formData.secondaryColor}
                                         onChange={handleChange}
                                         disabled={!isEditing}
-                                        className="flex-1 bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white font-mono uppercase disabled:opacity-50 disabled:cursor-not-allowed"
+                                        className="flex-1 bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white font-mono uppercase disabled:cursor-not-allowed"
                                     />
                                 </div>
                             </div>
@@ -185,7 +185,7 @@ const CoreIdentity = () => {
                                         value={formData.accentColor}
                                         onChange={handleChange}
                                         disabled={!isEditing}
-                                        className="flex-1 bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white font-mono uppercase disabled:opacity-50 disabled:cursor-not-allowed"
+                                        className="flex-1 bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white font-mono uppercase disabled:cursor-not-allowed"
                                     />
                                 </div>
                             </div>
@@ -200,7 +200,7 @@ const CoreIdentity = () => {
                                     value={formData.typography}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-transparent border-none text-white focus:ring-0 placeholder-slate-600 mb-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-transparent border-none text-white focus:ring-0 placeholder-slate-600 mb-2 disabled:cursor-not-allowed"
                                     placeholder="Header and Body font names"
                                 />
                                 <div className="flex gap-4 text-sm text-slate-500 border-t border-surface-border pt-2">
@@ -224,7 +224,7 @@ const CoreIdentity = () => {
                                 onChange={handleChange}
                                 rows={3}
                                 disabled={!isEditing}
-                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:cursor-not-allowed"
                                 placeholder="The organization's purpose (Why, Who, How)"
                             />
                         </div>
@@ -237,7 +237,7 @@ const CoreIdentity = () => {
                                 onChange={handleChange}
                                 rows={3}
                                 disabled={!isEditing}
-                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:cursor-not-allowed"
                                 placeholder="The long-term aspiration of the brand"
                             />
                         </div>
@@ -250,7 +250,7 @@ const CoreIdentity = () => {
                                 onChange={handleChange}
                                 rows={2}
                                 disabled={!isEditing}
-                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:cursor-not-allowed"
                                 placeholder="The solidified expectation customers have of the brand"
                             />
                         </div>
@@ -269,7 +269,7 @@ const CoreIdentity = () => {
                                     value={formData.founderName}
                                     onChange={handleChange}
                                     disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
                                     placeholder="For personal branding or 'Founder's Voice'"
                                 />
                             </div>
@@ -283,7 +283,7 @@ const CoreIdentity = () => {
                                 onChange={handleChange}
                                 rows={6}
                                 disabled={!isEditing}
-                                className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:cursor-not-allowed"
                                 placeholder="The narrative background of how the business started (Authentic Storytelling)"
                             />
                         </div>
