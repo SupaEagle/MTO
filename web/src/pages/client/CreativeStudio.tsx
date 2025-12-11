@@ -22,7 +22,7 @@ const CreativeStudio = () => {
                             onClick={() => setCurrentStage(stage)}
                             className={`flex flex-col items-center gap-2 px-4 transition-colors ${currentStage >= stage ? 'text-brand-purple' : 'text-slate-500 hover:text-slate-300'}`}
                         >
-                            <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold border-2 transition-all ${currentStage >= stage ? 'bg-brand-purple text-white border-brand-purple' : 'bg-surface-card border-brand-pink text-brand-pink'}`}>
+                            <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold border-2 transition-all ${currentStage >= stage ? 'bg-brand-purple text-white border-brand-purple' : 'bg-white border-white text-brand-purple'}`}>
                                 {stage}
                             </div>
                             <span className="text-sm font-semibold">
