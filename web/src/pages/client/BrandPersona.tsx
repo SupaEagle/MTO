@@ -1,32 +1,70 @@
 import { useState } from 'react';
+import { Plus, Trash2, ChevronDown, ChevronUp } from 'lucide-react';
+
+interface PersonaModel {
+    personaType: string;
+    voiceIntensity: number;
+    readingLevel: string;
+    forbiddenWords: string;
+    requiredTerminology: string;
+    emojiUsage: string;
+    hookStyle: string;
+    link1: string;
+    link2: string;
+    link3: string;
+}
+
+const DEFAULT_PERSONA: PersonaModel = {
+    personaType: '',
+    voiceIntensity: 5,
+    readingLevel: '',
+    forbiddenWords: '',
+    requiredTerminology: '',
+    emojiUsage: '',
+    hookStyle: '',
+    link1: '',
+    link2: '',
+    link3: ''
+};
 
 const BrandPersona = () => {
     const [isEditing, setIsEditing] = useState(false);
-    const [formData, setFormData] = useState({
-        personaType: '',
-        voiceIntensity: 5,
-        readingLevel: '',
-        forbiddenWords: '',
-        requiredTerminology: '',
-        emojiUsage: '',
-        hookStyle: '',
-        link1: '',
-        link2: '',
-        link3: ''
-    });
+    const [personas, setPersonas] = useState<PersonaModel[]>([{ ...DEFAULT_PERSONA }]);
+    const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const handlePersonaChange = (index: number, e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
-        setFormData(prev => ({ ...prev, [name]: value }));
+        setPersonas(prev => {
+            const newPersonas = [...prev];
+            newPersonas[index] = { ...newPersonas[index], [name]: value };
+            return newPersonas;
+        });
+    };
+
+    const addPersona = () => {
+        setPersonas(prev => [...prev, { ...DEFAULT_PERSONA }]);
+        setExpandedIndex(personas.length); // Expand the new one
+    };
+
+    const removePersona = (index: number, e: React.MouseEvent) => {
+        e.stopPropagation(); // Prevent accordion toggle
+        if (personas.length === 1) return; // Prevent deleting the last one
+        setPersonas(prev => prev.filter((_, i) => i !== index));
+        if (expandedIndex === index) setExpandedIndex(null);
+    };
+
+    const toggleExpand = (index: number) => {
+        setExpandedIndex(expandedIndex === index ? null : index);
     };
 
     const handleSave = () => {
         setIsEditing(false);
-        console.log('Saved:', formData);
+        console.log('Saved Personas:', personas);
     };
 
     const handleCancel = () => {
         setIsEditing(false);
+        // In a real app, you might revert to original state here
     };
 
     return (
@@ -37,158 +75,211 @@ const BrandPersona = () => {
                     <p className="text-slate-400">Configuration for the AI to "think" and "write" like the specific brand.</p>
                 </div>
 
-                <form className="space-y-8">
-                    <div className="space-y-6">
-                        <h3 className="text-xl font-bold text-brand-gold border-b border-surface-border pb-2">Persona Model</h3>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div className="space-y-2">
-                                <label className="text-sm font-medium text-white">Brand Persona Type</label>
-                                <input
-                                    type="text"
-                                    name="personaType"
-                                    value={formData.personaType}
-                                    onChange={handleChange}
-                                    disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
-                                    placeholder="e.g., Witty, Professional, Authoritative"
-                                />
-                            </div>
-
-                            <div className="space-y-2">
-                                <label className="text-sm font-medium text-white">Reading Level Target</label>
-                                <input
-                                    type="text"
-                                    name="readingLevel"
-                                    value={formData.readingLevel}
-                                    onChange={handleChange}
-                                    disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
-                                    placeholder="e.g., 3rd Grade, 8th Grade"
-                                />
-                            </div>
-                        </div>
-
-                        <div className="space-y-2">
-                            <label className="text-sm font-medium text-white">Voice Intensity Slider (1-10)</label>
-                            <div className={`flex items-center gap-4 ${!isEditing ? 'opacity-50' : ''}`}>
-                                <span className="text-xs text-slate-500">Subtle</span>
-                                <input
-                                    type="range"
-                                    name="voiceIntensity"
-                                    min="1"
-                                    max="10"
-                                    value={formData.voiceIntensity}
-                                    onChange={handleChange}
-                                    disabled={!isEditing}
-                                    className="w-full accent-brand-purple cursor-pointer disabled:cursor-not-allowed"
-                                />
-                                <span className="text-xs text-slate-500">Extreme</span>
-                                <span className="font-bold text-brand-gold w-8 text-center">{formData.voiceIntensity}</span>
-                            </div>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div className="space-y-2">
-                                <label className="text-sm font-medium text-white">Forbidden Words</label>
-                                <textarea
-                                    name="forbiddenWords"
-                                    value={formData.forbiddenWords}
-                                    onChange={handleChange}
-                                    rows={3}
-                                    disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:cursor-not-allowed"
-                                    placeholder="List of negative keywords or slang to strictly avoid"
-                                />
-                            </div>
-
-                            <div className="space-y-2">
-                                <label className="text-sm font-medium text-white">Required Terminology</label>
-                                <textarea
-                                    name="requiredTerminology"
-                                    value={formData.requiredTerminology}
-                                    onChange={handleChange}
-                                    rows={3}
-                                    disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:cursor-not-allowed"
-                                    placeholder="Industry-specific terms that must be used correctly"
-                                />
-                            </div>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div className="space-y-2">
-                                <label className="text-sm font-medium text-white">Emoji Usage Preference</label>
-                                <select
-                                    name="emojiUsage"
-                                    value={formData.emojiUsage}
-                                    onChange={handleChange}
-                                    disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all appearance-none disabled:cursor-not-allowed"
+                <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
+                    <div className="space-y-4">
+                        {personas.map((persona, index) => (
+                            <div key={index} className="border border-surface-border rounded-xl overflow-hidden bg-surface-dark/30">
+                                {/* Accordion Header */}
+                                <div
+                                    onClick={() => toggleExpand(index)}
+                                    className={`p-4 flex justify-between items-center cursor-pointer transition-colors ${expandedIndex === index ? 'bg-surface-card border-b border-surface-border' : 'hover:bg-surface-hover'}`}
                                 >
-                                    <option value="">Select preferences...</option>
-                                    <option value="None">None</option>
-                                    <option value="Minimal">Minimal</option>
-                                    <option value="Moderate">Moderate</option>
-                                    <option value="Heavy">Heavy</option>
-                                </select>
-                            </div>
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-8 h-8 rounded-full bg-brand-purple/20 flex items-center justify-center text-brand-purple font-bold text-sm">
+                                            {index + 1}
+                                        </div>
+                                        <div>
+                                            <h3 className="font-bold text-white text-lg">
+                                                {persona.personaType || `Persona Model ${index + 1}`}
+                                            </h3>
+                                            {!persona.personaType && <p className="text-xs text-slate-500">Undefined Persona</p>}
+                                        </div>
+                                    </div>
+                                    <div className="flex items-center gap-3">
+                                        {isEditing && personas.length > 1 && (
+                                            <button
+                                                onClick={(e) => removePersona(index, e)}
+                                                className="p-2 text-slate-500 hover:text-red-400 hover:bg-red-400/10 rounded-lg transition-colors"
+                                                title="Remove Model"
+                                            >
+                                                <Trash2 className="w-5 h-5" />
+                                            </button>
+                                        )}
+                                        {expandedIndex === index ? (
+                                            <ChevronUp className="w-5 h-5 text-slate-400" />
+                                        ) : (
+                                            <ChevronDown className="w-5 h-5 text-slate-400" />
+                                        )}
+                                    </div>
+                                </div>
 
-                            <div className="space-y-2">
-                                <label className="text-sm font-medium text-white">Hook Style Preference</label>
-                                <input
-                                    type="text"
-                                    name="hookStyle"
-                                    value={formData.hookStyle}
-                                    onChange={handleChange}
-                                    disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
-                                    placeholder="e.g., Question, Shock Statement, Story"
-                                />
-                            </div>
-                        </div>
+                                {/* Accordion Body */}
+                                {expandedIndex === index && (
+                                    <div className="p-6 animate-in slide-in-from-top-2 duration-200">
+                                        <div className="space-y-6">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                                <div className="space-y-2">
+                                                    <label className="text-sm font-medium text-white">Brand Persona Type</label>
+                                                    <input
+                                                        type="text"
+                                                        name="personaType"
+                                                        value={persona.personaType}
+                                                        onChange={(e) => handlePersonaChange(index, e)}
+                                                        disabled={!isEditing}
+                                                        className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
+                                                        placeholder="e.g., Witty, Professional, Authoritative"
+                                                    />
+                                                </div>
 
-                        <div className="space-y-4">
-                            <label className="text-sm font-medium text-white">Past Successful Posts (Style Mimicry)</label>
+                                                <div className="space-y-2">
+                                                    <label className="text-sm font-medium text-white">Reading Level Target</label>
+                                                    <input
+                                                        type="text"
+                                                        name="readingLevel"
+                                                        value={persona.readingLevel}
+                                                        onChange={(e) => handlePersonaChange(index, e)}
+                                                        disabled={!isEditing}
+                                                        className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
+                                                        placeholder="e.g., 3rd Grade, 8th Grade"
+                                                    />
+                                                </div>
+                                            </div>
 
-                            <div className="space-y-2">
-                                <label className="text-xs text-slate-500">Link 1</label>
-                                <input
-                                    type="url"
-                                    name="link1"
-                                    value={formData.link1}
-                                    onChange={handleChange}
-                                    disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
-                                    placeholder="https://..."
-                                />
+                                            <div className="space-y-2">
+                                                <label className="text-sm font-medium text-white">Voice Intensity Slider (1-10)</label>
+                                                <div className={`flex items-center gap-4 ${!isEditing ? 'opacity-50' : ''}`}>
+                                                    <span className="text-xs text-slate-500">Subtle</span>
+                                                    <input
+                                                        type="range"
+                                                        name="voiceIntensity"
+                                                        min="1"
+                                                        max="10"
+                                                        value={persona.voiceIntensity}
+                                                        onChange={(e) => handlePersonaChange(index, e)}
+                                                        disabled={!isEditing}
+                                                        className="w-full accent-brand-purple cursor-pointer disabled:cursor-not-allowed"
+                                                    />
+                                                    <span className="text-xs text-slate-500">Extreme</span>
+                                                    <span className="font-bold text-brand-gold w-8 text-center">{persona.voiceIntensity}</span>
+                                                </div>
+                                            </div>
+
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                                <div className="space-y-2">
+                                                    <label className="text-sm font-medium text-white">Forbidden Words</label>
+                                                    <textarea
+                                                        name="forbiddenWords"
+                                                        value={persona.forbiddenWords}
+                                                        onChange={(e) => handlePersonaChange(index, e)}
+                                                        rows={3}
+                                                        disabled={!isEditing}
+                                                        className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:cursor-not-allowed"
+                                                        placeholder="List of negative keywords or slang to strictly avoid"
+                                                    />
+                                                </div>
+
+                                                <div className="space-y-2">
+                                                    <label className="text-sm font-medium text-white">Required Terminology</label>
+                                                    <textarea
+                                                        name="requiredTerminology"
+                                                        value={persona.requiredTerminology}
+                                                        onChange={(e) => handlePersonaChange(index, e)}
+                                                        rows={3}
+                                                        disabled={!isEditing}
+                                                        className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all resize-none disabled:cursor-not-allowed"
+                                                        placeholder="Industry-specific terms that must be used correctly"
+                                                    />
+                                                </div>
+                                            </div>
+
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                                <div className="space-y-2">
+                                                    <label className="text-sm font-medium text-white">Emoji Usage Preference</label>
+                                                    <select
+                                                        name="emojiUsage"
+                                                        value={persona.emojiUsage}
+                                                        onChange={(e) => handlePersonaChange(index, e)}
+                                                        disabled={!isEditing}
+                                                        className="w-full bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all appearance-none disabled:cursor-not-allowed"
+                                                    >
+                                                        <option value="">Select preferences...</option>
+                                                        <option value="None">None</option>
+                                                        <option value="Minimal">Minimal</option>
+                                                        <option value="Moderate">Moderate</option>
+                                                        <option value="Heavy">Heavy</option>
+                                                    </select>
+                                                </div>
+
+                                                <div className="space-y-2">
+                                                    <label className="text-sm font-medium text-white">Hook Style Preference</label>
+                                                    <input
+                                                        type="text"
+                                                        name="hookStyle"
+                                                        value={persona.hookStyle}
+                                                        onChange={(e) => handlePersonaChange(index, e)}
+                                                        disabled={!isEditing}
+                                                        className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
+                                                        placeholder="e.g., Question, Shock Statement, Story"
+                                                    />
+                                                </div>
+                                            </div>
+
+                                            <div className="space-y-4">
+                                                <label className="text-sm font-medium text-white">Past Successful Posts (Style Mimicry)</label>
+
+                                                <div className="space-y-2">
+                                                    <label className="text-xs text-slate-500">Link 1</label>
+                                                    <input
+                                                        type="url"
+                                                        name="link1"
+                                                        value={persona.link1}
+                                                        onChange={(e) => handlePersonaChange(index, e)}
+                                                        disabled={!isEditing}
+                                                        className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
+                                                        placeholder="https://..."
+                                                    />
+                                                </div>
+                                                <div className="space-y-2">
+                                                    <label className="text-xs text-slate-500">Link 2</label>
+                                                    <input
+                                                        type="url"
+                                                        name="link2"
+                                                        value={persona.link2}
+                                                        onChange={(e) => handlePersonaChange(index, e)}
+                                                        disabled={!isEditing}
+                                                        className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
+                                                        placeholder="https://..."
+                                                    />
+                                                </div>
+                                                <div className="space-y-2">
+                                                    <label className="text-xs text-slate-500">Link 3</label>
+                                                    <input
+                                                        type="url"
+                                                        name="link3"
+                                                        value={persona.link3}
+                                                        onChange={(e) => handlePersonaChange(index, e)}
+                                                        disabled={!isEditing}
+                                                        className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                                        placeholder="https://..."
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
                             </div>
-                            <div className="space-y-2">
-                                <label className="text-xs text-slate-500">Link 2</label>
-                                <input
-                                    type="url"
-                                    name="link2"
-                                    value={formData.link2}
-                                    onChange={handleChange}
-                                    disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:cursor-not-allowed"
-                                    placeholder="https://..."
-                                />
-                            </div>
-                            <div className="space-y-2">
-                                <label className="text-xs text-slate-500">Link 3</label>
-                                <input
-                                    type="url"
-                                    name="link3"
-                                    value={formData.link3}
-                                    onChange={handleChange}
-                                    disabled={!isEditing}
-                                    className="w-full bg-surface-dark border border-brand-purple rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-brand-purple focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                                    placeholder="https://..."
-                                />
-                            </div>
-                        </div>
+                        ))}
                     </div>
+
+                    {isEditing && (
+                        <button
+                            type="button"
+                            onClick={addPersona}
+                            className="w-full py-4 border-2 border-dashed border-surface-border rounded-xl text-slate-400 hover:text-white hover:border-brand-purple hover:bg-brand-purple/5 transition-all flex items-center justify-center gap-2 font-bold"
+                        >
+                            <Plus className="w-5 h-5" /> Add New Persona Model
+                        </button>
+                    )}
 
                     <div className="pt-6 border-t border-surface-border flex justify-end gap-3">
                         {!isEditing ? (

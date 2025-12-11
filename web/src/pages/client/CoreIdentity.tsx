@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { Plus, Trash2 } from 'lucide-react';
 
 const CoreIdentity = () => {
     const [isEditing, setIsEditing] = useState(false);
+    // State to hold form data (simulating data that will be auto-generated later)
     // State to hold form data (simulating data that will be auto-generated later)
     const [formData, setFormData] = useState({
         companyName: '',
@@ -11,6 +13,7 @@ const CoreIdentity = () => {
         primaryColor: '#FF3EA5',
         secondaryColor: '#9D4EDD',
         accentColor: '#FFD700',
+        additionalColors: [] as string[],
         typography: '',
         missionStatement: '',
         visionStatement: '',
@@ -23,6 +26,36 @@ const CoreIdentity = () => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
+    };
+
+    const handleAdditionalColorChange = (index: number, value: string) => {
+        const newColors = [...formData.additionalColors];
+        newColors[index] = value;
+        setFormData(prev => ({ ...prev, additionalColors: newColors }));
+    };
+
+    const addColor = () => {
+        setFormData(prev => ({ ...prev, additionalColors: [...prev.additionalColors, '#ffffff'] }));
+    };
+
+    const removeColor = (index: number) => {
+        const newColors = formData.additionalColors.filter((_, i) => i !== index);
+        setFormData(prev => ({ ...prev, additionalColors: newColors }));
+    };
+
+    const getAdditionalColorLabel = (index: number) => {
+        const labels = [
+            { name: 'Tertiary', ord: '3rd' },
+            { name: 'Quaternary', ord: '4th' },
+            { name: 'Quinary', ord: '5th' },
+            { name: 'Senary', ord: '6th' },
+            { name: 'Septenary', ord: '7th' },
+            { name: 'Octonary', ord: '8th' },
+            { name: 'Nonary', ord: '9th' },
+            { name: 'Decenary', ord: '10th' },
+        ];
+        const label = labels[index] || { name: `Option`, ord: `${index + 3}th` };
+        return `${label.name} (${label.ord}) Color`;
     };
 
     const handleSave = () => {
@@ -189,6 +222,55 @@ const CoreIdentity = () => {
                                     />
                                 </div>
                             </div>
+
+                            {/* Additional Colors */}
+                            {formData.additionalColors.map((color, index) => (
+                                <div key={index} className="space-y-2 animate-in fade-in zoom-in duration-300">
+                                    <div className="flex justify-between items-center">
+                                        <label className="text-sm font-medium text-white">{getAdditionalColorLabel(index)}</label>
+                                        {isEditing && (
+                                            <button
+                                                type="button"
+                                                onClick={() => removeColor(index)}
+                                                className="text-slate-500 hover:text-red-400 p-1"
+                                                title="Remove Color"
+                                            >
+                                                <Trash2 className="w-4 h-4" />
+                                            </button>
+                                        )}
+                                    </div>
+                                    <div className="flex gap-2">
+                                        <input
+                                            type="color"
+                                            value={color}
+                                            onChange={(e) => handleAdditionalColorChange(index, e.target.value)}
+                                            disabled={!isEditing}
+                                            className="h-12 w-12 rounded border-none cursor-pointer bg-transparent disabled:cursor-not-allowed"
+                                        />
+                                        <input
+                                            type="text"
+                                            value={color}
+                                            onChange={(e) => handleAdditionalColorChange(index, e.target.value)}
+                                            disabled={!isEditing}
+                                            className="flex-1 bg-surface-dark border border-surface-border rounded-lg px-4 py-3 text-white font-mono uppercase disabled:cursor-not-allowed"
+                                        />
+                                    </div>
+                                </div>
+                            ))}
+
+                            {/* Add Color Button */}
+                            {isEditing && (
+                                <div className="space-y-2 flex flex-col justify-end">
+                                    <div className="h-[21px] mb-2"></div> {/* Spacer for label alignment */}
+                                    <button
+                                        type="button"
+                                        onClick={addColor}
+                                        className="h-12 w-full border-2 border-dashed border-surface-border rounded-lg flex items-center justify-center text-slate-400 hover:text-white hover:border-brand-purple hover:bg-brand-purple/10 transition-all font-bold text-sm gap-2"
+                                    >
+                                        <Plus className="w-4 h-4" /> Add Color
+                                    </button>
+                                </div>
+                            )}
                         </div>
 
                         <div className="space-y-2">
