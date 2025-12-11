@@ -1,6 +1,16 @@
-
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import logo from '../assets/logo.png';
+import {
+    Target,
+    Palette,
+    MessageCircle,
+    BarChart3,
+    Megaphone,
+    Handshake,
+    Settings,
+    ChevronRight,
+    Home
+} from 'lucide-react';
 
 const ClientLayout = () => {
     const location = useLocation();
@@ -8,7 +18,7 @@ const ClientLayout = () => {
     const navSections = [
         {
             name: 'Brand DNA',
-            icon: '🎯',
+            icon: Target,
             items: [
                 { name: 'Core Identity & Basics', path: '/client/strategy/identity' },
                 { name: 'AI Voice Calibration', path: '/client/strategy/persona' },
@@ -17,14 +27,13 @@ const ClientLayout = () => {
                 { name: 'Content Pillars & Mix', path: '/client/strategy/content-pillars' },
                 { name: 'Competitor Recon', path: '/client/strategy/competitors' },
                 { name: 'Brand Report', path: '/client/strategy/reports' },
-                { name: "Creative Studio", path: "/client/creative-studio" },
             ]
         },
         {
             name: 'Creative Studio',
-            icon: '🎨',
+            icon: Palette,
             items: [
-                { name: 'Input Wizard', path: '/client/creative-studio' },
+                { name: 'Content Wizard', path: '/client/creative-studio' },
                 { name: 'Visual Assets', path: '/client/creative/visuals' },
                 { name: 'Video Optimization', path: '/client/creative/video' },
                 { name: 'Swipe File', path: '/client/creative/swipe' },
@@ -32,7 +41,7 @@ const ClientLayout = () => {
         },
         {
             name: 'Engagement',
-            icon: '💬',
+            icon: MessageCircle,
             items: [
                 { name: 'Platform Config', path: '/client/engagement/platforms' },
                 { name: 'Lead Automation', path: '/client/engagement/automation' },
@@ -40,7 +49,7 @@ const ClientLayout = () => {
         },
         {
             name: 'Analytics & ROI',
-            icon: '📊',
+            icon: BarChart3,
             items: [
                 { name: 'Funnel Analysis', path: '/client/analytics/funnel' },
                 { name: 'Competitor Spy', path: '/client/analytics/competitors' },
@@ -48,7 +57,7 @@ const ClientLayout = () => {
         },
         {
             name: 'Ad Management',
-            icon: '📢',
+            icon: Megaphone,
             items: [
                 { name: 'Campaign Builder', path: '/client/ads/campaigns' },
                 { name: 'Budget Optimizer', path: '/client/ads/budget' },
@@ -56,7 +65,7 @@ const ClientLayout = () => {
         },
         {
             name: 'Sales',
-            icon: '🤝',
+            icon: Handshake,
             items: [
                 { name: 'CRM Pipeline', path: '/client/crm' },
                 { name: 'Support Center', path: '/client/support' },
@@ -64,7 +73,7 @@ const ClientLayout = () => {
         },
         {
             name: 'Settings',
-            icon: '⚙️',
+            icon: Settings,
             items: [
                 { name: 'Team Settings', path: '/client/settings/team' },
             ]
@@ -86,10 +95,10 @@ const ClientLayout = () => {
                             to="/client"
                             className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group ${location.pathname === '/client'
                                 ? 'bg-brand-purple/10 text-brand-purple border border-brand-purple/20 shadow-[0_0_15px_rgba(157,78,221,0.15)]'
-                                : 'hover:bg-surface-hover text-slate-400 hover:text-white'
+                                : 'hover:bg-surface-hover hover:text-brand-purple text-white'
                                 }`}
                         >
-                            <span className="text-xl">🏠</span>
+                            <Home className="w-5 h-5 min-w-[20px]" />
                             <span className="font-medium hidden lg:block">Overview</span>
 
                             {/* Tooltip for collapsed state */}
@@ -102,12 +111,12 @@ const ClientLayout = () => {
                     {/* Sections with Flyouts */}
                     {navSections.map((section) => (
                         <div key={section.name} className="px-3 relative group">
-                            <button className="w-full flex items-center justify-between px-4 py-3 rounded-xl hover:bg-surface-hover transition-colors text-slate-400 hover:text-white group-hover:text-white">
+                            <button className="w-full flex items-center justify-between px-4 py-3 rounded-xl hover:bg-surface-hover hover:text-brand-purple transition-colors text-white">
                                 <div className="flex items-center gap-3">
-                                    <span className="text-xl">{section.icon}</span>
+                                    <section.icon className="w-5 h-5 min-w-[20px]" />
                                     <span className="font-medium hidden lg:block">{section.name}</span>
                                 </div>
-                                <span className="text-xs opacity-0 lg:opacity-50 group-hover:opacity-100 transition-opacity text-brand-gold">▶</span>
+                                <ChevronRight className="w-4 h-4 opacity-0 lg:opacity-50 group-hover:opacity-100 transition-opacity text-brand-gold" />
                             </button>
 
                             {/* Flyout Menu */}
@@ -122,7 +131,7 @@ const ClientLayout = () => {
                                             to={item.path}
                                             className={`block px-3 py-2 rounded-lg text-sm transition-colors ${location.pathname === item.path
                                                 ? 'bg-brand-pink/10 text-brand-pink'
-                                                : 'text-slate-300 hover:bg-surface-hover hover:text-white'
+                                                : 'text-white hover:bg-surface-hover hover:text-brand-purple'
                                                 }`}
                                         >
                                             {item.name}
