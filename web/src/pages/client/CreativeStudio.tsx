@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from 'react';
+import { Pencil, Check, X, RefreshCw } from 'lucide-react';
 
 // Mock Data Structure
 interface Script {
@@ -55,11 +56,13 @@ const CreativeStudio = () => {
     // Redo / Feedback State
     const [redoMode, setRedoMode] = useState(false);
     const [feedbackText, setFeedbackText] = useState("");
+    const [isEditing, setIsEditing] = useState(false);
 
     // Reset redo state when opening a new script
     useEffect(() => {
         setRedoMode(false);
         setFeedbackText("");
+        setIsEditing(false);
     }, [selectedScript]);
 
     const handleScriptUpdate = (id: number, field: keyof Script, value: any) => {
@@ -348,7 +351,8 @@ const CreativeStudio = () => {
                                         <textarea
                                             value={selectedScript.hook}
                                             onChange={(e) => handleScriptUpdate(selectedScript.id, 'hook', e.target.value)}
-                                            className="w-full bg-surface-card border border-surface-border rounded-lg p-3 text-white font-bold text-lg focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition-all resize-none"
+                                            disabled={!isEditing}
+                                            className={`w-full bg-surface-card border border-surface-border rounded-lg p-3 text-white font-bold text-lg focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition-all resize-none ${!isEditing ? 'opacity-90' : ''}`}
                                             rows={2}
                                         />
                                     </div>
@@ -357,7 +361,8 @@ const CreativeStudio = () => {
                                         <textarea
                                             value={selectedScript.body}
                                             onChange={(e) => handleScriptUpdate(selectedScript.id, 'body', e.target.value)}
-                                            className="w-full bg-surface-card border border-surface-border rounded-lg p-3 text-slate-300 focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition-all resize-none leading-relaxed"
+                                            disabled={!isEditing}
+                                            className={`w-full bg-surface-card border border-surface-border rounded-lg p-3 text-slate-300 focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition-all resize-none leading-relaxed ${!isEditing ? 'opacity-90' : ''}`}
                                             rows={8}
                                         />
                                     </div>
@@ -367,7 +372,8 @@ const CreativeStudio = () => {
                                             type="text"
                                             value={selectedScript.cta}
                                             onChange={(e) => handleScriptUpdate(selectedScript.id, 'cta', e.target.value)}
-                                            className="w-full bg-surface-card border border-surface-border rounded-lg p-3 text-brand-purple font-mono focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition-all"
+                                            disabled={!isEditing}
+                                            className={`w-full bg-surface-card border border-surface-border rounded-lg p-3 text-brand-purple font-mono focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition-all ${!isEditing ? 'opacity-90' : ''}`}
                                         />
                                     </div>
                                 </div>
@@ -400,7 +406,8 @@ const CreativeStudio = () => {
                                         <textarea
                                             value={selectedScript.visualDescription}
                                             onChange={(e) => handleScriptUpdate(selectedScript.id, 'visualDescription', e.target.value)}
-                                            className="w-full bg-surface-dark border border-surface-border rounded-lg p-3 text-slate-300 text-sm focus:border-brand-pink focus:ring-1 focus:ring-brand-pink transition-all resize-none"
+                                            disabled={!isEditing}
+                                            className={`w-full bg-surface-dark border border-surface-border rounded-lg p-3 text-slate-300 text-sm focus:border-brand-pink focus:ring-1 focus:ring-brand-pink transition-all resize-none ${!isEditing ? 'opacity-90' : ''}`}
                                             rows={4}
                                         />
                                     </div>
@@ -412,22 +419,31 @@ const CreativeStudio = () => {
                                         {!redoMode ? (
                                             <div className="flex gap-2 p-1 bg-surface-border/30 rounded-lg border border-surface-border">
                                                 <button
-                                                    onClick={() => handleScriptUpdate(selectedScript.id, 'status', 'approve')}
-                                                    className={`flex-1 py-3 px-4 rounded-md font-bold text-sm transition-all flex items-center justify-center gap-2 ${selectedScript.status === 'approve' ? 'bg-green-500 text-white shadow-lg shadow-green-500/20' : 'hover:bg-surface-hover text-slate-400'}`}
+                                                    onClick={() => setIsEditing(!isEditing)}
+                                                    className={`flex-1 py-3 px-4 rounded-md font-bold text-sm transition-all flex items-center justify-center gap-2 ${isEditing ? 'bg-brand-purple text-white shadow-lg shadow-brand-purple/20' : 'hover:bg-surface-hover text-slate-400'}`}
                                                 >
-                                                    <span>✅</span> Approve
+                                                    <Pencil className="w-4 h-4" /> {isEditing ? 'Done' : 'Edit'}
+                                                </button>
+                                                <button
+                                                    onClick={() => handleScriptUpdate(selectedScript.id, 'status', 'approve')}
+                                                    disabled={isEditing}
+                                                    className={`flex-1 py-3 px-4 rounded-md font-bold text-sm transition-all flex items-center justify-center gap-2 ${selectedScript.status === 'approve' ? 'bg-green-500 text-white shadow-lg shadow-green-500/20' : 'hover:bg-surface-hover text-slate-400'} ${isEditing ? 'opacity-50 cursor-not-allowed' : ''}`}
+                                                >
+                                                    <Check className="w-4 h-4" /> Approve
                                                 </button>
                                                 <button
                                                     onClick={() => handleScriptUpdate(selectedScript.id, 'status', 'veto')}
-                                                    className={`flex-1 py-3 px-4 rounded-md font-bold text-sm transition-all flex items-center justify-center gap-2 ${selectedScript.status === 'veto' ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'hover:bg-surface-hover text-slate-400'}`}
+                                                    disabled={isEditing}
+                                                    className={`flex-1 py-3 px-4 rounded-md font-bold text-sm transition-all flex items-center justify-center gap-2 ${selectedScript.status === 'veto' ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'hover:bg-surface-hover text-slate-400'} ${isEditing ? 'opacity-50 cursor-not-allowed' : ''}`}
                                                 >
-                                                    <span>✕</span> Veto
+                                                    <X className="w-4 h-4" /> Veto
                                                 </button>
                                                 <button
                                                     onClick={() => setRedoMode(true)}
-                                                    className={`flex-1 py-3 px-4 rounded-md font-bold text-sm transition-all flex items-center justify-center gap-2 ${selectedScript.status === 'redo' ? 'bg-brand-gold/90 text-white shadow-lg shadow-brand-gold/20' : 'hover:bg-surface-hover text-slate-400'}`}
+                                                    disabled={isEditing}
+                                                    className={`flex-1 py-3 px-4 rounded-md font-bold text-sm transition-all flex items-center justify-center gap-2 ${selectedScript.status === 'redo' ? 'bg-brand-gold/90 text-white shadow-lg shadow-brand-gold/20' : 'hover:bg-surface-hover text-slate-400'} ${isEditing ? 'opacity-50 cursor-not-allowed' : ''}`}
                                                 >
-                                                    <span>↻</span> Redo
+                                                    <RefreshCw className="w-4 h-4" /> Redo
                                                 </button>
                                             </div>
                                         ) : (
