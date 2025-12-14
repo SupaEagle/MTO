@@ -470,8 +470,12 @@ const OmniComposer = ({ onClose, initialAsset }: { onClose: () => void, initialA
                                 <button
                                     key={tab.id}
                                     onClick={() => setActiveTab(tab.id)}
-                                    className={`flex-1 min-w-[100px] py-4 flex items-center justify-center gap-2 text-sm font-bold border-b-2 transition-all relative group ${activeTab === tab.id ? `border-brand-purple text-white bg-surface-card` : 'border-transparent text-slate-500 hover:text-white hover:bg-surface-hover'} ${!isSelected ? 'opacity-50 grayscale' : ''}`}
+                                    className={`flex-1 min-w-[100px] py-4 flex items-center justify-center gap-2 text-sm font-bold relative transition-all group ${activeTab === tab.id ? `text-white bg-surface-card` : 'text-slate-500 hover:text-white hover:bg-surface-hover'} ${!isSelected ? 'opacity-50 grayscale' : ''}`}
                                 >
+                                    {/* Custom Bottom Border */}
+                                    {activeTab === tab.id && (
+                                        <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-purple z-10 mx-4 rounded-t-full shadow-[0_-2px_8px_rgba(124,58,237,0.5)]"></span>
+                                    )}
                                     <div
                                         onClick={(e) => togglePlatform(tab.id, e)}
                                         className={`w-3 h-3 rounded border flex items-center justify-center transition-colors ${isSelected ? 'bg-brand-gold border-brand-gold' : 'bg-transparent border-brand-purple hover:border-brand-gold'}`}
