@@ -59,7 +59,7 @@ const ClientLayout = () => {
             name: 'Ad Management',
             icon: Megaphone,
             items: [
-                { name: 'Campaign Builder', path: '/client/ads/campaigns' },
+                { name: 'Paid Media & Ads', path: '/client/ads/campaigns' },
                 { name: 'Budget Optimizer', path: '/client/ads/budget' },
             ]
         },

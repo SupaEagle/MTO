@@ -6,6 +6,8 @@ const PlatformConfig = () => {
         { id: 'twitter', name: 'X (Twitter)', connected: true, account: '@sarahj_marketing' },
         { id: 'instagram', name: 'Instagram', connected: false, account: '' },
         { id: 'facebook', name: 'Facebook Page', connected: false, account: '' },
+        { id: 'youtube', name: 'YouTube', connected: false, account: '' },
+        { id: 'pinterest', name: 'Pinterest', connected: false, account: '' },
     ]);
 
     const toggleConnection = (id: string) => {
@@ -38,8 +40,8 @@ const PlatformConfig = () => {
                             <button
                                 onClick={() => toggleConnection(platform.id)}
                                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${platform.connected
-                                        ? 'bg-red-500/10 text-red-400 hover:bg-red-500/20'
-                                        : 'bg-teal-600 text-white hover:bg-teal-500'
+                                    ? 'bg-red-500/10 text-red-400 hover:bg-red-500/20'
+                                    : 'bg-teal-600 text-white hover:bg-teal-500'
                                     }`}
                             >
                                 {platform.connected ? 'Disconnect' : 'Connect'}

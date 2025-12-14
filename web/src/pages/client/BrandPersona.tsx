@@ -78,7 +78,7 @@ const BrandPersona = () => {
                 <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
                     <div className="space-y-4">
                         {personas.map((persona, index) => (
-                            <div key={index} className="border border-surface-border rounded-xl overflow-hidden bg-surface-dark/30">
+                            <div key={index} className="border border-white/20 rounded-xl overflow-hidden bg-surface-dark/30">
                                 {/* Accordion Header */}
                                 <div
                                     onClick={() => toggleExpand(index)}
