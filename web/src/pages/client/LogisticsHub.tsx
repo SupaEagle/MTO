@@ -474,7 +474,7 @@ const OmniComposer = ({ onClose, initialAsset }: { onClose: () => void, initialA
                                 >
                                     {/* Custom Bottom Border */}
                                     {activeTab === tab.id && (
-                                        <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-purple z-10 mx-4 rounded-t-full shadow-[0_-2px_8px_rgba(124,58,237,0.5)]"></span>
+                                        <span className="absolute bottom-1 left-0 right-0 h-0.5 bg-brand-purple z-10 mx-4 rounded-t-full shadow-[0_-2px_8px_rgba(124,58,237,0.5)]"></span>
                                     )}
                                     <div
                                         onClick={(e) => togglePlatform(tab.id, e)}
