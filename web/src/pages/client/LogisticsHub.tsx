@@ -10,7 +10,10 @@ import {
     Facebook,
     Youtube,
     RefreshCw,
-    Image as ImageIcon
+    Image as ImageIcon,
+    Check,
+    Wand2,
+    Edit2
 } from 'lucide-react';
 
 const LogisticsHub = () => {
@@ -273,11 +276,19 @@ const SmartRecyclingEngine = ({ onClose }: { onClose: () => void }) => {
     );
 };
 
+
 const OmniComposer = ({ onClose, initialAsset }: { onClose: () => void, initialAsset?: any }) => {
     const [activeTab, setActiveTab] = useState('twitter');
     const [showPool, setShowPool] = useState(false);
     const [masterText, setMasterText] = useState("");
     const [masterMedia, setMasterMedia] = useState<string | null>(null);
+
+    // New State for Scheduling & Editing
+    const [selectedPlatforms, setSelectedPlatforms] = useState<Set<string>>(new Set(['twitter', 'instagram', 'linkedin', 'facebook', 'youtube', 'pinterest']));
+    const [schedules, setSchedules] = useState<Record<string, { date: string, time: string }>>({});
+    const [isEditing, setIsEditing] = useState(false);
+    const [isRegenerating, setIsRegenerating] = useState(false);
+    const [platformContent, setPlatformContent] = useState<Record<string, string>>({});
 
     useEffect(() => {
         if (initialAsset) {
@@ -286,15 +297,81 @@ const OmniComposer = ({ onClose, initialAsset }: { onClose: () => void, initialA
         }
     }, [initialAsset]);
 
+    // Initialize default schedule for all platforms (e.g., tomorrow at 9am)
+    useEffect(() => {
+        const initialSchedules: Record<string, { date: string, time: string }> = {};
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        const dateStr = tomorrow.toISOString().split('T')[0];
+
+        ['twitter', 'instagram', 'linkedin', 'facebook', 'youtube', 'pinterest'].forEach(p => {
+            initialSchedules[p] = { date: dateStr, time: "09:00" };
+        });
+        setSchedules(initialSchedules);
+    }, []);
+
     const handlePoolSelect = (item: any) => {
         setMasterText(item.script);
         setMasterMedia(item.image);
         setShowPool(false);
     };
 
+    const togglePlatform = (platformId: string, e: React.MouseEvent) => {
+        e.stopPropagation();
+        const newSelected = new Set(selectedPlatforms);
+        if (newSelected.has(platformId)) {
+            newSelected.delete(platformId);
+        } else {
+            newSelected.add(platformId);
+        }
+        setSelectedPlatforms(newSelected);
+    };
+
+    const handleScheduleChange = (key: 'date' | 'time', value: string) => {
+        setSchedules(prev => ({
+            ...prev,
+            [activeTab]: {
+                ...prev[activeTab],
+                [key]: value
+            }
+        }));
+    };
+
+    const handleRegenerate = () => {
+        setIsRegenerating(true);
+        setTimeout(() => {
+            setIsRegenerating(false);
+            // Mock content change or just feedback
+            alert(`Regenerated content for ${activeTab} using new AI context!`);
+        }, 1500);
+    };
+
+    const handleApply = () => {
+        // Collect all scheduled posts
+        const payload = Array.from(selectedPlatforms).map(p => ({
+            platform: p,
+            content: platformContent[p] || masterText, // Fallback to master if no specific edit
+            schedule: schedules[p],
+            media: masterMedia
+        }));
+
+        console.log("Scheduling Payload:", payload);
+        alert(`✅ Successfully Scheduled ${payload.length} posts!\n\nReturning to Calendar...`);
+        onClose();
+    };
+
+    const platforms = [
+        { id: 'twitter', icon: XIcon, label: 'X Post', color: 'text-white' },
+        { id: 'instagram', icon: Instagram, label: 'Insta Reel', color: 'text-pink-500' },
+        { id: 'linkedin', icon: Linkedin, label: 'LinkedIn', color: 'text-blue-500' },
+        { id: 'facebook', icon: Facebook, label: 'Facebook', color: 'text-blue-600' },
+        { id: 'youtube', icon: Youtube, label: 'YouTube Short', color: 'text-red-600' },
+        { id: 'pinterest', icon: PinterestIcon, label: 'Pinterest', color: 'text-red-500' },
+    ];
+
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-8 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-            <div className="bg-surface-dark border border-surface-border rounded-2xl w-full max-w-6xl h-[80vh] flex overflow-hidden shadow-2xl animate-in zoom-in-95 duration-200 relative">
+            <div className="bg-surface-dark border border-surface-border rounded-2xl w-full max-w-6xl h-[85vh] flex overflow-hidden shadow-2xl animate-in zoom-in-95 duration-200 relative">
 
                 {/* Content Pool Overlay */}
                 {showPool && (
@@ -386,110 +463,125 @@ const OmniComposer = ({ onClose, initialAsset }: { onClose: () => void, initialA
 
                 {/* Right Panel: Platform Splitter */}
                 <div className="w-2/3 flex flex-col bg-surface-dark">
-                    <div className="flex border-b border-surface-border">
-                        {[
-                            { id: 'twitter', icon: XIcon, label: 'X Post', color: 'text-white' },
-                            { id: 'instagram', icon: Instagram, label: 'Insta Reel', color: 'text-pink-500' },
-                            { id: 'linkedin', icon: Linkedin, label: 'LinkedIn', color: 'text-blue-500' },
-                            { id: 'facebook', icon: Facebook, label: 'Facebook', color: 'text-blue-600' },
-                            { id: 'youtube', icon: Youtube, label: 'YouTube Short', color: 'text-red-600' },
-                            { id: 'pinterest', icon: PinterestIcon, label: 'Pinterest', color: 'text-red-500' },
-                        ].map(tab => (
-                            <button
-                                key={tab.id}
-                                onClick={() => setActiveTab(tab.id)}
-                                className={`flex-1 py-4 flex items-center justify-center gap-2 text-sm font-bold border-b-2 transition-all ${activeTab === tab.id ? `border-brand-purple text-white bg-surface-card` : 'border-transparent text-slate-500 hover:text-white hover:bg-surface-hover'}`}
-                            >
-                                <tab.icon className={`w-4 h-4 ${activeTab === tab.id ? tab.color : ''}`} /> {tab.label}
-                            </button>
-                        ))}
+                    <div className="flex border-b border-surface-border overflow-x-auto no-scrollbar">
+                        {platforms.map(tab => {
+                            const isSelected = selectedPlatforms.has(tab.id);
+                            return (
+                                <button
+                                    key={tab.id}
+                                    onClick={() => setActiveTab(tab.id)}
+                                    className={`flex-1 min-w-[100px] py-4 flex items-center justify-center gap-2 text-sm font-bold border-b-2 transition-all relative group ${activeTab === tab.id ? `border-brand-purple text-white bg-surface-card` : 'border-transparent text-slate-500 hover:text-white hover:bg-surface-hover'} ${!isSelected ? 'opacity-50 grayscale' : ''}`}
+                                >
+                                    <div
+                                        onClick={(e) => togglePlatform(tab.id, e)}
+                                        className={`w-3 h-3 rounded border flex items-center justify-center transition-colors ${isSelected ? 'bg-brand-purple border-brand-purple' : 'bg-transparent border-slate-500 hover:border-white'}`}
+                                        title={`Toggle ${tab.label}`}
+                                    >
+                                        {isSelected && <Check className="w-2 h-2 text-white" />}
+                                    </div>
+                                    <tab.icon className={`w-4 h-4 ${activeTab === tab.id ? tab.color : ''}`} />
+                                    <span className="hidden lg:inline">{tab.label}</span>
+                                </button>
+                            );
+                        })}
                     </div>
 
-                    <div className="flex-1 p-8 overflow-y-auto">
+                    <div className="flex-1 p-8 overflow-y-auto bg-surface-card/30">
                         {/* Mock AI Output */}
                         <div className="space-y-6 animate-in slide-in-from-right-4 duration-300">
-                            <div className="bg-surface-card border border-surface-border rounded-xl p-6">
-                                <div className="flex justify-between items-start mb-4">
-                                    <div className="flex items-center gap-2">
-                                        <div className="w-8 h-8 bg-brand-purple/20 rounded-full flex items-center justify-center text-brand-purple">
-                                            <span className="text-xs font-bold">AI</span>
+
+                            {/* Editor Card */}
+                            <div className="bg-surface-card border border-surface-border rounded-xl p-6 shadow-xl">
+                                <div className="flex justify-between items-start mb-4 border-b border-surface-border pb-4">
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-8 h-8 bg-brand-purple/20 rounded-full flex items-center justify-center text-brand-purple ring-1 ring-brand-purple/50">
+                                            <Wand2 className="w-4 h-4" />
                                         </div>
-                                        <span className="text-sm font-bold text-white">Generated Draft</span>
+                                        <div>
+                                            <span className="text-sm font-bold text-white block">Generated Draft</span>
+                                            <span className="text-[10px] text-slate-400">Optimized for {platforms.find(p => p.id === activeTab)?.label}</span>
+                                        </div>
                                     </div>
-                                    <span className="bg-green-500/10 text-green-500 text-xs px-2 py-1 rounded border border-green-500/20 font-bold">Optimized for {activeTab}</span>
+                                    <div className="flex gap-2">
+                                        <button
+                                            onClick={() => setIsEditing(!isEditing)}
+                                            className={`p-2 rounded-lg transition-colors flex items-center gap-2 text-xs font-bold ${isEditing ? 'bg-brand-purple text-white' : 'bg-surface-dark text-slate-400 hover:text-white'}`}
+                                        >
+                                            <Edit2 className="w-3 h-3" /> {isEditing ? 'Done' : 'Edit'}
+                                        </button>
+                                        <button
+                                            onClick={handleRegenerate}
+                                            disabled={isRegenerating}
+                                            className="p-2 bg-surface-dark text-slate-400 hover:text-white rounded-lg transition-colors"
+                                            title="Regenerate"
+                                        >
+                                            <RefreshCw className={`w-4 h-4 ${isRegenerating ? 'animate-spin text-brand-gold' : ''}`} />
+                                        </button>
+                                    </div>
                                 </div>
 
-                                {activeTab === 'twitter' && (
-                                    <div className="space-y-4">
-                                        <div className="p-3 border-l-2 border-slate-600 pl-4">
-                                            <p className="text-white text-lg">{masterText ? masterText.substring(0, 50) + "... 🧵👇" : "Stop scrolling. 🛑"}</p>
+                                <div className="min-h-[120px]">
+                                    {isEditing ? (
+                                        <textarea
+                                            className="w-full bg-surface-dark border border-surface-border rounded-lg p-3 text-white text-sm focus:ring-1 focus:ring-brand-purple focus:border-brand-purple h-32 leading-relaxed"
+                                            value={platformContent[activeTab] || masterText}
+                                            onChange={(e) => setPlatformContent(prev => ({ ...prev, [activeTab]: e.target.value }))}
+                                        />
+                                    ) : (
+                                        <div className="text-white text-sm leading-relaxed whitespace-pre-wrap">
+                                            {platformContent[activeTab] || masterText || "Start typing in the Master Input to generate content..."}
+                                            {!masterText && !platformContent[activeTab] && <span className="text-slate-500 italic"> waiting for input...</span>}
                                         </div>
-                                        <div className="p-3 border-l-2 border-slate-600 pl-4">
-                                            <p className="text-white text-lg">{masterText ? "This is the breakdown of why this works..." : "Our new vanilla flavor just dropped and it's changing the game. Here is why you need to try it: 🧵👇"}</p>
-                                        </div>
-                                    </div>
-                                )}
-
-                                {activeTab === 'instagram' && (
-                                    <div className="space-y-4">
-                                        <p className="text-white text-sm leading-relaxed">
-                                            {masterText ? `POV: ${masterText.substring(0, 100)}...` : `POV: You finally found the perfect vanilla coffee. 🍦☕️ <br /><br />
-                                            We just launched the Vanilla Bean Dream and we can't keep it in stock. Tag a friend who needs this! 👇<br /><br />
-                                            #CoffeeLover #NewDrop #VanillaDream #MorningRoutine`}
-                                        </p>
-                                        <div className="flex items-center gap-2 text-xs text-slate-400 bg-surface-dark p-2 rounded">
-                                            <span>🎵 Suggested Audio:</span>
-                                            <span className="text-white font-bold">"Espresso" by Sabrina Carpenter</span>
-                                        </div>
-                                    </div>
-                                )}
-
-                                {activeTab === 'linkedin' && (
-                                    <div className="space-y-4">
-                                        <p className="text-white text-sm leading-relaxed">
-                                            {masterText || `Innovation isn't just about tech. It's about flavor.<br /><br />
-                                            Today marks a huge milestone for our team. We spent 6 months perfecting our extraction process to create the most authentic Vanilla profile on the market.<br /><br />
-                                            What's the one product launch that impressed you recently? Let's discuss in the comments. ⬇️`}
-                                        </p>
-                                    </div>
-                                )}
-
-                                {activeTab === 'youtube' && (
-                                    <div className="space-y-4">
-                                        <p className="text-white text-sm leading-relaxed">
-                                            {masterText ? "Watch this until the end! 🚨 " + masterText : "The BEST Vanilla Latex you'll ever taste! 🍦 We just dropped the new Vanilla Bean Dream. Link in bio! #Shorts #Coffee #NewDrop"}
-                                        </p>
-                                        <div className="flex items-center gap-2 text-xs text-slate-400 bg-surface-dark p-2 rounded">
-                                            <span>🎵 Trending Sound:</span>
-                                            <span className="text-white font-bold">"Coffee Shop Vibes" by ViralHitz</span>
-                                        </div>
-                                    </div>
-                                )}
-
-                                {activeTab === 'pinterest' && (
-                                    <div className="space-y-4">
-                                        <p className="text-white text-sm leading-relaxed">
-                                            {masterText ? "Aesthetic Vibes | " + masterText : "Aesthetic Coffee Morning Routine | Vanilla Bean Dream Launch 🍦✨ <br /><br /> Get the perfect morning vibe with our new limited edition flavor. Click to shop now!"}
-                                        </p>
-                                        <div className="flex gap-2 mt-2">
-                                            <span className="bg-red-500/10 text-red-500 text-[10px] px-2 py-1 rounded border border-red-500/20">Idea Pin</span>
-                                            <span className="bg-surface-dark text-slate-400 text-[10px] px-2 py-1 rounded border border-surface-border">Link: myshop.com/vanilla</span>
-                                        </div>
-                                    </div>
-                                )}
+                                    )}
+                                </div>
                             </div>
 
-                            <div className="flex justify-end gap-3">
-                                <button className="px-6 py-2 text-slate-400 hover:text-white font-medium">Regenerate</button>
-                                <button className="px-6 py-2 bg-white text-surface-dark font-bold rounded-lg hover:bg-slate-200 transition-colors">Approve & Schedule</button>
-                            </div>
+                            {/* Scheduling Card */}
+                            {selectedPlatforms.has(activeTab) && (
+                                <div className="bg-surface-card border border-surface-border rounded-xl p-6 shadow-md animate-in fade-in slide-in-from-bottom-2 duration-300">
+                                    <h4 className="text-sm font-bold text-white mb-4 flex items-center gap-2">
+                                        <CalendarIcon className="w-4 h-4 text-brand-pink" />
+                                        Schedule for {platforms.find(p => p.id === activeTab)?.label}
+                                    </h4>
+                                    <div className="flex gap-4">
+                                        <div className="flex-1 space-y-2">
+                                            <label className="text-[10px] font-bold text-slate-500 uppercase">Date</label>
+                                            <input
+                                                type="date"
+                                                className="w-full bg-surface-dark border border-surface-border rounded-lg px-3 py-2 text-white text-sm focus:ring-1 focus:ring-brand-pink focus:border-brand-pink"
+                                                value={schedules[activeTab]?.date || ''}
+                                                onChange={(e) => handleScheduleChange('date', e.target.value)}
+                                            />
+                                        </div>
+                                        <div className="flex-1 space-y-2">
+                                            <label className="text-[10px] font-bold text-slate-500 uppercase">Time</label>
+                                            <input
+                                                type="time"
+                                                className="w-full bg-surface-dark border border-surface-border rounded-lg px-3 py-2 text-white text-sm focus:ring-1 focus:ring-brand-pink focus:border-brand-pink"
+                                                value={schedules[activeTab]?.time || ''}
+                                                onChange={(e) => handleScheduleChange('time', e.target.value)}
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="mt-4 flex items-center justify-between p-3 bg-brand-pink/5 border border-brand-pink/20 rounded-lg">
+                                        <span className="text-xs text-brand-pink flex items-center gap-2 font-bold">
+                                            <span>✨</span> Best Time: {schedules[activeTab]?.time || '09:00'} (High Engagement)
+                                        </span>
+                                        <button className="text-[10px] text-slate-400 hover:text-white underline">Why this time?</button>
+                                    </div>
+                                </div>
+                            )}
+
                         </div>
                     </div>
 
-                    <div className="p-4 border-t border-surface-border bg-surface-card flex justify-between items-center">
-                        <button onClick={onClose} className="text-slate-400 hover:text-white">Cancel</button>
-                        <button className="px-8 py-3 bg-brand-purple hover:bg-brand-purple/90 text-white font-bold rounded-lg shadow-lg hover:shadow-brand-purple/20 transition-all transform hover:scale-105">
-                            Schedule All Platforms
+                    <div className="p-4 border-t border-surface-border bg-surface-card flex justify-between items-center z-10">
+                        <button onClick={onClose} className="text-slate-400 hover:text-white font-medium px-4 py-2">Cancel</button>
+                        <button
+                            onClick={handleApply}
+                            className="px-8 py-3 bg-brand-purple hover:bg-brand-purple/90 text-white font-bold rounded-lg shadow-lg hover:shadow-brand-purple/20 transition-all transform hover:scale-105 flex items-center gap-2"
+                        >
+                            <CalendarIcon className="w-4 h-4" /> Apply Schedule ({selectedPlatforms.size})
                         </button>
                     </div>
                 </div>
