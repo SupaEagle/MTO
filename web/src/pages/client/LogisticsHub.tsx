@@ -13,10 +13,19 @@ import {
 } from 'lucide-react';
 
 const LogisticsHub = () => {
+    const location = useLocation();
     const [activeView, setActiveView] = useState<'calendar' | 'grid'>('calendar');
     const [showComposer, setShowComposer] = useState(false);
     const [showRecycler, setShowRecycler] = useState(false);
     const [selectedPlatform, setSelectedPlatform] = useState<string | null>('instagram');
+    const [incomingAsset, setIncomingAsset] = useState<any>(null);
+
+    useEffect(() => {
+        if (location.state?.incomingAsset) {
+            setIncomingAsset(location.state.incomingAsset);
+            setShowComposer(true);
+        }
+    }, [location.state]);
 
     return (
         <div className="space-y-6 relative h-[calc(100vh-140px)] flex flex-col">
@@ -79,7 +88,7 @@ const LogisticsHub = () => {
             </div>
 
             {/* Omni-Composer Modal */}
-            {showComposer && <OmniComposer onClose={() => setShowComposer(false)} />}
+            {showComposer && <OmniComposer onClose={() => setShowComposer(false)} initialAsset={incomingAsset} />}
         </div>
     );
 };
@@ -263,11 +272,18 @@ const SmartRecyclingEngine = ({ onClose }: { onClose: () => void }) => {
     );
 };
 
-const OmniComposer = ({ onClose }: { onClose: () => void }) => {
+const OmniComposer = ({ onClose, initialAsset }: { onClose: () => void, initialAsset?: any }) => {
     const [activeTab, setActiveTab] = useState('twitter');
     const [showPool, setShowPool] = useState(false);
     const [masterText, setMasterText] = useState("");
     const [masterMedia, setMasterMedia] = useState<string | null>(null);
+
+    useEffect(() => {
+        if (initialAsset) {
+            setMasterText(initialAsset.script);
+            setMasterMedia(initialAsset.image);
+        }
+    }, [initialAsset]);
 
     const handlePoolSelect = (item: any) => {
         setMasterText(item.script);
