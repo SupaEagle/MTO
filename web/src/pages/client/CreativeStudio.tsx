@@ -386,12 +386,36 @@ const CreativeStudio = () => {
                                                 <div className="aspect-video bg-slate-800 relative overflow-hidden">
                                                     <img src={`https://picsum.photos/seed/${i + 500}/300/200`} className="w-full h-full object-cover transition-transform group-hover:scale-105" />
                                                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
-                                                        <button className="p-2 bg-white rounded-full text-black hover:scale-110 transition-transform"><span className="text-lg">👁️</span></button>
-                                                        <button className="p-2 bg-brand-purple rounded-full text-white hover:scale-110 transition-transform"><span className="text-lg">🚀</span></button>
+                                                        <button
+                                                            onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                alert(`👁️ Previewing asset #${i}`);
+                                                            }}
+                                                            className="p-2 bg-white rounded-full text-black hover:scale-110 transition-transform shadow-lg"
+                                                            title="Preview Asset"
+                                                        >
+                                                            <span className="text-lg">👁️</span>
+                                                        </button>
+                                                        <button
+                                                            onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                alert(`🚀 Sending asset #${i} to Logistics Hub`);
+                                                            }}
+                                                            className="p-2 bg-brand-purple rounded-full text-white hover:scale-110 transition-transform shadow-lg"
+                                                            title="Launch Campaign"
+                                                        >
+                                                            <span className="text-lg">🚀</span>
+                                                        </button>
                                                     </div>
-                                                    <div className="absolute top-2 right-2 px-2 py-0.5 bg-black/60 backdrop-blur rounded text-[10px] font-bold text-white border border-white/10">
+                                                    <button
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            alert(`📅 Starting plan configuration for asset #${i}`);
+                                                        }}
+                                                        className="absolute top-2 right-2 px-2 py-0.5 bg-black/60 hover:bg-brand-purple backdrop-blur rounded text-[10px] font-bold text-white border border-white/10 hover:border-brand-purple/50 transition-colors z-10"
+                                                    >
                                                         Start Plan
-                                                    </div>
+                                                    </button>
                                                 </div>
                                                 <div className="p-3">
                                                     <div className="flex justify-between items-start mb-1">
