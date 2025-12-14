@@ -9,7 +9,8 @@ import {
     Handshake,
     Settings,
     ChevronRight,
-    Home
+    Home,
+    CalendarDays
 } from 'lucide-react';
 
 const ClientLayout = () => {
@@ -37,6 +38,13 @@ const ClientLayout = () => {
                 { name: 'Visual Assets', path: '/client/creative/visuals' },
                 { name: 'Video Optimization', path: '/client/creative/video' },
                 { name: 'Swipe File', path: '/client/creative/swipe' },
+            ]
+        },
+        {
+            name: 'Logistics Hub',
+            icon: CalendarDays,
+            items: [
+                { name: 'Scheduling & Posting', path: '/client/logistics' },
             ]
         },
         {
