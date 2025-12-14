@@ -285,7 +285,7 @@ const OmniComposer = ({ onClose }: { onClose: () => void }) => {
                         <div className="w-full max-w-4xl h-full flex flex-col">
                             <div className="flex justify-between items-center mb-8">
                                 <div>
-                                    <h2 className="text-3xl font-bold text-white mb-2">Creative Studio Content Pool</h2>
+                                    <h2 className="text-3xl font-bold text-white mb-2">Creative Studio Content Vault</h2>
                                     <p className="text-slate-400">Select approved assets to schedule.</p>
                                 </div>
                                 <button onClick={() => setShowPool(false)} className="p-2 bg-surface-card rounded-full hover:bg-white/10 transition-colors"><X className="w-6 h-6 text-white" /></button>
@@ -336,7 +336,7 @@ const OmniComposer = ({ onClose }: { onClose: () => void }) => {
                                     onClick={() => setShowPool(true)}
                                     className="text-xs font-bold text-brand-purple hover:text-white transition-colors flex items-center gap-1"
                                 >
-                                    <span>📂</span> Browse Pool
+                                    <span>📂</span> Browse Vault
                                 </button>
                             </div>
 
@@ -350,7 +350,7 @@ const OmniComposer = ({ onClose }: { onClose: () => void }) => {
                                         <X className="w-4 h-4" />
                                     </button>
                                     <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-3">
-                                        <p className="text-xs text-white font-bold">Selected from Pool</p>
+                                        <p className="text-xs text-white font-bold">Selected from Vault</p>
                                     </div>
                                 </div>
                             ) : (
@@ -360,7 +360,7 @@ const OmniComposer = ({ onClose }: { onClose: () => void }) => {
                                 >
                                     <ImageIcon className="w-8 h-8 mb-2" />
                                     <span className="text-sm font-medium">Drop 4K Video or Image</span>
-                                    <span className="text-xs opacity-50 mt-1">or select from Pool</span>
+                                    <span className="text-xs opacity-50 mt-1">or select from Vault</span>
                                 </div>
                             )}
                         </div>

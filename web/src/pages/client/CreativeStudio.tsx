@@ -98,7 +98,7 @@ const CreativeStudio = () => {
                 {/* Progress Indicators */}
                 <div className="flex items-center justify-between mb-12 relative">
                     <div className="absolute top-5 left-16 right-16 h-1 bg-surface-border -z-10 transform -translate-y-1/2"></div>
-                    {[1, 2, 3].map((stage) => (
+                    {[1, 2, 3, 4].map((stage) => (
                         <button
                             key={stage}
                             onClick={() => setCurrentStage(stage)}
@@ -111,6 +111,7 @@ const CreativeStudio = () => {
                                 {stage === 1 && "Strategy"}
                                 {stage === 2 && "Script Lab"}
                                 {stage === 3 && "Production Floor"}
+                                {stage === 4 && "Content Vault"}
                             </span>
                         </button>
                     ))}
@@ -302,10 +303,13 @@ const CreativeStudio = () => {
                                         Download Assets
                                     </button>
                                     <button
-                                        onClick={() => alert("✅ Assets sent to Logistics Hub Content Pool!")}
+                                        onClick={() => {
+                                            alert("✅ Assets sent to Content Vault! Access them in Stage 4.");
+                                            setCurrentStage(4);
+                                        }}
                                         className="px-6 py-2 bg-brand-purple hover:bg-brand-purple/90 text-white font-bold rounded-lg shadow-lg hover:shadow-brand-purple/20 transition-all flex items-center gap-2"
                                     >
-                                        <span>🚀</span> Send to Content Pool
+                                        <span>🚀</span> Send to Content Vault
                                     </button>
                                 </div>
                             </div>
@@ -317,6 +321,84 @@ const CreativeStudio = () => {
                                 <button onClick={() => setCurrentStage(1)} className="px-6 py-2 border border-surface-border text-slate-300 rounded-lg hover:bg-surface-hover transition-all">
                                     Start New Campaign
                                 </button>
+                            </div>
+                        </div>
+                    )}
+
+                    {currentStage === 4 && (
+                        <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500 h-full">
+                            <div className="flex justify-between items-end border-b border-surface-border pb-4">
+                                <div>
+                                    <h3 className="text-xl font-bold text-brand-gold mb-1">Stage 4: Content Vault</h3>
+                                    <p className="text-slate-400 text-sm">Secure storage for all approved assets ready for deployment.</p>
+                                </div>
+                                <div className="flex gap-2">
+                                    <div className="relative">
+                                        <input type="text" placeholder="Search assets..." className="bg-surface-dark border border-surface-border rounded-lg pl-8 pr-3 py-2 text-xs text-white focus:border-brand-purple focus:ring-1 focus:ring-brand-purple w-48 transition-all" />
+                                        <span className="absolute left-2.5 top-2.5 text-slate-500">🔍</span>
+                                    </div>
+                                    <button className="px-3 py-2 bg-surface-card border border-surface-border hover:text-white rounded-lg text-xs font-bold text-slate-400 transition-all flex items-center gap-2">
+                                        <span>⚡</span> Filter
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div className="grid grid-cols-12 gap-6 h-[600px]">
+                                {/* Sidebar Categories */}
+                                <div className="col-span-3 bg-surface-card border border-surface-border rounded-xl p-4 flex flex-col gap-1">
+                                    <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 px-2">Folders</div>
+                                    <button className="flex justify-between items-center px-3 py-2 bg-brand-purple/10 text-brand-purple rounded-lg font-bold text-sm">
+                                        <span className="flex items-center gap-2">📂 All Assets</span>
+                                        <span className="text-xs opacity-70">128</span>
+                                    </button>
+                                    <button className="flex justify-between items-center px-3 py-2 hover:bg-surface-hover text-slate-400 hover:text-white rounded-lg text-sm transition-colors">
+                                        <span className="flex items-center gap-2">🎥 Video Renders</span>
+                                        <span className="text-xs opacity-70">42</span>
+                                    </button>
+                                    <button className="flex justify-between items-center px-3 py-2 hover:bg-surface-hover text-slate-400 hover:text-white rounded-lg text-sm transition-colors">
+                                        <span className="flex items-center gap-2">📸 Static & Carousels</span>
+                                        <span className="text-xs opacity-70">86</span>
+                                    </button>
+                                    <div className="h-px bg-surface-border my-2"></div>
+                                    <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 px-2">Campaigns</div>
+                                    <button className="flex justify-between items-center px-3 py-2 hover:bg-surface-hover text-slate-400 hover:text-white rounded-lg text-sm transition-colors">
+                                        <span className="flex items-center gap-2">🏷️ Q4 Growth</span>
+                                    </button>
+                                    <button className="flex justify-between items-center px-3 py-2 hover:bg-surface-hover text-slate-400 hover:text-white rounded-lg text-sm transition-colors">
+                                        <span className="flex items-center gap-2">🏷️ Black Friday</span>
+                                    </button>
+                                </div>
+
+                                {/* Asset Grid */}
+                                <div className="col-span-9 bg-surface-dark border border-surface-border rounded-xl p-6 overflow-y-auto">
+                                    <div className="grid grid-cols-3 gap-6">
+                                        {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(i => (
+                                            <div key={i} className="group relative bg-surface-card rounded-xl overflow-hidden border border-surface-border hover:border-brand-purple transition-all hover:shadow-lg hover:shadow-brand-purple/10">
+                                                <div className="aspect-video bg-slate-800 relative overflow-hidden">
+                                                    <img src={`https://picsum.photos/seed/${i + 500}/300/200`} className="w-full h-full object-cover transition-transform group-hover:scale-105" />
+                                                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                                                        <button className="p-2 bg-white rounded-full text-black hover:scale-110 transition-transform"><span className="text-lg">👁️</span></button>
+                                                        <button className="p-2 bg-brand-purple rounded-full text-white hover:scale-110 transition-transform"><span className="text-lg">🚀</span></button>
+                                                    </div>
+                                                    <div className="absolute top-2 right-2 px-2 py-0.5 bg-black/60 backdrop-blur rounded text-[10px] font-bold text-white border border-white/10">
+                                                        Start Plan
+                                                    </div>
+                                                </div>
+                                                <div className="p-3">
+                                                    <div className="flex justify-between items-start mb-1">
+                                                        <h5 className="font-bold text-white text-sm truncate pr-2">Asset_Render_{i}02.mp4</h5>
+                                                        <span className="text-[10px] text-slate-500">2d ago</span>
+                                                    </div>
+                                                    <p className="text-xs text-slate-400 line-clamp-1">Campaign: Q4 Growth • Scale</p>
+                                                    <div className="mt-2 flex gap-1">
+                                                        <span className="text-[10px] px-1.5 py-0.5 bg-brand-purple/10 text-brand-purple rounded border border-brand-purple/20">Video</span>
+                                                        <span className="text-[10px] px-1.5 py-0.5 bg-surface-dark text-slate-400 rounded border border-surface-border">1080x1920</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     )}
