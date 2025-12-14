@@ -474,10 +474,10 @@ const OmniComposer = ({ onClose, initialAsset }: { onClose: () => void, initialA
                                 >
                                     <div
                                         onClick={(e) => togglePlatform(tab.id, e)}
-                                        className={`w-3 h-3 rounded border flex items-center justify-center transition-colors ${isSelected ? 'bg-brand-purple border-brand-purple' : 'bg-transparent border-slate-500 hover:border-white'}`}
+                                        className={`w-3 h-3 rounded border flex items-center justify-center transition-colors ${isSelected ? 'bg-brand-gold border-brand-gold' : 'bg-transparent border-brand-purple hover:border-brand-gold'}`}
                                         title={`Toggle ${tab.label}`}
                                     >
-                                        {isSelected && <Check className="w-2 h-2 text-white" />}
+                                        {isSelected && <Check className="w-2 h-2 text-black" />}
                                     </div>
                                     <tab.icon className={`w-4 h-4 ${activeTab === tab.id ? tab.color : ''}`} />
                                     <span className="hidden lg:inline">{tab.label}</span>
