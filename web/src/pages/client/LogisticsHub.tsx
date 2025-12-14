@@ -265,10 +265,56 @@ const SmartRecyclingEngine = ({ onClose }: { onClose: () => void }) => {
 
 const OmniComposer = ({ onClose }: { onClose: () => void }) => {
     const [activeTab, setActiveTab] = useState('twitter');
+    const [showPool, setShowPool] = useState(false);
+    const [masterText, setMasterText] = useState("");
+    const [masterMedia, setMasterMedia] = useState<string | null>(null);
+
+    const handlePoolSelect = (item: any) => {
+        setMasterText(item.script);
+        setMasterMedia(item.image);
+        setShowPool(false);
+    };
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-8 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-            <div className="bg-surface-dark border border-surface-border rounded-2xl w-full max-w-6xl h-[80vh] flex overflow-hidden shadow-2xl animate-in zoom-in-95 duration-200">
+            <div className="bg-surface-dark border border-surface-border rounded-2xl w-full max-w-6xl h-[80vh] flex overflow-hidden shadow-2xl animate-in zoom-in-95 duration-200 relative">
+
+                {/* Content Pool Overlay */}
+                {showPool && (
+                    <div className="absolute inset-0 z-50 bg-black/80 backdrop-blur-xl flex items-center justify-center p-12 animate-in fade-in duration-300">
+                        <div className="w-full max-w-4xl h-full flex flex-col">
+                            <div className="flex justify-between items-center mb-8">
+                                <div>
+                                    <h2 className="text-3xl font-bold text-white mb-2">Creative Studio Content Pool</h2>
+                                    <p className="text-slate-400">Select approved assets to schedule.</p>
+                                </div>
+                                <button onClick={() => setShowPool(false)} className="p-2 bg-surface-card rounded-full hover:bg-white/10 transition-colors"><X className="w-6 h-6 text-white" /></button>
+                            </div>
+
+                            <div className="grid grid-cols-3 gap-6 overflow-y-auto pb-20">
+                                {[1, 2, 3, 4, 5, 6].map(i => (
+                                    <div key={i} onClick={() => handlePoolSelect({
+                                        script: "Stop scrolling if you want to scale to $50k/mo. Most agency owners think they need leads, but they need a better offer. Here is the framework...",
+                                        image: `https://picsum.photos/seed/${i + 200}/400/400`
+                                    })} className="bg-surface-card border border-surface-border rounded-xl overflow-hidden group hover:border-brand-purple cursor-pointer transition-all hover:scale-[1.02]">
+                                        <div className="aspect-video bg-slate-800 relative">
+                                            <img src={`https://picsum.photos/seed/${i + 200}/400/400`} className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" />
+                                            <div className="absolute top-2 right-2 bg-green-500 text-white text-[10px] font-bold px-2 py-1 rounded shadow-lg">APPROVED</div>
+                                        </div>
+                                        <div className="p-4">
+                                            <h4 className="text-white font-bold mb-2">Campaign Asset #{i}492</h4>
+                                            <p className="text-xs text-slate-400 line-clamp-2">Stop scrolling if you want to scale to $50k/mo. Most agency owners think they need leads...</p>
+                                            <div className="mt-3 flex gap-2">
+                                                <span className="text-[10px] bg-brand-purple/10 text-brand-purple border border-brand-purple/20 px-2 py-0.5 rounded">Video</span>
+                                                <span className="text-[10px] bg-surface-dark text-slate-400 border border-surface-border px-2 py-0.5 rounded">Ready</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                )}
 
                 {/* Left Panel: Master Input */}
                 <div className="w-1/3 bg-surface-card p-6 border-r border-surface-border flex flex-col">
@@ -277,16 +323,46 @@ const OmniComposer = ({ onClose }: { onClose: () => void }) => {
                         <div>
                             <label className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">Core Idea / Text</label>
                             <textarea
+                                value={masterText}
+                                onChange={(e) => setMasterText(e.target.value)}
                                 className="w-full h-40 bg-surface-dark border border-surface-border rounded-xl p-4 text-white resize-none focus:ring-1 focus:ring-brand-purple focus:border-brand-purple transition-all"
                                 placeholder="What's on your mind? e.g. 'We just launched our new vanilla flavor'..."
                             ></textarea>
                         </div>
                         <div>
-                            <label className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">Master Media</label>
-                            <div className="border-2 border-dashed border-surface-border rounded-xl p-8 flex flex-col items-center justify-center text-slate-500 hover:text-white hover:border-brand-purple hover:bg-brand-purple/5 transition-all cursor-pointer">
-                                <ImageIcon className="w-8 h-8 mb-2" />
-                                <span className="text-sm font-medium">Drop 4K Video or Image</span>
+                            <div className="flex justify-between items-center mb-2">
+                                <label className="text-xs font-bold text-slate-400 uppercase tracking-wider block">Master Media</label>
+                                <button
+                                    onClick={() => setShowPool(true)}
+                                    className="text-xs font-bold text-brand-purple hover:text-white transition-colors flex items-center gap-1"
+                                >
+                                    <span>📂</span> Browse Pool
+                                </button>
                             </div>
+
+                            {masterMedia ? (
+                                <div className="relative group rounded-xl overflow-hidden border border-brand-purple shadow-lg shadow-brand-purple/20">
+                                    <img src={masterMedia} className="w-full h-48 object-cover" />
+                                    <button
+                                        onClick={() => setMasterMedia(null)}
+                                        className="absolute top-2 right-2 p-1 bg-black/50 hover:bg-red-500 rounded-lg text-white transition-colors"
+                                    >
+                                        <X className="w-4 h-4" />
+                                    </button>
+                                    <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-3">
+                                        <p className="text-xs text-white font-bold">Selected from Pool</p>
+                                    </div>
+                                </div>
+                            ) : (
+                                <div
+                                    onClick={() => setShowPool(true)}
+                                    className="border-2 border-dashed border-surface-border rounded-xl p-8 flex flex-col items-center justify-center text-slate-500 hover:text-white hover:border-brand-purple hover:bg-brand-purple/5 transition-all cursor-pointer h-48"
+                                >
+                                    <ImageIcon className="w-8 h-8 mb-2" />
+                                    <span className="text-sm font-medium">Drop 4K Video or Image</span>
+                                    <span className="text-xs opacity-50 mt-1">or select from Pool</span>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>
@@ -329,10 +405,10 @@ const OmniComposer = ({ onClose }: { onClose: () => void }) => {
                                 {activeTab === 'twitter' && (
                                     <div className="space-y-4">
                                         <div className="p-3 border-l-2 border-slate-600 pl-4">
-                                            <p className="text-white text-lg">Stop scrolling. 🛑</p>
+                                            <p className="text-white text-lg">{masterText ? masterText.substring(0, 50) + "... 🧵👇" : "Stop scrolling. 🛑"}</p>
                                         </div>
                                         <div className="p-3 border-l-2 border-slate-600 pl-4">
-                                            <p className="text-white text-lg">Our new vanilla flavor just dropped and it's changing the game. Here is why you need to try it: 🧵👇</p>
+                                            <p className="text-white text-lg">{masterText ? "This is the breakdown of why this works..." : "Our new vanilla flavor just dropped and it's changing the game. Here is why you need to try it: 🧵👇"}</p>
                                         </div>
                                     </div>
                                 )}
@@ -340,9 +416,9 @@ const OmniComposer = ({ onClose }: { onClose: () => void }) => {
                                 {activeTab === 'instagram' && (
                                     <div className="space-y-4">
                                         <p className="text-white text-sm leading-relaxed">
-                                            POV: You finally found the perfect vanilla coffee. 🍦☕️ <br /><br />
+                                            {masterText ? `POV: ${masterText.substring(0, 100)}...` : `POV: You finally found the perfect vanilla coffee. 🍦☕️ <br /><br />
                                             We just launched the Vanilla Bean Dream and we can't keep it in stock. Tag a friend who needs this! 👇<br /><br />
-                                            #CoffeeLover #NewDrop #VanillaDream #MorningRoutine
+                                            #CoffeeLover #NewDrop #VanillaDream #MorningRoutine`}
                                         </p>
                                         <div className="flex items-center gap-2 text-xs text-slate-400 bg-surface-dark p-2 rounded">
                                             <span>🎵 Suggested Audio:</span>
@@ -354,9 +430,9 @@ const OmniComposer = ({ onClose }: { onClose: () => void }) => {
                                 {activeTab === 'linkedin' && (
                                     <div className="space-y-4">
                                         <p className="text-white text-sm leading-relaxed">
-                                            Innovation isn't just about tech. It's about flavor.<br /><br />
+                                            {masterText || `Innovation isn't just about tech. It's about flavor.<br /><br />
                                             Today marks a huge milestone for our team. We spent 6 months perfecting our extraction process to create the most authentic Vanilla profile on the market.<br /><br />
-                                            What's the one product launch that impressed you recently? Let's discuss in the comments. ⬇️
+                                            What's the one product launch that impressed you recently? Let's discuss in the comments. ⬇️`}
                                         </p>
                                     </div>
                                 )}
@@ -364,7 +440,7 @@ const OmniComposer = ({ onClose }: { onClose: () => void }) => {
                                 {activeTab === 'youtube' && (
                                     <div className="space-y-4">
                                         <p className="text-white text-sm leading-relaxed">
-                                            The BEST Vanilla Latex you'll ever taste! 🍦 We just dropped the new Vanilla Bean Dream. Link in bio! #Shorts #Coffee #NewDrop
+                                            {masterText ? "Watch this until the end! 🚨 " + masterText : "The BEST Vanilla Latex you'll ever taste! 🍦 We just dropped the new Vanilla Bean Dream. Link in bio! #Shorts #Coffee #NewDrop"}
                                         </p>
                                         <div className="flex items-center gap-2 text-xs text-slate-400 bg-surface-dark p-2 rounded">
                                             <span>🎵 Trending Sound:</span>
@@ -376,8 +452,7 @@ const OmniComposer = ({ onClose }: { onClose: () => void }) => {
                                 {activeTab === 'pinterest' && (
                                     <div className="space-y-4">
                                         <p className="text-white text-sm leading-relaxed">
-                                            Aesthetic Coffee Morning Routine | Vanilla Bean Dream Launch 🍦✨ <br /><br />
-                                            Get the perfect morning vibe with our new limited edition flavor. Click to shop now!
+                                            {masterText ? "Aesthetic Vibes | " + masterText : "Aesthetic Coffee Morning Routine | Vanilla Bean Dream Launch 🍦✨ <br /><br /> Get the perfect morning vibe with our new limited edition flavor. Click to shop now!"}
                                         </p>
                                         <div className="flex gap-2 mt-2">
                                             <span className="bg-red-500/10 text-red-500 text-[10px] px-2 py-1 rounded border border-red-500/20">Idea Pin</span>

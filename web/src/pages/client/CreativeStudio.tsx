@@ -295,14 +295,17 @@ const CreativeStudio = () => {
                             <div className="p-6 bg-surface-hover rounded-xl border border-surface-border mt-8 flex justify-between items-center">
                                 <div>
                                     <h5 className="font-bold text-white mb-1">Production Queue</h5>
-                                    <p className="text-slate-400 text-xs">Job ID: #CS-2024-001 • Est. Completion: 2 mins</p>
+                                    <p className="text-slate-400 text-xs">Job ID: #CS-2024-001 • Est. Completion: Ready</p>
                                 </div>
                                 <div className="flex gap-4">
                                     <button className="px-6 py-2 border border-surface-border text-slate-300 rounded-lg hover:bg-surface-card transition-all">
-                                        Pause
-                                    </button>
-                                    <button className="px-6 py-2 bg-white text-surface-dark font-bold rounded-lg hover:bg-slate-200 transition-all">
                                         Download Assets
+                                    </button>
+                                    <button
+                                        onClick={() => alert("✅ Assets sent to Logistics Hub Content Pool!")}
+                                        className="px-6 py-2 bg-brand-purple hover:bg-brand-purple/90 text-white font-bold rounded-lg shadow-lg hover:shadow-brand-purple/20 transition-all flex items-center gap-2"
+                                    >
+                                        <span>🚀</span> Send to Content Pool
                                     </button>
                                 </div>
                             </div>
