@@ -75,6 +75,7 @@ function App() {
           <Route path="strategy/competitors" element={<CompetitorRecon />} />
           <Route path="strategy/reports" element={<BrandReport />} />
           <Route path="creative-studio" element={<CreativeStudio />} />
+          <Route path="creative/vault" element={<CreativeStudio />} />
           <Route path="logistics" element={<LogisticsHub />} />
           <Route path="strategy/audience" element={<AudienceDefinition />} />
           <Route path="strategy/value-prop" element={<ValuePropBuilder />} />

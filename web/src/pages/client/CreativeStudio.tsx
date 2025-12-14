@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Pencil, Check, X, RefreshCw } from 'lucide-react';
 
 // Mock Data Structure
@@ -49,6 +50,7 @@ const INITIAL_SCRIPTS: Script[] = [
 ];
 
 const CreativeStudio = () => {
+    const location = useLocation();
     const [currentStage, setCurrentStage] = useState(1);
     const [scripts, setScripts] = useState<Script[]>(INITIAL_SCRIPTS);
     const [selectedScript, setSelectedScript] = useState<Script | null>(null);
@@ -57,6 +59,13 @@ const CreativeStudio = () => {
     const [redoMode, setRedoMode] = useState(false);
     const [feedbackText, setFeedbackText] = useState("");
     const [isEditing, setIsEditing] = useState(false);
+
+    // Handle deep linking to vault or other stages
+    useEffect(() => {
+        if (location.pathname.includes('/creative/vault')) {
+            setCurrentStage(4);
+        }
+    }, [location.pathname]);
 
     // Reset redo state when opening a new script
     useEffect(() => {

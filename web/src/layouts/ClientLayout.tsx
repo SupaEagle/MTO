@@ -35,6 +35,7 @@ const ClientLayout = () => {
             icon: Palette,
             items: [
                 { name: 'Content Wizard', path: '/client/creative-studio' },
+                { name: 'Content Vault', path: '/client/creative/vault' },
                 { name: 'Visual Assets', path: '/client/creative/visuals' },
                 { name: 'Video Optimization', path: '/client/creative/video' },
                 { name: 'Swipe File', path: '/client/creative/swipe' },
