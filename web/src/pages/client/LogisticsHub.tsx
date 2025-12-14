@@ -8,6 +8,7 @@ import {
     Linkedin,
     Facebook,
     Twitter,
+    Youtube,
     RefreshCw,
     Image as ImageIcon
 } from 'lucide-react';
@@ -48,6 +49,8 @@ const LogisticsHub = () => {
                         <PlatformToggle icon={<Linkedin className="w-4 h-4" />} active={selectedPlatform === 'linkedin'} onClick={() => setSelectedPlatform('linkedin')} color="text-blue-500" />
                         <PlatformToggle icon={<Twitter className="w-4 h-4" />} active={selectedPlatform === 'twitter'} onClick={() => setSelectedPlatform('twitter')} color="text-sky-400" />
                         <PlatformToggle icon={<Facebook className="w-4 h-4" />} active={selectedPlatform === 'facebook'} onClick={() => setSelectedPlatform('facebook')} color="text-blue-600" />
+                        <PlatformToggle icon={<Youtube className="w-4 h-4" />} active={selectedPlatform === 'youtube'} onClick={() => setSelectedPlatform('youtube')} color="text-red-600" />
+                        <PlatformToggle icon={<PinterestIcon className="w-4 h-4" />} active={selectedPlatform === 'pinterest'} onClick={() => setSelectedPlatform('pinterest')} color="text-red-500" />
                     </div>
 
                     <button
@@ -297,6 +300,8 @@ const OmniComposer = ({ onClose }: { onClose: () => void }) => {
                             { id: 'instagram', icon: Instagram, label: 'Insta Reel', color: 'text-pink-500' },
                             { id: 'linkedin', icon: Linkedin, label: 'LinkedIn', color: 'text-blue-500' },
                             { id: 'facebook', icon: Facebook, label: 'Facebook', color: 'text-blue-600' },
+                            { id: 'youtube', icon: Youtube, label: 'YouTube Short', color: 'text-red-600' },
+                            { id: 'pinterest', icon: PinterestIcon, label: 'Pinterest', color: 'text-red-500' },
                         ].map(tab => (
                             <button
                                 key={tab.id}
@@ -356,6 +361,31 @@ const OmniComposer = ({ onClose }: { onClose: () => void }) => {
                                         </p>
                                     </div>
                                 )}
+
+                                {activeTab === 'youtube' && (
+                                    <div className="space-y-4">
+                                        <p className="text-white text-sm leading-relaxed">
+                                            The BEST Vanilla Latex you'll ever taste! 🍦 We just dropped the new Vanilla Bean Dream. Link in bio! #Shorts #Coffee #NewDrop
+                                        </p>
+                                        <div className="flex items-center gap-2 text-xs text-slate-400 bg-surface-dark p-2 rounded">
+                                            <span>🎵 Trending Sound:</span>
+                                            <span className="text-white font-bold">"Coffee Shop Vibes" by ViralHitz</span>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {activeTab === 'pinterest' && (
+                                    <div className="space-y-4">
+                                        <p className="text-white text-sm leading-relaxed">
+                                            Aesthetic Coffee Morning Routine | Vanilla Bean Dream Launch 🍦✨ <br /><br />
+                                            Get the perfect morning vibe with our new limited edition flavor. Click to shop now!
+                                        </p>
+                                        <div className="flex gap-2 mt-2">
+                                            <span className="bg-red-500/10 text-red-500 text-[10px] px-2 py-1 rounded border border-red-500/20">Idea Pin</span>
+                                            <span className="bg-surface-dark text-slate-400 text-[10px] px-2 py-1 rounded border border-surface-border">Link: myshop.com/vanilla</span>
+                                        </div>
+                                    </div>
+                                )}
                             </div>
 
                             <div className="flex justify-end gap-3">
@@ -376,5 +406,24 @@ const OmniComposer = ({ onClose }: { onClose: () => void }) => {
         </div>
     );
 };
+
+// --- Icons ---
+
+const PinterestIcon = ({ className }: { className?: string }) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className={className}
+    >
+        <circle cx="12" cy="12" r="10" />
+        <path d="M8 20l4-9" />
+        <path d="M10.7 6C5.3 6 1 10.3 1 15.6c0 3.3 1.6 6.2 4.1 8l-.6-3.3s-1.5-6.2 3.1-6.2c1.5 0 2.6.9 2.6 2.1 0 1.3-.8 3.2-1.3 5" />
+    </svg>
+);
 
 export default LogisticsHub;
