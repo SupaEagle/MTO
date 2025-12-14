@@ -7,7 +7,6 @@ import {
     Instagram,
     Linkedin,
     Facebook,
-    Twitter,
     Youtube,
     RefreshCw,
     Image as ImageIcon
@@ -47,7 +46,7 @@ const LogisticsHub = () => {
                     <div className="flex items-center gap-2 mr-4">
                         <PlatformToggle icon={<Instagram className="w-4 h-4" />} active={selectedPlatform === 'instagram'} onClick={() => setSelectedPlatform('instagram')} color="text-pink-500" />
                         <PlatformToggle icon={<Linkedin className="w-4 h-4" />} active={selectedPlatform === 'linkedin'} onClick={() => setSelectedPlatform('linkedin')} color="text-blue-500" />
-                        <PlatformToggle icon={<Twitter className="w-4 h-4" />} active={selectedPlatform === 'twitter'} onClick={() => setSelectedPlatform('twitter')} color="text-sky-400" />
+                        <PlatformToggle icon={<XIcon className="w-3.5 h-3.5" />} active={selectedPlatform === 'twitter'} onClick={() => setSelectedPlatform('twitter')} color="text-white" />
                         <PlatformToggle icon={<Facebook className="w-4 h-4" />} active={selectedPlatform === 'facebook'} onClick={() => setSelectedPlatform('facebook')} color="text-blue-600" />
                         <PlatformToggle icon={<Youtube className="w-4 h-4" />} active={selectedPlatform === 'youtube'} onClick={() => setSelectedPlatform('youtube')} color="text-red-600" />
                         <PlatformToggle icon={<PinterestIcon className="w-4 h-4" />} active={selectedPlatform === 'pinterest'} onClick={() => setSelectedPlatform('pinterest')} color="text-red-500" />
@@ -296,7 +295,7 @@ const OmniComposer = ({ onClose }: { onClose: () => void }) => {
                 <div className="w-2/3 flex flex-col bg-surface-dark">
                     <div className="flex border-b border-surface-border">
                         {[
-                            { id: 'twitter', icon: Twitter, label: 'X Thread', color: 'text-sky-400' },
+                            { id: 'twitter', icon: XIcon, label: 'X Post', color: 'text-white' },
                             { id: 'instagram', icon: Instagram, label: 'Insta Reel', color: 'text-pink-500' },
                             { id: 'linkedin', icon: Linkedin, label: 'LinkedIn', color: 'text-blue-500' },
                             { id: 'facebook', icon: Facebook, label: 'Facebook', color: 'text-blue-600' },
@@ -408,6 +407,19 @@ const OmniComposer = ({ onClose }: { onClose: () => void }) => {
 };
 
 // --- Icons ---
+
+// --- Icons ---
+
+const XIcon = ({ className }: { className?: string }) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        className={className}
+    >
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+);
 
 const PinterestIcon = ({ className }: { className?: string }) => (
     <svg
