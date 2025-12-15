@@ -61,6 +61,7 @@ const ClientLayout = () => {
             icon: BarChart3,
             items: [
                 { name: 'Funnel Analysis', path: '/client/analytics/funnel' },
+                { name: 'Strategy Engine (CMO)', path: '/client/analytics/cmo' },
                 { name: 'Competitor Spy', path: '/client/analytics/competitors' },
             ]
         },

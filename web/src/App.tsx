@@ -31,6 +31,7 @@ import PlatformConfig from './pages/client/PlatformConfig';
 import LeadAutomation from './pages/client/LeadAutomation';
 import FunnelAnalysis from './pages/client/FunnelAnalysis';
 import CompetitorSpy from './pages/client/CompetitorSpy';
+import StrategyEngine from './pages/client/StrategyEngine';
 import CampaignBuilder from './pages/client/CampaignBuilder';
 import BudgetOptimizer from './pages/client/BudgetOptimizer';
 import CRMSystem from './pages/client/CRMSystem';
@@ -86,6 +87,7 @@ function App() {
           <Route path="engagement/platforms" element={<PlatformConfig />} />
           <Route path="engagement/automation" element={<LeadAutomation />} />
           <Route path="analytics/funnel" element={<FunnelAnalysis />} />
+          <Route path="analytics/cmo" element={<StrategyEngine />} />
           <Route path="analytics/competitors" element={<CompetitorSpy />} />
           <Route path="ads/campaigns" element={<CampaignBuilder />} />
           <Route path="ads/budget" element={<BudgetOptimizer />} />
