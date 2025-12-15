@@ -41,7 +41,7 @@ const ContentPillars = () => {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-white">Content Pillar 1 (Primary)</label>
+                                <label className="text-sm font-medium text-white">Content Pillar 1st</label>
                                 <input
                                     type="text"
                                     name="pillar1"
@@ -54,7 +54,7 @@ const ContentPillars = () => {
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-white">Content Pillar 2 (Secondary)</label>
+                                <label className="text-sm font-medium text-white">Content Pillar 2nd</label>
                                 <input
                                     type="text"
                                     name="pillar2"
@@ -67,7 +67,7 @@ const ContentPillars = () => {
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-white">Content Pillar 3 (Tertiary)</label>
+                                <label className="text-sm font-medium text-white">Content Pillar 3rd</label>
                                 <input
                                     type="text"
                                     name="pillar3"
@@ -80,7 +80,7 @@ const ContentPillars = () => {
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-white">Content Pillar 4 (Quaternary)</label>
+                                <label className="text-sm font-medium text-white">Content Pillar 4th</label>
                                 <input
                                     type="text"
                                     name="pillar4"
