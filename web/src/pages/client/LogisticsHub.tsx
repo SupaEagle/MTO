@@ -23,6 +23,12 @@ const LogisticsHub = () => {
     const [showRecycler, setShowRecycler] = useState(false);
     const [selectedPlatform, setSelectedPlatform] = useState<string | null>('instagram');
     const [incomingAsset, setIncomingAsset] = useState<any>(null);
+    const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+
+    const handleDateSelect = (date: Date) => {
+        setSelectedDate(date);
+        setShowComposer(true);
+    };
 
     useEffect(() => {
         if (location.state?.incomingAsset) {
@@ -83,7 +89,7 @@ const LogisticsHub = () => {
 
             {/* Main Canvas */}
             <div className="flex-1 bg-surface-card border border-surface-border rounded-xl overflow-hidden relative">
-                {activeView === 'calendar' ? <PredictiveCalendar setShowComposer={setShowComposer} /> : <VisualGridPlanner />}
+                {activeView === 'calendar' ? <PredictiveCalendar onDateSelect={handleDateSelect} /> : <VisualGridPlanner />}
 
                 {/* Smart Recycling Drawer */}
                 <div className={`absolute top-0 right-0 bottom-0 w-80 bg-surface-dark border-l border-surface-border transform transition-transform duration-300 z-20 ${showRecycler ? 'translate-x-0' : 'translate-x-full'}`}>
@@ -92,7 +98,7 @@ const LogisticsHub = () => {
             </div>
 
             {/* Omni-Composer Modal */}
-            {showComposer && <OmniComposer onClose={() => setShowComposer(false)} initialAsset={incomingAsset} />}
+            {showComposer && <OmniComposer onClose={() => setShowComposer(false)} initialAsset={incomingAsset} initialDate={selectedDate} />}
         </div>
     );
 };
@@ -108,7 +114,7 @@ const PlatformToggle = ({ icon, active, onClick, color }: any) => (
     </button>
 );
 
-const PredictiveCalendar = ({ setShowComposer }: { setShowComposer: (v: boolean) => void }) => {
+const PredictiveCalendar = ({ onDateSelect }: { onDateSelect: (date: Date) => void }) => {
     // Mock days for calendar
     const days = Array.from({ length: 35 }, (_, i) => {
         const isHot = i === 12 || i === 18 || i === 25; // Random hot days
@@ -134,8 +140,15 @@ const PredictiveCalendar = ({ setShowComposer }: { setShowComposer: (v: boolean)
                 {days.map((day, idx) => (
                     <div
                         key={idx}
+                        onClick={() => {
+                            const date = new Date();
+                            // Simple mock date logic: Assume current month/year for simplicity
+                            date.setDate(day.day > 30 ? day.day - 30 : day.day);
+                            if (day.day > 30) date.setMonth(date.getMonth() + 1);
+                            onDateSelect(date);
+                        }}
                         className={`
-                            border-r border-b border-surface-border p-2 relative group transition-colors min-h-[100px]
+                            border-r border-b border-surface-border p-2 relative group transition-colors min-h-[100px] cursor-pointer hover:bg-surface-hover/50
                             ${day.status === 'hot' ? 'bg-brand-pink/5 hover:bg-brand-pink/10' : ''}
                             ${day.status === 'gap' ? 'bg-surface-dark/50' : ''}
                         `}
@@ -158,8 +171,7 @@ const PredictiveCalendar = ({ setShowComposer }: { setShowComposer: (v: boolean)
                         {/* Ghost Slot */}
                         {day.status === 'gap' && (
                             <div
-                                onClick={() => setShowComposer(true)}
-                                className="mt-4 mx-2 border-2 border-dashed border-brand-gold/30 rounded-lg p-3 flex flex-col items-center justify-center cursor-pointer hover:bg-brand-gold/5 group/gap"
+                                className="mt-4 mx-2 border-2 border-dashed border-brand-gold/30 rounded-lg p-3 flex flex-col items-center justify-center hover:bg-brand-gold/5 group/gap"
                             >
                                 <span className="text-brand-gold text-xs font-bold group-hover/gap:scale-110 transition-transform">⚡ Fill Gap</span>
                             </div>
@@ -277,7 +289,7 @@ const SmartRecyclingEngine = ({ onClose }: { onClose: () => void }) => {
 };
 
 
-const OmniComposer = ({ onClose, initialAsset }: { onClose: () => void, initialAsset?: any }) => {
+const OmniComposer = ({ onClose, initialAsset, initialDate }: { onClose: () => void, initialAsset?: any, initialDate?: Date | null }) => {
     const [activeTab, setActiveTab] = useState('twitter');
     const [showPool, setShowPool] = useState(false);
     const [masterText, setMasterText] = useState("");
@@ -300,15 +312,21 @@ const OmniComposer = ({ onClose, initialAsset }: { onClose: () => void, initialA
     // Initialize default schedule for all platforms (e.g., tomorrow at 9am)
     useEffect(() => {
         const initialSchedules: Record<string, { date: string, time: string }> = {};
-        const tomorrow = new Date();
-        tomorrow.setDate(tomorrow.getDate() + 1);
-        const dateStr = tomorrow.toISOString().split('T')[0];
+
+        let targetDate = new Date();
+        if (initialDate) {
+            targetDate = new Date(initialDate);
+        } else {
+            targetDate.setDate(targetDate.getDate() + 1); // Default to tomorrow if no date selected
+        }
+
+        const dateStr = targetDate.toISOString().split('T')[0];
 
         ['twitter', 'instagram', 'linkedin', 'facebook', 'youtube', 'pinterest'].forEach(p => {
             initialSchedules[p] = { date: dateStr, time: "09:00" };
         });
         setSchedules(initialSchedules);
-    }, []);
+    }, [initialDate]);
 
     const handlePoolSelect = (item: any) => {
         setMasterText(item.script);
