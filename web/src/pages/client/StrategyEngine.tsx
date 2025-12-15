@@ -11,7 +11,6 @@ import {
     Zap,
     Instagram,
     Linkedin,
-    Card,
     CheckCircle,
     Layout,
     Twitter
