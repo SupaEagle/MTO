@@ -3,7 +3,7 @@ import { Plus, Trash2, ChevronDown, ChevronUp } from 'lucide-react';
 
 interface PersonaModel {
     personaType: string;
-    voiceIntensity: number;
+
     readingLevel: string;
     forbiddenWords: string;
     requiredTerminology: string;
@@ -16,7 +16,7 @@ interface PersonaModel {
 
 const DEFAULT_PERSONA: PersonaModel = {
     personaType: '',
-    voiceIntensity: 5,
+
     readingLevel: '',
     forbiddenWords: '',
     requiredTerminology: '',
@@ -145,24 +145,7 @@ const BrandPersona = () => {
                                                 </div>
                                             </div>
 
-                                            <div className="space-y-2">
-                                                <label className="text-sm font-medium text-white">Voice Intensity Slider (1-10)</label>
-                                                <div className={`flex items-center gap-4 ${!isEditing ? 'opacity-50' : ''}`}>
-                                                    <span className="text-xs text-slate-500">Subtle</span>
-                                                    <input
-                                                        type="range"
-                                                        name="voiceIntensity"
-                                                        min="1"
-                                                        max="10"
-                                                        value={persona.voiceIntensity}
-                                                        onChange={(e) => handlePersonaChange(index, e)}
-                                                        disabled={!isEditing}
-                                                        className="w-full accent-brand-purple cursor-pointer disabled:cursor-not-allowed"
-                                                    />
-                                                    <span className="text-xs text-slate-500">Extreme</span>
-                                                    <span className="font-bold text-brand-gold w-8 text-center">{persona.voiceIntensity}</span>
-                                                </div>
-                                            </div>
+
 
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                                 <div className="space-y-2">
