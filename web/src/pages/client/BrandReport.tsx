@@ -19,11 +19,7 @@ const BrandReport = () => {
                                 title='"Brand Bible" Manifest'
                                 description="A comprehensive, design-ready PDF compiling the Mission, Vision, Core Values, and Origin Story into an employee handbook."
                             />
-                            <ReportCard
-                                number="2"
-                                title='The Investor "One-Pager"'
-                                description="A high-level summary condensing the Market Gap, USP, Business Model, and Growth Strategy into a single sheet for stakeholders or banks."
-                            />
+
                             <ReportCard
                                 number="3"
                                 title='Visual Identity "Stress Test"'
@@ -39,7 +35,7 @@ const BrandReport = () => {
 
                     {/* Category 2: Audience & Psychology */}
                     <div className="space-y-6">
-                        <h3 className="text-xl font-bold text-brand-gold border-b border-surface-border pb-2">Category 2: Audience & Psychology (The "Nano Banana" Brain)</h3>
+                        <h3 className="text-xl font-bold text-brand-gold border-b border-surface-border pb-2">Category 2: Audience & Psychology</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <ReportCard
                                 number="5"
