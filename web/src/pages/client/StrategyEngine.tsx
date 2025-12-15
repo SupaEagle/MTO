@@ -13,7 +13,8 @@ import {
     Linkedin,
     CheckCircle,
     Layout,
-    Twitter
+    Twitter,
+    FileText
 } from 'lucide-react';
 
 const StrategyEngine = () => {
@@ -302,6 +303,12 @@ const StrategyEngine = () => {
                             className="flex-1 md:flex-none px-4 py-2 bg-surface-card border border-surface-border hover:bg-surface-hover text-slate-300 text-sm font-bold rounded-lg transition-colors"
                         >
                             Update Brand DNA
+                        </button>
+                        <button
+                            onClick={() => { }}
+                            className="flex-1 md:flex-none px-4 py-2 bg-surface-card border border-surface-border hover:bg-surface-hover text-white text-sm font-bold rounded-lg transition-colors flex items-center gap-2"
+                        >
+                            <FileText className="w-4 h-4" /> Generate Report
                         </button>
                         <button
                             onClick={() => navigate('/client/creative-studio')}
