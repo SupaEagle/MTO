@@ -6,14 +6,9 @@ import {
     Rocket,
     TrendingUp,
     AlertCircle,
-    PieChart,
+
     Activity,
-    CheckCircle,
-    ArrowRight,
-    Users,
-    DollarSign,
     Zap,
-    Layout,
     Instagram,
     Linkedin,
     Twitter
@@ -258,7 +253,7 @@ const StrategyEngine = () => {
                                 <div className="relative pt-8 pb-4">
                                     {/* Line */}
                                     <div className="absolute top-10 left-0 right-0 h-1 bg-surface-dark">
-                                        <div className="h-full bg-gradient-to-r from-brand-pink to-brand-purple w-2/3"></div>
+                                        <div className="h-full bg-gradient-to-r from-brand-pink via-brand-purple to-brand-gold w-full opacity-50"></div>
                                     </div>
 
                                     <div className="grid grid-cols-3 gap-4 relative">
