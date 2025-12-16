@@ -7,7 +7,7 @@ const PlatformConfig = () => {
         { id: 'instagram', name: 'Instagram', connected: false, account: '' },
         { id: 'facebook', name: 'Facebook Page', connected: false, account: '' },
         { id: 'youtube', name: 'YouTube', connected: false, account: '' },
-        { id: 'pinterest', name: 'Pinterest', connected: false, account: '' },
+        { id: 'tiktok', name: 'TikTok', connected: false, account: '' },
     ]);
 
     const toggleConnection = (id: string) => {

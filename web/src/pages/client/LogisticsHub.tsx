@@ -68,7 +68,7 @@ const LogisticsHub = () => {
                         <PlatformToggle icon={<XIcon className="w-3.5 h-3.5" />} active={selectedPlatform === 'twitter'} onClick={() => setSelectedPlatform('twitter')} color="text-white" />
                         <PlatformToggle icon={<Facebook className="w-4 h-4" />} active={selectedPlatform === 'facebook'} onClick={() => setSelectedPlatform('facebook')} color="text-blue-600" />
                         <PlatformToggle icon={<Youtube className="w-4 h-4" />} active={selectedPlatform === 'youtube'} onClick={() => setSelectedPlatform('youtube')} color="text-red-600" />
-                        <PlatformToggle icon={<PinterestIcon className="w-4 h-4" />} active={selectedPlatform === 'pinterest'} onClick={() => setSelectedPlatform('pinterest')} color="text-red-500" />
+                        <PlatformToggle icon={<TikTokIcon className="w-4 h-4" />} active={selectedPlatform === 'tiktok'} onClick={() => setSelectedPlatform('tiktok')} color="text-black" />
                     </div>
 
                     <button
@@ -296,7 +296,7 @@ const OmniComposer = ({ onClose, initialAsset, initialDate }: { onClose: () => v
     const [masterMedia, setMasterMedia] = useState<string | null>(null);
 
     // New State for Scheduling & Editing
-    const [selectedPlatforms, setSelectedPlatforms] = useState<Set<string>>(new Set(['twitter', 'instagram', 'linkedin', 'facebook', 'youtube', 'pinterest']));
+    const [selectedPlatforms, setSelectedPlatforms] = useState<Set<string>>(new Set(['twitter', 'instagram', 'linkedin', 'facebook', 'youtube', 'tiktok']));
     const [schedules, setSchedules] = useState<Record<string, { date: string, time: string }>>({});
     const [isEditing, setIsEditing] = useState(false);
     const [isRegenerating, setIsRegenerating] = useState(false);
@@ -322,7 +322,7 @@ const OmniComposer = ({ onClose, initialAsset, initialDate }: { onClose: () => v
 
         const dateStr = targetDate.toISOString().split('T')[0];
 
-        ['twitter', 'instagram', 'linkedin', 'facebook', 'youtube', 'pinterest'].forEach(p => {
+        ['twitter', 'instagram', 'linkedin', 'facebook', 'youtube', 'tiktok'].forEach(p => {
             initialSchedules[p] = { date: dateStr, time: "09:00" };
         });
         setSchedules(initialSchedules);
@@ -384,7 +384,7 @@ const OmniComposer = ({ onClose, initialAsset, initialDate }: { onClose: () => v
         { id: 'linkedin', icon: Linkedin, label: 'LinkedIn', color: 'text-blue-500' },
         { id: 'facebook', icon: Facebook, label: 'Facebook', color: 'text-blue-600' },
         { id: 'youtube', icon: Youtube, label: 'YouTube Short', color: 'text-red-600' },
-        { id: 'pinterest', icon: PinterestIcon, label: 'Pinterest', color: 'text-red-500' },
+        { id: 'tiktok', icon: TikTokIcon, label: 'TikTok', color: 'text-black' },
     ];
 
     return (
@@ -627,14 +627,14 @@ const XIcon = ({ className }: { className?: string }) => (
     </svg>
 );
 
-const PinterestIcon = ({ className }: { className?: string }) => (
+const TikTokIcon = ({ className }: { className?: string }) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
         fill="currentColor"
         className={className}
     >
-        <path d="M9.04 21.54c.96.29 1.93.46 2.96.46a10 10 0 0 0 10-10A10 10 0 0 0 12 2 10 10 0 0 0 2 12c0 4.25 2.67 7.9 6.42 9.48-.08-.83-.15-2.08.03-2.98.17-.74 1.11-4.72 1.11-4.72s-.28-.56-.28-1.39c0-1.31.76-2.29 1.7-2.29.8 0 1.19.6 1.19 1.32 0 .8-.51 2.01-.78 3.12-.22.93.47 1.69 1.39 1.69 1.67 0 2.95-1.76 2.95-4.3 0-2.25-1.61-3.82-3.92-3.82-2.85 0-4.53 2.14-4.53 4.35 0 .86.33 1.78.74 2.28.08.1.09.19.07.29l-.27 1.11c-.04.18-.14.22-.33.13-1.22-.57-1.98-2.35-1.98-3.79 0-3.08 2.24-5.91 6.46-5.91 3.39 0 6.03 2.42 6.03 5.66 0 3.38-2.13 6.1-5.09 6.1-1 0-1.93-.52-2.25-1.13l-.61 2.33c-.22.85-.82 1.91-1.22 2.56z" />
+        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
     </svg>
 );
 
