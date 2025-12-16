@@ -22,9 +22,30 @@ import {
 
 const SEOCommandCenter = () => {
     const [activeTab, setActiveTab] = useState('health');
+    const [websiteUrl, setWebsiteUrl] = useState('https://www.example-bakery.com');
 
     return (
         <div className="space-y-8 pb-20 relative">
+            {/* Website Input Section */}
+            <div className="flex items-center gap-4 bg-surface-dark p-4 rounded-xl border border-white/10 mb-8">
+                <div className="p-3 bg-brand-purple/10 rounded-lg text-brand-purple">
+                    <Globe className="w-6 h-6" />
+                </div>
+                <div className="flex-1">
+                    <label className="text-xs font-bold text-slate-400 uppercase mb-1 block">Target Website</label>
+                    <input
+                        type="text"
+                        value={websiteUrl}
+                        onChange={(e) => setWebsiteUrl(e.target.value)}
+                        className="w-full bg-transparent text-white font-bold text-lg focus:outline-none placeholder:text-slate-600"
+                        placeholder="Enter your website URL (e.g. https://yoursite.com)"
+                    />
+                </div>
+                <button className="px-6 py-2 bg-surface-hover border border-white/10 text-white text-sm font-bold rounded-lg hover:bg-brand-purple hover:border-brand-purple transition-all flex items-center gap-2">
+                    <RefreshCw className="w-4 h-4" /> Update Data
+                </button>
+            </div>
+
             {/* Header: The SEO Pulse */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {/* Health Score */}
