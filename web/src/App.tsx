@@ -34,7 +34,7 @@ import CompetitorSpy from './pages/client/CompetitorSpy';
 import StrategyEngine from './pages/client/StrategyEngine';
 import SEOCommandCenter from './pages/client/SEOCommandCenter';
 import GrowthCompass from './pages/client/GrowthCompass';
-import SocialSearchEngine from './pages/client/SocialSearchEngine';
+import SocialMediaAudit from './pages/client/SocialMediaAudit';
 import CampaignBuilder from './pages/client/CampaignBuilder';
 import BudgetOptimizer from './pages/client/BudgetOptimizer';
 import CRMSystem from './pages/client/CRMSystem';
@@ -93,7 +93,7 @@ function App() {
           <Route path="analytics/cmo" element={<StrategyEngine />} />
           <Route path="analytics/growth" element={<GrowthCompass />} />
           <Route path="analytics/seo" element={<SEOCommandCenter />} />
-          <Route path="analytics/social-seo" element={<SocialSearchEngine />} />
+          <Route path="analytics/social-audit" element={<SocialMediaAudit />} />
           <Route path="analytics/competitors" element={<CompetitorSpy />} />
           <Route path="ads/campaigns" element={<CampaignBuilder />} />
           <Route path="ads/budget" element={<BudgetOptimizer />} />

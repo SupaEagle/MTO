@@ -12,7 +12,9 @@ import {
     Eye,
     Copy,
     Smartphone,
-    Users
+    Users,
+    Link,
+    Lightbulb
 } from 'lucide-react';
 
 // Custom TikTok Icon since it's not in Lucide regular set often, or we reuse the one we made before if accessible, 
@@ -29,10 +31,11 @@ const TikTokIcon = ({ className }: { className?: string }) => (
     </svg>
 );
 
-const SocialSearchEngine = () => {
+const SocialMediaAudit = () => {
     const [activeTab, setActiveTab] = useState<'audit' | 'research' | 'optimize'>('audit');
     const [keywordInput, setKeywordInput] = useState('');
     const [researchResult, setResearchResult] = useState(false);
+    const [profileUrl, setProfileUrl] = useState('https://instagram.com/mansatina');
 
     // Mock Data
     const profileAudit = {
@@ -43,6 +46,11 @@ const SocialSearchEngine = () => {
             { id: 3, type: 'check', field: 'Link-in-Bio', current: 'linktr.ee/mansatina', recommended: 'Optimized', reason: 'Link text matches search intent.' }
         ]
     };
+
+    const suggestions = [
+        { id: 1, title: 'Update Name Field', desc: 'Add "Marketing Strategy" to your name to appear in search results.', impact: 'High' },
+        { id: 2, title: 'Rewrite Bio', desc: 'Include keywords like "Growth Agency", "Dentists", and "Realtors" in your bio.', impact: 'Medium' },
+    ];
 
     const researchData = {
         tiktok: [
@@ -70,8 +78,28 @@ const SocialSearchEngine = () => {
         <div className="space-y-8 pb-20 relative">
             {/* Header */}
             <div>
-                <h2 className="text-3xl font-bold text-white mb-2">The Social Search Engine</h2>
+                <h2 className="text-3xl font-bold text-white mb-2">Social Media Audit</h2>
                 <p className="text-slate-400">Optimize social profiles to rank for search terms on TikTok, Instagram, and YouTube.</p>
+            </div>
+
+            {/* Profile URL Input */}
+            <div className="bg-surface-dark p-6 rounded-2xl border border-white/10 flex flex-col md:flex-row gap-4 items-end md:items-center">
+                <div className="flex-1 w-full">
+                    <label className="text-xs font-bold text-slate-400 uppercase mb-2 block">Social Media Profile Link</label>
+                    <div className="flex items-center gap-3 bg-black/20 p-3 rounded-xl border border-white/5">
+                        <Link className="w-5 h-5 text-brand-purple" />
+                        <input
+                            type="text"
+                            value={profileUrl}
+                            onChange={(e) => setProfileUrl(e.target.value)}
+                            className="bg-transparent text-white font-bold w-full focus:outline-none"
+                            placeholder="https://instagram.com/yourusername"
+                        />
+                    </div>
+                </div>
+                <button className="px-6 py-3 bg-brand-purple hover:bg-brand-purple/90 text-white font-bold rounded-xl transition-colors flex items-center gap-2 whitespace-nowrap">
+                    <RefreshCw className="w-4 h-4" /> Run Audit
+                </button>
             </div>
 
             {/* Navigation Tabs */}
@@ -141,30 +169,60 @@ const SocialSearchEngine = () => {
                         </div>
                     </div>
 
-                    {/* Competitor Keyword Spy */}
-                    <div className="glass-panel p-6 rounded-2xl border border-white/10">
-                        <h3 className="text-lg font-bold text-white flex items-center gap-2 mb-6">
-                            <Eye className="w-5 h-5 text-brand-purple" /> Competitor Keyword Spy
-                        </h3>
-                        <div className="p-4 bg-brand-purple/10 border border-brand-purple/20 rounded-xl mb-6">
-                            <h4 className="text-sm font-bold text-white mb-2">Gap Analysis Insight</h4>
-                            <p className="text-sm text-slate-300">
-                                The top 3 ranking accounts for "Miami Realtor" all use the word <span className="text-white font-bold bg-brand-purple/50 px-1 rounded">Strategist</span> in their name field. You should add it.
-                            </p>
+                    {/* Right Column: Suggestions + Competitor Spy */}
+                    <div className="space-y-8">
+                        {/* Actionable Suggestions */}
+                        <div className="glass-panel p-6 rounded-2xl border border-white/10">
+                            <h3 className="text-lg font-bold text-white flex items-center gap-2 mb-6">
+                                <Lightbulb className="w-5 h-5 text-yellow-400" /> Strategic Suggestions
+                            </h3>
+                            <div className="space-y-3">
+                                {suggestions.map((rec) => (
+                                    <div key={rec.id} className="flex gap-4 p-4 bg-surface-dark rounded-xl border border-white/5 hover:border-brand-purple/30 transition-colors cursor-pointer group">
+                                        <div className="mt-1">
+                                            <div className="w-6 h-6 rounded-full bg-brand-purple/20 flex items-center justify-center text-brand-purple text-xs font-bold group-hover:bg-brand-purple group-hover:text-white transition-colors">
+                                                {rec.id}
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div className="flex items-center gap-2 mb-1">
+                                                <h4 className="text-sm font-bold text-white">{rec.title}</h4>
+                                                <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${rec.impact === 'High' ? 'bg-red-500/20 text-red-400' : 'bg-yellow-500/20 text-yellow-400'}`}>
+                                                    {rec.impact} Impact
+                                                </span>
+                                            </div>
+                                            <p className="text-sm text-slate-400">{rec.desc}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
 
-                        <div className="space-y-3">
-                            <h4 className="text-xs font-bold text-slate-400 uppercase">Top Ranking Profiles Analyzed</h4>
-                            {[1, 2, 3].map((i) => (
-                                <div key={i} className="flex items-center gap-3 p-3 bg-surface-dark rounded-lg">
-                                    <div className="w-8 h-8 rounded-full bg-slate-700"></div>
-                                    <div>
-                                        <div className="text-sm font-bold text-white">Competitor {i}</div>
-                                        <div className="text-xs text-slate-400">Uses "Strategist" • "Market Expert"</div>
+                        {/* Competitor Keyword Spy */}
+                        <div className="glass-panel p-6 rounded-2xl border border-white/10">
+                            <h3 className="text-lg font-bold text-white flex items-center gap-2 mb-6">
+                                <Eye className="w-5 h-5 text-brand-purple" /> Competitor Keyword Spy
+                            </h3>
+                            <div className="p-4 bg-brand-purple/10 border border-brand-purple/20 rounded-xl mb-6">
+                                <h4 className="text-sm font-bold text-white mb-2">Gap Analysis Insight</h4>
+                                <p className="text-sm text-slate-300">
+                                    The top 3 ranking accounts for "Miami Realtor" all use the word <span className="text-white font-bold bg-brand-purple/50 px-1 rounded">Strategist</span> in their name field. You should add it.
+                                </p>
+                            </div>
+
+                            <div className="space-y-3">
+                                <h4 className="text-xs font-bold text-slate-400 uppercase">Top Ranking Profiles Analyzed</h4>
+                                {[1, 2, 3].map((i) => (
+                                    <div key={i} className="flex items-center gap-3 p-3 bg-surface-dark rounded-lg">
+                                        <div className="w-8 h-8 rounded-full bg-slate-700"></div>
+                                        <div>
+                                            <div className="text-sm font-bold text-white">Competitor {i}</div>
+                                            <div className="text-xs text-slate-400">Uses "Strategist" • "Market Expert"</div>
+                                        </div>
+                                        <div className="ml-auto text-green-400 text-xs font-bold">Rank #{i}</div>
                                     </div>
-                                    <div className="ml-auto text-green-400 text-xs font-bold">Rank #{i}</div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -377,4 +435,4 @@ const SocialSearchEngine = () => {
     );
 };
 
-export default SocialSearchEngine;
+export default SocialMediaAudit;

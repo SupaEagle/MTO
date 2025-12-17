@@ -64,7 +64,7 @@ const ClientLayout = () => {
                 { name: 'Strategy Engine (CMO)', path: '/client/analytics/cmo' },
                 { name: 'The Growth Compass', path: '/client/analytics/growth' },
                 { name: 'SEO Command Center', path: '/client/analytics/seo' },
-                { name: 'Social Search Engine', path: '/client/analytics/social-seo' },
+                { name: 'Social Media Audit', path: '/client/analytics/social-audit' },
                 { name: 'Competitor Spy', path: '/client/analytics/competitors' },
             ]
         },
