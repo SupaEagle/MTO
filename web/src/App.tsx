@@ -9,6 +9,7 @@ import ContentWizard from './pages/agency/ContentWizard';
 import TemplateLibrary from './pages/agency/TemplateLibrary';
 import ManagerDashboard from './pages/agency/ManagerDashboard';
 import ClientDirectory from './pages/agency/ClientDirectory';
+import TeamOps from './pages/agency/TeamOps';
 
 import ClientDashboard from './pages/ClientDashboard';
 import ApprovalLoop from './pages/client/ApprovalLoop';
@@ -67,6 +68,7 @@ function App() {
           <Route path="manager" element={<ManagerDashboard />} />
           <Route path="analytics" element={<Analytics />} />
           <Route path="clients" element={<ClientDirectory />} />
+          <Route path="team" element={<TeamOps />} />
           {/* Add more agency routes here */}
         </Route>
 
