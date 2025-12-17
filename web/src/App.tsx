@@ -94,6 +94,7 @@ function App() {
           <Route path="analytics/growth" element={<GrowthCompass />} />
           <Route path="analytics/seo" element={<SEOCommandCenter />} />
           <Route path="analytics/social-audit" element={<SocialMediaAudit />} />
+          <Route path="analytics/social-seo" element={<SocialMediaAudit />} />
           <Route path="analytics/competitors" element={<CompetitorSpy />} />
           <Route path="ads/campaigns" element={<CampaignBuilder />} />
           <Route path="ads/budget" element={<BudgetOptimizer />} />
