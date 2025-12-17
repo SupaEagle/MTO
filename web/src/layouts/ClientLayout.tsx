@@ -39,6 +39,7 @@ const ClientLayout = () => {
                 { name: 'Visual Assets', path: '/client/creative/visuals' },
                 { name: 'Video Optimization', path: '/client/creative/video' },
                 { name: 'Swipe File', path: '/client/creative/swipe' },
+                { name: 'The Press Room', path: '/client/creative/press-room' },
             ]
         },
         {

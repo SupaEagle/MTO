@@ -27,6 +27,7 @@ import ScalingFocus from './pages/client/ScalingFocus';
 import VisualAssets from './pages/client/VisualAssets';
 import VideoOptimization from './pages/client/VideoOptimization';
 import SwipeFile from './pages/client/SwipeFile';
+import ThePressRoom from './pages/client/ThePressRoom';
 import PlatformConfig from './pages/client/PlatformConfig';
 import LeadAutomation from './pages/client/LeadAutomation';
 import FunnelAnalysis from './pages/client/FunnelAnalysis';
@@ -88,6 +89,7 @@ function App() {
           <Route path="creative/visuals" element={<VisualAssets />} />
           <Route path="creative/video" element={<VideoOptimization />} />
           <Route path="creative/swipe" element={<SwipeFile />} />
+          <Route path="creative/press-room" element={<ThePressRoom />} />
           <Route path="engagement/platforms" element={<PlatformConfig />} />
           <Route path="engagement/automation" element={<LeadAutomation />} />
           <Route path="analytics/funnel" element={<FunnelAnalysis />} />
