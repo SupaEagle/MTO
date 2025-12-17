@@ -16,7 +16,9 @@ import {
     CheckCircle,
     Target,
     Bot,
-    AlertTriangle
+    AlertTriangle,
+    Minimize2,
+    Maximize2
 } from 'lucide-react';
 
 const GrowthCompass = () => {
