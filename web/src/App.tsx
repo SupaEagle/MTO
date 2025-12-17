@@ -8,6 +8,8 @@ import PersonaBuilder from './pages/agency/PersonaBuilder';
 import ContentWizard from './pages/agency/ContentWizard';
 import TemplateLibrary from './pages/agency/TemplateLibrary';
 import ManagerDashboard from './pages/agency/ManagerDashboard';
+import ClientDirectory from './pages/agency/ClientDirectory';
+
 import ClientDashboard from './pages/ClientDashboard';
 import ApprovalLoop from './pages/client/ApprovalLoop';
 import Calendar from './pages/client/Calendar';
@@ -64,6 +66,7 @@ function App() {
           <Route path="templates" element={<TemplateLibrary />} />
           <Route path="manager" element={<ManagerDashboard />} />
           <Route path="analytics" element={<Analytics />} />
+          <Route path="clients" element={<ClientDirectory />} />
           {/* Add more agency routes here */}
         </Route>
 
