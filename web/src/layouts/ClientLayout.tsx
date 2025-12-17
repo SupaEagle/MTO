@@ -66,6 +66,7 @@ const ClientLayout = () => {
                 { name: 'SEO Command Center', path: '/client/analytics/seo' },
                 { name: 'Social Media Audit', path: '/client/analytics/social-audit' },
                 { name: 'Competitor Spy', path: '/client/analytics/competitors' },
+                { name: 'Launch Mission Control', path: '/client/analytics/launch-control' },
             ]
         },
         {
