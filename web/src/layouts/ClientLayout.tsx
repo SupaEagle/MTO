@@ -1,5 +1,6 @@
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import logo from '../assets/logo.png';
+import GlobalClientSelector from '../components/GlobalClientSelector';
 import {
     Target,
     Palette,
@@ -101,6 +102,10 @@ const ClientLayout = () => {
             <aside className="w-20 lg:w-64 bg-surface-card flex flex-col z-50 transition-all duration-300">
                 <div className="h-20 flex items-center justify-center">
                     <img src={logo} alt="Mansa Tina" className="h-10 object-contain" />
+                </div>
+
+                <div className="px-2 lg:px-4 pb-4">
+                    <GlobalClientSelector />
                 </div>
 
                 <nav className="flex-1 py-6 space-y-2 overflow-visible">
