@@ -13,7 +13,7 @@ import {
     Copy,
     Smartphone,
     Users,
-    Link,
+    Link as LinkIcon,
     Lightbulb
 } from 'lucide-react';
 
@@ -87,7 +87,7 @@ const SocialMediaAudit = () => {
                 <div className="flex-1 w-full">
                     <label className="text-xs font-bold text-slate-400 uppercase mb-2 block">Social Media Profile Link</label>
                     <div className="flex items-center gap-3 bg-black/20 p-3 rounded-xl border border-white/5">
-                        <Link className="w-5 h-5 text-brand-purple" />
+                        <LinkIcon className="w-5 h-5 text-brand-purple" />
                         <input
                             type="text"
                             value={profileUrl}
