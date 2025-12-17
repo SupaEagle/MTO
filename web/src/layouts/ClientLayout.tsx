@@ -62,6 +62,7 @@ const ClientLayout = () => {
             items: [
                 { name: 'Funnel Analysis', path: '/client/analytics/funnel' },
                 { name: 'Strategy Engine (CMO)', path: '/client/analytics/cmo' },
+                { name: 'The Growth Compass', path: '/client/analytics/growth' },
                 { name: 'SEO Command Center', path: '/client/analytics/seo' },
                 { name: 'Competitor Spy', path: '/client/analytics/competitors' },
             ]
