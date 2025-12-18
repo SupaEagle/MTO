@@ -10,6 +10,7 @@ import TemplateLibrary from './pages/agency/TemplateLibrary';
 import ManagerDashboard from './pages/agency/ManagerDashboard';
 import ClientDirectory from './pages/agency/ClientDirectory';
 import TeamOps from './pages/agency/TeamOps';
+import GlobalLibrary from './pages/agency/GlobalLibrary';
 
 import ClientDashboard from './pages/ClientDashboard';
 import ApprovalLoop from './pages/client/ApprovalLoop';
@@ -69,6 +70,7 @@ function App() {
           <Route path="analytics" element={<Analytics />} />
           <Route path="clients" element={<ClientDirectory />} />
           <Route path="team" element={<TeamOps />} />
+          <Route path="library" element={<GlobalLibrary />} />
           {/* Add more agency routes here */}
         </Route>
 
