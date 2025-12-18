@@ -1,12 +1,14 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
     Search, Filter, Shield,
     CreditCard, Users, LogIn, ExternalLink, Mail, Phone,
     CheckCircle, AlertTriangle, XCircle,
-    Monitor, Layout, PhoneCall, Plus
+    Monitor, Layout, Plus
 } from 'lucide-react';
 
 const ClientDirectory = () => {
+    const navigate = useNavigate();
     // State for filtering and view mode
     const [viewMode, setViewMode] = useState<'all' | 'onboarding'>('all');
     const [selectedClient, setSelectedClient] = useState<number | null>(null);
@@ -23,7 +25,7 @@ const ClientDirectory = () => {
             health: 92,
             manager: { name: "Sarah J.", avatar: "https://ui-avatars.com/api/?name=SJ&background=6d28d9&color=fff" },
             lastActive: "2h ago",
-            techStack: { vibe: true, meta: true, retell: false },
+            techStack: { vibe: true, meta: true },
             onboardingStep: 5 // Completed
         },
         {
@@ -36,7 +38,7 @@ const ClientDirectory = () => {
             health: 78,
             manager: { name: "Mike T.", avatar: "https://ui-avatars.com/api/?name=MT&background=10b981&color=fff" },
             lastActive: "1d ago",
-            techStack: { vibe: false, meta: true, retell: false },
+            techStack: { vibe: false, meta: true },
             onboardingStep: 3 // Stuck at Brand DNA
         },
         {
@@ -49,7 +51,7 @@ const ClientDirectory = () => {
             health: 45,
             manager: { name: "Sarah J.", avatar: "https://ui-avatars.com/api/?name=SJ&background=6d28d9&color=fff" },
             lastActive: "5d ago",
-            techStack: { vibe: true, meta: false, retell: true },
+            techStack: { vibe: true, meta: false },
             onboardingStep: 5
         },
     ];
@@ -179,9 +181,6 @@ const ClientDirectory = () => {
                                     <div className={`p-1.5 rounded-md border ${client.techStack.meta ? 'bg-green-500/10 border-green-500/30 text-green-400' : 'bg-red-500/10 border-red-500/30 text-red-400 opacity-50'}`} title="Meta Ads">
                                         <Layout className="w-3 h-3" />
                                     </div>
-                                    <div className={`p-1.5 rounded-md border ${client.techStack.retell ? 'bg-green-500/10 border-green-500/30 text-green-400' : 'bg-red-500/10 border-red-500/30 text-red-400 opacity-50'}`} title="Retell AI">
-                                        <PhoneCall className="w-3 h-3" />
-                                    </div>
                                 </div>
 
                                 {/* Actions */}
@@ -189,10 +188,21 @@ const ClientDirectory = () => {
                                     <button
                                         className="p-2 bg-brand-purple text-white rounded-lg hover:bg-brand-purple/80 transition-colors shadow-lg shadow-brand-purple/20"
                                         title="Impersonate (Login As)"
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            navigate('/client');
+                                        }}
                                     >
                                         <LogIn className="w-4 h-4" />
                                     </button>
-                                    <button className="p-2 hover:bg-white/10 text-slate-400 hover:text-white rounded-lg transition-colors">
+                                    <button
+                                        className="p-2 hover:bg-white/10 text-slate-400 hover:text-white rounded-lg transition-colors"
+                                        title="Billing Settings"
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            navigate('/agency/financials');
+                                        }}
+                                    >
                                         <CreditCard className="w-4 h-4" />
                                     </button>
                                 </div>
