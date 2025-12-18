@@ -106,7 +106,7 @@ const DashboardView = ({ onBuildClick }: { onBuildClick: () => void }) => {
             </div>
 
             {/* Campaign Master Table */}
-            <div className="bg-surface-dark border border-surface-border rounded-xl overflow-hidden shadow-lg">
+            <div className="bg-surface-dark border border-brand-purple rounded-xl overflow-hidden shadow-lg shadow-brand-purple/5">
                 <div className="p-6 border-b border-surface-border flex justify-between items-center bg-surface-card">
                     <h3 className="font-bold text-white text-lg">Active Campaigns</h3>
                     <button
@@ -443,7 +443,7 @@ const AnalyticsView = () => {
 // --- Sub-components ---
 
 const KPIWidget = ({ title, value, change, icon, subtext }: any) => (
-    <div className="bg-surface-dark border border-surface-border rounded-xl p-5 hover:border-brand-purple/50 transition-colors cursor-default group">
+    <div className="bg-surface-dark border border-brand-purple rounded-xl p-5 hover:border-brand-purple transition-colors cursor-default group">
         <div className="flex justify-between items-start mb-2">
             <div className="p-2 bg-surface-card rounded-lg border border-surface-border group-hover:bg-surface-hover transition-colors">
                 {icon}
