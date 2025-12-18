@@ -35,6 +35,7 @@ const ClientLayout = () => {
             name: 'Creative Studio',
             icon: Palette,
             items: [
+                { name: 'Mansa Magic (AI)', path: '/client/creative/mansa-magic' },
                 { name: 'Content Wizard', path: '/client/creative-studio' },
                 { name: 'Content Vault', path: '/client/creative/vault' },
                 { name: 'Visual Assets', path: '/client/creative/visuals' },

@@ -25,6 +25,7 @@ import ContentPillars from './pages/client/ContentPillars';
 import CompetitorRecon from './pages/client/CompetitorRecon';
 import BrandReport from './pages/client/BrandReport';
 import CreativeStudio from './pages/client/CreativeStudio';
+import MansaMagic from './pages/client/MansaMagic';
 import LogisticsHub from './pages/client/LogisticsHub';
 import AudienceDefinition from './pages/client/AudienceDefinition';
 import ValuePropBuilder from './pages/client/ValuePropBuilder';
@@ -90,6 +91,7 @@ function App() {
           <Route path="strategy/competitors" element={<CompetitorRecon />} />
           <Route path="strategy/reports" element={<BrandReport />} />
           <Route path="creative-studio" element={<CreativeStudio />} />
+          <Route path="creative/mansa-magic" element={<MansaMagic />} />
           <Route path="creative/vault" element={<CreativeStudio />} />
           <Route path="logistics" element={<LogisticsHub />} />
           <Route path="strategy/audience" element={<AudienceDefinition />} />
