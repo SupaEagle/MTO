@@ -143,7 +143,7 @@ const DiscoveryWizard = () => {
             }, 300);
         } else {
             // Finish
-            navigate('/client/strategy/voice?source=discovery_complete');
+            navigate('/client?source=discovery_complete');
         }
     };
 

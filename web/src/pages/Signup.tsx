@@ -52,7 +52,7 @@ const Signup = () => {
         if (formData.tier === 'Starter (Solo)') {
             navigate('/discovery');
         } else {
-            navigate('/client/strategy/voice'); // Direct to Brand DNA setup
+            navigate('/client'); // Direct to Client Dashboard
         }
     };
 

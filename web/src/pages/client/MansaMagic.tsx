@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
     Sparkles, Upload, Wand2, Zap,
     Image as ImageIcon, CheckCircle, Share2,
@@ -9,10 +9,20 @@ const MansaMagic = () => {
     const [stage, setStage] = useState<'input' | 'processing' | 'reveal'>('input');
     const [intention, setIntention] = useState<'sales' | 'viral' | 'value'>('viral');
     const [loadingStatus, setLoadingStatus] = useState("Gemini is watching your video...");
-    const [selectedClip, setSelectedClip] = useState<any>(null);
+
+    interface Clip {
+        id: number;
+        title: string;
+        score: number;
+        duration: string;
+        type: string;
+        thumbnail: string;
+    }
+
+    const [selectedClip, setSelectedClip] = useState<Clip | null>(null);
 
     // Mock Clips Data
-    const GENERATED_CLIPS = [
+    const GENERATED_CLIPS: Clip[] = [
         { id: 1, title: 'The Objection Handler', score: 94, duration: '0:45', type: 'Sales Magic', thumbnail: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&h=600&fit=crop' },
         { id: 2, title: 'The Brand Story', score: 88, duration: '1:12', type: 'Viral Magic', thumbnail: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&h=600&fit=crop' },
         { id: 3, title: 'Value Bomb #1', score: 91, duration: '0:58', type: 'Value Magic', thumbnail: 'https://images.unsplash.com/photo-1544716278-ca6e3f4fa98d?w=400&h=600&fit=crop' },
@@ -20,8 +30,10 @@ const MansaMagic = () => {
         { id: 5, title: 'Expert Tip', score: 82, duration: '0:38', type: 'Value Magic', thumbnail: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=600&fit=crop' },
     ];
 
-    const startMagic = () => {
-        setStage('processing');
+    // Use useEffect to manage the processing stage and interval to prevent memory leaks
+    useEffect(() => {
+        if (stage !== 'processing') return;
+
         const statuses = [
             "Consulting your Brand DNA...",
             "Identifying the 'Money' moments...",
@@ -39,6 +51,12 @@ const MansaMagic = () => {
                 setStage('reveal');
             }
         }, 800);
+
+        return () => clearInterval(interval);
+    }, [stage]);
+
+    const startMagic = () => {
+        setStage('processing');
     };
 
     // --- SUB-COMPONENTS ---
@@ -150,7 +168,7 @@ const MansaMagic = () => {
                     {/* Zone 1: Quick Fix Player */}
                     <div className="lg:col-span-8 flex flex-col md:flex-row gap-8">
                         <div className="relative w-64 aspect-[9/16] bg-black rounded-2xl overflow-hidden shadow-2xl shrink-0 border border-white/10 mx-auto md:mx-0">
-                            <img src={selectedClip.thumbnail} className="w-full h-full object-cover opacity-80" />
+                            <img src={selectedClip.thumbnail} alt="Clip preview" className="w-full h-full object-cover opacity-80" />
                             <div className="absolute inset-0 flex items-center justify-center">
                                 <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
                                     <Play className="w-8 h-8 text-white fill-white" />
@@ -223,7 +241,6 @@ const MansaMagic = () => {
             )}
         </div>
     );
-
     return (
         <div className="min-h-screen">
             <div className="mb-8">

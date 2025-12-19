@@ -12,12 +12,13 @@ import ClientDirectory from './pages/agency/ClientDirectory';
 import TeamOps from './pages/agency/TeamOps';
 import GlobalLibrary from './pages/agency/GlobalLibrary';
 import Financials from './pages/agency/Financials';
+import WhiteLabel from './pages/agency/WhiteLabel';
 
 import ClientDashboard from './pages/ClientDashboard';
 import ApprovalLoop from './pages/client/ApprovalLoop';
 import Calendar from './pages/client/Calendar';
 import Inbox from './pages/client/Inbox';
-import BrandVoiceCalibration from './pages/client/BrandVoiceCalibration';
+// import BrandVoiceCalibration from './pages/client/BrandVoiceCalibration';
 import CoreIdentity from './pages/client/CoreIdentity';
 import BrandPersona from './pages/client/BrandPersona';
 import StrategicDifferentiation from './pages/client/StrategicDifferentiation';
@@ -74,6 +75,7 @@ function App() {
           <Route path="team" element={<TeamOps />} />
           <Route path="library" element={<GlobalLibrary />} />
           <Route path="financials" element={<Financials />} />
+          <Route path="settings" element={<WhiteLabel />} />
           {/* Add more agency routes here */}
         </Route>
 
@@ -83,7 +85,7 @@ function App() {
           <Route path="approval" element={<ApprovalLoop />} />
           <Route path="calendar" element={<Calendar />} />
           <Route path="inbox" element={<Inbox />} />
-          <Route path="strategy/voice" element={<BrandVoiceCalibration />} />
+          {/* <Route path="strategy/voice" element={<BrandVoiceCalibration />} /> */}
           <Route path="strategy/identity" element={<CoreIdentity />} />
           <Route path="strategy/persona" element={<BrandPersona />} />
           <Route path="strategy/differentiation" element={<StrategicDifferentiation />} />
