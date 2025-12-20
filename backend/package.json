@@ -6,9 +6,12 @@
     "scripts": {
         "start": "node dist/server.js",
         "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+        "worker": "ts-node-dev --respawn --transpile-only src/worker.ts",
         "build": "tsc"
     },
     "dependencies": {
+        "@google-cloud/pubsub": "^5.2.0",
+        "@google-cloud/vertexai": "^1.10.0",
         "@types/pg": "^8.16.0",
         "cors": "^2.8.5",
         "dotenv": "^16.3.1",

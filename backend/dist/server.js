@@ -65,6 +65,7 @@ else {
 }
 const strategy_1 = __importDefault(require("./routes/strategy"));
 const content_1 = __importDefault(require("./routes/content"));
+const wizard_1 = __importDefault(require("./routes/wizard"));
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 8080;
 app.use((0, cors_1.default)({ origin: true }));
@@ -76,6 +77,7 @@ app.get('/', (req, res) => {
 // Protected Routes
 app.use('/api/strategy', strategy_1.default);
 app.use('/api/content', content_1.default);
+app.use('/api/wizard', wizard_1.default);
 // Auth Check Example
 app.get('/api/me', auth_1.authenticate, (req, res) => {
     res.json({

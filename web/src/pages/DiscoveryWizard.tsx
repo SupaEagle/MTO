@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API } from '../lib/api';
+import { useDNAPoller } from '../hooks/useDNAPoller';
+import DNALoadingScreen from '../components/onboarding/DNALoadingScreen';
 
 // -- Questionnaire Data Structure --
 const SECTIONS = [
@@ -116,6 +119,11 @@ const DiscoveryWizard = () => {
     const [answers, setAnswers] = useState<Record<string, string>>({});
     const [isAnimating, setIsAnimating] = useState(false);
 
+    // DNA Loader State
+    const [subAccountId, setSubAccountId] = useState<string | null>(null);
+    const [isProcessing, setIsProcessing] = useState(false);
+    useDNAPoller(subAccountId, isProcessing);
+
     const currentSection = SECTIONS[currentSectionIdx];
     const progress = ((currentSectionIdx + 1) / SECTIONS.length) * 100;
 
@@ -142,8 +150,30 @@ const DiscoveryWizard = () => {
                 window.scrollTo(0, 0);
             }, 300);
         } else {
-            // Finish
-            navigate('/client?source=discovery_complete');
+            // Finish -> Trigger DNA Sequence
+            handleFinish();
+        }
+    };
+
+    const handleFinish = async () => {
+        try {
+            // Generate a demo sub-account ID (In real app, this comes from auth/context)
+            const demoSubAccountId = crypto.randomUUID();
+            setSubAccountId(demoSubAccountId);
+
+            // 1. Submit to Backend
+            await API.post('/api/wizard/submit', {
+                rawAnswers: answers,
+                subAccountId: demoSubAccountId
+            });
+
+            // 2. Start Loading Sequence
+            setIsProcessing(true);
+
+        } catch (error) {
+            console.error('Failed to submit wizard:', error);
+            // Fallback navigation or error toast
+            navigate('/client?error=submission_failed');
         }
     };
 
@@ -160,6 +190,9 @@ const DiscoveryWizard = () => {
 
     return (
         <div className="min-h-screen bg-[#050816] text-white relative overflow-hidden font-sans selection:bg-brand-pink selection:text-white">
+
+            {/* 3. DNA Loader Overlay */}
+            {isProcessing && <DNALoadingScreen />}
 
             {/* Pulsating Animated Background */}
             <div className="fixed inset-0 z-0 pointer-events-none">
