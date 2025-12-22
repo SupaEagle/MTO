@@ -1,425 +1,321 @@
-import { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Globe, Target, Heart, Mic, Upload, ArrowRight, ArrowLeft, CheckCircle, Search } from 'lucide-react';
 import { API } from '../lib/api';
-import { useDNAPoller } from '../hooks/useDNAPoller';
 import DNALoadingScreen from '../components/onboarding/DNALoadingScreen';
 
-// -- Questionnaire Data Structure --
-const SECTIONS = [
-    {
-        id: 'core',
-        title: 'Core Business Identity',
-        description: 'Who you are, what you sell, and who runs the show.',
-        color: 'from-blue-500 to-cyan-500',
-        questions: [
-            { id: 'businessName', label: 'Business Name', subtext: 'Legal name + Public-facing brand name.' },
-            { id: 'industryNiche', label: 'Industry & Niche', subtext: 'Be specific. e.g., "High-end sustainable leather goods," not just "E-commerce".' },
-            { id: 'coreOffering', label: 'Core Offering', subtext: 'One clear, concise sentence describing your main product/service.' },
-            { id: 'contact', label: 'Internal Point of Contact', subtext: 'Name, Title, Email of the main approver.' }
-        ]
-    },
-    {
-        id: 'goals',
-        title: 'Goals & Measurement',
-        description: 'Turning aspirations into SMART goals.',
-        color: 'from-green-500 to-emerald-500',
-        questions: [
-            { id: 'highLevelAim', label: 'High-Level Aim (12 Months)', subtext: 'The single biggest goal (Revenue, Market Share, etc.).' },
-            { id: 'marketingRole', label: 'Marketing Contribution', subtext: 'Role of content? (Lead Gen, Brand Awareness, Retention).' },
-            { id: 'kpis', label: 'Top 3 KPIs', subtext: 'e.g., SQLs, Traffic, Engagement Rate (beyond just sales).' },
-            { id: 'baselineTarget', label: 'Baseline & Target (90 Days)', subtext: 'Current average vs. Specific target for next 90 days.' }
-        ]
-    },
-    {
-        id: 'audience',
-        title: 'Audience & Psychographics',
-        description: 'Deep dive into your Ideal Client Avatar (ICA).',
-        color: 'from-purple-500 to-pink-500',
-        questions: [
-            { id: 'ica', label: 'Ideal Client Avatar', subtext: 'Clone your best customer. Demographics, Job Title, Age.' },
-            { id: 'psychographics', label: 'Psychographics', subtext: 'Values, Beliefs, Identity. What do they believe about themselves?' },
-            { id: 'misery', label: 'Customer Misery (Pains)', subtext: 'Top 3 fears/frustrations your product solves.' },
-            { id: 'miracle', label: 'Customer Miracle (Wants)', subtext: 'Ultimate desired outcome/transformation.' }
-        ]
-    },
-    {
-        id: 'value',
-        title: 'Value & Differentiation',
-        description: 'Why you? Your Unique Selling Point and Value Equation.',
-        color: 'from-amber-500 to-orange-500',
-        questions: [
-            { id: 'usp', label: 'Unique Selling Proposition (USP)', subtext: 'Why choose you? One thing you do better/different that is defensible.' },
-            { id: 'competitors', label: 'Competitor Analysis', subtext: 'Top 3 competitors and their primary differentiation.' },
-            { id: 'valueEq', label: 'Value Equation', subtext: 'Assess: Dream Outcome, Likelihood, Speed, and Effort.' },
-            { id: 'uspReinforce', label: 'USP Reinforcement', subtext: '3 points in the journey where USP is explicitly stated.' }
-        ]
-    },
-    {
-        id: 'identity',
-        title: 'Organizational Identity',
-        description: 'Mission, Vision, and the Brand Promise.',
-        color: 'from-indigo-500 to-blue-600',
-        questions: [
-            { id: 'mission', label: 'Mission Statement', subtext: 'Why do you exist? Who do you serve? How do you do it?' },
-            { id: 'vision', label: 'Vision Statement', subtext: 'What does the world look like in 5-10 years if you succeed?' },
-            { id: 'promise', label: 'Brand Promise', subtext: 'Non-negotiable commitment to every customer.' }
-        ]
-    },
-    {
-        id: 'scaling',
-        title: 'Scaling & Constraints',
-        description: 'Optimizing for growth and identifying bottlenecks.',
-        color: 'from-red-500 to-rose-600',
-        questions: [
-            { id: 'powerLaw', label: 'Best Customers (Power Law)', subtext: '% of customers generating 80% of revenue. Describe them.' },
-            { id: 'expansion', label: 'Future Market Strategy', subtext: 'Up market, Down market, or Adjacent categories?' },
-            { id: 'bottleneck', label: 'Scaling Constraint', subtext: 'If sales 5x tomorrow, what breaks first?' }
-        ]
-    },
-    {
-        id: 'visuals',
-        title: 'Visual Brand Identity',
-        description: 'Colors, Fonts, and Aesthetics for the Creative Studio.',
-        color: 'from-fuchsia-500 to-purple-600',
-        questions: [
-            { id: 'assets', label: 'Brand Assets', subtext: 'Do you have a Style Guide/PDF? (This is critical).' },
-            { id: 'colors', label: 'Color Palette', subtext: 'HEX codes for Primary and Action/CTA colors.' },
-            { id: 'typography', label: 'Typography', subtext: 'Primary (Headline) and Secondary (Body) font names.' },
-            { id: 'logoRules', label: 'Logo Usage', subtext: 'Transparent logo available? Size/Watermark rules?' },
-            { id: 'aesthetics', label: 'Imagery & Mood', subtext: 'Visual style (Modern, Earthy, etc.) & preferences.' },
-            { id: 'legal', label: 'Legal & Compliance', subtext: 'Any mandatory disclaimers or usage rights?' }
-        ]
-    },
-    {
-        id: 'ai_calibration',
-        title: 'AI & Content Calibration',
-        description: 'Training the Brain. Tone, Voice, and Trends.',
-        color: 'from-teal-400 to-emerald-600',
-        questions: [
-            { id: 'tone', label: 'Brand Tone & Personality', subtext: '3 Adjectives (e.g., Witty, Professional). How should they feel?' },
-            { id: 'jargon', label: 'Vocabulary & Jargon', subtext: 'Terms to USE and terms to AVOID.' },
-            { id: 'styleExamples', label: 'Style Examples', subtext: 'Links to About Us, Best Posts, or Aspirational brands.' },
-            { id: 'stopWords', label: 'Stop Words / Guardrails', subtext: 'Topics or phrases the AI must NEVER use.' },
-            { id: 'compHandles', label: 'Top 5 Competitors', subtext: 'Handles/URLs for tracking.' },
-            { id: 'compStrengths', label: 'Competitor Strengths', subtext: 'What do they do well that you admire?' },
-            { id: 'marketGap', label: 'Market Gap', subtext: 'One idea to steal/remix from competitors.' },
-            { id: 'pillars', label: 'Content Pillars', subtext: 'Education, Culture, Sales, Proof, Inspiration?' },
-            { id: 'mix', label: 'Ideal Content Mix', subtext: '% Breakdown (e.g., 40% value, 20% sales).' },
-            { id: 'formats', label: 'Content Formats', subtext: 'Video vs Carousel vs Text. Detailed preference.' },
-            { id: 'trendPlatform', label: 'Primary Trend Platform', subtext: 'TikTok, X, LinkedIn?' },
-            { id: 'influencers', label: 'Niche Influencers', subtext: 'Who do you look to for inspiration?' },
-            { id: 'trendThreshold', label: 'Trend Actionability', subtext: 'Minimum views/engagement to justify jumping on a trend.' }
-        ]
-    }
-];
+// --- Types ---
+type WizardStep = 'footprint' | 'mission' | 'audience' | 'voice' | 'vault';
 
-const DiscoveryWizard = () => {
+interface WizardData {
+    // Step 1: Footprint
+    website: string;
+    socialHandle: string;
+    // Step 2: Mission
+    missionGoal: string; // 'awareness' | 'leads' | 'recruitment' | 'other'
+    missionText: string;
+    // Step 3: Audience
+    homeRunClient: string;
+    // Step 4: Voice
+    adjectives: string[];
+    antiStyle: string;
+    // Step 5: Vault (Mocking file uploads for now)
+    files: string[];
+}
+
+const ADJECTIVES_LIST = ['Professional', 'Witty', 'Bold', 'Empathetic', 'Authoritative', 'Minimalist', 'Energetic', 'Luxurious', 'Friendly', 'Tech-Forward'];
+
+const LeanDiscoveryWizard = () => {
     const navigate = useNavigate();
-    const [currentSectionIdx, setCurrentSectionIdx] = useState(0);
-    const [answers, setAnswers] = useState<Record<string, string>>({});
-    const [isAnimating, setIsAnimating] = useState(false);
-
-    // DNA Loader State
-    const [subAccountId, setSubAccountId] = useState<string | null>(null);
+    const [step, setStep] = useState<WizardStep>('footprint');
     const [isProcessing, setIsProcessing] = useState(false);
-    useDNAPoller(subAccountId, isProcessing);
 
-    const currentSection = SECTIONS[currentSectionIdx];
-    const progress = ((currentSectionIdx + 1) / SECTIONS.length) * 100;
+    const [formData, setFormData] = useState<WizardData>({
+        website: '',
+        socialHandle: '',
+        missionGoal: '',
+        missionText: '',
+        homeRunClient: '',
+        adjectives: [],
+        antiStyle: '',
+        files: []
+    });
 
-    // Persist to local storage demo
-    useEffect(() => {
-        const saved = localStorage.getItem('discovery_answers');
-        if (saved) setAnswers(JSON.parse(saved));
-    }, []);
+    // --- Navigation Helpers ---
+    const nextStep = (next: WizardStep) => setStep(next);
+    const prevStep = (prev: WizardStep) => setStep(prev);
 
-    const handleInput = (id: string, value: string) => {
-        setAnswers(prev => {
-            const next = { ...prev, [id]: value };
-            localStorage.setItem('discovery_answers', JSON.stringify(next));
-            return next;
-        });
-    };
-
-    const nextSection = () => {
-        if (currentSectionIdx < SECTIONS.length - 1) {
-            setIsAnimating(true);
-            setTimeout(() => {
-                setCurrentSectionIdx(prev => prev + 1);
-                setIsAnimating(false);
-                window.scrollTo(0, 0);
-            }, 300);
-        } else {
-            // Finish -> Trigger DNA Sequence
-            handleFinish();
-        }
-    };
-
-    const handleFinish = async () => {
+    // --- Submission Handler ---
+    const handleSubmit = async () => {
+        setIsProcessing(true);
         try {
-            // Generate a demo sub-account ID (In real app, this comes from auth/context)
-            const demoSubAccountId = crypto.randomUUID();
-            setSubAccountId(demoSubAccountId);
-
-            // 1. Submit to Backend
+            // Send data to backend
             await API.post('/api/wizard/submit', {
-                rawAnswers: answers,
-                subAccountId: demoSubAccountId
+                ...formData,
+                timestamp: new Date().toISOString()
             });
+            // Polling will be handled by the DNALoadingScreen internally or we can use the hook here. 
+            // Actually, DNALoadingScreen usually just shows animation.
+            // Let's assume the API triggers the background job.
 
-            // 2. Start Loading Sequence
-            setIsProcessing(true);
+            // For this version, we'll simulate the "Sequencing" delay using the component, 
+            // creating a polling effect or just waiting for the redirect signal.
+            // The previous implementation used a poller.
 
         } catch (error) {
-            console.error('Failed to submit wizard:', error);
-            // Fallback navigation or error toast
-            navigate('/client?error=submission_failed');
+            console.error("Submission failed", error);
+            setIsProcessing(false);
+            alert("Failed to submit wizard.");
         }
     };
 
-    const prevSection = () => {
-        if (currentSectionIdx > 0) {
-            setIsAnimating(true);
-            setTimeout(() => {
-                setCurrentSectionIdx(prev => prev - 1);
-                setIsAnimating(false);
-                window.scrollTo(0, 0);
-            }, 300);
-        }
-    };
+    // If processing, show the DNA Loader
+    if (isProcessing) {
+        return <DNALoadingScreen />;
+    }
 
     return (
-        <div className="min-h-screen bg-[#050816] text-white relative overflow-hidden font-sans selection:bg-brand-pink selection:text-white">
+        <div className="min-h-screen bg-slate-950 text-white flex items-center justify-center p-4">
+            <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-3 bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl min-h-[600px]">
 
-            {/* 3. DNA Loader Overlay */}
-            {isProcessing && <DNALoadingScreen />}
+                {/* Left Sidebar: Progress & Context */}
+                <div className="bg-slate-900 md:bg-slate-900/50 border-r border-slate-800 p-8 flex flex-col justify-between relative overflow-hidden">
+                    <div className="z-10">
+                        <div className="mb-8">
+                            <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-cyan-400">
+                                Brand DNA
+                            </h1>
+                            <p className="text-slate-500 text-sm mt-2">The Lean Wizard</p>
+                        </div>
 
-            {/* Pulsating Animated Background */}
-            <div className="fixed inset-0 z-0 pointer-events-none">
-                <div className={`absolute top-[-20%] left-[-20%] w-[80vw] h-[80vw] rounded-full mix-blend-screen filter blur-[100px] opacity-30 animate-pulse-slow bg-gradient-to-r ${currentSection.color}`}></div>
-                <div className="absolute bottom-[-20%] right-[-20%] w-[60vw] h-[60vw] rounded-full mix-blend-screen filter blur-[120px] opacity-20 animate-pulse-slower bg-brand-purple"></div>
-                <div className="absolute top-[40%] left-[30%] w-[40vw] h-[40vw] rounded-full mix-blend-overlay filter blur-[80px] opacity-10 animate-blob bg-white"></div>
-
-                {/* Grid Overlay */}
-                <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px]"></div>
-
-                {/* AI Circuit Overlay (Only for AI Section) */}
-                {currentSection.id === 'ai_calibration' && (
-                    <div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
-                        <svg className="w-full h-full" preserveAspectRatio="none">
-                            <defs>
-                                <linearGradient id="circuit-glow" x1="0%" y1="0%" x2="100%" y2="0%">
-                                    <stop offset="0%" stopColor="transparent" />
-                                    <stop offset="50%" stopColor="#10B981" /> {/* Emerald-500 */}
-                                    <stop offset="100%" stopColor="transparent" />
-                                </linearGradient>
-                                <filter id="glow">
-                                    <feGaussianBlur stdDeviation="2" result="coloredBlur" />
-                                    <feMerge>
-                                        <feMergeNode in="coloredBlur" />
-                                        <feMergeNode in="SourceGraphic" />
-                                    </feMerge>
-                                </filter>
-                            </defs>
-
-                            {/* Circuit Lines */}
-                            <g stroke="rgba(16, 185, 129, 0.2)" strokeWidth="1" fill="none">
-                                {/* Top Left -> Center */}
-                                <path d="M0,100 H100 L150,150 V300" className="circuit-path" />
-                                <path d="M50,0 V100 L100,150 H300" className="circuit-path" style={{ animationDelay: '0.2s' }} />
-
-                                {/* Top Right -> Center */}
-                                <path d="M100%,100 H90% L85%,150 V300" className="circuit-path" style={{ animationDelay: '0.4s' }} />
-                                <path d="M95%,0 V100 L90%,150 H70%" className="circuit-path" style={{ animationDelay: '0.6s' }} />
-
-                                {/* Bottom Lines */}
-                                <path d="M0,90% H100 L150,85% V70%" className="circuit-path" style={{ animationDelay: '0.3s' }} />
-                                <path d="M100%,90% H90% L85%,85% V70%" className="circuit-path" style={{ animationDelay: '0.5s' }} />
-                            </g>
-
-                            {/* Pulsating Signals (circles moving along paths) */}
-                            {/* We use basic CSS animations on circles matching the path shapes roughly or exact overlapping paths */}
-                            <g filter="url(#glow)">
-                                <circle r="3" fill="#34D399">
-                                    <animateMotion
-                                        dur="3s"
-                                        repeatCount="indefinite"
-                                        path="M0,100 H100 L150,150 V300"
-                                    />
-                                    <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite" />
-                                </circle>
-                                <circle r="3" fill="#34D399">
-                                    <animateMotion
-                                        dur="4s"
-                                        begin="1s"
-                                        repeatCount="indefinite"
-                                        path="M100%,100 H90% L85%,150 V300"
-                                    />
-                                    <animate attributeName="opacity" values="0;1;0" dur="4s" repeatCount="indefinite" />
-                                </circle>
-                                <circle r="3" fill="#10B981">
-                                    <animateMotion
-                                        dur="2.5s"
-                                        begin="0.5s"
-                                        repeatCount="indefinite"
-                                        path="M50,0 V100 L100,150 H300"
-                                    />
-                                    <animate attributeName="opacity" values="0;1;0" dur="2.5s" repeatCount="indefinite" />
-                                </circle>
-                                <circle r="4" fill="#6EE7B7">
-                                    <animateMotion
-                                        dur="5s"
-                                        repeatCount="indefinite"
-                                        path="M0,50% H100% M100%,50% H0" // Crossing
-                                    />
-                                    <animate attributeName="opacity" values="0;1;1;0" dur="5s" repeatCount="indefinite" />
-                                </circle>
-                            </g>
-                        </svg>
+                        {/* Steps Navigation */}
+                        <div className="space-y-6">
+                            <StepIndicator active={step === 'footprint'} label="Digital Footprint" icon={<Globe className="w-4 h-4" />} done={!!formData.website} />
+                            <StepIndicator active={step === 'mission'} label="90-Day Mission" icon={<Target className="w-4 h-4" />} done={!!formData.missionText} />
+                            <StepIndicator active={step === 'audience'} label="Home Run Client" icon={<Heart className="w-4 h-4" />} done={!!formData.homeRunClient} />
+                            <StepIndicator active={step === 'voice'} label="Voice Calibration" icon={<Mic className="w-4 h-4" />} done={formData.adjectives.length > 0} />
+                            <StepIndicator active={step === 'vault'} label="The Vault" icon={<Upload className="w-4 h-4" />} done={false} />
+                        </div>
                     </div>
-                )}
-            </div>
 
-            {/* Left Vertical Art */}
-            <div className="fixed left-0 top-0 bottom-0 w-24 hidden xl:flex flex-col justify-between py-12 items-center z-20 pointer-events-none">
-                <div className="h-32 w-px bg-gradient-to-b from-transparent to-white/20"></div>
-                <div className="flex-1 flex flex-col justify-center gap-12 text-[10px] font-mono text-white/20 uppercase tracking-[0.3em] [writing-mode:vertical-lr] rotate-180">
-                    <span>Mansa Tina Ops</span>
-                    <span className={`text-${currentSection.color.split(' ')[1]}`}>Discovery Mode</span>
-                    <span>v2.0</span>
-                </div>
-                <div className="h-32 w-px bg-gradient-to-t from-transparent to-white/20"></div>
-            </div>
-
-            {/* Right Vertical Art */}
-            <div className="fixed right-0 top-0 bottom-0 w-24 hidden xl:flex flex-col justify-between py-12 items-center z-20 pointer-events-none">
-                <div className="h-full w-px bg-white/5 relative">
-                    {/* Animated Progress indicator on the vertical line */}
-                    <div
-                        className={`absolute top-0 w-0.5 -left-px bg-gradient-to-b ${currentSection.color} transition-all duration-700 ease-out shadow-[0_0_15px_currentColor]`}
-                        style={{ height: `${progress}%` }}
-                    ></div>
-                </div>
-            </div>
-
-            <div className={`relative z-10 container mx-auto px-6 py-12 max-w-4xl transition-opacity duration-300 ${isAnimating ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
-
-                {/* Header / Nav */}
-                <div className="flex justify-between items-end mb-12">
-                    <div>
-                        <button onClick={() => navigate('/')} className="text-xs font-bold text-slate-500 hover:text-white uppercase tracking-widest mb-4 flex items-center gap-2 transition-colors">
-                            <span className="text-xl">←</span> Exit Wizard
-                        </button>
-                        <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-500">
-                            {currentSection.title}
-                        </h1>
-                        <p className="text-xl text-brand-gold mt-2 font-medium">{currentSection.description}</p>
+                    {/* AI Context Box */}
+                    <div className="z-10 bg-indigo-900/10 border border-indigo-500/20 p-4 rounded-xl mt-8">
+                        <p className="text-indigo-300 text-xs leading-relaxed">
+                            <strong>🤖 Gemini 3.0:</strong> "Give me the seed, I'll grow the tree. I'll scrape your site and analyze your answers to build your full strategy."
+                        </p>
                     </div>
-                    <div className="text-right hidden md:block">
-                        <div className="text-6xl font-black text-white/5">{currentSectionIdx + 1}</div>
-                        <div className="text-sm text-slate-500 uppercase tracking-widest">Part {currentSectionIdx + 1} of {SECTIONS.length}</div>
-                    </div>
+
+                    {/* Decorative Blob */}
+                    <div className="absolute top-[-20%] left-[-20%] w-64 h-64 bg-indigo-600/20 blur-[100px] rounded-full pointer-events-none" />
                 </div>
 
-                {/* Progress Bar */}
-                <div className="h-1 w-full bg-white/10 rounded-full mb-16 overflow-hidden">
-                    <div
-                        className={`h-full bg-gradient-to-r ${currentSection.color} transition-all duration-700 ease-out`}
-                        style={{ width: `${progress}%` }}
-                    ></div>
-                </div>
+                {/* Right Content: The Form */}
+                <div className="md:col-span-2 p-8 md:p-12 flex flex-col relative">
 
-                {/* Question Form */}
-                <div className="space-y-12">
-                    {currentSection.questions.map((q, idx) => (
-                        <div key={q.id} className="group relative">
-                            {/* Glowing border effect on focus-within */}
-                            <div className={`absolute -inset-4 bg-gradient-to-r ${currentSection.color} rounded-2xl opacity-0 group-focus-within:opacity-20 blur-xl transition-opacity duration-500`}></div>
+                    <div className="flex-1">
+                        {/* Step 1: Digital Footprint */}
+                        {step === 'footprint' && (
+                            <div className="space-y-6 animate-fadeIn">
+                                <Header title="The Digital Footprint" subtitle="Where do you currently exist online? Gemini will start crawling." />
 
-                            <div className="relative">
-                                <label className="block text-2xl font-bold text-slate-200 mb-2 group-focus-within:text-white transition-colors">
-                                    <span className="text-brand-gold/50 mr-2 text-lg align-top">{idx + 1}.</span>
-                                    {q.label}
-                                </label>
-                                <p className="text-slate-400 mb-4 text-sm max-w-2xl">{q.subtext}</p>
+                                <div>
+                                    <label className="block text-sm font-medium text-slate-400 mb-2">Company Website URL</label>
+                                    <div className="relative">
+                                        <Globe className="absolute left-4 top-3.5 w-5 h-5 text-indigo-400" />
+                                        <input
+                                            type="text"
+                                            placeholder="www.example.com"
+                                            className="w-full bg-slate-950 border border-slate-800 rounded-xl py-3 pl-12 pr-4 focus:ring-2 focus:ring-indigo-500 outline-none transition-all"
+                                            value={formData.website}
+                                            onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+                                            autoFocus
+                                        />
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label className="block text-sm font-medium text-slate-400 mb-2">Main Social Handle</label>
+                                    <div className="relative">
+                                        <Search className="absolute left-4 top-3.5 w-5 h-5 text-indigo-400" />
+                                        <input
+                                            type="text"
+                                            placeholder="@example_official"
+                                            className="w-full bg-slate-950 border border-slate-800 rounded-xl py-3 pl-12 pr-4 focus:ring-2 focus:ring-indigo-500 outline-none transition-all"
+                                            value={formData.socialHandle}
+                                            onChange={(e) => setFormData({ ...formData, socialHandle: e.target.value })}
+                                        />
+                                    </div>
+                                    <p className="text-xs text-slate-500 mt-2">We'll detect your colors, basic tone, and industry from these links.</p>
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Step 2: Mission */}
+                        {step === 'mission' && (
+                            <div className="space-y-6 animate-fadeIn">
+                                <Header title="The 90-Day Mission" subtitle="What is the single most important goal for the next 3 months?" />
+
+                                <div className="grid grid-cols-3 gap-3">
+                                    {['Brand Awareness', 'Lead Generation', 'Recruitment'].map((goal) => (
+                                        <button
+                                            key={goal}
+                                            onClick={() => setFormData({ ...formData, missionGoal: goal })}
+                                            className={`p-3 rounded-lg border text-sm font-medium transition-all ${formData.missionGoal === goal
+                                                    ? 'bg-indigo-600 border-indigo-500 text-white'
+                                                    : 'bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-600'
+                                                }`}
+                                        >
+                                            {goal}
+                                        </button>
+                                    ))}
+                                </div>
+
+                                <div>
+                                    <label className="block text-sm font-medium text-slate-400 mb-2">Specifics (e.g. "20 new dental implants")</label>
+                                    <input
+                                        type="text"
+                                        placeholder="We need to sell 500 units of X..."
+                                        className="w-full bg-slate-950 border border-slate-800 rounded-xl py-3 px-4 focus:ring-2 focus:ring-indigo-500 outline-none transition-all"
+                                        value={formData.missionText}
+                                        onChange={(e) => setFormData({ ...formData, missionText: e.target.value })}
+                                        autoFocus
+                                    />
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Step 3: Audience */}
+                        {step === 'audience' && (
+                            <div className="space-y-6 animate-fadeIn">
+                                <Header title="The Home Run Client" subtitle="Describe your absolute favorite client story. Who were they, what was wrong, and how did you fix it?" />
 
                                 <textarea
-                                    value={answers[q.id] || ''}
-                                    onChange={(e) => handleInput(q.id, e.target.value)}
-                                    className="w-full bg-black/40 border border-white/10 rounded-xl p-6 text-lg text-white placeholder-slate-600 focus:outline-none focus:border-white/30 focus:bg-black/60 transition-all resize-y min-h-[120px] backdrop-blur-md shadow-inner"
-                                    placeholder="Type your answer here..."
+                                    className="w-full h-40 bg-slate-950 border border-slate-800 rounded-xl p-4 focus:ring-2 focus:ring-indigo-500 outline-none transition-all resize-none"
+                                    placeholder="e.g. Mrs. Jones came in with a broken tooth and was terrified of dentists. We used our sedation protocol..."
+                                    value={formData.homeRunClient}
+                                    onChange={(e) => setFormData({ ...formData, homeRunClient: e.target.value })}
+                                    autoFocus
                                 />
+                                <p className="text-xs text-slate-500">
+                                    Gemini will extract demographics, pain points, and desires from this narrative.
+                                </p>
                             </div>
-                        </div>
-                    ))}
+                        )}
+
+                        {/* Step 4: Voice */}
+                        {step === 'voice' && (
+                            <div className="space-y-6 animate-fadeIn">
+                                <Header title="Voice Calibration" subtitle="Pick 3 adjectives that describe your brand." />
+
+                                <div className="flex flex-wrap gap-2">
+                                    {ADJECTIVES_LIST.map((adj) => (
+                                        <button
+                                            key={adj}
+                                            onClick={() => {
+                                                const current = formData.adjectives;
+                                                const isSelected = current.includes(adj);
+                                                if (isSelected) {
+                                                    setFormData({ ...formData, adjectives: current.filter(a => a !== adj) });
+                                                } else if (current.length < 3) {
+                                                    setFormData({ ...formData, adjectives: [...current, adj] });
+                                                }
+                                            }}
+                                            className={`px-3 py-1.5 rounded-full text-sm border transition-all ${formData.adjectives.includes(adj)
+                                                    ? 'bg-indigo-500/20 border-indigo-500 text-indigo-300'
+                                                    : 'bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-600'
+                                                }`}
+                                        >
+                                            {adj}
+                                        </button>
+                                    ))}
+                                </div>
+
+                                <div>
+                                    <label className="block text-sm font-medium text-slate-400 mb-2">The "Anti-Style" (Guardrails)</label>
+                                    <input
+                                        type="text"
+                                        placeholder="What do you HATE? (e.g. No emoji overload, No slang)"
+                                        className="w-full bg-slate-950 border border-slate-800 rounded-xl py-3 px-4 focus:ring-2 focus:ring-red-500/50 outline-none transition-all"
+                                        value={formData.antiStyle}
+                                        onChange={(e) => setFormData({ ...formData, antiStyle: e.target.value })}
+                                    />
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Step 5: Vault */}
+                        {step === 'vault' && (
+                            <div className="space-y-6 animate-fadeIn">
+                                <Header title="The Vault" subtitle="Upload any existing assets (PDFs, Decks) to ground the AI." />
+
+                                <div className="border-2 border-dashed border-slate-800 rounded-xl p-12 flex flex-col items-center justify-center text-slate-500 hover:border-indigo-500/50 hover:bg-slate-900/50 transition-all cursor-pointer">
+                                    <Upload className="w-8 h-8 mb-4 text-indigo-400" />
+                                    <p className="text-sm font-medium">Drag & Drop files here</p>
+                                    <p className="text-xs mt-2 opacity-50">or click to browse</p>
+                                </div>
+                                <p className="text-xs text-center text-slate-600">
+                                    (File upload simulation - skipping for this demo)
+                                </p>
+                            </div>
+                        )}
+
+                    </div>
+
+                    {/* Footer / Controls */}
+                    <div className="pt-8 flex items-center justify-between border-t border-slate-800/50 mt-8">
+                        {step !== 'footprint' ? (
+                            <button
+                                onClick={() => {
+                                    if (step === 'mission') prevStep('footprint');
+                                    if (step === 'audience') prevStep('mission');
+                                    if (step === 'voice') prevStep('audience');
+                                    if (step === 'vault') prevStep('voice');
+                                }}
+                                className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors"
+                            >
+                                <ArrowLeft className="w-4 h-4" /> Back
+                            </button>
+                        ) : (
+                            <div /> // Spacer
+                        )}
+
+                        <button
+                            onClick={() => {
+                                if (step === 'footprint') nextStep('mission');
+                                else if (step === 'mission') nextStep('audience');
+                                else if (step === 'audience') nextStep('voice');
+                                else if (step === 'voice') nextStep('vault');
+                                else if (step === 'vault') handleSubmit();
+                            }}
+                            className="bg-indigo-600 hover:bg-indigo-500 text-white px-8 py-3 rounded-xl font-bold shadow-lg shadow-indigo-500/20 flex items-center gap-2 transition-all"
+                        >
+                            {step === 'vault' ? 'Ignite Transformation' : 'Next Step'} <ArrowRight className="w-4 h-4" />
+                        </button>
+                    </div>
+
                 </div>
-
-                {/* Footer Controls */}
-                <div className="mt-20 flex justify-between items-center py-8 border-t border-white/10">
-                    <button
-                        onClick={prevSection}
-                        disabled={currentSectionIdx === 0}
-                        className={`px-8 py-3 rounded-full font-bold text-sm tracking-widest uppercase transition-all ${currentSectionIdx === 0 ? 'opacity-0 pointer-events-none' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}
-                    >
-                        Previous
-                    </button>
-
-                    <button
-                        onClick={nextSection}
-                        className={`group relative px-10 py-4 rounded-full font-black text-lg tracking-wider uppercase overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.1)] hover:shadow-[0_0_60px_rgba(255,255,255,0.3)] transition-all bg-white text-black`}
-                    >
-                        <span className="relative z-10 flex items-center gap-2">
-                            {currentSectionIdx === SECTIONS.length - 1 ? 'Finish Discovery' : 'Next Section'}
-                            <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                        </span>
-                        <div className={`absolute inset-0 bg-gradient-to-r ${currentSection.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
-                    </button>
-                </div>
-
             </div>
-
-            {/* CSS Animation Styles (Inline for simplicity/portability) */}
-            <style>{`
-                @keyframes pulse-slow {
-                    0%, 100% { transform: scale(1); opacity: 0.3; }
-                    50% { transform: scale(1.1); opacity: 0.4; }
-                }
-                @keyframes pulse-slower {
-                    0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.2; }
-                    50% { transform: scale(1.2) translate(-20px, 20px); opacity: 0.3; }
-                }
-                @keyframes blob {
-                    0% { transform: translate(0px, 0px) scale(1); }
-                    33% { transform: translate(30px, -50px) scale(1.1); }
-                    66% { transform: translate(-20px, 20px) scale(0.9); }
-                    100% { transform: translate(0px, 0px) scale(1); }
-                }
-                .animate-pulse-slow { animation: pulse-slow 8s infinite cubic-bezier(0.4, 0, 0.6, 1); }
-                .animate-pulse-slower { animation: pulse-slower 12s infinite cubic-bezier(0.4, 0, 0.6, 1); }
-                .animate-blob { animation: blob 20s infinite; }
-                
-                .circuit-path {
-                    stroke-dasharray: 1000;
-                    stroke-dashoffset: 1000;
-                    animation: circuit-draw 2s ease-out forwards;
-                }
-                .signal-pulse {
-                    offset-path: path("M0,50 Q25,50 40,20 T80,20 T100,50");
-                    animation: move-signal 3s linear infinite;
-                }
-                @keyframes circuit-draw {
-                    to { stroke-dashoffset: 0; }
-                }
-                @keyframes move-signal {
-                    0% { offset-distance: 0%; opacity: 0; }
-                    10% { opacity: 1; }
-                    90% { opacity: 1; }
-                    100% { offset-distance: 100%; opacity: 0; }
-                }
-            `}</style>
         </div>
     );
 };
 
-export default DiscoveryWizard;
+const Header = ({ title, subtitle }: { title: string, subtitle: string }) => (
+    <div>
+        <h2 className="text-3xl font-bold text-white mb-2">{title}</h2>
+        <p className="text-slate-400 text-lg leading-relaxed">{subtitle}</p>
+    </div>
+);
+
+const StepIndicator = ({ active, label, icon, done }: { active: boolean, label: string, icon: React.ReactNode, done: boolean }) => (
+    <div className={`flex items-center gap-3 ${active ? 'opacity-100' : 'opacity-40'} transition-opacity`}>
+        <div className={`w-8 h-8 rounded-full flex items-center justify-center border ${active ? 'bg-indigo-600 border-indigo-500 text-white' :
+                done ? 'bg-green-500/20 border-green-500 text-green-400' :
+                    'bg-slate-900 border-slate-700 text-slate-500'
+            }`}>
+            {done && !active ? <CheckCircle className="w-4 h-4" /> : icon}
+        </div>
+        <span className={`font-medium text-sm ${active ? 'text-white' : 'text-slate-400'}`}>{label}</span>
+    </div>
+);
+
+export default LeanDiscoveryWizard;

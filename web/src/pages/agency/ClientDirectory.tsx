@@ -86,7 +86,10 @@ const ClientDirectory = () => {
                     >
                         Onboarding <span className="px-1.5 py-0.5 bg-brand-gold text-surface-dark text-[10px] rounded-full">2</span>
                     </button>
-                    <button className="px-4 py-2 bg-brand-purple hover:bg-brand-purple/90 text-white font-bold rounded-lg shadow-lg flex items-center gap-2 transition-all">
+                    <button
+                        onClick={() => navigate('/agency/add-client')}
+                        className="px-4 py-2 bg-brand-purple hover:bg-brand-purple/90 text-white font-bold rounded-lg shadow-lg flex items-center gap-2 transition-all"
+                    >
                         <Plus className="w-4 h-4" /> Add Client
                     </button>
                 </div>

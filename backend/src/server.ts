@@ -22,6 +22,7 @@ if (process.env.NODE_ENV === 'development') {
 import strategyRoutes from './routes/strategy';
 import contentRoutes from './routes/content';
 import wizardRoutes from './routes/wizard';
+import agencyRoutes from './routes/agency';
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -38,6 +39,7 @@ app.get('/', (req, res) => {
 app.use('/api/strategy', strategyRoutes);
 app.use('/api/content', contentRoutes);
 app.use('/api/wizard', wizardRoutes);
+app.use('/api/agency', agencyRoutes);
 
 // Auth Check Example
 app.get('/api/me', authenticate, (req: any, res) => {

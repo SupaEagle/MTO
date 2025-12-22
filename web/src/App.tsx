@@ -13,6 +13,7 @@ import TeamOps from './pages/agency/TeamOps';
 import GlobalLibrary from './pages/agency/GlobalLibrary';
 import Financials from './pages/agency/Financials';
 import WhiteLabel from './pages/agency/WhiteLabel';
+import AddClientPage from './pages/agency/AddClientPage';
 
 import ClientDashboard from './pages/ClientDashboard';
 import ApprovalLoop from './pages/client/ApprovalLoop';
@@ -76,6 +77,7 @@ function App() {
           <Route path="library" element={<GlobalLibrary />} />
           <Route path="financials" element={<Financials />} />
           <Route path="settings" element={<WhiteLabel />} />
+          <Route path="add-client" element={<AddClientPage />} />
           {/* Add more agency routes here */}
         </Route>
 
