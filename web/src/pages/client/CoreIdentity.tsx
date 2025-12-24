@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Plus, Trash2 } from 'lucide-react';
 
 const CoreIdentity = () => {
@@ -58,15 +58,70 @@ const CoreIdentity = () => {
         return `${label.name} (${label.ord}) Color`;
     };
 
+    // --- New Data Fetching Logic ---
+    useEffect(() => {
+        const fetchStrategy = async () => {
+            try {
+                // Assuming client ID is stored in localStorage after login/selection
+                const subAccountId = localStorage.getItem('mansa_sub_account_id');
+                if (!subAccountId) return;
+
+                const res = await fetch(`${import.meta.env.VITE_BACKEND_URL || 'http://localhost:8080'}/api/strategy/${subAccountId}`, {
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('mansa_token')}`
+                    }
+                });
+
+                if (res.ok) {
+                    const data = await res.json();
+
+                    // New Schema Mapping
+                    const identity = data.identity_data || {};
+                    const visual = data.visual_identity || {};
+                    const core = data.core_identity || {};
+                    const narrative = data.narrative || {};
+
+                    setFormData(prev => ({
+                        ...prev,
+                        // Business Details
+                        companyName: identity.company_name || prev.companyName,
+                        websiteUrl: identity.website_url || data.website_url || prev.websiteUrl,
+                        industry: identity.industry_niche || prev.industry,
+                        address: identity.physical_address || prev.address,
+
+                        // Visual Identity
+                        primaryColor: visual.primary_color || prev.primaryColor,
+                        secondaryColor: visual.secondary_color || prev.secondaryColor,
+                        accentColor: visual.accent_color || prev.accentColor,
+                        typography: visual.typography ? `${visual.typography.header_font} + ${visual.typography.body_font}` : prev.typography,
+
+                        // Core Identity
+                        missionStatement: core.mission_statement || prev.missionStatement,
+                        visionStatement: core.vision_statement || prev.visionStatement,
+                        brandPromise: core.brand_promise || prev.brandPromise,
+
+                        // Narrative
+                        founderName: narrative.founder_name || prev.founderName,
+                        originStory: narrative.origin_story || prev.originStory
+                    }));
+                }
+            } catch (err) {
+                console.error("Failed to load strategy", err);
+            }
+        };
+
+        fetchStrategy();
+    }, []);
+
     const handleSave = () => {
         setIsEditing(false);
         console.log('Saved:', formData);
-        // Implement actual save logic here
+        // Implement actual save logic here to PUT /api/strategy/:id
     };
 
     const handleCancel = () => {
         setIsEditing(false);
-        // Reset logic if needed
+        // Reset logic could go here (re-fetch)
     };
 
     return (

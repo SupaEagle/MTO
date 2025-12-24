@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const AudienceDefinition = () => {
     const [isEditing, setIsEditing] = useState(false);
@@ -16,6 +16,43 @@ const AudienceDefinition = () => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
     };
+
+    // --- New Data Fetching Logic ---
+    useEffect(() => {
+        const fetchStrategy = async () => {
+            try {
+                const subAccountId = localStorage.getItem('mansa_sub_account_id');
+                if (!subAccountId) return;
+
+                const res = await fetch(`${import.meta.env.VITE_BACKEND_URL || 'http://localhost:8080'}/api/strategy/${subAccountId}`, {
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('mansa_token')}`
+                    }
+                });
+
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data.audience_persona && data.audience_persona.primary_persona) {
+                        const persona = data.audience_persona.primary_persona;
+                        setFormData(prev => ({
+                            ...prev,
+                            icaName: persona.name || '',
+                            demographics: persona.demographics || '',
+                            psychographics: persona.psychographics || '',
+                            marketDescription: prev.marketDescription, // No direct map, keep manual or previous
+                            misery1: persona.pain_points?.[0] || '',
+                            misery2: persona.pain_points?.[1] || '',
+                            misery3: persona.pain_points?.[2] || ''
+                        }));
+                    }
+                }
+            } catch (err) {
+                console.error("Failed to load strategy", err);
+            }
+        };
+
+        fetchStrategy();
+    }, []);
 
     const handleSave = () => {
         setIsEditing(false);

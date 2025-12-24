@@ -9,11 +9,18 @@ dotenv.config();
 // Initialize Firebase Admin
 // In production, this will use Google Application Default Credentials automatically.
 // For local dev, ensure you have GOOGLE_APPLICATION_CREDENTIALS set or use a service account key.
+// Initialize Firebase Admin
 if (process.env.NODE_ENV === 'development') {
-    const serviceAccount = require('../service-account-key.json');
-    admin.initializeApp({
-        credential: admin.credential.cert(serviceAccount)
-    });
+    try {
+        const serviceAccount = require('../service-account-key.json');
+        admin.initializeApp({
+            credential: admin.credential.cert(serviceAccount)
+        });
+        console.log('✅ Initialized Firebase with local service account.');
+    } catch (e) {
+        console.warn('⚠️ Local service-account-key.json not found. Falling back to Application Default Credentials.');
+        admin.initializeApp();
+    }
 } else {
     admin.initializeApp();
 }

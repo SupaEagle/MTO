@@ -1,0 +1,903 @@
+
+> mansa-tina-backend@1.0.0 dev
+> ts-node-dev --respawn --transpile-only src/server.ts
+
+[INFO] 09:42:45 ts-node-dev ver. 2.0.0 (using ts-node ver. 10.9.2, typescript ver. 5.9.3)
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-23T14:42:46.688Z }
+📂 Uploading KPT persona (2).docx for demo-client...
+Upload Failed: error: invalid input syntax for type uuid: "demo-client"
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/pg-pool/index.js:45:11
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  length: 143,
+  severity: 'ERROR',
+  code: '22P02',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: "unnamed portal parameter $2 = '...'",
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'uuid.c',
+  line: '141',
+  routine: 'string_to_uuid'
+}
+📂 Uploading KPT persona (2).docx for 00000000-0000-0000-0000-000000000000...
+No brand_dna record found for 00000000-0000-0000-0000-000000000000, creating one...
+Upload Failed: error: insert or update on table "brand_dna" violates foreign key constraint "brand_dna_sub_account_id_fkey"
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/pg-pool/index.js:45:11
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  length: 321,
+  severity: 'ERROR',
+  code: '23503',
+  detail: 'Key (sub_account_id)=(00000000-0000-0000-0000-000000000000) is not present in table "sub_accounts".',
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: 'public',
+  table: 'brand_dna',
+  column: undefined,
+  dataType: undefined,
+  constraint: 'brand_dna_sub_account_id_fkey',
+  file: 'ri_triggers.c',
+  line: '2610',
+  routine: 'ri_ReportViolation'
+}
+📂 Uploading KPT persona (2).docx for 00000000-0000-0000-0000-000000000000...
+No brand_dna record found for 00000000-0000-0000-0000-000000000000, creating one...
+✅ Asset uploaded and saved.
+📂 Uploading content (2).pdf for 00000000-0000-0000-0000-000000000000...
+✅ Asset uploaded and saved.
+📂 Uploading Ed Kirk Resume C (1).docx for 00000000-0000-0000-0000-000000000000...
+✅ Asset uploaded and saved.
+📂 Uploading KPT Origin story (1).docx for 00000000-0000-0000-0000-000000000000...
+✅ Asset uploaded and saved.
+📂 Uploading content (2).pdf for 00000000-0000-0000-0000-000000000000...
+✅ Asset uploaded and saved.
+📂 Uploading Ed Kirk Resume C (1).docx for 00000000-0000-0000-0000-000000000000...
+✅ Asset uploaded and saved.
+📂 Uploading KPT Origin story (1).docx for 00000000-0000-0000-0000-000000000000...
+✅ Asset uploaded and saved.
+📂 Uploading KPT persona (2).docx for 00000000-0000-0000-0000-000000000000...
+✅ Asset uploaded and saved.
+[INFO] 10:03:39 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/routes/wizard.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-23T15:03:40.205Z }
+📂 Uploading content (2).pdf for 00000000-0000-0000-0000-000000000000...
+✅ Asset uploaded and saved.
+📂 Uploading Ed Kirk Resume C (1).docx for 00000000-0000-0000-0000-000000000000...
+✅ Asset uploaded and saved.
+📂 Uploading KPT Origin story (1).docx for 00000000-0000-0000-0000-000000000000...
+✅ Asset uploaded and saved.
+📂 Uploading KPT persona (2).docx for 00000000-0000-0000-0000-000000000000...
+✅ Asset uploaded and saved.
+📂 Uploading content (2).pdf for 00000000-0000-0000-0000-000000000000...
+✅ Asset uploaded and saved.
+📂 Uploading Ed Kirk Resume C (1).docx for 00000000-0000-0000-0000-000000000000...
+✅ Asset uploaded and saved.
+📂 Uploading KPT Origin story (1).docx for 00000000-0000-0000-0000-000000000000...
+✅ Asset uploaded and saved.
+📂 Uploading KPT persona (2).docx for 00000000-0000-0000-0000-000000000000...
+✅ Asset uploaded and saved.
+📂 Uploading content (2).pdf for 00000000-0000-0000-0000-000000000000...
+✅ Asset uploaded and saved.
+📂 Uploading Ed Kirk Resume C (1).docx for 00000000-0000-0000-0000-000000000000...
+✅ Asset uploaded and saved.
+📂 Uploading KPT Origin story (1).docx for 00000000-0000-0000-0000-000000000000...
+✅ Asset uploaded and saved.
+📂 Uploading KPT persona (2).docx for 00000000-0000-0000-0000-000000000000...
+✅ Asset uploaded and saved.
+📂 Uploading content (2).pdf for 00000000-0000-0000-0000-000000000000...
+✅ Asset uploaded and saved.
+📂 Uploading Ed Kirk Resume C (1).docx for 00000000-0000-0000-0000-000000000000...
+✅ Asset uploaded and saved.
+📂 Uploading KPT Origin story (1).docx for 00000000-0000-0000-0000-000000000000...
+✅ Asset uploaded and saved.
+📂 Uploading KPT persona (2).docx for 00000000-0000-0000-0000-000000000000...
+✅ Asset uploaded and saved.
+🚀 Starting synchronous DNA sequencing for client 00000000-0000-0000-0000-000000000000...
+🕷️ Scraping context from: https://www.keenplextechnologies.com/
+🧬 Sequencing DNA with Gemini...
+✅ DNA Sequenced and Saved.
+📂 Uploading content (2).pdf for 00000000-0000-0000-0000-000000000000...
+✅ Asset uploaded and saved.
+📂 Uploading Ed Kirk Resume C (1).docx for 00000000-0000-0000-0000-000000000000...
+✅ Asset uploaded and saved.
+📂 Uploading KPT Origin story (1).docx for 00000000-0000-0000-0000-000000000000...
+✅ Asset uploaded and saved.
+📂 Uploading KPT persona (2).docx for 00000000-0000-0000-0000-000000000000...
+✅ Asset uploaded and saved.
+🚀 Starting synchronous DNA sequencing for client 00000000-0000-0000-0000-000000000000...
+🕷️ Scraping context from: https://www.keenplextechnologies.com/
+🧬 Sequencing DNA with Gemini...
+✅ DNA Sequenced and Saved.
+📂 Uploading content (2).pdf for 00000000-0000-0000-0000-000000000000...
+✅ Asset uploaded and saved.
+📂 Uploading Ed Kirk Resume C (1).docx for 00000000-0000-0000-0000-000000000000...
+✅ Asset uploaded and saved.
+📂 Uploading KPT Origin story (1).docx for 00000000-0000-0000-0000-000000000000...
+✅ Asset uploaded and saved.
+📂 Uploading KPT persona (2).docx for 00000000-0000-0000-0000-000000000000...
+✅ Asset uploaded and saved.
+🚀 Starting synchronous DNA sequencing for client 00000000-0000-0000-0000-000000000000...
+🕷️ Scraping context from: https://www.keenplextechnologies.com/
+🧬 Sequencing DNA with Gemini...
+✅ DNA Sequenced and Saved.
+[INFO] 11:11:36 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/routes/wizard.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-23T16:11:38.128Z }
+[INFO] 11:12:45 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/routes/agency.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-23T16:12:47.135Z }
+Failed to create client: error: column "parent_agency_id" of relation "sub_accounts" does not exist
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/pg/lib/client.js:545:17
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  length: 141,
+  severity: 'ERROR',
+  code: '42703',
+  detail: undefined,
+  hint: undefined,
+  position: '31',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_target.c',
+  line: '1070',
+  routine: 'checkInsertTargets'
+}
+Failed to create client: error: column "parent_agency_id" of relation "sub_accounts" does not exist
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/pg/lib/client.js:545:17
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  length: 141,
+  severity: 'ERROR',
+  code: '42703',
+  detail: undefined,
+  hint: undefined,
+  position: '31',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_target.c',
+  line: '1070',
+  routine: 'checkInsertTargets'
+}
+Failed to create client: error: column "parent_agency_id" of relation "sub_accounts" does not exist
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/pg/lib/client.js:545:17
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  length: 141,
+  severity: 'ERROR',
+  code: '42703',
+  detail: undefined,
+  hint: undefined,
+  position: '31',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_target.c',
+  line: '1070',
+  routine: 'checkInsertTargets'
+}
+[INFO] 11:24:11 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/routes/agency.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-23T16:24:12.655Z }
+[INFO] 11:24:22 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/routes/agency.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-23T16:24:22.783Z }
+[MOCK EMAIL] Sending invite to ekirk@KeenPlexTechnologies.com with data: {
+  link: 'https://app.mansatina.io/invite?token=fa5c0710',
+  agencyName: 'Mansa Tina Agency'
+}
+[INFO] 11:28:19 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/routes/agency.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-23T16:28:20.509Z }
+[MOCK EMAIL] Sending invite to ekirk@KeenPlexTechnologies.com with data: {
+  link: 'https://app.mansatina.io/invite?token=6bcd8f9a',
+  agencyName: 'Mansa Tina Agency'
+}
+📂 Uploading content (2).pdf for 602d8c2c-b3c4-4e08-98a0-0674632c5a0b...
+✅ Asset uploaded and saved.
+📂 Uploading Ed Kirk Resume C (1).docx for 602d8c2c-b3c4-4e08-98a0-0674632c5a0b...
+✅ Asset uploaded and saved.
+📂 Uploading KPT Origin story (1).docx for 602d8c2c-b3c4-4e08-98a0-0674632c5a0b...
+✅ Asset uploaded and saved.
+📂 Uploading KPT persona (2).docx for 602d8c2c-b3c4-4e08-98a0-0674632c5a0b...
+✅ Asset uploaded and saved.
+🚀 Starting synchronous DNA sequencing for client 602d8c2c-b3c4-4e08-98a0-0674632c5a0b...
+Error submitting wizard data: ReferenceError: generateFullBrandStrategy is not defined
+    at /home/ekirk/mansa-tina-marketing/backend/src/routes/wizard.ts:25:26
+    at Generator.next (<anonymous>)
+    at /home/ekirk/mansa-tina-marketing/backend/src/routes/wizard.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (/home/ekirk/mansa-tina-marketing/backend/src/routes/wizard.ts:4:12)
+    at /home/ekirk/mansa-tina-marketing/backend/src/routes/wizard.ts:12:62
+    at Layer.handle [as handle_request] (/home/ekirk/mansa-tina-marketing/backend/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/ekirk/mansa-tina-marketing/backend/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/home/ekirk/mansa-tina-marketing/backend/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/home/ekirk/mansa-tina-marketing/backend/node_modules/express/lib/router/layer.js:95:5)
+[INFO] 12:12:58 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/routes/wizard.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-23T17:13:01.805Z }
+[MOCK EMAIL] Sending invite to ekirk@KeenPlexTechnologies.com with data: {
+  link: 'https://app.mansatina.io/invite?token=5960518b',
+  agencyName: 'Mansa Tina Agency'
+}
+📂 Uploading content (2).pdf for c84e7005-6856-43e8-8e06-07a2d70a5136...
+✅ Asset uploaded and saved.
+📂 Uploading Ed Kirk Resume C (1).docx for c84e7005-6856-43e8-8e06-07a2d70a5136...
+✅ Asset uploaded and saved.
+📂 Uploading KPT Origin story (1).docx for c84e7005-6856-43e8-8e06-07a2d70a5136...
+✅ Asset uploaded and saved.
+📂 Uploading KPT persona (2).docx for c84e7005-6856-43e8-8e06-07a2d70a5136...
+✅ Asset uploaded and saved.
+🚀 Starting synchronous DNA sequencing for client c84e7005-6856-43e8-8e06-07a2d70a5136...
+🕷️ Scraping context from: https://www.keenplextechnologies.com/
+🧬 Sequencing DNA with Gemini 1.5 Pro...
+Error submitting wizard data: ClientError: [VertexAI.ClientError]: got status: 404 Not Found. {"error":{"code":404,"message":"Publisher Model `projects/284915496002/locations/us-central1/publishers/google/models/gemini-1.5-pro-002` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions","status":"NOT_FOUND"}}
+    at throwErrorIfNotOK (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/post_fetch_processing.ts:47:21)
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at generateContent (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/generate_content.ts:94:3) {
+  stackTrace: GoogleApiError: Publisher Model `projects/284915496002/locations/us-central1/publishers/google/models/gemini-1.5-pro-002` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions
+      at throwErrorIfNotOK (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/post_fetch_processing.ts:49:9)
+      at processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at generateContent (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/generate_content.ts:94:3) {
+    code: 404,
+    status: 'NOT_FOUND',
+    errorDetails: undefined
+  },
+  [cause]: GoogleApiError: Publisher Model `projects/284915496002/locations/us-central1/publishers/google/models/gemini-1.5-pro-002` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions
+      at throwErrorIfNotOK (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/post_fetch_processing.ts:49:9)
+      at processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at generateContent (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/generate_content.ts:94:3) {
+    code: 404,
+    status: 'NOT_FOUND',
+    errorDetails: undefined
+  }
+}
+[INFO] 12:19:23 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/workers/analyzeBrand.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-23T17:19:24.685Z }
+[MOCK EMAIL] Sending invite to ekirk@KeenPlexTechnologies.com with data: {
+  link: 'https://app.mansatina.io/invite?token=d386c7bb',
+  agencyName: 'Mansa Tina Agency'
+}
+📂 Uploading content (2).pdf for c738242e-a890-458b-a9a6-321e2a5b9c65...
+✅ Asset uploaded and saved.
+📂 Uploading Ed Kirk Resume C (1).docx for c738242e-a890-458b-a9a6-321e2a5b9c65...
+✅ Asset uploaded and saved.
+📂 Uploading KPT Origin story (1).docx for c738242e-a890-458b-a9a6-321e2a5b9c65...
+✅ Asset uploaded and saved.
+📂 Uploading KPT persona (2).docx for c738242e-a890-458b-a9a6-321e2a5b9c65...
+✅ Asset uploaded and saved.
+🚀 Starting synchronous DNA sequencing for client c738242e-a890-458b-a9a6-321e2a5b9c65...
+🕷️ Scraping context from: https://www.keenplextechnologies.com/
+🧬 Sequencing DNA with Gemini 1.5 Pro...
+Error submitting wizard data: ClientError: [VertexAI.ClientError]: got status: 404 Not Found. {"error":{"code":404,"message":"Publisher Model `projects/284915496002/locations/us-central1/publishers/google/models/gemini-1.5-pro` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions","status":"NOT_FOUND"}}
+    at throwErrorIfNotOK (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/post_fetch_processing.ts:47:21)
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at generateContent (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/generate_content.ts:94:3) {
+  stackTrace: GoogleApiError: Publisher Model `projects/284915496002/locations/us-central1/publishers/google/models/gemini-1.5-pro` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions
+      at throwErrorIfNotOK (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/post_fetch_processing.ts:49:9)
+      at processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at generateContent (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/generate_content.ts:94:3) {
+    code: 404,
+    status: 'NOT_FOUND',
+    errorDetails: undefined
+  },
+  [cause]: GoogleApiError: Publisher Model `projects/284915496002/locations/us-central1/publishers/google/models/gemini-1.5-pro` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions
+      at throwErrorIfNotOK (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/post_fetch_processing.ts:49:9)
+      at processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at generateContent (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/generate_content.ts:94:3) {
+    code: 404,
+    status: 'NOT_FOUND',
+    errorDetails: undefined
+  }
+}
+[INFO] 12:23:41 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/workers/analyzeBrand.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-23T17:23:43.044Z }
+[MOCK EMAIL] Sending invite to ekirk@KeenPlexTechnologies.com with data: {
+  link: 'https://app.mansatina.io/invite?token=5c540344',
+  agencyName: 'Mansa Tina Agency'
+}
+📂 Uploading content (2).pdf for f75dcfaa-bbd0-4d4b-95e6-be290095b31b...
+✅ Asset uploaded and saved.
+📂 Uploading Ed Kirk Resume C (1).docx for f75dcfaa-bbd0-4d4b-95e6-be290095b31b...
+✅ Asset uploaded and saved.
+📂 Uploading KPT Origin story (1).docx for f75dcfaa-bbd0-4d4b-95e6-be290095b31b...
+✅ Asset uploaded and saved.
+📂 Uploading KPT persona (2).docx for f75dcfaa-bbd0-4d4b-95e6-be290095b31b...
+✅ Asset uploaded and saved.
+🚀 Starting synchronous DNA sequencing for client f75dcfaa-bbd0-4d4b-95e6-be290095b31b...
+🕷️ Scraping context from: https:// https://www.keenplextechnologies.com/
+⚠️ Scraping failed for  https://www.keenplextechnologies.com/. Proceeding with user input only.
+🧬 Sequencing DNA with Gemini 1.5 Pro...
+Error submitting wizard data: ClientError: [VertexAI.ClientError]: got status: 404 Not Found. {"error":{"code":404,"message":"Publisher Model `projects/284915496002/locations/us-central1/publishers/google/models/gemini-1.5-flash-001` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions","status":"NOT_FOUND"}}
+    at throwErrorIfNotOK (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/post_fetch_processing.ts:47:21)
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at generateContent (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/generate_content.ts:94:3) {
+  stackTrace: GoogleApiError: Publisher Model `projects/284915496002/locations/us-central1/publishers/google/models/gemini-1.5-flash-001` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions
+      at throwErrorIfNotOK (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/post_fetch_processing.ts:49:9)
+      at processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at generateContent (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/generate_content.ts:94:3) {
+    code: 404,
+    status: 'NOT_FOUND',
+    errorDetails: undefined
+  },
+  [cause]: GoogleApiError: Publisher Model `projects/284915496002/locations/us-central1/publishers/google/models/gemini-1.5-flash-001` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions
+      at throwErrorIfNotOK (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/post_fetch_processing.ts:49:9)
+      at processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at generateContent (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/generate_content.ts:94:3) {
+    code: 404,
+    status: 'NOT_FOUND',
+    errorDetails: undefined
+  }
+}
+📂 Uploading content (2).pdf for f75dcfaa-bbd0-4d4b-95e6-be290095b31b...
+✅ Asset uploaded and saved.
+📂 Uploading Ed Kirk Resume C (1).docx for f75dcfaa-bbd0-4d4b-95e6-be290095b31b...
+✅ Asset uploaded and saved.
+📂 Uploading KPT Origin story (1).docx for f75dcfaa-bbd0-4d4b-95e6-be290095b31b...
+✅ Asset uploaded and saved.
+📂 Uploading KPT persona (2).docx for f75dcfaa-bbd0-4d4b-95e6-be290095b31b...
+✅ Asset uploaded and saved.
+🚀 Starting synchronous DNA sequencing for client f75dcfaa-bbd0-4d4b-95e6-be290095b31b...
+🕷️ Scraping context from: https:// https://www.keenplextechnologies.com/
+⚠️ Scraping failed for  https://www.keenplextechnologies.com/. Proceeding with user input only.
+🧬 Sequencing DNA with Gemini 1.5 Pro...
+Error submitting wizard data: ClientError: [VertexAI.ClientError]: got status: 404 Not Found. {"error":{"code":404,"message":"Publisher Model `projects/284915496002/locations/us-central1/publishers/google/models/gemini-1.5-flash-001` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions","status":"NOT_FOUND"}}
+    at throwErrorIfNotOK (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/post_fetch_processing.ts:47:21)
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at generateContent (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/generate_content.ts:94:3) {
+  stackTrace: GoogleApiError: Publisher Model `projects/284915496002/locations/us-central1/publishers/google/models/gemini-1.5-flash-001` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions
+      at throwErrorIfNotOK (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/post_fetch_processing.ts:49:9)
+      at processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at generateContent (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/generate_content.ts:94:3) {
+    code: 404,
+    status: 'NOT_FOUND',
+    errorDetails: undefined
+  },
+  [cause]: GoogleApiError: Publisher Model `projects/284915496002/locations/us-central1/publishers/google/models/gemini-1.5-flash-001` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions
+      at throwErrorIfNotOK (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/post_fetch_processing.ts:49:9)
+      at processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at generateContent (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/generate_content.ts:94:3) {
+    code: 404,
+    status: 'NOT_FOUND',
+    errorDetails: undefined
+  }
+}
+[INFO] 12:36:49 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/workers/analyzeBrand.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-23T17:36:52.231Z }
+[INFO] 12:42:22 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/workers/analyzeBrand.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-23T17:42:24.375Z }
+[MOCK EMAIL] Sending invite to ekirk@KeenPlexTechnologies.com with data: {
+  link: 'https://app.mansatina.io/invite?token=453257b5',
+  agencyName: 'Mansa Tina Agency'
+}
+📂 Uploading content (2).pdf for faa9b43f-8eab-4d96-ab99-0f3632c775da...
+✅ Asset uploaded and saved.
+📂 Uploading Ed Kirk Resume C (1).docx for faa9b43f-8eab-4d96-ab99-0f3632c775da...
+✅ Asset uploaded and saved.
+📂 Uploading KPT Origin story (1).docx for faa9b43f-8eab-4d96-ab99-0f3632c775da...
+✅ Asset uploaded and saved.
+📂 Uploading KPT persona (2).docx for faa9b43f-8eab-4d96-ab99-0f3632c775da...
+✅ Asset uploaded and saved.
+🚀 Starting synchronous DNA sequencing for client faa9b43f-8eab-4d96-ab99-0f3632c775da...
+🕷️ Scraping context from: https://www.keenplextechnologies.com/
+🧬 Sequencing DNA with Gemini 1.0 Pro...
+✅ DNA Sequenced and Saved.
+[INFO] 12:59:28 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/routes/strategy.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-23T17:59:30.623Z }
+[MOCK EMAIL] Sending invite to ekirk@KeenPlexTechnologies.com with data: {
+  link: 'https://app.mansatina.io/invite?token=ea26f8d5',
+  agencyName: 'Mansa Tina Agency'
+}
+📂 Uploading content (2).pdf for cc80efc0-f819-4fff-bde9-b515305fe7a2...
+✅ Asset uploaded and saved.
+📂 Uploading Ed Kirk Resume C (1).docx for cc80efc0-f819-4fff-bde9-b515305fe7a2...
+✅ Asset uploaded and saved.
+📂 Uploading KPT Origin story (1).docx for cc80efc0-f819-4fff-bde9-b515305fe7a2...
+✅ Asset uploaded and saved.
+📂 Uploading KPT persona (2).docx for cc80efc0-f819-4fff-bde9-b515305fe7a2...
+✅ Asset uploaded and saved.
+🚀 Starting synchronous DNA sequencing for client cc80efc0-f819-4fff-bde9-b515305fe7a2...
+🕷️ Scraping context from: https://www.keenplextechnologies.com/
+🧬 Sequencing DNA with Gemini 1.0 Pro...
+✅ DNA Sequenced and Saved.
+[INFO] 17:52:41 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/routes/agency.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-23T22:52:45.676Z }
+[MOCK EMAIL] Sending invite to ekirk@KeenPlexTechnologies.com with data: {
+  link: 'https://app.mansatina.io/invite?token=5563a116',
+  agencyName: 'Mansa Tina Agency'
+}
+📂 Uploading content (2).pdf for dbea71f9-0a06-4ee4-b8e9-8c40a1781c5c...
+✅ Asset uploaded and saved.
+📂 Uploading Ed Kirk Resume C (1).docx for dbea71f9-0a06-4ee4-b8e9-8c40a1781c5c...
+✅ Asset uploaded and saved.
+📂 Uploading KPT Origin story (1).docx for dbea71f9-0a06-4ee4-b8e9-8c40a1781c5c...
+✅ Asset uploaded and saved.
+📂 Uploading KPT persona (2).docx for dbea71f9-0a06-4ee4-b8e9-8c40a1781c5c...
+✅ Asset uploaded and saved.
+🚀 Starting synchronous DNA sequencing for client dbea71f9-0a06-4ee4-b8e9-8c40a1781c5c...
+🕷️ Scraping context from: https:// https://www.keenplextechnologies.com/
+⚠️ Scraping failed for  https://www.keenplextechnologies.com/. Proceeding with user input only.
+🧬 Sequencing DNA with Gemini 1.0 Pro...
+✅ DNA Sequenced and Saved.
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+[INFO] 18:05:26 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/routes/agency.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-23T23:05:28.091Z }
+[MOCK EMAIL] Sending invite to delete@me.com with data: {
+  link: 'https://app.mansatina.io/invite?token=0e1f6308',
+  agencyName: 'Mansa Tina Agency'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+[INFO] 18:20:18 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/workers/analyzeBrand.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-23T23:20:20.453Z }
+[MOCK EMAIL] Sending invite to test@identity.com with data: {
+  link: 'https://app.mansatina.io/invite?token=1e9549c2',
+  agencyName: 'Mansa Tina Agency'
+}
+🚀 Starting synchronous DNA sequencing for client 30388829-212b-41b3-bee7-74b9b14eab04...
+🕷️ Scraping context from: https://example.com
+🧬 Sequencing DNA with Gemini 1.0 Pro...
+✅ DNA Sequenced and Saved.
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+[INFO] 19:02:00 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/workers/analyzeBrand.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-24T00:02:05.851Z }
+[INFO] 19:02:24 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/routes/wizard.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-24T00:02:25.506Z }
+[INFO] 19:02:27 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/routes/strategy.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-24T00:02:29.635Z }
+🚀 Starting synchronous DNA sequencing for client 30388829-212b-41b3-bee7-74b9b14eab04...
+🕷️ Scraping context from: https://refined-backend.com
+⚠️ Scraping failed for https://refined-backend.com. Proceeding with user input only.
+🧬 Sequencing DNA with Gemini 2.5 Pro...
+✅ DNA Sequenced and Saved (New Schema).
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+[MOCK EMAIL] Sending invite to ekirk@KeenPlexTechnologies.com with data: {
+  link: 'https://app.mansatina.io/invite?token=52e81a5f',
+  agencyName: 'Mansa Tina Agency'
+}
+📂 Uploading content (2).pdf for 38e53370-2053-4ba4-83e9-b6eff8376825...
+✅ Asset uploaded and saved.
+📂 Uploading Ed Kirk Resume C (1).docx for 38e53370-2053-4ba4-83e9-b6eff8376825...
+✅ Asset uploaded and saved.
+📂 Uploading KPT Origin story (1).docx for 38e53370-2053-4ba4-83e9-b6eff8376825...
+✅ Asset uploaded and saved.
+📂 Uploading KPT persona (2).docx for 38e53370-2053-4ba4-83e9-b6eff8376825...
+✅ Asset uploaded and saved.
+🚀 Starting synchronous DNA sequencing for client 38e53370-2053-4ba4-83e9-b6eff8376825...
+🕷️ Scraping context from: https://www.keenplextechnologies.com/
+🧬 Sequencing DNA with Gemini 2.5 Pro...
+✅ DNA Sequenced and Saved (New Schema).
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+🚀 Starting synchronous DNA sequencing for client 550e8400-e29b-41d4-a716-446655440001...
+🕷️ Scraping context from: https://mansatina.com
+⚠️ Scraping failed for https://mansatina.com. Proceeding with user input only.
+🧬 Sequencing DNA with Gemini 2.5 Pro...
+Error submitting wizard data: error: insert or update on table "brand_dna" violates foreign key constraint "brand_dna_sub_account_id_fkey"
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/pg-pool/index.js:45:11
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  length: 321,
+  severity: 'ERROR',
+  code: '23503',
+  detail: 'Key (sub_account_id)=(550e8400-e29b-41d4-a716-446655440001) is not present in table "sub_accounts".',
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: 'public',
+  table: 'brand_dna',
+  column: undefined,
+  dataType: undefined,
+  constraint: 'brand_dna_sub_account_id_fkey',
+  file: 'ri_triggers.c',
+  line: '2610',
+  routine: 'ri_ReportViolation'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Failed to fetch clients: Error: Connection terminated unexpectedly
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/pg-pool/index.js:45:11
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Failed to fetch clients: Error: read ECONNRESET
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/pg-pool/index.js:45:11
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errno: -104,
+  code: 'ECONNRESET',
+  syscall: 'read'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+[INFO] 10:14:49 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/workers/analyzeBrand.ts has been modified
+Backend service listening on port 8080
+[INFO] 10:14:59 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/routes/wizard.ts has been modified
+Backend service listening on port 8080
+Database connection failed: Error: Connection terminated unexpectedly
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/pg-pool/index.js:45:11
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
+[INFO] 10:16:09 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/routes/strategy.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-24T15:16:10.885Z }

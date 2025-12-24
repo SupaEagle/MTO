@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Plus, Trash2, ChevronDown, ChevronUp } from 'lucide-react';
 
 interface PersonaModel {
@@ -56,6 +56,48 @@ const BrandPersona = () => {
     const toggleExpand = (index: number) => {
         setExpandedIndex(expandedIndex === index ? null : index);
     };
+
+    // --- New Data Fetching Logic ---
+    useEffect(() => {
+        const fetchStrategy = async () => {
+            try {
+                const subAccountId = localStorage.getItem('mansa_sub_account_id');
+                if (!subAccountId) return;
+
+                const res = await fetch(`${import.meta.env.VITE_BACKEND_URL || 'http://localhost:8080'}/api/strategy/${subAccountId}`, {
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('mansa_token')}`
+                    }
+                });
+
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data.voice_guide) {
+                        const voice = data.voice_guide;
+
+                        // Map AI Voice Guide to First Persona
+                        const aiPersona: PersonaModel = {
+                            personaType: Array.isArray(voice.tone_keywords) ? voice.tone_keywords.join(', ') : (voice.tone_keywords || 'AI Generated'),
+                            readingLevel: voice.reading_level || 'Grade 8',
+                            forbiddenWords: Array.isArray(voice.do_not_say) ? voice.do_not_say.join(', ') : (voice.do_not_say || ''),
+                            requiredTerminology: Array.isArray(voice.vocabulary_list) ? voice.vocabulary_list.join(', ') : (voice.vocabulary_list || ''),
+                            emojiUsage: voice.emoji_usage || 'Moderate',
+                            hookStyle: 'Story-driven & Engaging', // Default for now if not in AI output
+                            link1: '',
+                            link2: '',
+                            link3: ''
+                        };
+
+                        setPersonas([aiPersona]);
+                    }
+                }
+            } catch (err) {
+                console.error("Failed to load strategy", err);
+            }
+        };
+
+        fetchStrategy();
+    }, []);
 
     const handleSave = () => {
         setIsEditing(false);

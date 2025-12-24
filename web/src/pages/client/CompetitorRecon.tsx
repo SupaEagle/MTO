@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const CompetitorRecon = () => {
     const [isEditing, setIsEditing] = useState(false);
@@ -17,6 +17,43 @@ const CompetitorRecon = () => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
     };
+
+    // --- New Data Fetching Logic ---
+    useEffect(() => {
+        const fetchStrategy = async () => {
+            try {
+                const subAccountId = localStorage.getItem('mansa_sub_account_id');
+                if (!subAccountId) return;
+
+                const res = await fetch(`${import.meta.env.VITE_BACKEND_URL || 'http://localhost:8080'}/api/strategy/${subAccountId}`, {
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('mansa_token')}`
+                    }
+                });
+
+                if (res.ok) {
+                    const data = await res.json();
+
+                    if (data.competitor_intel && data.competitor_intel.competitor_intel && data.competitor_intel.competitor_intel.top_competitors) {
+                        const comps = data.competitor_intel.competitor_intel.top_competitors;
+                        setFormData(prev => ({
+                            ...prev,
+                            comp1Name: comps[0]?.name || '',
+                            comp1Url: comps[0]?.url || '',
+                            comp2Name: comps[1]?.name || '',
+                            comp2Url: comps[1]?.url || '',
+                            comp3Name: comps[2]?.name || '',
+                            comp3Url: comps[2]?.url || '',
+                        }));
+                    }
+                }
+            } catch (err) {
+                console.error("Failed to load strategy", err);
+            }
+        };
+
+        fetchStrategy();
+    }, []);
 
     const handleSave = () => {
         setIsEditing(false);

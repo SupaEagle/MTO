@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Globe, Target, Heart, Mic, Upload, ArrowRight, ArrowLeft, CheckCircle, Search } from 'lucide-react';
-import { API } from '../lib/api';
 import DNALoadingScreen from '../components/onboarding/DNALoadingScreen';
+import VaultUploader from '../components/VaultUploader';
 
 // --- Types ---
 type WizardStep = 'footprint' | 'mission' | 'audience' | 'voice' | 'vault';
@@ -41,6 +41,24 @@ const LeanDiscoveryWizard = () => {
         files: []
     });
 
+    // New state for success view
+    const [submitted, setSubmitted] = useState(false);
+
+    // Auto-redirect effect
+    useEffect(() => {
+        if (submitted) {
+            const timer = setTimeout(() => {
+                // Set the active client context for the dashboard
+                localStorage.setItem('mansa_sub_account_id', clientId);
+                navigate('/client');
+            }, 3000);
+            return () => clearTimeout(timer);
+        }
+    }, [submitted, navigate]);
+
+    const queryParams = new URLSearchParams(window.location.search);
+    const clientId = queryParams.get('client_id') || '00000000-0000-0000-0000-000000000000';
+
     // --- Navigation Helpers ---
     const nextStep = (next: WizardStep) => setStep(next);
     const prevStep = (prev: WizardStep) => setStep(prev);
@@ -50,17 +68,24 @@ const LeanDiscoveryWizard = () => {
         setIsProcessing(true);
         try {
             // Send data to backend
-            await API.post('/api/wizard/submit', {
-                ...formData,
-                timestamp: new Date().toISOString()
+            const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8080';
+            const res = await fetch(`${BACKEND_URL}/api/wizard/submit`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    rawAnswers: formData,
+                    subAccountId: clientId,
+                    timestamp: new Date().toISOString()
+                })
             });
-            // Polling will be handled by the DNALoadingScreen internally or we can use the hook here. 
-            // Actually, DNALoadingScreen usually just shows animation.
-            // Let's assume the API triggers the background job.
 
-            // For this version, we'll simulate the "Sequencing" delay using the component, 
-            // creating a polling effect or just waiting for the redirect signal.
-            // The previous implementation used a poller.
+            if (!res.ok) throw new Error("Submission Failed");
+
+            const data = await res.json();
+            console.log("Wizard Success:", data);
+
+            setIsProcessing(false);
+            setSubmitted(true);
 
         } catch (error) {
             console.error("Submission failed", error);
@@ -72,6 +97,28 @@ const LeanDiscoveryWizard = () => {
     // If processing, show the DNA Loader
     if (isProcessing) {
         return <DNALoadingScreen />;
+    }
+
+    // If submitted, show Success View
+    if (submitted) {
+        return (
+            <div className="min-h-screen bg-[#05050A] text-white flex flex-col items-center justify-center p-8 text-center animate-in fade-in duration-700">
+                <div className="w-24 h-24 bg-gradient-to-br from-[#E63946] to-[#FF00FF] rounded-full blur-[80px] absolute" />
+                <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-[#E63946] to-[#FF00FF] mb-6 relative z-10">
+                    Transformation Ignited.
+                </h1>
+                <p className="text-xl text-white/60 max-w-2xl mb-8 relative z-10">
+                    Your Brand DNA has been successfully sequenced. Our engines are now generating your custom strategy.
+                </p>
+                <div className="p-6 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm max-w-md w-full relative z-10">
+                    <h3 className="text-lg font-semibold text-white mb-2">Redirecting...</h3>
+                    <p className="text-sm text-white/50">Taking you to your new Headquarters.</p>
+                </div>
+                <button onClick={() => window.location.reload()} className="mt-12 text-white/30 hover:text-white transition-colors text-sm relative z-10">
+                    Start Another Transformation
+                </button>
+            </div>
+        );
     }
 
     return (
@@ -161,8 +208,8 @@ const LeanDiscoveryWizard = () => {
                                             key={goal}
                                             onClick={() => setFormData({ ...formData, missionGoal: goal })}
                                             className={`p-3 rounded-lg border text-sm font-medium transition-all ${formData.missionGoal === goal
-                                                    ? 'bg-indigo-600 border-indigo-500 text-white'
-                                                    : 'bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-600'
+                                                ? 'bg-indigo-600 border-indigo-500 text-white'
+                                                : 'bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-600'
                                                 }`}
                                         >
                                             {goal}
@@ -221,8 +268,8 @@ const LeanDiscoveryWizard = () => {
                                                 }
                                             }}
                                             className={`px-3 py-1.5 rounded-full text-sm border transition-all ${formData.adjectives.includes(adj)
-                                                    ? 'bg-indigo-500/20 border-indigo-500 text-indigo-300'
-                                                    : 'bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-600'
+                                                ? 'bg-indigo-500/20 border-indigo-500 text-indigo-300'
+                                                : 'bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-600'
                                                 }`}
                                         >
                                             {adj}
@@ -247,15 +294,13 @@ const LeanDiscoveryWizard = () => {
                         {step === 'vault' && (
                             <div className="space-y-6 animate-fadeIn">
                                 <Header title="The Vault" subtitle="Upload any existing assets (PDFs, Decks) to ground the AI." />
-
-                                <div className="border-2 border-dashed border-slate-800 rounded-xl p-12 flex flex-col items-center justify-center text-slate-500 hover:border-indigo-500/50 hover:bg-slate-900/50 transition-all cursor-pointer">
-                                    <Upload className="w-8 h-8 mb-4 text-indigo-400" />
-                                    <p className="text-sm font-medium">Drag & Drop files here</p>
-                                    <p className="text-xs mt-2 opacity-50">or click to browse</p>
-                                </div>
-                                <p className="text-xs text-center text-slate-600">
-                                    (File upload simulation - skipping for this demo)
-                                </p>
+                                <VaultUploader
+                                    subAccountId={clientId}
+                                    onUploadComplete={(url: string) => {
+                                        console.log("Asset secured:", url);
+                                        setFormData(prev => ({ ...prev, files: [...prev.files, url] }));
+                                    }}
+                                />
                             </div>
                         )}
 
@@ -309,8 +354,8 @@ const Header = ({ title, subtitle }: { title: string, subtitle: string }) => (
 const StepIndicator = ({ active, label, icon, done }: { active: boolean, label: string, icon: React.ReactNode, done: boolean }) => (
     <div className={`flex items-center gap-3 ${active ? 'opacity-100' : 'opacity-40'} transition-opacity`}>
         <div className={`w-8 h-8 rounded-full flex items-center justify-center border ${active ? 'bg-indigo-600 border-indigo-500 text-white' :
-                done ? 'bg-green-500/20 border-green-500 text-green-400' :
-                    'bg-slate-900 border-slate-700 text-slate-500'
+            done ? 'bg-green-500/20 border-green-500 text-green-400' :
+                'bg-slate-900 border-slate-700 text-slate-500'
             }`}>
             {done && !active ? <CheckCircle className="w-4 h-4" /> : icon}
         </div>

@@ -3,21 +3,38 @@ import { authenticate } from '../middleware/auth';
 
 const router = Router();
 
-router.post('/', authenticate, async (req: Request, res: Response) => {
+import { db } from '../lib/db';
+
+router.get('/:subAccountId', authenticate, async (req: Request, res: Response) => {
     try {
-        const { businessName, industry, goals } = req.body;
+        const { subAccountId } = req.params;
 
-        // Mock Logic (migrated from Cloud Functions)
-        // In reality, this would call OpenAI/Anthropic
-        const strategy = {
-            pillars: ["Education", "Behind the Scenes", "Social Proof"],
-            recommendedPlatforms: ["LinkedIn", "Instagram"],
-            summary: `Strategy generated for ${businessName} in ${industry}. Focusing on ${goals}.`
-        };
+        const query = `
+            SELECT 
+                identity_data,
+                visual_identity,
+                core_identity, 
+                narrative,
+                audience_persona, 
+                competitor_intel, 
+                voice_guide, 
+                content_matrix,
+                strategic_differentiation,
+                website_url,
+                vault_assets
+            FROM brand_dna 
+            WHERE sub_account_id = $1
+        `;
 
-        res.json({ strategy });
+        const result = await db.query(query, [subAccountId]);
+
+        if (result.rows.length === 0) {
+            return res.status(404).json({ error: 'Strategy not found for this client' });
+        }
+
+        res.json(result.rows[0]);
     } catch (error) {
-        console.error('Error generating strategy:', error);
+        console.error('Error fetching strategy:', error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });

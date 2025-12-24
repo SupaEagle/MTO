@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { LayoutDashboard, Plus, Search } from 'lucide-react';
 
@@ -7,16 +7,45 @@ const GlobalClientSelector = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedClient, setSelectedClient] = useState<string | null>(null);
 
-    const clients = [
+    const [clients, setClients] = useState<{ id: string, name: string }[]>([]);
+
+    useEffect(() => {
+        const fetchClients = async () => {
+            try {
+                const res = await fetch(`${import.meta.env.VITE_BACKEND_URL || 'http://localhost:8080'}/api/agency/clients`);
+                if (res.ok) {
+                    const data = await res.json();
+                    setClients(data);
+
+                    // Check for active client
+                    const activeId = localStorage.getItem('mansa_sub_account_id');
+                    if (activeId) {
+                        const activeClient = data.find((c: any) => c.id === activeId);
+                        if (activeClient) {
+                            setSelectedClient(activeClient.name);
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error("Failed to fetch clients", error);
+            }
+        };
+        fetchClients();
+    }, []);
+
+    // Fallback if empty (or for demo)
+    const displayClients = clients.length > 0 ? clients.map(c => ({ ...c, industry: 'Brand DNA' })) : [
         { id: '1', name: 'Acme Corp', industry: 'Tech' },
         { id: '2', name: 'Stark Industries', industry: 'Defense' },
         { id: '3', name: 'Wayne Enterprises', industry: 'Finance' },
     ];
 
-    const handleSelect = (client: typeof clients[0]) => {
+    const handleSelect = (client: typeof displayClients[0]) => {
         setSelectedClient(client.name);
+        localStorage.setItem('mansa_sub_account_id', client.id);
         setIsOpen(false);
         navigate('/client');
+        window.location.reload(); // Force refresh to update context dependent components
     };
 
     const handleAgencyClick = () => {
@@ -78,7 +107,7 @@ const GlobalClientSelector = () => {
                     {/* Client List */}
                     <div className="max-h-48 overflow-y-auto custom-scrollbar">
                         <p className="px-3 py-1 text-[10px] uppercase font-bold text-slate-500">My Accounts</p>
-                        {clients.map(client => (
+                        {displayClients.map(client => (
                             <button
                                 key={client.id}
                                 onClick={() => handleSelect(client)}

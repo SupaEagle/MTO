@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const ContentPillars = () => {
     const [isEditing, setIsEditing] = useState(false);
@@ -17,6 +17,44 @@ const ContentPillars = () => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
     };
+
+    // --- New Data Fetching Logic ---
+    useEffect(() => {
+        const fetchStrategy = async () => {
+            try {
+                const subAccountId = localStorage.getItem('mansa_sub_account_id');
+                if (!subAccountId) return;
+
+                const res = await fetch(`${import.meta.env.VITE_BACKEND_URL || 'http://localhost:8080'}/api/strategy/${subAccountId}`, {
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('mansa_token')}`
+                    }
+                });
+
+                if (res.ok) {
+                    const data = await res.json();
+
+                    if (data.content_matrix && data.content_matrix.pillars) {
+                        const pillars = data.content_matrix.pillars;
+                        setFormData(prev => ({
+                            ...prev,
+                            pillar1: pillars[0]?.topic || '',
+                            pillar2: pillars[1]?.topic || '',
+                            pillar3: pillars[2]?.topic || '',
+                            pillar4: pillars[3]?.topic || '',
+                            // Infer or leave blank for user ref
+                            // We could map rationale to evergreen topics if we wanted
+                            evergreenTopics: pillars.map((p: any) => p.topic).join(', ')
+                        }));
+                    }
+                }
+            } catch (err) {
+                console.error("Failed to load strategy", err);
+            }
+        };
+
+        fetchStrategy();
+    }, []);
 
     const handleSave = () => {
         setIsEditing(false);

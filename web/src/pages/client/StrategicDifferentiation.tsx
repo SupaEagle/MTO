@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const StrategicDifferentiation = () => {
     const [isEditing, setIsEditing] = useState(false);
@@ -18,6 +18,41 @@ const StrategicDifferentiation = () => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
     };
+
+    // --- New Data Fetching Logic ---
+    useEffect(() => {
+        const fetchStrategy = async () => {
+            try {
+                const subAccountId = localStorage.getItem('mansa_sub_account_id');
+                if (!subAccountId) return;
+
+                const res = await fetch(`${import.meta.env.VITE_BACKEND_URL || 'http://localhost:8080'}/api/strategy/${subAccountId}`, {
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('mansa_token')}`
+                    }
+                });
+
+                if (res.ok) {
+                    const data = await res.json();
+
+                    // Map Competitor Intel
+                    if (data.competitor_intel) {
+                        setFormData(prev => ({
+                            ...prev,
+                            usp: data.competitor_intel.core_usp || '',
+                            marketGap: data.competitor_intel.competitor_gap || '',
+                            // Map generic market positioning if available
+                            dreamOutcome: data.core_identity?.elevator_pitch || prev.dreamOutcome
+                        }));
+                    }
+                }
+            } catch (err) {
+                console.error("Failed to load strategy", err);
+            }
+        };
+
+        fetchStrategy();
+    }, []);
 
     const handleSave = () => {
         setIsEditing(false);

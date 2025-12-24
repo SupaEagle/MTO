@@ -1,60 +1,73 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
     Search, Filter, Shield,
     CreditCard, Users, LogIn, ExternalLink, Mail, Phone,
     CheckCircle, AlertTriangle, XCircle,
-    Monitor, Layout, Plus
+    Monitor, Layout, Plus, Trash
 } from 'lucide-react';
 
 const ClientDirectory = () => {
     const navigate = useNavigate();
     // State for filtering and view mode
     const [viewMode, setViewMode] = useState<'all' | 'onboarding'>('all');
-    const [selectedClient, setSelectedClient] = useState<number | null>(null);
+    const [selectedClient, setSelectedClient] = useState<string | null>(null);
+    const [clients, setClients] = useState<any[]>([]);
+    const [loading, setLoading] = useState(true);
 
-    // Mock Data for Clients
-    const clients = [
-        {
-            id: 1,
-            name: "Acme Dental",
-            domain: "acmedental.com",
-            logo: "https://ui-avatars.com/api/?name=AD&background=0D8ABC&color=fff",
-            status: "Active",
-            plan: "Growth - $2.5k/mo",
-            health: 92,
-            manager: { name: "Sarah J.", avatar: "https://ui-avatars.com/api/?name=SJ&background=6d28d9&color=fff" },
-            lastActive: "2h ago",
-            techStack: { vibe: true, meta: true },
-            onboardingStep: 5 // Completed
-        },
-        {
-            id: 2,
-            name: "Legal Eagles",
-            domain: "legaleagleslaw.com",
-            logo: "https://ui-avatars.com/api/?name=LE&background=ffd700&color=000",
-            status: "Onboarding",
-            plan: "Starter - $1k/mo",
-            health: 78,
-            manager: { name: "Mike T.", avatar: "https://ui-avatars.com/api/?name=MT&background=10b981&color=fff" },
-            lastActive: "1d ago",
-            techStack: { vibe: false, meta: true },
-            onboardingStep: 3 // Stuck at Brand DNA
-        },
-        {
-            id: 3,
-            name: "Pizza Palace",
-            domain: "pizzapalace.io",
-            logo: "https://ui-avatars.com/api/?name=PP&background=ef4444&color=fff",
-            status: "Paused",
-            plan: "Dominance - $5k/mo",
-            health: 45,
-            manager: { name: "Sarah J.", avatar: "https://ui-avatars.com/api/?name=SJ&background=6d28d9&color=fff" },
-            lastActive: "5d ago",
-            techStack: { vibe: true, meta: false },
-            onboardingStep: 5
-        },
-    ];
+    const fetchClients = async () => {
+        setLoading(true);
+        try {
+            const res = await fetch(`${import.meta.env.VITE_BACKEND_URL || 'http://localhost:8080'}/api/agency/clients`);
+            if (res.ok) {
+                const data = await res.json();
+                // Map to existing UI structure (adding mock fields for missing data)
+                const mapped = data.map((c: any) => ({
+                    id: c.id,
+                    name: c.name,
+                    domain: c.name.toLowerCase().replace(/\s+/g, '') + ".com", // Mock domain
+                    logo: `https://ui-avatars.com/api/?name=${c.name.substring(0, 2)}&background=random&color=fff`,
+                    status: "Active", // Default
+                    plan: "Growth - $2.5k/mo", // Mock
+                    health: Math.floor(Math.random() * 40) + 60, // Random 60-100
+                    manager: { name: "Sarah J.", avatar: "https://ui-avatars.com/api/?name=SJ&background=6d28d9&color=fff" },
+                    lastActive: "2h ago",
+                    techStack: { vibe: Math.random() > 0.5, meta: Math.random() > 0.5 },
+                    onboardingStep: 5
+                }));
+                setClients(mapped);
+            }
+        } catch (error) {
+            console.error("Failed to fetch clients", error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        fetchClients();
+    }, []);
+
+    const handleDelete = async (e: React.MouseEvent, id: string, name: string) => {
+        e.stopPropagation();
+        if (window.confirm(`Are you sure you want to delete ${name}? This action cannot be undone.`)) {
+            try {
+                const res = await fetch(`${import.meta.env.VITE_BACKEND_URL || 'http://localhost:8080'}/api/agency/clients/${id}`, {
+                    method: 'DELETE'
+                });
+
+                if (res.ok) {
+                    setClients(prev => prev.filter(c => c.id !== id));
+                    if (selectedClient === id) setSelectedClient(null);
+                } else {
+                    alert("Failed to delete client.");
+                }
+            } catch (err) {
+                console.error("Failed to delete", err);
+                alert("Error deleting client.");
+            }
+        }
+    };
 
     // Mock quick-view details
     const clientDetails = {
@@ -207,6 +220,13 @@ const ClientDirectory = () => {
                                         }}
                                     >
                                         <CreditCard className="w-4 h-4" />
+                                    </button>
+                                    <button
+                                        className="p-2 hover:bg-red-500/20 text-slate-400 hover:text-red-400 rounded-lg transition-colors"
+                                        title="Delete Client"
+                                        onClick={(e) => handleDelete(e, client.id, client.name)}
+                                    >
+                                        <Trash className="w-4 h-4" />
                                     </button>
                                 </div>
                             </div>

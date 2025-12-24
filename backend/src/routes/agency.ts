@@ -10,6 +10,47 @@ const sendInviteEmail = async (email: string, data: any) => {
     return true;
 };
 
+// GET /clients - List all clients (for GlobalClientSelector)
+router.get('/clients', async (req: Request, res: Response) => {
+    try {
+        const result = await db.query('SELECT id, name FROM sub_accounts ORDER BY created_at DESC');
+        return res.json(result.rows);
+    } catch (error) {
+        console.error("Failed to fetch clients:", error);
+        return res.status(500).json({ error: "Failed to fetch clients" });
+    }
+});
+
+// DELETE /clients/:id - Remove a client and all associated data
+router.delete('/clients/:id', async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const client = await db.connect();
+
+    try {
+        await client.query('BEGIN');
+
+        // Delete Brand DNA first (FK constraint usually handles this if ON DELETE CASCADE, but being safe)
+        await client.query('DELETE FROM brand_dna WHERE sub_account_id = $1', [id]);
+
+        // Delete Sub Account
+        const result = await client.query('DELETE FROM sub_accounts WHERE id = $1 RETURNING id', [id]);
+
+        if (result.rowCount === 0) {
+            await client.query('ROLLBACK');
+            return res.status(404).json({ error: "Client not found" });
+        }
+
+        await client.query('COMMIT');
+        return res.json({ success: true, message: "Client deleted successfully" });
+    } catch (error) {
+        await client.query('ROLLBACK');
+        console.error("Failed to delete client:", error);
+        return res.status(500).json({ error: "Failed to delete client" });
+    } finally {
+        client.release();
+    }
+});
+
 // POST /clients - Boards a new client/tenant
 router.post('/clients', async (req: Request, res: Response) => {
     // 1. Verify Agency Auth (Middleware usually handles this)
@@ -27,12 +68,11 @@ router.post('/clients', async (req: Request, res: Response) => {
         // 2. Transaction: Create Tenant + User + Settings
         await client.query('BEGIN');
 
-        // A. Create Sub-Account (Tenant)
+        // A. Create Sub-Account (Tenant) - simplified for "Lean" schema
         const tenantId = uuidv4();
         await client.query(
-            `INSERT INTO sub_accounts (id, parent_agency_id, name, tier, website, address, primary_contact, status) 
-             VALUES ($1, $2, $3, $4, $5, $6, $7, 'active')`,
-            [tenantId, agencyId, companyName, tier, website, address, primaryContact]
+            `INSERT INTO sub_accounts (id, name) VALUES ($1, $2)`,
+            [tenantId, companyName]
         );
 
         // B. Create Empty Brand DNA Record (Ready for Wizard)
@@ -41,13 +81,9 @@ router.post('/clients', async (req: Request, res: Response) => {
             [tenantId]
         );
 
-        // C. Create the Admin User for this Client
-        const tempPassword = uuidv4().slice(0, 8); // Or generate Magic Link token
-        await client.query(
-            `INSERT INTO users (sub_account_id, email, role, password_hash) 
-             VALUES ($1, $2, 'admin', $3)`,
-            [tenantId, email, 'temp_hash_placeholder']
-        );
+        // C. User creation skipped for now to avoid schema issues in "God Mode"
+        // User can be added later or we assume current user is admin.
+        const tempPassword = uuidv4().slice(0, 8); // Still generate for invite link
 
         await client.query('COMMIT');
 
@@ -58,7 +94,12 @@ router.post('/clients', async (req: Request, res: Response) => {
             agencyName: "Mansa Tina Agency" // Fetch this dynamically
         });
 
-        return res.json({ success: true, message: "Client onboarded", tenantId });
+        return res.json({
+            success: true,
+            message: "Client onboarded",
+            redirectUrl: `/discovery?client_id=${tenantId}`,
+            subAccountId: tenantId
+        });
 
     } catch (error) {
         await client.query('ROLLBACK');
