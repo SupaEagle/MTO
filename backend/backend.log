@@ -901,3 +901,932 @@ Database connection failed: Error: Connection terminated unexpectedly
 [INFO] 10:16:09 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/routes/strategy.ts has been modified
 Backend service listening on port 8080
 Database connected successfully: { now: 2025-12-24T15:16:10.885Z }
+[MOCK EMAIL] Sending invite to ekirk@KeenPlexTechnologies.com with data: {
+  link: 'https://app.mansatina.io/invite?token=1fd583b4',
+  agencyName: 'Mansa Tina Agency'
+}
+📂 Uploading content (2).pdf for aca65201-8a7a-41c9-a6c3-3dd5c87f6c0b...
+✅ Asset uploaded and saved.
+📂 Uploading Ed Kirk Resume C (1).docx for aca65201-8a7a-41c9-a6c3-3dd5c87f6c0b...
+✅ Asset uploaded and saved.
+📂 Uploading KPT Origin story (1).docx for aca65201-8a7a-41c9-a6c3-3dd5c87f6c0b...
+✅ Asset uploaded and saved.
+📂 Uploading KPT persona (2).docx for aca65201-8a7a-41c9-a6c3-3dd5c87f6c0b...
+✅ Asset uploaded and saved.
+🚀 Starting synchronous DNA sequencing for client aca65201-8a7a-41c9-a6c3-3dd5c87f6c0b...
+🕷️ Scraping context from: https://www.keenplextechnologies.com/
+🧬 Sequencing DNA with Gemini 2.5 Pro (Mega-Prompt)...
+✅ DNA Sequenced and Saved (Mega Schema).
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+[MOCK EMAIL] Sending invite to ekirk@KeenPlexTechnologies.com with data: {
+  link: 'https://app.mansatina.io/invite?token=3bbd0b1a',
+  agencyName: 'Mansa Tina Agency'
+}
+📂 Uploading content (2).pdf for f4a64dbc-c566-4c36-8592-c0346fef22e3...
+✅ Asset uploaded and saved.
+📂 Uploading Ed Kirk Resume C (1).docx for f4a64dbc-c566-4c36-8592-c0346fef22e3...
+✅ Asset uploaded and saved.
+📂 Uploading KPT Origin story (1).docx for f4a64dbc-c566-4c36-8592-c0346fef22e3...
+✅ Asset uploaded and saved.
+📂 Uploading KPT persona (2).docx for f4a64dbc-c566-4c36-8592-c0346fef22e3...
+✅ Asset uploaded and saved.
+🚀 Starting synchronous DNA sequencing for client f4a64dbc-c566-4c36-8592-c0346fef22e3...
+🕷️ Scraping context from: https:// https://www.keenplextechnologies.com/
+⚠️ Scraping failed for  https://www.keenplextechnologies.com/. Proceeding with user input only.
+🧬 Sequencing DNA with Gemini 2.5 Pro (Mega-Prompt)...
+✅ DNA Sequenced and Saved (Mega Schema).
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+[MOCK EMAIL] Sending invite to ekirk@KeenPlexTechnologies.com with data: {
+  link: 'https://app.mansatina.io/invite?token=9f32913a',
+  agencyName: 'Mansa Tina Agency'
+}
+📂 Uploading content (2).pdf for f19d4043-5e4e-46cb-bb82-3b767d6e44f8...
+✅ Asset uploaded and saved.
+📂 Uploading Ed Kirk Resume C (1).docx for f19d4043-5e4e-46cb-bb82-3b767d6e44f8...
+✅ Asset uploaded and saved.
+📂 Uploading KPT Origin story (1).docx for f19d4043-5e4e-46cb-bb82-3b767d6e44f8...
+✅ Asset uploaded and saved.
+📂 Uploading KPT persona (2).docx for f19d4043-5e4e-46cb-bb82-3b767d6e44f8...
+✅ Asset uploaded and saved.
+🚀 Starting synchronous DNA sequencing for client f19d4043-5e4e-46cb-bb82-3b767d6e44f8...
+🕷️ Scraping context from: https://www.keenplextechnologies.com/
+🧬 Sequencing DNA with Gemini 2.5 Pro (Mega-Prompt)...
+✅ DNA Sequenced and Saved (Mega Schema).
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+[INFO] 11:19:04 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/routes/strategy.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-24T16:19:06.548Z }
+[INFO] 11:19:51 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/routes/strategy.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-24T16:19:53.162Z }
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+[MOCK EMAIL] Sending invite to ekirk@keenplextechnologies.com with data: {
+  link: 'https://app.mansatina.io/invite?token=26147c9f',
+  agencyName: 'Mansa Tina Agency'
+}
+📂 Uploading content (2).pdf for 5a3ffffc-b0c7-4786-80cb-c56fedb7559c...
+✅ Asset uploaded and saved.
+📂 Uploading Ed Kirk Resume C (1).docx for 5a3ffffc-b0c7-4786-80cb-c56fedb7559c...
+✅ Asset uploaded and saved.
+📂 Uploading KPT Origin story (1).docx for 5a3ffffc-b0c7-4786-80cb-c56fedb7559c...
+✅ Asset uploaded and saved.
+📂 Uploading KPT persona (2).docx for 5a3ffffc-b0c7-4786-80cb-c56fedb7559c...
+✅ Asset uploaded and saved.
+🚀 Starting synchronous DNA sequencing for client 5a3ffffc-b0c7-4786-80cb-c56fedb7559c...
+🕷️ Scraping context from: https://www.keenplextechnologies.com/
+🧬 Sequencing DNA with Gemini 2.5 Pro (Mega-Prompt)...
+✅ DNA Sequenced and Saved (Mega Schema).
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+Error verifying token: FirebaseAuthError: Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/firebase-admin/lib/auth/token-verifier.js:151:23
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errorInfo: {
+    code: 'auth/invalid-credential',
+    message: 'Must initialize app with a cert credential or set your Firebase project ID as the GOOGLE_CLOUD_PROJECT environment variable to call verifyIdToken().'
+  },
+  codePrefix: 'auth'
+}
+[INFO] 11:29:03 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/middleware/auth.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-24T16:29:05.560Z }
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[MOCK EMAIL] Sending invite to ekirk@keenplextechnologies.com with data: {
+  link: 'https://app.mansatina.io/invite?token=7a7d1edb',
+  agencyName: 'Mansa Tina Agency'
+}
+📂 Uploading content (2).pdf for 4cc6f09d-d7fc-485e-a80a-67d313774583...
+✅ Asset uploaded and saved.
+📂 Uploading Ed Kirk Resume C (1).docx for 4cc6f09d-d7fc-485e-a80a-67d313774583...
+✅ Asset uploaded and saved.
+📂 Uploading KPT Origin story (1).docx for 4cc6f09d-d7fc-485e-a80a-67d313774583...
+✅ Asset uploaded and saved.
+📂 Uploading KPT persona (2).docx for 4cc6f09d-d7fc-485e-a80a-67d313774583...
+✅ Asset uploaded and saved.
+🚀 Starting synchronous DNA sequencing for client 4cc6f09d-d7fc-485e-a80a-67d313774583...
+🕷️ Scraping context from: https://www.keenplextechnologies.com/
+🧬 Sequencing DNA with Gemini 2.5 Pro (Mega-Prompt)...
+✅ DNA Sequenced and Saved (Mega Schema).
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[INFO] 15:18:06 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/lib/scraper.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-24T20:18:14.374Z }
+[INFO] 15:18:19 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/workers/analyzeBrand.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-24T20:18:21.199Z }
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[MOCK EMAIL] Sending invite to ekirk@keenplextechnologies.com with data: {
+  link: 'https://app.mansatina.io/invite?token=46578985',
+  agencyName: 'Mansa Tina Agency'
+}
+📂 Uploading content (2).pdf for 25b646d6-adb8-4197-9216-ce964027764a...
+✅ Asset uploaded and saved.
+📂 Uploading Ed Kirk Resume C (1).docx for 25b646d6-adb8-4197-9216-ce964027764a...
+✅ Asset uploaded and saved.
+📂 Uploading KPT Origin story (1).docx for 25b646d6-adb8-4197-9216-ce964027764a...
+✅ Asset uploaded and saved.
+📂 Uploading KPT persona (2).docx for 25b646d6-adb8-4197-9216-ce964027764a...
+✅ Asset uploaded and saved.
+🚀 Starting synchronous DNA sequencing for client 25b646d6-adb8-4197-9216-ce964027764a...
+🕷️ Scraping context from: https://www.keenplextechnologies.com/
+🧬 Sequencing DNA with Gemini 2.5 Pro (Mega-Prompt)...
+✅ DNA Sequenced and Saved (Mega Schema).
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[INFO] 17:37:40 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/lib/scraper.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-24T22:37:43.044Z }
+[INFO] 17:37:44 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/lib/scraper.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-24T22:37:46.293Z }
+[INFO] 17:37:50 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/workers/analyzeBrand.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-24T22:37:52.331Z }
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[INFO] 18:00:51 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/routes/wizard.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-24T23:00:54.687Z }
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[INFO] 18:07:55 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/lib/scraper.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-24T23:07:56.806Z }
+[INFO] 18:07:57 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/workers/analyzeBrand.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-24T23:07:59.030Z }
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[INFO] 18:32:29 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/workers/analyzeBrand.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-24T23:32:31.115Z }
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[MOCK EMAIL] Sending invite to ekirk@keenplextechnologies.com with data: {
+  link: 'https://app.mansatina.io/invite?token=b2fa0a42',
+  agencyName: 'Mansa Tina Agency'
+}
+📂 Uploading content (2).pdf for aedc84e3-be75-4493-b865-24f5f5512d32...
+✅ Asset uploaded and saved.
+📂 Uploading Ed Kirk Resume C (1).docx for aedc84e3-be75-4493-b865-24f5f5512d32...
+✅ Asset uploaded and saved.
+📂 Uploading KPT Origin story (1).docx for aedc84e3-be75-4493-b865-24f5f5512d32...
+✅ Asset uploaded and saved.
+📂 Uploading KPT persona (2).docx for aedc84e3-be75-4493-b865-24f5f5512d32...
+✅ Asset uploaded and saved.
+🚀 Starting synchronous DNA sequencing for client KeenPlex Technologies LLC (aedc84e3-be75-4493-b865-24f5f5512d32)...
+🕷️ Scraping context from: https://www.keenplextechnologies.com/
+🧬 Sequencing DNA with Gemini 2.5 Pro (Mega-Prompt)...
+✅ DNA Sequenced and Saved (Mega Schema).
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[INFO] 17:16:07 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/workers/analyzeBrand.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-25T22:16:10.511Z }
+[INFO] 17:16:18 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/workers/analyzeBrand.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-25T22:16:19.725Z }
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[MOCK EMAIL] Sending invite to ekirk@keenplextechnologies.com with data: {
+  link: 'https://app.mansatina.io/invite?token=7ebecb75',
+  agencyName: 'Mansa Tina Agency'
+}
+📂 Uploading content (2).pdf for a890fe7b-5920-4337-ba75-23fe3807c1a4...
+✅ Asset uploaded and saved.
+📂 Uploading Ed Kirk Resume C (1).docx for a890fe7b-5920-4337-ba75-23fe3807c1a4...
+✅ Asset uploaded and saved.
+📂 Uploading KPT Origin story (1).docx for a890fe7b-5920-4337-ba75-23fe3807c1a4...
+✅ Asset uploaded and saved.
+📂 Uploading KPT persona (2).docx for a890fe7b-5920-4337-ba75-23fe3807c1a4...
+✅ Asset uploaded and saved.
+🚀 Starting synchronous DNA sequencing for client KeenPlex Technologies LLC (a890fe7b-5920-4337-ba75-23fe3807c1a4)...
+🕷️ Scraping context from: https://www.keenplextechnologies.com/
+🧬 Sequencing DNA with Gemini 2.5 Pro (Mega-Prompt)...
+✅ DNA Sequenced and Saved (Mega Schema).
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[MOCK EMAIL] Sending invite to ekirk@KeenPlexTechnologies.com with data: {
+  link: 'https://app.mansatina.io/invite?token=8286934c',
+  agencyName: 'Mansa Tina Agency'
+}
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[INFO] 21:51:54 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/routes/wizard.ts has been modified
+TypeError: (0 , core_2.configureGenkit) is not a function
+    at Object.<anonymous> (/home/ekirk/mansa-tina-marketing/backend/src/agents/researcher.ts:8:16)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+    at Module._compile (/home/ekirk/mansa-tina-marketing/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/tmp/ts-node-dev-hook-8423571114978518.js:69:33)
+    at node:internal/modules/cjs/loader:1893:10
+    at require.extensions..jsx.require.extensions..js (/tmp/ts-node-dev-hook-8423571114978518.js:114:20)
+    at require.extensions.<computed> (/tmp/ts-node-dev-hook-8423571114978518.js:71:20)
+    at Object.nodeDevHook [as .ts] (/home/ekirk/mansa-tina-marketing/backend/node_modules/ts-node-dev/lib/hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+[ERROR] 21:51:57 TypeError: (0 , core_2.configureGenkit) is not a function
+[INFO] 21:55:21 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/researcher.ts has been modified
+TypeError: (0 , core_2.configureGenkit) is not a function
+    at Object.<anonymous> (/home/ekirk/mansa-tina-marketing/backend/src/agents/researcher.ts:8:16)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+    at Module._compile (/home/ekirk/mansa-tina-marketing/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/tmp/ts-node-dev-hook-8423571114978518.js:69:33)
+    at node:internal/modules/cjs/loader:1893:10
+    at require.extensions..jsx.require.extensions..js (/tmp/ts-node-dev-hook-8423571114978518.js:114:20)
+    at require.extensions.<computed> (/tmp/ts-node-dev-hook-8423571114978518.js:71:20)
+    at Object.nodeDevHook [as .ts] (/home/ekirk/mansa-tina-marketing/backend/node_modules/ts-node-dev/lib/hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+[ERROR] 21:55:23 TypeError: (0 , core_2.configureGenkit) is not a function
+[INFO] 21:56:57 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/researcher.ts has been modified
+TypeError: (0 , core_2.configureGenkit) is not a function
+    at Object.<anonymous> (/home/ekirk/mansa-tina-marketing/backend/src/agents/researcher.ts:8:16)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+    at Module._compile (/home/ekirk/mansa-tina-marketing/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/tmp/ts-node-dev-hook-8423571114978518.js:69:33)
+    at node:internal/modules/cjs/loader:1893:10
+    at require.extensions..jsx.require.extensions..js (/tmp/ts-node-dev-hook-8423571114978518.js:114:20)
+    at require.extensions.<computed> (/tmp/ts-node-dev-hook-8423571114978518.js:71:20)
+    at Object.nodeDevHook [as .ts] (/home/ekirk/mansa-tina-marketing/backend/node_modules/ts-node-dev/lib/hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+[ERROR] 21:57:00 TypeError: (0 , core_2.configureGenkit) is not a function
+[INFO] 21:59:26 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/researcher.ts has been modified
+Registering flow: generateStrategy
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-26T02:59:38.533Z }
+[INFO] 21:59:44 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/strategist.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-26T02:59:50.907Z }
+[INFO] 22:00:56 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/workflows/dnaOrchestrator.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-26T03:01:01.156Z }
+[INFO] 22:02:54 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/researcher.ts has been modified
+Compilation error in /home/ekirk/mansa-tina-marketing/backend/src/agents/researcher.ts
+[ERROR] 22:02:55 ⨯ Unable to compile TypeScript:
+src/agents/researcher.ts(1,3): error TS1443: Module declaration names may only use ' or " quoted strings.
+src/agents/researcher.ts(22,22): error TS1127: Invalid character.
+src/agents/researcher.ts(22,22): error TS1128: Declaration or statement expected.
+src/agents/researcher.ts(22,24): error TS1127: Invalid character.
+src/agents/researcher.ts(22,25): error TS1127: Invalid character.
+src/agents/researcher.ts(22,26): error TS1127: Invalid character.
+src/agents/researcher.ts(22,27): error TS1127: Invalid character.
+src/agents/researcher.ts(22,29): error TS1434: Unexpected keyword or identifier.
+src/agents/researcher.ts(22,40): error TS1434: Unexpected keyword or identifier.
+src/agents/researcher.ts(22,52): error TS1005: '(' expected.
+src/agents/researcher.ts(22,68): error TS1005: ')' expected.
+src/agents/researcher.ts(22,91): error TS1005: '(' expected.
+src/agents/researcher.ts(22,92): error TS1005: ';' expected.
+src/agents/researcher.ts(22,99): error TS1005: ',' expected.
+src/agents/researcher.ts(27,9): error TS1005: ';' expected.
+src/agents/researcher.ts(27,13): error TS1005: ')' expected.
+src/agents/researcher.ts(27,17): error TS1434: Unexpected keyword or identifier.
+src/agents/researcher.ts(27,19): error TS1434: Unexpected keyword or identifier.
+src/agents/researcher.ts(27,26): error TS1434: Unexpected keyword or identifier.
+src/agents/researcher.ts(29,9): error TS1005: ';' expected.
+src/agents/researcher.ts(30,9): error TS1434: Unexpected keyword or identifier.
+src/agents/researcher.ts(30,16): error TS1005: ';' expected.
+src/agents/researcher.ts(30,20): error TS1434: Unexpected keyword or identifier.
+src/agents/researcher.ts(30,36): error TS1005: '(' expected.
+src/agents/researcher.ts(30,38): error TS1005: ';' expected.
+src/agents/researcher.ts(30,58): error TS1005: ';' expected.
+src/agents/researcher.ts(30,90): error TS1003: Identifier expected.
+src/agents/researcher.ts(31,9): error TS1005: ')' expected.
+src/agents/researcher.ts(31,12): error TS1434: Unexpected keyword or identifier.
+src/agents/researcher.ts(31,14): error TS1434: Unexpected keyword or identifier.
+src/agents/researcher.ts(31,22): error TS1228: A type predicate is only allowed in return type position for functions and methods.
+src/agents/researcher.ts(31,35): error TS1005: ',' expected.
+src/agents/researcher.ts(31,42): error TS1005: ',' expected.
+src/agents/researcher.ts(31,63): error TS1005: ';' expected.
+src/agents/researcher.ts(31,66): error TS1434: Unexpected keyword or identifier.
+src/agents/researcher.ts(31,74): error TS1434: Unexpected keyword or identifier.
+src/agents/researcher.ts(31,77): error TS1434: Unexpected keyword or identifier.
+src/agents/researcher.ts(31,88): error TS1434: Unexpected keyword or identifier.
+src/agents/researcher.ts(31,92): error TS1434: Unexpected keyword or identifier.
+src/agents/researcher.ts(31,105): error TS1003: Identifier expected.
+src/agents/researcher.ts(33,9): error TS1435: Unknown keyword or identifier. Did you mean 'for'?
+src/agents/researcher.ts(33,13): error TS1434: Unexpected keyword or identifier.
+src/agents/researcher.ts(33,35): error TS1005: ';' expected.
+src/agents/researcher.ts(34,4): error TS1005: ';' expected.
+src/agents/researcher.ts(35,4): error TS1005: ';' expected.
+src/agents/researcher.ts(36,4): error TS1005: ';' expected.
+src/agents/researcher.ts(36,8): error TS1434: Unexpected keyword or identifier.
+src/agents/researcher.ts(36,14): error TS1434: Unexpected keyword or identifier.
+src/agents/researcher.ts(36,39): error TS1005: ',' expected.
+src/agents/researcher.ts(36,47): error TS1005: ',' expected.
+src/agents/researcher.ts(36,50): error TS1005: '(' expected.
+src/agents/researcher.ts(36,60): error TS1434: Unexpected keyword or identifier.
+src/agents/researcher.ts(37,9): error TS1003: Identifier expected.
+src/agents/researcher.ts(37,12): error TS1005: ';' expected.
+src/agents/researcher.ts(37,16): error TS1435: Unknown keyword or identifier. Did you mean 'string'?
+src/agents/researcher.ts(37,23): error TS1434: Unexpected keyword or identifier.
+src/agents/researcher.ts(39,16): error TS1005: ';' expected.
+src/agents/researcher.ts(39,40): error TS1005: ';' expected.
+src/agents/researcher.ts(39,44): error TS1434: Unexpected keyword or identifier.
+src/agents/researcher.ts(39,50): error TS1434: Unexpected keyword or identifier.
+src/agents/researcher.ts(39,62): error TS1434: Unexpected keyword or identifier.
+src/agents/researcher.ts(39,70): error TS1434: Unexpected keyword or identifier.
+src/agents/researcher.ts(39,75): error TS1434: Unexpected keyword or identifier.
+src/agents/researcher.ts(39,88): error TS1005: ';' expected.
+src/agents/researcher.ts(41,16): error TS1005: ':' expected.
+src/agents/researcher.ts(41,30): error TS1005: ';' expected.
+src/agents/researcher.ts(42,7): error TS1003: Identifier expected.
+src/agents/researcher.ts(51,1): error TS1160: Unterminated template literal.
+
+[INFO] 22:04:18 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/researcher.ts has been modified
+Compilation error in /home/ekirk/mansa-tina-marketing/backend/src/agents/strategist.ts
+[ERROR] 22:04:20 ⨯ Unable to compile TypeScript:
+src/agents/strategist.ts(25,7): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(25,11): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(25,15): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(25,19): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(25,25): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(25,34): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(25,46): error TS1005: '(' expected.
+src/agents/strategist.ts(25,48): error TS1005: ';' expected.
+src/agents/strategist.ts(25,56): error TS1005: ';' expected.
+src/agents/strategist.ts(25,60): error TS1005: ')' expected.
+src/agents/strategist.ts(26,8): error TS1005: ';' expected.
+src/agents/strategist.ts(26,10): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(26,18): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(26,22): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(26,29): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(26,35): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(26,39): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(26,48): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(26,50): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(26,59): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(26,65): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(28,7): error TS1003: Identifier expected.
+src/agents/strategist.ts(28,9): error TS1109: Expression expected.
+src/agents/strategist.ts(28,20): error TS1005: ';' expected.
+src/agents/strategist.ts(28,28): error TS1109: Expression expected.
+src/agents/strategist.ts(29,7): error TS1005: ';' expected.
+src/agents/strategist.ts(29,26): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(29,47): error TS1005: ';' expected.
+src/agents/strategist.ts(29,64): error TS1005: ';' expected.
+src/agents/strategist.ts(30,7): error TS1003: Identifier expected.
+src/agents/strategist.ts(30,10): error TS1005: ';' expected.
+src/agents/strategist.ts(30,24): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(30,28): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(30,32): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(30,63): error TS1005: ';' expected.
+src/agents/strategist.ts(30,66): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(30,71): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(30,94): error TS1005: ';' expected.
+src/agents/strategist.ts(30,126): error TS1005: ';' expected.
+src/agents/strategist.ts(31,7): error TS1003: Identifier expected.
+src/agents/strategist.ts(31,10): error TS1005: ';' expected.
+src/agents/strategist.ts(31,16): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(31,45): error TS1005: ';' expected.
+src/agents/strategist.ts(31,55): error TS1005: ';' expected.
+src/agents/strategist.ts(31,60): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(31,71): error TS1005: ';' expected.
+src/agents/strategist.ts(31,101): error TS1005: ';' expected.
+src/agents/strategist.ts(33,7): error TS1003: Identifier expected.
+src/agents/strategist.ts(33,9): error TS1109: Expression expected.
+src/agents/strategist.ts(34,11): error TS1005: ';' expected.
+src/agents/strategist.ts(34,13): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(35,10): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(36,12): error TS1005: ';' expected.
+src/agents/strategist.ts(36,19): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(37,8): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(37,28): error TS1005: ';' expected.
+src/agents/strategist.ts(38,7): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(39,13): error TS1005: ';' expected.
+src/agents/strategist.ts(39,15): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(41,3): error TS1109: Expression expected.
+src/agents/strategist.ts(41,14): error TS1005: ';' expected.
+src/agents/strategist.ts(41,24): error TS1005: ',' expected.
+src/agents/strategist.ts(41,35): error TS1005: ',' expected.
+src/agents/strategist.ts(42,5): error TS1005: ';' expected.
+src/agents/strategist.ts(44,7): error TS1109: Expression expected.
+src/agents/strategist.ts(44,9): error TS1109: Expression expected.
+src/agents/strategist.ts(44,16): error TS1005: ';' expected.
+src/agents/strategist.ts(44,50): error TS1109: Expression expected.
+src/agents/strategist.ts(46,7): error TS1005: ';' expected.
+src/agents/strategist.ts(46,52): error TS1003: Identifier expected.
+src/agents/strategist.ts(46,65): error TS1005: ',' expected.
+src/agents/strategist.ts(46,77): error TS1005: ';' expected.
+src/agents/strategist.ts(51,4): error TS1005: ';' expected.
+src/agents/strategist.ts(51,25): error TS1005: ',' expected.
+src/agents/strategist.ts(51,49): error TS1005: ';' expected.
+src/agents/strategist.ts(56,4): error TS1005: ';' expected.
+src/agents/strategist.ts(56,22): error TS1005: ',' expected.
+src/agents/strategist.ts(56,41): error TS1005: ',' expected.
+src/agents/strategist.ts(56,51): error TS1005: ';' expected.
+src/agents/strategist.ts(61,3): error TS1109: Expression expected.
+src/agents/strategist.ts(63,7): error TS1005: ';' expected.
+src/agents/strategist.ts(64,10): error TS1005: ';' expected.
+src/agents/strategist.ts(64,12): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(64,35): error TS1005: ';' expected.
+src/agents/strategist.ts(64,45): error TS1005: ',' expected.
+src/agents/strategist.ts(64,61): error TS1005: ',' expected.
+src/agents/strategist.ts(64,67): error TS1005: ',' expected.
+src/agents/strategist.ts(64,72): error TS1005: ',' expected.
+src/agents/strategist.ts(65,9): error TS1005: ';' expected.
+src/agents/strategist.ts(65,11): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(65,33): error TS1005: ',' expected.
+src/agents/strategist.ts(66,10): error TS1003: Identifier expected.
+src/agents/strategist.ts(66,19): error TS1005: ';' expected.
+src/agents/strategist.ts(66,41): error TS1005: ';' expected.
+src/agents/strategist.ts(68,7): error TS1003: Identifier expected.
+src/agents/strategist.ts(68,10): error TS1005: ';' expected.
+src/agents/strategist.ts(69,6): error TS1005: ';' expected.
+src/agents/strategist.ts(69,13): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(69,75): error TS1002: Unterminated string literal.
+src/agents/strategist.ts(71,4): error TS1005: ';' expected.
+src/agents/strategist.ts(72,13): error TS1005: ';' expected.
+src/agents/strategist.ts(72,28): error TS1005: ';' expected.
+src/agents/strategist.ts(72,34): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(72,39): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(72,41): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(72,58): error TS1003: Identifier expected.
+src/agents/strategist.ts(74,7): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(74,14): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(74,19): error TS1435: Unknown keyword or identifier. Did you mean 'catch'?
+src/agents/strategist.ts(74,25): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(74,29): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(74,34): error TS1434: Unexpected keyword or identifier.
+src/agents/strategist.ts(75,5): error TS1003: Identifier expected.
+src/agents/strategist.ts(86,1): error TS1160: Unterminated template literal.
+
+[INFO] 22:04:28 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/strategist.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-26T03:04:32.003Z }
+[INFO] 22:06:15 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/strategist.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-26T03:06:17.794Z }
+[INFO] 22:09:22 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/researcher.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-26T03:09:25.484Z }
+[INFO] 22:09:49 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/researcher.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-26T03:09:55.718Z }
+[INFO] 22:10:07 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/strategist.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-26T03:10:14.498Z }
+[INFO] 22:10:22 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/strategist.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-26T03:10:29.341Z }
+[INFO] 22:11:49 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/researcher.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-26T03:11:51.804Z }
+[INFO] 22:11:58 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/strategist.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-26T03:12:00.358Z }
+[INFO] 22:13:29 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/researcher.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-26T03:13:33.177Z }
+[INFO] 22:13:40 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/strategist.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-26T03:13:42.881Z }
+[INFO] 22:14:51 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/researcher.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-26T03:14:54.672Z }
+[INFO] 22:15:08 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/strategist.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-26T03:15:12.588Z }
+[INFO] 22:16:15 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/researcher.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-26T03:16:17.558Z }
+[INFO] 22:17:05 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/researcher.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-26T03:17:07.919Z }
+[INFO] 22:17:24 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/strategist.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-26T03:17:27.881Z }
+[MOCK EMAIL] Sending invite to ekirk@keenplextechnologies.com with data: {
+  link: 'https://app.mansatina.io/invite?token=7bcf38cb',
+  agencyName: 'Mansa Tina Agency'
+}
+📂 Uploading content (2).pdf for 6345b700-da3c-4abd-9b33-2b6ee8fd9f3b...
+✅ Asset uploaded and saved.
+📂 Uploading Ed Kirk Resume C (1).docx for 6345b700-da3c-4abd-9b33-2b6ee8fd9f3b...
+✅ Asset uploaded and saved.
+📂 Uploading KPT Origin story (1).docx for 6345b700-da3c-4abd-9b33-2b6ee8fd9f3b...
+✅ Asset uploaded and saved.
+📂 Uploading KPT persona (2).docx for 6345b700-da3c-4abd-9b33-2b6ee8fd9f3b...
+✅ Asset uploaded and saved.
+🚀 Dispatching Agents for client KeenPlex Technologies LLC (6345b700-da3c-4abd-9b33-2b6ee8fd9f3b)...
+🚀 Starting Brand Analysis for 6345b700-da3c-4abd-9b33-2b6ee8fd9f3b...
+🕵️‍♂️ Agent Starting: Competitor Recon...
+🕵️‍♂️ Researcher looking for competitors in United States for Brand Awareness
+❌ Agent Orchestration Failed: ClientError: [VertexAI.ClientError]: got status: 404 Not Found. {"error":{"code":404,"message":"Publisher Model `projects/284915496002/locations/us-central1/publishers/google/models/gemini-1.5-flash-001` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions","status":"NOT_FOUND"}}
+    at throwErrorIfNotOK (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/post_fetch_processing.ts:47:21)
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
+    ... 7 lines matching cause stack trace ...
+    at runInNewSpan (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/tracing/instrumentation.ts:110:10) {
+  stackTrace: GoogleApiError: Publisher Model `projects/284915496002/locations/us-central1/publishers/google/models/gemini-1.5-flash-001` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions
+      at throwErrorIfNotOK (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/post_fetch_processing.ts:49:9)
+      at processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at generateContent (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/generate_content.ts:94:3)
+      at ChatSessionPreview.sendMessage (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/models/chat_session.ts:352:58)
+      at callGemini (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/vertexai/src/gemini.ts:1348:26)
+      at /home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/vertexai/src/gemini.ts:1406:11
+      at /home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/action.ts:497:12
+      at /home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/action.ts:391:26
+      at /home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/tracing/instrumentation.ts:142:24
+      at runInNewSpan (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/tracing/instrumentation.ts:110:10) {
+    code: 404,
+    status: 'NOT_FOUND',
+    errorDetails: undefined
+  },
+  traceId: '13a986ef95d61ba69234c82801f7000c',
+  ignoreFailedSpan: true,
+  [cause]: GoogleApiError: Publisher Model `projects/284915496002/locations/us-central1/publishers/google/models/gemini-1.5-flash-001` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions
+      at throwErrorIfNotOK (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/post_fetch_processing.ts:49:9)
+      at processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at generateContent (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/generate_content.ts:94:3)
+      at ChatSessionPreview.sendMessage (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/models/chat_session.ts:352:58)
+      at callGemini (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/vertexai/src/gemini.ts:1348:26)
+      at /home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/vertexai/src/gemini.ts:1406:11
+      at /home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/action.ts:497:12
+      at /home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/action.ts:391:26
+      at /home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/tracing/instrumentation.ts:142:24
+      at runInNewSpan (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/tracing/instrumentation.ts:110:10) {
+    code: 404,
+    status: 'NOT_FOUND',
+    errorDetails: undefined
+  }
+}
+❌ Agent Orchestration Failed in Background: ClientError: [VertexAI.ClientError]: got status: 404 Not Found. {"error":{"code":404,"message":"Publisher Model `projects/284915496002/locations/us-central1/publishers/google/models/gemini-1.5-flash-001` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions","status":"NOT_FOUND"}}
+    at throwErrorIfNotOK (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/post_fetch_processing.ts:47:21)
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
+    ... 7 lines matching cause stack trace ...
+    at runInNewSpan (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/tracing/instrumentation.ts:110:10) {
+  stackTrace: GoogleApiError: Publisher Model `projects/284915496002/locations/us-central1/publishers/google/models/gemini-1.5-flash-001` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions
+      at throwErrorIfNotOK (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/post_fetch_processing.ts:49:9)
+      at processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at generateContent (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/generate_content.ts:94:3)
+      at ChatSessionPreview.sendMessage (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/models/chat_session.ts:352:58)
+      at callGemini (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/vertexai/src/gemini.ts:1348:26)
+      at /home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/vertexai/src/gemini.ts:1406:11
+      at /home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/action.ts:497:12
+      at /home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/action.ts:391:26
+      at /home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/tracing/instrumentation.ts:142:24
+      at runInNewSpan (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/tracing/instrumentation.ts:110:10) {
+    code: 404,
+    status: 'NOT_FOUND',
+    errorDetails: undefined
+  },
+  traceId: '13a986ef95d61ba69234c82801f7000c',
+  ignoreFailedSpan: true,
+  [cause]: GoogleApiError: Publisher Model `projects/284915496002/locations/us-central1/publishers/google/models/gemini-1.5-flash-001` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions
+      at throwErrorIfNotOK (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/post_fetch_processing.ts:49:9)
+      at processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at generateContent (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/generate_content.ts:94:3)
+      at ChatSessionPreview.sendMessage (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/models/chat_session.ts:352:58)
+      at callGemini (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/vertexai/src/gemini.ts:1348:26)
+      at /home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/vertexai/src/gemini.ts:1406:11
+      at /home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/action.ts:497:12
+      at /home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/action.ts:391:26
+      at /home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/tracing/instrumentation.ts:142:24
+      at runInNewSpan (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/tracing/instrumentation.ts:110:10) {
+    code: 404,
+    status: 'NOT_FOUND',
+    errorDetails: undefined
+  }
+}
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+Failed to fetch clients: Error: read ECONNRESET
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/pg-pool/index.js:45:11
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errno: -104,
+  code: 'ECONNRESET',
+  syscall: 'read'
+}
+[AUTH] Using Mock Token Bypass
+Failed to fetch clients: Error: read ECONNRESET
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/pg-pool/index.js:45:11
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errno: -104,
+  code: 'ECONNRESET',
+  syscall: 'read'
+}
+Error fetching strategy: Error: read ECONNRESET
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/pg-pool/index.js:45:11
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errno: -104,
+  code: 'ECONNRESET',
+  syscall: 'read'
+}
+[AUTH] Using Mock Token Bypass
+Error fetching strategy: Error: read ECONNRESET
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/pg-pool/index.js:45:11
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  errno: -104,
+  code: 'ECONNRESET',
+  syscall: 'read'
+}
+[INFO] 08:07:33 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/researcher.ts has been modified
+Error: listen EADDRINUSE: address already in use :::8080
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/home/ekirk/mansa-tina-marketing/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/home/ekirk/mansa-tina-marketing/backend/src/server.ts:63:5)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+    at Module._compile (/home/ekirk/mansa-tina-marketing/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/tmp/ts-node-dev-hook-8423571114978518.js:69:33)
+    at node:internal/modules/cjs/loader:1893:10
+    at require.extensions..jsx.require.extensions..js (/tmp/ts-node-dev-hook-8423571114978518.js:114:20)
+[ERROR] 08:07:36 Error: listen EADDRINUSE: address already in use :::8080
+[INFO] 08:07:37 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/strategist.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-26T13:07:40.515Z }

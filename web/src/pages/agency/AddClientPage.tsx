@@ -37,8 +37,11 @@ export default function AddClientPage() {
             console.log("Client created:", data);
 
             if (data.redirectUrl) {
+                // Set the active client context immediately
+                if (data.subAccountId) {
+                    localStorage.setItem('mansa_sub_account_id', data.subAccountId);
+                }
                 // Redirect to the wizard using the URL provided by backend
-                // remove the leading slash if needed, or just use it
                 navigate(data.redirectUrl);
             } else {
                 alert('Client onboarded successfully!');

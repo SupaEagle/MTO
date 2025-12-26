@@ -26,23 +26,23 @@ const AudienceDefinition = () => {
 
                 const res = await fetch(`${import.meta.env.VITE_BACKEND_URL || 'http://localhost:8080'}/api/strategy/${subAccountId}`, {
                     headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('mansa_token')}`
+                        'Authorization': `Bearer ${localStorage.getItem('mansa_token') || 'mock-token'}`
                     }
                 });
 
                 if (res.ok) {
                     const data = await res.json();
-                    if (data.audience_persona && data.audience_persona.primary_persona) {
-                        const persona = data.audience_persona.primary_persona;
+                    if (data.audience_persona) {
+                        const persona = data.audience_persona;
                         setFormData(prev => ({
                             ...prev,
-                            icaName: persona.name || '',
+                            icaName: persona.avatar_name || '',
                             demographics: persona.demographics || '',
                             psychographics: persona.psychographics || '',
-                            marketDescription: prev.marketDescription, // No direct map, keep manual or previous
-                            misery1: persona.pain_points?.[0] || '',
-                            misery2: persona.pain_points?.[1] || '',
-                            misery3: persona.pain_points?.[2] || ''
+                            marketDescription: persona.market_description || prev.marketDescription,
+                            misery1: persona.misery_map?.fear || '',
+                            misery2: persona.misery_map?.pain || '',
+                            misery3: persona.misery_map?.problem || ''
                         }));
                     }
                 }

@@ -27,24 +27,25 @@ const ContentPillars = () => {
 
                 const res = await fetch(`${import.meta.env.VITE_BACKEND_URL || 'http://localhost:8080'}/api/strategy/${subAccountId}`, {
                     headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('mansa_token')}`
+                        'Authorization': `Bearer ${localStorage.getItem('mansa_token') || 'mock-token'}`
                     }
                 });
 
                 if (res.ok) {
                     const data = await res.json();
 
-                    if (data.content_matrix && data.content_matrix.pillars) {
-                        const pillars = data.content_matrix.pillars;
+                    if (data.content_matrix) {
+                        const content = data.content_matrix;
                         setFormData(prev => ({
                             ...prev,
-                            pillar1: pillars[0]?.topic || '',
-                            pillar2: pillars[1]?.topic || '',
-                            pillar3: pillars[2]?.topic || '',
-                            pillar4: pillars[3]?.topic || '',
-                            // Infer or leave blank for user ref
-                            // We could map rationale to evergreen topics if we wanted
-                            evergreenTopics: pillars.map((p: any) => p.topic).join(', ')
+                            pillar1: content.pillars?.[0] || '',
+                            pillar2: content.pillars?.[1] || '',
+                            pillar3: content.pillars?.[2] || '',
+                            pillar4: content.pillars?.[3] || '',
+                            postingFrequency: content.posting_frequency || '',
+                            platformMix: content.platform_mix || '',
+                            trendTopics: Array.isArray(content.topics?.trend_jacking) ? content.topics.trend_jacking.join(', ') : '',
+                            evergreenTopics: Array.isArray(content.topics?.evergreen) ? content.topics.evergreen.join(', ') : ''
                         }));
                     }
                 }

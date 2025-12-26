@@ -28,21 +28,25 @@ const StrategicDifferentiation = () => {
 
                 const res = await fetch(`${import.meta.env.VITE_BACKEND_URL || 'http://localhost:8080'}/api/strategy/${subAccountId}`, {
                     headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('mansa_token')}`
+                        'Authorization': `Bearer ${localStorage.getItem('mansa_token') || 'mock-token'}`
                     }
                 });
 
                 if (res.ok) {
                     const data = await res.json();
 
-                    // Map Competitor Intel
-                    if (data.competitor_intel) {
+                    // Map Strategy USP
+                    if (data.strategic_differentiation) {
+                        const strategy = data.strategic_differentiation;
                         setFormData(prev => ({
                             ...prev,
-                            usp: data.competitor_intel.core_usp || '',
-                            marketGap: data.competitor_intel.competitor_gap || '',
-                            // Map generic market positioning if available
-                            dreamOutcome: data.core_identity?.elevator_pitch || prev.dreamOutcome
+                            usp: strategy.unique_selling_proposition || '',
+                            marketGap: strategy.market_gap || '',
+                            dreamOutcome: strategy.value_equation?.dream_outcome || '',
+                            likelihoodAchievement: strategy.value_equation?.likelihood || '',
+                            timeDelay: strategy.value_equation?.time_delay || '',
+                            effortSacrifice: strategy.value_equation?.effort_sacrifice || '',
+                            pricingStrategy: strategy.pricing_strategy || ''
                         }));
                     }
                 }

@@ -10,6 +10,11 @@
         "build": "tsc"
     },
     "dependencies": {
+        "@genkit-ai/core": "^1.27.0",
+        "@genkit-ai/dotprompt": "^0.9.12",
+        "@genkit-ai/flow": "^0.5.17",
+        "@genkit-ai/googleai": "^1.27.0",
+        "@genkit-ai/vertexai": "^1.27.0",
         "@google-cloud/pubsub": "^5.2.0",
         "@google-cloud/vertexai": "^1.10.0",
         "cheerio": "^1.1.2",
@@ -17,8 +22,10 @@
         "dotenv": "^16.3.1",
         "express": "^4.18.2",
         "firebase-admin": "^11.11.1",
+        "genkit": "^1.27.0",
         "openai": "^6.14.0",
-        "pg": "^8.16.3"
+        "pg": "^8.16.3",
+        "zod": "3.24.1"
     },
     "devDependencies": {
         "@types/cheerio": "^0.22.35",

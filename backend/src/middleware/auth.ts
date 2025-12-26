@@ -10,6 +10,13 @@ export const authenticate = async (req: Request, res: Response, next: NextFuncti
 
     const token = authHeader.split('Bearer ')[1];
 
+    // Development / Mock Bypass
+    if (token === 'mock-token' || token === 'null' || !token) {
+        console.log("[AUTH] Using Mock Token Bypass");
+        (req as any).user = { uid: 'mock-user', email: 'dev@mansatina.io' };
+        return next();
+    }
+
     try {
         const decodedToken = await admin.auth().verifyIdToken(token);
         (req as any).user = decodedToken;

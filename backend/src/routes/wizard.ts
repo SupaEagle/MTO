@@ -1,82 +1,34 @@
 import { Router, Request, Response } from 'express';
-import { PubSub } from '@google-cloud/pubsub'; // Keeping import if needed later
+import { PubSub } from '@google-cloud/pubsub';
 import { authenticate } from '../middleware/auth';
 import { db } from '../lib/db';
-import { generateFullBrandStrategy } from '../workers/analyzeBrand';
+import { startBrandAnalysis } from '../workflows/dnaOrchestrator';
 
 const router = Router();
-// const pubsub = new PubSub();
-// const TOPIC_NAME = 'brand-dna-analysis-tasks';
 
-// POST /submit: Synchronous version for testing (as requested)
+// POST /submit: Async Agent Dispatch
 router.post('/submit', async (req: Request, res: Response) => {
     try {
         const { rawAnswers, subAccountId } = req.body;
 
-        // 1. Basic Validation
         if (!rawAnswers || !subAccountId) {
             return res.status(400).json({ error: 'Missing rawAnswers or subAccountId' });
         }
 
-        console.log(`🚀 Starting synchronous DNA sequencing for client ${subAccountId}...`);
+        // 1. Fetch Official Company Name from DB
+        const clientRes = await db.query('SELECT name FROM sub_accounts WHERE id = $1', [subAccountId]);
+        const officialName = clientRes.rows[0]?.name || rawAnswers.companyName || 'Unknown Company';
 
-        // 2. Run the Analysis (Scrape + AI) ~5-10s
-        // Use the new generateFullBrandStrategy function
-        const strategy = await generateFullBrandStrategy(rawAnswers);
+        console.log(`🚀 Dispatching Agents for client ${officialName} (${subAccountId})...`);
 
-        // 3. Save to Cloud SQL (Using new schema with granular columns)
-        // 3. Save to Cloud SQL (Using new schema with granular columns)
-        const query = `
-            INSERT INTO brand_dna (
-                sub_account_id, 
-                website_url,
-                identity_data,
-                visual_identity,
-                core_identity, 
-                narrative,
-                audience_persona,
-                voice_guide,
-                competitor_intel,
-                content_matrix,
-                strategic_differentiation,
-                last_updated_at
-            )
-            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, NOW())
-            ON CONFLICT (sub_account_id) DO UPDATE SET
-                website_url = EXCLUDED.website_url,
-                identity_data = EXCLUDED.identity_data,
-                visual_identity = EXCLUDED.visual_identity,
-                core_identity = EXCLUDED.core_identity,
-                narrative = EXCLUDED.narrative,
-                audience_persona = EXCLUDED.audience_persona,
-                voice_guide = EXCLUDED.voice_guide,
-                competitor_intel = EXCLUDED.competitor_intel,
-                content_matrix = EXCLUDED.content_matrix,
-                strategic_differentiation = EXCLUDED.strategic_differentiation,
-                last_updated_at = NOW();
-        `;
+        // 2. Dispatch the Agentic Workflow (Fire and Forget)
+        startBrandAnalysis(subAccountId, { ...rawAnswers, companyName: officialName })
+            .catch(err => console.error("❌ Agent Orchestration Failed in Background:", err));
 
-        await db.query(query, [
-            subAccountId,
-            strategy.business_details.website_url || rawAnswers.website || '',
-            JSON.stringify(strategy.business_details),
-            JSON.stringify(strategy.visual_identity),
-            JSON.stringify(strategy.brand_core), // Note: Frontend might still expect "core_identity" keys, but prompt returns "brand_core". 
-            // We store "brand_core" object into "core_identity" column.
-            JSON.stringify(strategy.narrative),
-            JSON.stringify(strategy.audience_definition), // Map to audience_persona
-            JSON.stringify(strategy.voice_calibration),   // Map to voice_guide
-            JSON.stringify(strategy.competitors),         // Map to competitor_intel
-            JSON.stringify(strategy.content_strategy),    // Map to content_matrix
-            JSON.stringify(strategy.strategy_usp)         // Map to strategic_differentiation
-        ]);
-
-        console.log("✅ DNA Sequenced and Saved (Mega Schema).");
-
+        // 3. Return immediate response
         res.json({
-            status: 'complete',
-            message: 'DNA Sequenced successfully.',
-            data: strategy
+            status: 'processing',
+            message: 'Agents dispatched. Strategy generation in progress.',
         });
 
     } catch (error) {

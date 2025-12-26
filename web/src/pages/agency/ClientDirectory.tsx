@@ -13,7 +13,7 @@ const ClientDirectory = () => {
     const [viewMode, setViewMode] = useState<'all' | 'onboarding'>('all');
     const [selectedClient, setSelectedClient] = useState<string | null>(null);
     const [clients, setClients] = useState<any[]>([]);
-    const [loading, setLoading] = useState(true);
+    const [, setLoading] = useState(true);
 
     const fetchClients = async () => {
         setLoading(true);

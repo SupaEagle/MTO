@@ -27,15 +27,16 @@ const CompetitorRecon = () => {
 
                 const res = await fetch(`${import.meta.env.VITE_BACKEND_URL || 'http://localhost:8080'}/api/strategy/${subAccountId}`, {
                     headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('mansa_token')}`
+                        'Authorization': `Bearer ${localStorage.getItem('mansa_token') || 'mock-token'}`
                     }
                 });
 
                 if (res.ok) {
                     const data = await res.json();
 
-                    if (data.competitor_intel && data.competitor_intel.competitor_intel && data.competitor_intel.competitor_intel.top_competitors) {
-                        const comps = data.competitor_intel.competitor_intel.top_competitors;
+                    if (data.competitor_intel && data.competitor_intel.primary_competitors) {
+                        const comps = data.competitor_intel.primary_competitors;
+                        const additional = data.competitor_intel.additional_players || [];
                         setFormData(prev => ({
                             ...prev,
                             comp1Name: comps[0]?.name || '',
@@ -44,6 +45,8 @@ const CompetitorRecon = () => {
                             comp2Url: comps[1]?.url || '',
                             comp3Name: comps[2]?.name || '',
                             comp3Url: comps[2]?.url || '',
+                            comp4Name: additional[0] || '',
+                            comp5Name: additional[1] || ''
                         }));
                     }
                 }

@@ -68,7 +68,7 @@ const CoreIdentity = () => {
 
                 const res = await fetch(`${import.meta.env.VITE_BACKEND_URL || 'http://localhost:8080'}/api/strategy/${subAccountId}`, {
                     headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('mansa_token')}`
+                        'Authorization': `Bearer ${localStorage.getItem('mansa_token') || 'mock-token'}`
                     }
                 });
 

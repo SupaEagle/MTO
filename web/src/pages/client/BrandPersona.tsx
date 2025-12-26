@@ -66,7 +66,7 @@ const BrandPersona = () => {
 
                 const res = await fetch(`${import.meta.env.VITE_BACKEND_URL || 'http://localhost:8080'}/api/strategy/${subAccountId}`, {
                     headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('mansa_token')}`
+                        'Authorization': `Bearer ${localStorage.getItem('mansa_token') || 'mock-token'}`
                     }
                 });
 
@@ -77,12 +77,12 @@ const BrandPersona = () => {
 
                         // Map AI Voice Guide to First Persona
                         const aiPersona: PersonaModel = {
-                            personaType: Array.isArray(voice.tone_keywords) ? voice.tone_keywords.join(', ') : (voice.tone_keywords || 'AI Generated'),
+                            personaType: voice.persona_type || 'AI Generated',
                             readingLevel: voice.reading_level || 'Grade 8',
-                            forbiddenWords: Array.isArray(voice.do_not_say) ? voice.do_not_say.join(', ') : (voice.do_not_say || ''),
-                            requiredTerminology: Array.isArray(voice.vocabulary_list) ? voice.vocabulary_list.join(', ') : (voice.vocabulary_list || ''),
+                            forbiddenWords: Array.isArray(voice.forbidden_words) ? voice.forbidden_words.join(', ') : (voice.forbidden_words || ''),
+                            requiredTerminology: Array.isArray(voice.required_terminology) ? voice.required_terminology.join(', ') : (voice.required_terminology || ''),
                             emojiUsage: voice.emoji_usage || 'Moderate',
-                            hookStyle: 'Story-driven & Engaging', // Default for now if not in AI output
+                            hookStyle: voice.hook_style || 'Story-driven & Engaging',
                             link1: '',
                             link2: '',
                             link3: ''
