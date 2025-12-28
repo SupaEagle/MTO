@@ -78,7 +78,7 @@ const CoreIdentity = () => {
                     // New Schema Mapping
                     const identity = data.identity_data || {};
                     const visual = data.visual_identity || {};
-                    const core = data.core_identity || {};
+                    const core = data.brand_core || {};
                     const narrative = data.narrative || {};
 
                     setFormData(prev => ({
@@ -93,7 +93,7 @@ const CoreIdentity = () => {
                         primaryColor: visual.primary_color || prev.primaryColor,
                         secondaryColor: visual.secondary_color || prev.secondaryColor,
                         accentColor: visual.accent_color || prev.accentColor,
-                        typography: visual.typography ? `${visual.typography.header_font} + ${visual.typography.body_font}` : prev.typography,
+                        typography: visual.typography ? `${visual.typography.header} + ${visual.typography.body}` : prev.typography,
 
                         // Core Identity
                         missionStatement: core.mission_statement || prev.missionStatement,

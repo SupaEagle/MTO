@@ -1,0 +1,159 @@
+Error at 2025-12-27T00:51:35.387Z:
+{"message":"Schema validation failed. Parse Errors:\n\n- (root): must have required property 'competitors'\n\nProvided data:\n\n{\n  \"queries\": []\n}\n\nRequired JSON schema:\n\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"competitors\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"name\": {\n            \"type\": \"string\"\n          },\n          \"website\": {\n            \"type\": \"string\"\n          }\n        },\n        \"required\": [\n          \"name\"\n        ],\n        \"additionalProperties\": true\n      },\n      \"description\": \"List of top 3 direct competitors\"\n    }\n  },\n  \"required\": [\n    \"competitors\"\n  ],\n  \"additionalProperties\": true,\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\"\n}","status":"INVALID_ARGUMENT"}
+[2025-12-28T01:14:37.152Z] ERROR in startBrandAnalysis: (0 , import_core.generate) is not a function
+Stack: TypeError: (0 , import_core.generate) is not a function
+    at <anonymous> (/home/ekirk/mansa-tina-marketing/backend/src/agents/detective.ts:31:36)
+    at Flow.<anonymous> (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/flow/src/flow.ts:446:34)
+    at Generator.next (<anonymous>)
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/flow/lib/flow.js:49:61
+    at new Promise (<anonymous>)
+    at __async (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/flow/lib/flow.js:33:10)
+    at <anonymous> (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/flow/src/flow.ts:408:39)
+    at <anonymous> (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/flow/node_modules/@genkit-ai/core/src/tracing/instrumentation.ts:66:22)
+    at Generator.next (<anonymous>)
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/flow/node_modules/@genkit-ai/core/lib/tracing/instrumentation.js:36:61
+
+[2025-12-28T01:19:15.758Z] ERROR in startBrandAnalysis: INVALID_ARGUMENT: Must supply a `model` to `generate()` calls.
+Stack: GenkitError: INVALID_ARGUMENT: Must supply a `model` to `generate()` calls.
+    at resolveModel (/home/ekirk/mansa-tina-marketing/backend/node_modules/genkit/node_modules/@genkit-ai/ai/src/model.ts:522:11)
+    at async Promise.all (index 0)
+    at async resolveParameters (/home/ekirk/mansa-tina-marketing/backend/node_modules/genkit/node_modules/@genkit-ai/ai/src/generate/action.ts:163:45)
+    at async generate (/home/ekirk/mansa-tina-marketing/backend/node_modules/genkit/node_modules/@genkit-ai/ai/src/generate/action.ts:266:47)
+    at async <anonymous> (/home/ekirk/mansa-tina-marketing/backend/node_modules/genkit/node_modules/@genkit-ai/ai/src/generate/action.ts:143:22)
+    at async <anonymous> (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/tracing/instrumentation.ts:142:24)
+    at async runInNewSpan (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/tracing/instrumentation.ts:110:10)
+    at async generateHelper (/home/ekirk/mansa-tina-marketing/backend/node_modules/genkit/node_modules/@genkit-ai/ai/src/generate/action.ts:131:10)
+    at async generate (/home/ekirk/mansa-tina-marketing/backend/node_modules/genkit/node_modules/@genkit-ai/ai/src/generate.ts:402:20)
+    at async <anonymous> (/home/ekirk/mansa-tina-marketing/backend/src/agents/psychologist.ts:25:24)
+
+[2025-12-28T01:20:42.187Z] ERROR in startBrandAnalysis: [VertexAI.ClientError]: got status: 400 Bad Request. {"error":{"code":400,"message":"Invalid JSON payload received. Unknown name \"disableAttribution\" at 'tools[0].google_search': Cannot find field.","status":"INVALID_ARGUMENT","details":[{"@type":"type.googleapis.com/google.rpc.BadRequest","fieldViolations":[{"field":"tools[0].google_search","description":"Invalid JSON payload received. Unknown name \"disableAttribution\" at 'tools[0].google_search': Cannot find field."}]}]}}
+Stack: ClientError: [VertexAI.ClientError]: got status: 400 Bad Request. {"error":{"code":400,"message":"Invalid JSON payload received. Unknown name \"disableAttribution\" at 'tools[0].google_search': Cannot find field.","status":"INVALID_ARGUMENT","details":[{"@type":"type.googleapis.com/google.rpc.BadRequest","fieldViolations":[{"field":"tools[0].google_search","description":"Invalid JSON payload received. Unknown name \"disableAttribution\" at 'tools[0].google_search': Cannot find field."}]}]}}
+    at throwErrorIfNotOK (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/post_fetch_processing.ts:47:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async generateContent (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/generate_content.ts:94:3)
+    at async ChatSessionPreview.sendMessage (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/models/chat_session.ts:352:58)
+    at async callGemini (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/vertexai/src/gemini.ts:1348:26)
+    at async <anonymous> (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/vertexai/src/gemini.ts:1406:11)
+    at async <anonymous> (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/action.ts:497:12)
+    at async <anonymous> (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/action.ts:391:26)
+    at async <anonymous> (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/tracing/instrumentation.ts:142:24)
+    at async runInNewSpan (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/tracing/instrumentation.ts:110:10)
+
+[2025-12-28T01:21:41.689Z] ERROR in startBrandAnalysis: INVALID_ARGUMENT: Schema validation failed. Parse Errors:
+
+- (root): must have required property 'physical_address'
+
+Provided data:
+
+{
+  "queries": []
+}
+
+Required JSON schema:
+
+{
+  "type": "object",
+  "properties": {
+    "physical_address": {
+      "type": "string",
+      "description": "The found address or Remote"
+    },
+    "competitors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "weakness": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "url",
+          "weakness"
+        ],
+        "additionalProperties": true
+      }
+    }
+  },
+  "required": [
+    "physical_address",
+    "competitors"
+  ],
+  "additionalProperties": true,
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
+Stack: GenkitError: INVALID_ARGUMENT: Schema validation failed. Parse Errors:
+
+- (root): must have required property 'physical_address'
+
+Provided data:
+
+{
+  "queries": []
+}
+
+Required JSON schema:
+
+{
+  "type": "object",
+  "properties": {
+    "physical_address": {
+      "type": "string",
+      "description": "The found address or Remote"
+    },
+    "competitors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "weakness": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "url",
+          "weakness"
+        ],
+        "additionalProperties": true
+      }
+    }
+  },
+  "required": [
+    "physical_address",
+    "competitors"
+  ],
+  "additionalProperties": true,
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
+    at parseSchema (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/schema.ts:133:11)
+    at GenerateResponse.assertValidSchema (/home/ekirk/mansa-tina-marketing/backend/node_modules/genkit/node_modules/@genkit-ai/ai/src/generate/response.ts:124:7)
+    at generate (/home/ekirk/mansa-tina-marketing/backend/node_modules/genkit/node_modules/@genkit-ai/ai/src/generate/action.ts:393:45)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async <anonymous> (/home/ekirk/mansa-tina-marketing/backend/node_modules/genkit/node_modules/@genkit-ai/ai/src/generate/action.ts:143:22)
+    at async <anonymous> (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/tracing/instrumentation.ts:142:24)
+    at async runInNewSpan (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/tracing/instrumentation.ts:110:10)
+    at async generateHelper (/home/ekirk/mansa-tina-marketing/backend/node_modules/genkit/node_modules/@genkit-ai/ai/src/generate/action.ts:131:10)
+    at async generate (/home/ekirk/mansa-tina-marketing/backend/node_modules/genkit/node_modules/@genkit-ai/ai/src/generate.ts:402:20)
+    at async <anonymous> (/home/ekirk/mansa-tina-marketing/backend/src/agents/detective.ts:25:30)
+
+[2025-12-28T01:23:19.901Z] ERROR in startBrandAnalysis: invalid input syntax for type json
+Stack: error: invalid input syntax for type json
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async startBrandAnalysis (/home/ekirk/mansa-tina-marketing/backend/src/workflows/dnaOrchestrator.ts:95:9)
+    at async testAgentFlow (/home/ekirk/mansa-tina-marketing/backend/src/scripts/trigger_agent.ts:38:24)
+

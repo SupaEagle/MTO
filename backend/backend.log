@@ -1830,3 +1830,523 @@ Error: listen EADDRINUSE: address already in use :::8080
 [INFO] 08:07:37 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/strategist.ts has been modified
 Backend service listening on port 8080
 Database connected successfully: { now: 2025-12-26T13:07:40.515Z }
+[MOCK EMAIL] Sending invite to ekirk@keenplextechnologies.com with data: {
+  link: 'https://app.mansatina.io/invite?token=65ed58fa',
+  agencyName: 'Mansa Tina Agency'
+}
+📂 Uploading content (2).pdf for 5958d7bc-a2a6-473a-9ff6-5a5bf79a33e5...
+✅ Asset uploaded and saved.
+📂 Uploading Ed Kirk Resume C (1).docx for 5958d7bc-a2a6-473a-9ff6-5a5bf79a33e5...
+✅ Asset uploaded and saved.
+📂 Uploading KPT Origin story (1).docx for 5958d7bc-a2a6-473a-9ff6-5a5bf79a33e5...
+✅ Asset uploaded and saved.
+📂 Uploading KPT persona (2).docx for 5958d7bc-a2a6-473a-9ff6-5a5bf79a33e5...
+✅ Asset uploaded and saved.
+🚀 Dispatching Agents for client KeenPlex Technologies LLC (5958d7bc-a2a6-473a-9ff6-5a5bf79a33e5)...
+🚀 Starting Brand Analysis for 5958d7bc-a2a6-473a-9ff6-5a5bf79a33e5...
+🕵️‍♂️ Agent Starting: Competitor Recon...
+🕵️‍♂️ Researcher looking for competitors in United States for Brand Awareness
+❌ Agent Orchestration Failed: ClientError: [VertexAI.ClientError]: got status: 404 Not Found. {"error":{"code":404,"message":"Publisher Model `projects/284915496002/locations/us-central1/publishers/google/models/gemini-3-flash-preview` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions","status":"NOT_FOUND"}}
+    at throwErrorIfNotOK (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/post_fetch_processing.ts:47:21)
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
+    ... 7 lines matching cause stack trace ...
+    at runInNewSpan (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/tracing/instrumentation.ts:110:10) {
+  stackTrace: GoogleApiError: Publisher Model `projects/284915496002/locations/us-central1/publishers/google/models/gemini-3-flash-preview` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions
+      at throwErrorIfNotOK (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/post_fetch_processing.ts:49:9)
+      at processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at generateContent (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/generate_content.ts:94:3)
+      at ChatSessionPreview.sendMessage (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/models/chat_session.ts:352:58)
+      at callGemini (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/vertexai/src/gemini.ts:1348:26)
+      at /home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/vertexai/src/gemini.ts:1406:11
+      at /home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/action.ts:497:12
+      at /home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/action.ts:391:26
+      at /home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/tracing/instrumentation.ts:142:24
+      at runInNewSpan (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/tracing/instrumentation.ts:110:10) {
+    code: 404,
+    status: 'NOT_FOUND',
+    errorDetails: undefined
+  },
+  traceId: 'c7d2dd824f396b94eb221ec7a9bef21b',
+  ignoreFailedSpan: true,
+  [cause]: GoogleApiError: Publisher Model `projects/284915496002/locations/us-central1/publishers/google/models/gemini-3-flash-preview` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions
+      at throwErrorIfNotOK (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/post_fetch_processing.ts:49:9)
+      at processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at generateContent (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/generate_content.ts:94:3)
+      at ChatSessionPreview.sendMessage (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/models/chat_session.ts:352:58)
+      at callGemini (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/vertexai/src/gemini.ts:1348:26)
+      at /home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/vertexai/src/gemini.ts:1406:11
+      at /home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/action.ts:497:12
+      at /home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/action.ts:391:26
+      at /home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/tracing/instrumentation.ts:142:24
+      at runInNewSpan (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/tracing/instrumentation.ts:110:10) {
+    code: 404,
+    status: 'NOT_FOUND',
+    errorDetails: undefined
+  }
+}
+❌ Agent Orchestration Failed in Background: ClientError: [VertexAI.ClientError]: got status: 404 Not Found. {"error":{"code":404,"message":"Publisher Model `projects/284915496002/locations/us-central1/publishers/google/models/gemini-3-flash-preview` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions","status":"NOT_FOUND"}}
+    at throwErrorIfNotOK (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/post_fetch_processing.ts:47:21)
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
+    ... 7 lines matching cause stack trace ...
+    at runInNewSpan (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/tracing/instrumentation.ts:110:10) {
+  stackTrace: GoogleApiError: Publisher Model `projects/284915496002/locations/us-central1/publishers/google/models/gemini-3-flash-preview` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions
+      at throwErrorIfNotOK (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/post_fetch_processing.ts:49:9)
+      at processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at generateContent (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/generate_content.ts:94:3)
+      at ChatSessionPreview.sendMessage (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/models/chat_session.ts:352:58)
+      at callGemini (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/vertexai/src/gemini.ts:1348:26)
+      at /home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/vertexai/src/gemini.ts:1406:11
+      at /home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/action.ts:497:12
+      at /home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/action.ts:391:26
+      at /home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/tracing/instrumentation.ts:142:24
+      at runInNewSpan (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/tracing/instrumentation.ts:110:10) {
+    code: 404,
+    status: 'NOT_FOUND',
+    errorDetails: undefined
+  },
+  traceId: 'c7d2dd824f396b94eb221ec7a9bef21b',
+  ignoreFailedSpan: true,
+  [cause]: GoogleApiError: Publisher Model `projects/284915496002/locations/us-central1/publishers/google/models/gemini-3-flash-preview` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions
+      at throwErrorIfNotOK (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/post_fetch_processing.ts:49:9)
+      at processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at generateContent (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/functions/generate_content.ts:94:3)
+      at ChatSessionPreview.sendMessage (/home/ekirk/mansa-tina-marketing/backend/node_modules/@google-cloud/vertexai/src/models/chat_session.ts:352:58)
+      at callGemini (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/vertexai/src/gemini.ts:1348:26)
+      at /home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/vertexai/src/gemini.ts:1406:11
+      at /home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/action.ts:497:12
+      at /home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/action.ts:391:26
+      at /home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/tracing/instrumentation.ts:142:24
+      at runInNewSpan (/home/ekirk/mansa-tina-marketing/backend/node_modules/@genkit-ai/core/src/tracing/instrumentation.ts:110:10) {
+    code: 404,
+    status: 'NOT_FOUND',
+    errorDetails: undefined
+  }
+}
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+[INFO] 10:36:26 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/researcher.ts has been modified
+Error: listen EADDRINUSE: address already in use :::8080
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/home/ekirk/mansa-tina-marketing/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/home/ekirk/mansa-tina-marketing/backend/src/server.ts:63:5)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+    at Module._compile (/home/ekirk/mansa-tina-marketing/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/tmp/ts-node-dev-hook-8423571114978518.js:69:33)
+    at node:internal/modules/cjs/loader:1893:10
+    at require.extensions..jsx.require.extensions..js (/tmp/ts-node-dev-hook-8423571114978518.js:114:20)
+[ERROR] 10:36:30 Error: listen EADDRINUSE: address already in use :::8080
+[INFO] 10:36:31 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/strategist.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-26T15:36:34.999Z }
+[INFO] 10:49:44 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/researcher.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-26T15:49:46.780Z }
+[INFO] 10:49:50 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/strategist.ts has been modified
+Error: listen EADDRINUSE: address already in use :::8080
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/home/ekirk/mansa-tina-marketing/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/home/ekirk/mansa-tina-marketing/backend/src/server.ts:63:5)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+    at Module._compile (/home/ekirk/mansa-tina-marketing/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/tmp/ts-node-dev-hook-8423571114978518.js:69:33)
+    at node:internal/modules/cjs/loader:1893:10
+    at require.extensions..jsx.require.extensions..js (/tmp/ts-node-dev-hook-8423571114978518.js:114:20)
+[ERROR] 10:49:52 Error: listen EADDRINUSE: address already in use :::8080
+[INFO] 13:04:27 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/researcher.ts has been modified
+Error: listen EADDRINUSE: address already in use :::8080
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/home/ekirk/mansa-tina-marketing/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/home/ekirk/mansa-tina-marketing/backend/src/server.ts:63:5)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+    at Module._compile (/home/ekirk/mansa-tina-marketing/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/tmp/ts-node-dev-hook-8423571114978518.js:69:33)
+    at node:internal/modules/cjs/loader:1893:10
+    at require.extensions..jsx.require.extensions..js (/tmp/ts-node-dev-hook-8423571114978518.js:114:20)
+[ERROR] 13:04:33 Error: listen EADDRINUSE: address already in use :::8080
+[INFO] 13:04:47 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/strategist.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-26T18:04:49.896Z }
+[INFO] 13:09:57 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/researcher.ts has been modified
+Error: listen EADDRINUSE: address already in use :::8080
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/home/ekirk/mansa-tina-marketing/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/home/ekirk/mansa-tina-marketing/backend/src/server.ts:63:5)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+    at Module._compile (/home/ekirk/mansa-tina-marketing/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/tmp/ts-node-dev-hook-8423571114978518.js:69:33)
+    at node:internal/modules/cjs/loader:1893:10
+    at require.extensions..jsx.require.extensions..js (/tmp/ts-node-dev-hook-8423571114978518.js:114:20)
+[ERROR] 13:09:59 Error: listen EADDRINUSE: address already in use :::8080
+[INFO] 13:10:41 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/strategist.ts has been modified
+Error: listen EADDRINUSE: address already in use :::8080
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/home/ekirk/mansa-tina-marketing/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/home/ekirk/mansa-tina-marketing/backend/src/server.ts:63:5)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+    at Module._compile (/home/ekirk/mansa-tina-marketing/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/tmp/ts-node-dev-hook-8423571114978518.js:69:33)
+    at node:internal/modules/cjs/loader:1893:10
+    at require.extensions..jsx.require.extensions..js (/tmp/ts-node-dev-hook-8423571114978518.js:114:20)
+[ERROR] 13:10:44 Error: listen EADDRINUSE: address already in use :::8080
+[INFO] 19:41:51 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/routes/wizard.ts has been modified
+Error: listen EADDRINUSE: address already in use :::8080
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/home/ekirk/mansa-tina-marketing/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/home/ekirk/mansa-tina-marketing/backend/src/server.ts:63:5)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+    at Module._compile (/home/ekirk/mansa-tina-marketing/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/tmp/ts-node-dev-hook-8423571114978518.js:69:33)
+    at node:internal/modules/cjs/loader:1893:10
+    at require.extensions..jsx.require.extensions..js (/tmp/ts-node-dev-hook-8423571114978518.js:114:20)
+[ERROR] 19:41:55 Error: listen EADDRINUSE: address already in use :::8080
+[INFO] 19:51:08 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/workflows/dnaOrchestrator.ts has been modified
+Error: listen EADDRINUSE: address already in use :::8080
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/home/ekirk/mansa-tina-marketing/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/home/ekirk/mansa-tina-marketing/backend/src/server.ts:63:5)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+    at Module._compile (/home/ekirk/mansa-tina-marketing/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/tmp/ts-node-dev-hook-8423571114978518.js:69:33)
+    at node:internal/modules/cjs/loader:1893:10
+    at require.extensions..jsx.require.extensions..js (/tmp/ts-node-dev-hook-8423571114978518.js:114:20)
+[ERROR] 19:51:11 Error: listen EADDRINUSE: address already in use :::8080
+[INFO] 19:52:33 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/researcher.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-27T00:52:36.607Z }
+[INFO] 18:52:15 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/routes/strategy.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-27T23:52:25.674Z }
+[MOCK EMAIL] Sending invite to ekirk@KeenPlexTechnologies.com with data: {
+  link: 'https://app.mansatina.io/invite?token=368d91ac',
+  agencyName: 'Mansa Tina Agency'
+}
+📂 Uploading content (2).pdf for bbc1ad2d-2a6b-4b30-8196-a76b8cdfeae1...
+✅ Asset uploaded and saved.
+📂 Uploading Ed Kirk Resume C (1).docx for bbc1ad2d-2a6b-4b30-8196-a76b8cdfeae1...
+✅ Asset uploaded and saved.
+📂 Uploading KPT Origin story (1).docx for bbc1ad2d-2a6b-4b30-8196-a76b8cdfeae1...
+✅ Asset uploaded and saved.
+📂 Uploading KPT persona (2).docx for bbc1ad2d-2a6b-4b30-8196-a76b8cdfeae1...
+✅ Asset uploaded and saved.
+🚀 Dispatching Agents for client KeenPlex Technologies LLC (bbc1ad2d-2a6b-4b30-8196-a76b8cdfeae1)...
+🚀 Starting Brand Analysis for bbc1ad2d-2a6b-4b30-8196-a76b8cdfeae1...
+🕵️‍♂️ Agent Starting: Competitor Recon...
+🕵️‍♂️ Market Detective: Phase 1 - Identification (Brand Awareness in United States)...
+🕵️‍♂️ Found targets: WebFX, Thrive Internet Marketing Agency, Ignite Visibility
+🕵️‍♂️ Market Detective: Phase 2 - Deep Dive...
+[AUTH] Using Mock Token Bypass
+Error fetching strategy: error: syntax error at or near "SELECT"
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/pg-pool/index.js:45:11
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  length: 96,
+  severity: 'ERROR',
+  code: '42601',
+  detail: undefined,
+  hint: undefined,
+  position: '130',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'scan.l',
+  line: '1248',
+  routine: 'scanner_yyerror'
+}
+[AUTH] Using Mock Token Bypass
+Error fetching strategy: error: syntax error at or near "SELECT"
+    at /home/ekirk/mansa-tina-marketing/backend/node_modules/pg-pool/index.js:45:11
+    at processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  length: 96,
+  severity: 'ERROR',
+  code: '42601',
+  detail: undefined,
+  hint: undefined,
+  position: '130',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'scan.l',
+  line: '1248',
+  routine: 'scanner_yyerror'
+}
+🕵️‍♂️ Market Detective: Phase 3 - Generating Gap Report...
+🧠 Agent Starting: Strategy Synthesis...
+🧠 Voice Architect: Defining Style Guide...
+[INFO] 20:10:08 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/lib/schemas/dnaSchema.ts has been modified
+Error: listen EADDRINUSE: address already in use :::8080
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/home/ekirk/mansa-tina-marketing/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/home/ekirk/mansa-tina-marketing/backend/src/server.ts:63:5)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+    at Module._compile (/home/ekirk/mansa-tina-marketing/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/tmp/ts-node-dev-hook-8423571114978518.js:69:33)
+    at node:internal/modules/cjs/loader:1893:10
+    at require.extensions..jsx.require.extensions..js (/tmp/ts-node-dev-hook-8423571114978518.js:114:20)
+[ERROR] 20:10:12 Error: listen EADDRINUSE: address already in use :::8080
+[INFO] 20:10:30 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/strategist.ts has been modified
+Registering flow: brandStrategist
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-28T01:10:35.056Z }
+[INFO] 20:10:51 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/workflows/dnaOrchestrator.ts has been modified
+Registering flow: brandDetective
+Registering flow: brandPsychologist
+Registering flow: brandStrategist
+Error: listen EADDRINUSE: address already in use :::8080
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/home/ekirk/mansa-tina-marketing/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/home/ekirk/mansa-tina-marketing/backend/src/server.ts:63:5)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+    at Module._compile (/home/ekirk/mansa-tina-marketing/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/tmp/ts-node-dev-hook-8423571114978518.js:69:33)
+    at node:internal/modules/cjs/loader:1893:10
+    at require.extensions..jsx.require.extensions..js (/tmp/ts-node-dev-hook-8423571114978518.js:114:20)
+[ERROR] 20:10:54 Error: listen EADDRINUSE: address already in use :::8080
+[INFO] 20:13:09 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/detective.ts has been modified
+Registering flow: brandDetective
+Registering flow: brandPsychologist
+Registering flow: brandStrategist
+Error: listen EADDRINUSE: address already in use :::8080
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/home/ekirk/mansa-tina-marketing/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/home/ekirk/mansa-tina-marketing/backend/src/server.ts:63:5)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+    at Module._compile (/home/ekirk/mansa-tina-marketing/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/tmp/ts-node-dev-hook-8423571114978518.js:69:33)
+    at node:internal/modules/cjs/loader:1893:10
+    at require.extensions..jsx.require.extensions..js (/tmp/ts-node-dev-hook-8423571114978518.js:114:20)
+[ERROR] 20:13:12 Error: listen EADDRINUSE: address already in use :::8080
+[INFO] 20:15:50 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/detective.ts has been modified
+Compilation error in /home/ekirk/mansa-tina-marketing/backend/src/agents/detective.ts
+[ERROR] 20:15:53 ⨯ Unable to compile TypeScript:
+src/agents/detective.ts(38,9): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(38,13): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(38,17): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(38,19): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(38,36): error TS1003: Identifier expected.
+src/agents/detective.ts(39,9): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(39,25): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(40,9): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(40,26): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(40,56): error TS1005: ')' expected.
+src/agents/detective.ts(40,65): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(40,74): error TS1005: '(' expected.
+src/agents/detective.ts(43,8): error TS1005: ';' expected.
+src/agents/detective.ts(43,13): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(43,17): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(43,26): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(43,34): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(43,37): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(43,41): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(43,49): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(43,52): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(43,72): error TS1005: ')' expected.
+src/agents/detective.ts(43,81): error TS1005: ';' expected.
+src/agents/detective.ts(43,84): error TS1005: '(' expected.
+src/agents/detective.ts(43,89): error TS1109: Expression expected.
+src/agents/detective.ts(44,9): error TS1003: Identifier expected.
+src/agents/detective.ts(44,12): error TS1005: ';' expected.
+src/agents/detective.ts(44,19): error TS1005: ';' expected.
+src/agents/detective.ts(44,36): error TS1005: ';' expected.
+src/agents/detective.ts(44,52): error TS1005: '(' expected.
+src/agents/detective.ts(44,57): error TS1005: ';' expected.
+src/agents/detective.ts(44,66): error TS1005: ';' expected.
+src/agents/detective.ts(45,9): error TS1003: Identifier expected.
+src/agents/detective.ts(45,12): error TS1005: ';' expected.
+src/agents/detective.ts(45,16): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(45,42): error TS1005: ';' expected.
+src/agents/detective.ts(45,44): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(45,53): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(45,62): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(45,68): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(45,71): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(45,79): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(46,7): error TS1003: Identifier expected.
+
+[INFO] 20:16:41 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/workflows/dnaOrchestrator.ts has been modified
+[ERROR] 20:16:45 ⨯ Unable to compile TypeScript:
+src/agents/detective.ts(38,9): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(38,13): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(38,17): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(38,19): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(38,36): error TS1003: Identifier expected.
+src/agents/detective.ts(39,9): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(39,25): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(40,9): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(40,26): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(40,56): error TS1005: ')' expected.
+src/agents/detective.ts(40,65): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(40,74): error TS1005: '(' expected.
+src/agents/detective.ts(43,8): error TS1005: ';' expected.
+src/agents/detective.ts(43,13): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(43,17): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(43,26): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(43,34): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(43,37): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(43,41): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(43,49): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(43,52): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(43,72): error TS1005: ')' expected.
+src/agents/detective.ts(43,81): error TS1005: ';' expected.
+src/agents/detective.ts(43,84): error TS1005: '(' expected.
+src/agents/detective.ts(43,89): error TS1109: Expression expected.
+src/agents/detective.ts(44,9): error TS1003: Identifier expected.
+src/agents/detective.ts(44,12): error TS1005: ';' expected.
+src/agents/detective.ts(44,19): error TS1005: ';' expected.
+src/agents/detective.ts(44,36): error TS1005: ';' expected.
+src/agents/detective.ts(44,52): error TS1005: '(' expected.
+src/agents/detective.ts(44,57): error TS1005: ';' expected.
+src/agents/detective.ts(44,66): error TS1005: ';' expected.
+src/agents/detective.ts(45,9): error TS1003: Identifier expected.
+src/agents/detective.ts(45,12): error TS1005: ';' expected.
+src/agents/detective.ts(45,16): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(45,42): error TS1005: ';' expected.
+src/agents/detective.ts(45,44): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(45,53): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(45,62): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(45,68): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(45,71): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(45,79): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(46,7): error TS1003: Identifier expected.
+
+[INFO] 20:18:10 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/detective.ts has been modified
+[ERROR] 20:18:13 ⨯ Unable to compile TypeScript:
+src/agents/detective.ts(38,9): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(38,13): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(38,17): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(38,19): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(38,36): error TS1003: Identifier expected.
+src/agents/detective.ts(39,9): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(39,25): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(40,9): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(40,26): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(40,56): error TS1005: ')' expected.
+src/agents/detective.ts(40,65): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(40,74): error TS1005: '(' expected.
+src/agents/detective.ts(43,8): error TS1005: ';' expected.
+src/agents/detective.ts(43,13): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(43,17): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(43,26): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(43,34): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(43,37): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(43,41): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(43,49): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(43,52): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(43,72): error TS1005: ')' expected.
+src/agents/detective.ts(43,81): error TS1005: ';' expected.
+src/agents/detective.ts(43,84): error TS1005: '(' expected.
+src/agents/detective.ts(43,89): error TS1109: Expression expected.
+src/agents/detective.ts(44,9): error TS1003: Identifier expected.
+src/agents/detective.ts(44,12): error TS1005: ';' expected.
+src/agents/detective.ts(44,19): error TS1005: ';' expected.
+src/agents/detective.ts(44,36): error TS1005: ';' expected.
+src/agents/detective.ts(44,52): error TS1005: '(' expected.
+src/agents/detective.ts(44,57): error TS1005: ';' expected.
+src/agents/detective.ts(44,66): error TS1005: ';' expected.
+src/agents/detective.ts(45,9): error TS1003: Identifier expected.
+src/agents/detective.ts(45,12): error TS1005: ';' expected.
+src/agents/detective.ts(45,16): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(45,42): error TS1005: ';' expected.
+src/agents/detective.ts(45,44): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(45,53): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(45,62): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(45,68): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(45,71): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(45,79): error TS1434: Unexpected keyword or identifier.
+src/agents/detective.ts(46,7): error TS1003: Identifier expected.
+
+[INFO] 20:19:06 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/detective.ts has been modified
+Error: listen EADDRINUSE: address already in use :::8080
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/home/ekirk/mansa-tina-marketing/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/home/ekirk/mansa-tina-marketing/backend/src/server.ts:63:5)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+    at Module._compile (/home/ekirk/mansa-tina-marketing/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/tmp/ts-node-dev-hook-8423571114978518.js:69:33)
+    at node:internal/modules/cjs/loader:1893:10
+    at require.extensions..jsx.require.extensions..js (/tmp/ts-node-dev-hook-8423571114978518.js:114:20)
+[ERROR] 20:19:09 Error: listen EADDRINUSE: address already in use :::8080
+[INFO] 20:20:05 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/detective.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-28T01:20:07.867Z }
+[INFO] 20:20:13 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/psychologist.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-28T01:20:16.352Z }
+[INFO] 20:20:22 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/strategist.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-28T01:20:25.194Z }
+[INFO] 20:20:31 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/workflows/dnaOrchestrator.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-28T01:20:34.739Z }
+[INFO] 20:21:26 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/detective.ts has been modified
+Error: listen EADDRINUSE: address already in use :::8080
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/home/ekirk/mansa-tina-marketing/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/home/ekirk/mansa-tina-marketing/backend/src/server.ts:63:5)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+    at Module._compile (/home/ekirk/mansa-tina-marketing/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/tmp/ts-node-dev-hook-8423571114978518.js:69:33)
+    at node:internal/modules/cjs/loader:1893:10
+    at require.extensions..jsx.require.extensions..js (/tmp/ts-node-dev-hook-8423571114978518.js:114:20)
+[ERROR] 20:21:29 Error: listen EADDRINUSE: address already in use :::8080
+[INFO] 20:22:27 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/agents/detective.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-28T01:22:30.866Z }
+[INFO] 20:24:14 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/workflows/dnaOrchestrator.ts has been modified
+Error: listen EADDRINUSE: address already in use :::8080
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/home/ekirk/mansa-tina-marketing/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/home/ekirk/mansa-tina-marketing/backend/src/server.ts:63:5)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+    at Module._compile (/home/ekirk/mansa-tina-marketing/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/tmp/ts-node-dev-hook-8423571114978518.js:69:33)
+    at node:internal/modules/cjs/loader:1893:10
+    at require.extensions..jsx.require.extensions..js (/tmp/ts-node-dev-hook-8423571114978518.js:114:20)
+[ERROR] 20:24:17 Error: listen EADDRINUSE: address already in use :::8080
+[INFO] 20:47:49 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/routes/strategy.ts has been modified
+Error: listen EADDRINUSE: address already in use :::8080
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/home/ekirk/mansa-tina-marketing/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/home/ekirk/mansa-tina-marketing/backend/src/server.ts:63:5)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+    at Module._compile (/home/ekirk/mansa-tina-marketing/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/tmp/ts-node-dev-hook-8423571114978518.js:69:33)
+    at node:internal/modules/cjs/loader:1893:10
+    at require.extensions..jsx.require.extensions..js (/tmp/ts-node-dev-hook-8423571114978518.js:114:20)
+[ERROR] 20:47:52 Error: listen EADDRINUSE: address already in use :::8080

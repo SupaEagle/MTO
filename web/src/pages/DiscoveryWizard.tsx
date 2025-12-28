@@ -8,18 +8,21 @@ import VaultUploader from '../components/VaultUploader';
 type WizardStep = 'footprint' | 'mission' | 'audience' | 'voice' | 'vault';
 
 interface WizardData {
+
     // Step 1: Footprint
+    companyName: string;
     website: string;
-    socialHandle: string;
-    // Step 2: Mission
+    // Step 2: Mission (12-Month Goal)
     missionGoal: string; // 'awareness' | 'leads' | 'recruitment' | 'other'
     missionText: string;
-    // Step 3: Audience
+    // Step 3: Audience (Home Run Case Study)
     homeRunClient: string;
-    // Step 4: Voice
+    // Step 4: Villain
+    villain: string;
+    // Step 5: Voice
     adjectives: string[];
     antiStyle: string;
-    // Step 5: Vault (Mocking file uploads for now)
+    // Step 6: Vault (Mocking file uploads for now)
     files: string[];
 }
 
@@ -31,11 +34,12 @@ const LeanDiscoveryWizard = () => {
     const [isProcessing, setIsProcessing] = useState(false);
 
     const [formData, setFormData] = useState<WizardData>({
+        companyName: '',
         website: '',
-        socialHandle: '',
         missionGoal: '',
         missionText: '',
         homeRunClient: '',
+        villain: '',
         adjectives: [],
         antiStyle: '',
         files: []
@@ -132,15 +136,16 @@ const LeanDiscoveryWizard = () => {
                             <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-cyan-400">
                                 Brand DNA
                             </h1>
-                            <p className="text-slate-500 text-sm mt-2">The Lean Wizard</p>
+                            <p className="text-slate-500 text-sm mt-2">The Deep Dive</p>
                         </div>
 
                         {/* Steps Navigation */}
                         <div className="space-y-6">
-                            <StepIndicator active={step === 'footprint'} label="Digital Footprint" icon={<Globe className="w-4 h-4" />} done={!!formData.website} />
-                            <StepIndicator active={step === 'mission'} label="90-Day Mission" icon={<Target className="w-4 h-4" />} done={!!formData.missionText} />
-                            <StepIndicator active={step === 'audience'} label="Home Run Client" icon={<Heart className="w-4 h-4" />} done={!!formData.homeRunClient} />
-                            <StepIndicator active={step === 'voice'} label="Voice Calibration" icon={<Mic className="w-4 h-4" />} done={formData.adjectives.length > 0} />
+                            <StepIndicator active={step === 'footprint'} label="The Identity" icon={<Globe className="w-4 h-4" />} done={!!formData.website} />
+                            <StepIndicator active={step === 'audience'} label="Home Run Case" icon={<Heart className="w-4 h-4" />} done={!!formData.homeRunClient} />
+                            <StepIndicator active={step === 'voice'} label="Vibe Check" icon={<Mic className="w-4 h-4" />} done={formData.adjectives.length > 0} />
+                            <StepIndicator active={step === 'villain'} label="The Villain" icon={<Target className="w-4 h-4" />} done={!!formData.villain} />
+                            <StepIndicator active={step === 'mission'} label="12-Month Goal" icon={<Target className="w-4 h-4" />} done={!!formData.missionText} />
                             <StepIndicator active={step === 'vault'} label="The Vault" icon={<Upload className="w-4 h-4" />} done={false} />
                         </div>
                     </div>
@@ -163,7 +168,22 @@ const LeanDiscoveryWizard = () => {
                         {/* Step 1: Digital Footprint */}
                         {step === 'footprint' && (
                             <div className="space-y-6 animate-fadeIn">
-                                <Header title="The Digital Footprint" subtitle="Where do you currently exist online? Gemini will start crawling." />
+                                <Header title="The Identity" subtitle="Let's start with the basics. We'll scrape the rest." />
+
+                                <div>
+                                    <label className="block text-sm font-medium text-slate-400 mb-2">Company Name</label>
+                                    <div className="relative">
+                                        <Target className="absolute left-4 top-3.5 w-5 h-5 text-indigo-400" />
+                                        <input
+                                            type="text"
+                                            placeholder="Acme Corp"
+                                            className="w-full bg-slate-950 border border-slate-800 rounded-xl py-3 pl-12 pr-4 focus:ring-2 focus:ring-indigo-500 outline-none transition-all"
+                                            value={formData.companyName}
+                                            onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
+                                            autoFocus
+                                        />
+                                    </div>
+                                </div>
 
                                 <div>
                                     <label className="block text-sm font-medium text-slate-400 mb-2">Company Website URL</label>
@@ -175,66 +195,17 @@ const LeanDiscoveryWizard = () => {
                                             className="w-full bg-slate-950 border border-slate-800 rounded-xl py-3 pl-12 pr-4 focus:ring-2 focus:ring-indigo-500 outline-none transition-all"
                                             value={formData.website}
                                             onChange={(e) => setFormData({ ...formData, website: e.target.value })}
-                                            autoFocus
                                         />
                                     </div>
-                                </div>
-
-                                <div>
-                                    <label className="block text-sm font-medium text-slate-400 mb-2">Main Social Handle</label>
-                                    <div className="relative">
-                                        <Search className="absolute left-4 top-3.5 w-5 h-5 text-indigo-400" />
-                                        <input
-                                            type="text"
-                                            placeholder="@example_official"
-                                            className="w-full bg-slate-950 border border-slate-800 rounded-xl py-3 pl-12 pr-4 focus:ring-2 focus:ring-indigo-500 outline-none transition-all"
-                                            value={formData.socialHandle}
-                                            onChange={(e) => setFormData({ ...formData, socialHandle: e.target.value })}
-                                        />
-                                    </div>
-                                    <p className="text-xs text-slate-500 mt-2">We'll detect your colors, basic tone, and industry from these links.</p>
+                                    <p className="text-xs text-slate-500 mt-2">We'll detect your colors, address, and offers from this link.</p>
                                 </div>
                             </div>
                         )}
 
-                        {/* Step 2: Mission */}
-                        {step === 'mission' && (
-                            <div className="space-y-6 animate-fadeIn">
-                                <Header title="The 90-Day Mission" subtitle="What is the single most important goal for the next 3 months?" />
-
-                                <div className="grid grid-cols-3 gap-3">
-                                    {['Brand Awareness', 'Lead Generation', 'Recruitment'].map((goal) => (
-                                        <button
-                                            key={goal}
-                                            onClick={() => setFormData({ ...formData, missionGoal: goal })}
-                                            className={`p-3 rounded-lg border text-sm font-medium transition-all ${formData.missionGoal === goal
-                                                ? 'bg-indigo-600 border-indigo-500 text-white'
-                                                : 'bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-600'
-                                                }`}
-                                        >
-                                            {goal}
-                                        </button>
-                                    ))}
-                                </div>
-
-                                <div>
-                                    <label className="block text-sm font-medium text-slate-400 mb-2">Specifics (e.g. "20 new dental implants")</label>
-                                    <input
-                                        type="text"
-                                        placeholder="We need to sell 500 units of X..."
-                                        className="w-full bg-slate-950 border border-slate-800 rounded-xl py-3 px-4 focus:ring-2 focus:ring-indigo-500 outline-none transition-all"
-                                        value={formData.missionText}
-                                        onChange={(e) => setFormData({ ...formData, missionText: e.target.value })}
-                                        autoFocus
-                                    />
-                                </div>
-                            </div>
-                        )}
-
-                        {/* Step 3: Audience */}
+                        {/* Step 2: Audience (Moved Up) */}
                         {step === 'audience' && (
                             <div className="space-y-6 animate-fadeIn">
-                                <Header title="The Home Run Client" subtitle="Describe your absolute favorite client story. Who were they, what was wrong, and how did you fix it?" />
+                                <Header title="The Home Run Client" subtitle="Tell us about one client who got amazing results. Who were they, what was wrong, and how did you save them?" />
 
                                 <textarea
                                     className="w-full h-40 bg-slate-950 border border-slate-800 rounded-xl p-4 focus:ring-2 focus:ring-indigo-500 outline-none transition-all resize-none"
@@ -249,10 +220,10 @@ const LeanDiscoveryWizard = () => {
                             </div>
                         )}
 
-                        {/* Step 4: Voice */}
+                        {/* Step 3: Voice */}
                         {step === 'voice' && (
                             <div className="space-y-6 animate-fadeIn">
-                                <Header title="Voice Calibration" subtitle="Pick 3 adjectives that describe your brand." />
+                                <Header title="The Vibe Check" subtitle="Pick 3 adjectives that describe your brand." />
 
                                 <div className="flex flex-wrap gap-2">
                                     {ADJECTIVES_LIST.map((adj) => (
@@ -278,10 +249,10 @@ const LeanDiscoveryWizard = () => {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-400 mb-2">The "Anti-Style" (Guardrails)</label>
+                                    <label className="block text-sm font-medium text-slate-400 mb-2">The "Anti-Strategy" (What do you HATE?)</label>
                                     <input
                                         type="text"
-                                        placeholder="What do you HATE? (e.g. No emoji overload, No slang)"
+                                        placeholder="e.g. No emoji overload, No corporate jargon, No 'hustle culture'"
                                         className="w-full bg-slate-950 border border-slate-800 rounded-xl py-3 px-4 focus:ring-2 focus:ring-red-500/50 outline-none transition-all"
                                         value={formData.antiStyle}
                                         onChange={(e) => setFormData({ ...formData, antiStyle: e.target.value })}
@@ -290,10 +261,63 @@ const LeanDiscoveryWizard = () => {
                             </div>
                         )}
 
-                        {/* Step 5: Vault */}
+                        {/* Step 4: Villain */}
+                        {step === 'villain' && (
+                            <div className="space-y-6 animate-fadeIn">
+                                <Header title="The Villain" subtitle="Who or what is the 'Enemy' of your customers?" />
+
+                                <input
+                                    type="text"
+                                    placeholder="e.g. Big Pharma, Boredom, The Tax Man, Loneliness"
+                                    className="w-full bg-slate-950 border border-slate-800 rounded-xl py-3 px-4 focus:ring-2 focus:ring-red-600 outline-none transition-all"
+                                    value={formData.villain}
+                                    onChange={(e) => setFormData({ ...formData, villain: e.target.value })}
+                                    autoFocus
+                                />
+                                <p className="text-xs text-slate-500">
+                                    Gemini uses this to craft your Origin Story and Mission Statement.
+                                </p>
+                            </div>
+                        )}
+
+                        {/* Step 5: Mission (12-Month Goal) */}
+                        {step === 'mission' && (
+                            <div className="space-y-6 animate-fadeIn">
+                                <Header title="The 12-Month Goal" subtitle="Where do you want to be in exactly 1 year?" />
+
+                                <div className="grid grid-cols-3 gap-3">
+                                    {['Market Leader', 'Expanded Team', 'New Location'].map((goal) => (
+                                        <button
+                                            key={goal}
+                                            onClick={() => setFormData({ ...formData, missionGoal: goal })}
+                                            className={`p-3 rounded-lg border text-sm font-medium transition-all ${formData.missionGoal === goal
+                                                ? 'bg-indigo-600 border-indigo-500 text-white'
+                                                : 'bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-600'
+                                                }`}
+                                        >
+                                            {goal}
+                                        </button>
+                                    ))}
+                                </div>
+
+                                <div>
+                                    <label className="block text-sm font-medium text-slate-400 mb-2">Specifics (e.g. "$1M ARR", "Opened 2nd clinic")</label>
+                                    <input
+                                        type="text"
+                                        placeholder="We want to have..."
+                                        className="w-full bg-slate-950 border border-slate-800 rounded-xl py-3 px-4 focus:ring-2 focus:ring-indigo-500 outline-none transition-all"
+                                        value={formData.missionText}
+                                        onChange={(e) => setFormData({ ...formData, missionText: e.target.value })}
+                                        autoFocus
+                                    />
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Step 6: Vault */}
                         {step === 'vault' && (
                             <div className="space-y-6 animate-fadeIn">
-                                <Header title="The Vault" subtitle="Upload any existing assets (PDFs, Decks) to ground the AI." />
+                                <Header title="The Vault" subtitle="Upload any existing assets (PDFs, Decks)..." />
                                 <VaultUploader
                                     subAccountId={clientId}
                                     onUploadComplete={(url: string) => {
@@ -311,10 +335,11 @@ const LeanDiscoveryWizard = () => {
                         {step !== 'footprint' ? (
                             <button
                                 onClick={() => {
-                                    if (step === 'mission') prevStep('footprint');
-                                    if (step === 'audience') prevStep('mission');
+                                    if (step === 'audience') prevStep('footprint');
                                     if (step === 'voice') prevStep('audience');
-                                    if (step === 'vault') prevStep('voice');
+                                    if (step === 'villain') prevStep('voice');
+                                    if (step === 'mission') prevStep('villain');
+                                    if (step === 'vault') prevStep('mission');
                                 }}
                                 className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors"
                             >
@@ -326,10 +351,11 @@ const LeanDiscoveryWizard = () => {
 
                         <button
                             onClick={() => {
-                                if (step === 'footprint') nextStep('mission');
-                                else if (step === 'mission') nextStep('audience');
+                                if (step === 'footprint') nextStep('audience');
                                 else if (step === 'audience') nextStep('voice');
-                                else if (step === 'voice') nextStep('vault');
+                                else if (step === 'voice') nextStep('villain');
+                                else if (step === 'villain') nextStep('mission');
+                                else if (step === 'mission') nextStep('vault');
                                 else if (step === 'vault') handleSubmit();
                             }}
                             className="bg-indigo-600 hover:bg-indigo-500 text-white px-8 py-3 rounded-xl font-bold shadow-lg shadow-indigo-500/20 flex items-center gap-2 transition-all"

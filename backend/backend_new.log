@@ -1,0 +1,30 @@
+
+> mansa-tina-backend@1.0.0 dev
+> ts-node-dev --respawn --transpile-only src/server.ts
+
+[INFO] 20:33:07 ts-node-dev ver. 2.0.0 (using ts-node ver. 10.9.2, typescript ver. 5.9.3)
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-28T01:33:12.306Z }
+[INFO] 20:47:49 Restarting: /home/ekirk/mansa-tina-marketing/backend/src/routes/strategy.ts has been modified
+Backend service listening on port 8080
+Database connected successfully: { now: 2025-12-28T01:47:53.010Z }
+[MOCK EMAIL] Sending invite to ekirk@KeenPlexTechnologies.com with data: {
+  link: 'https://app.mansatina.io/invite?token=c34c0d82',
+  agencyName: 'Mansa Tina Agency'
+}
+📂 Uploading content (2).pdf for 848b4101-3519-469e-8507-5dcda0ad0727...
+✅ Asset uploaded and saved.
+📂 Uploading Ed Kirk Resume C (1).docx for 848b4101-3519-469e-8507-5dcda0ad0727...
+✅ Asset uploaded and saved.
+📂 Uploading KPT Origin story (1).docx for 848b4101-3519-469e-8507-5dcda0ad0727...
+✅ Asset uploaded and saved.
+📂 Uploading KPT persona (2).docx for 848b4101-3519-469e-8507-5dcda0ad0727...
+✅ Asset uploaded and saved.
+🚀 Dispatching Agents for client KeenPlex Technologies LLC (848b4101-3519-469e-8507-5dcda0ad0727)...
+🚀 Starting Brand Analysis V2 (Reverse-Engineering) for 848b4101-3519-469e-8507-5dcda0ad0727...
+🕵️‍♂️ Launching Agents: Detective, Psychologist, Strategist...
+[AUTH] Using Mock Token Bypass
+[AUTH] Using Mock Token Bypass
+✅ Agents Returned. Synthesizing Final DNA...
+💾 Saving DNA to Database...
+✅ Brand DNA V2 Saved Successfully!

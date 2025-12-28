@@ -46,7 +46,7 @@ router.get('/results', authenticate, async (req: Request, res: Response) => {
         }
 
         const query = `
-            SELECT id, identity_data, voice_profile, audience_personas, usps, content_mix, last_updated_at 
+            SELECT id, identity_data, brand_core, visual_identity, narrative, competitor_recon, strategic_differentiation, audience_definition, voice_calibration, content_strategy, last_updated_at 
             FROM brand_dna 
             WHERE sub_account_id = $1 
             ORDER BY last_updated_at DESC 
