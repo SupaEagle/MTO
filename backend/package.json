@@ -10,10 +10,7 @@
         "build": "tsc"
     },
     "dependencies": {
-        "@genkit-ai/core": "^1.27.0",
         "@genkit-ai/dotprompt": "^0.9.12",
-        "@genkit-ai/flow": "^0.5.17",
-        "@genkit-ai/googleai": "^1.27.0",
         "@genkit-ai/vertexai": "^1.27.0",
         "@google-cloud/pubsub": "^5.2.0",
         "@google-cloud/vertexai": "^1.10.0",

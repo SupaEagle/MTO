@@ -2,7 +2,7 @@ import { Router, Request, Response } from 'express';
 import { PubSub } from '@google-cloud/pubsub';
 import { authenticate } from '../middleware/auth';
 import { db } from '../lib/db';
-import { startBrandAnalysis } from '../workflows/dnaOrchestrator';
+import { runSixAgentPipeline } from '../workflows/sixAgentOrchestrator';
 
 const router = Router();
 
@@ -19,11 +19,11 @@ router.post('/submit', async (req: Request, res: Response) => {
         const clientRes = await db.query('SELECT name FROM sub_accounts WHERE id = $1', [subAccountId]);
         const officialName = clientRes.rows[0]?.name || rawAnswers.companyName || 'Unknown Company';
 
-        console.log(`🚀 Dispatching Agents for client ${officialName} (${subAccountId})...`);
+        console.log(`🚀 Dispatching Hexagon Agents for client ${officialName} (${subAccountId})...`);
 
         // 2. Dispatch the Agentic Workflow (Fire and Forget)
-        startBrandAnalysis(subAccountId, { ...rawAnswers, companyName: officialName })
-            .catch(err => console.error("❌ Agent Orchestration Failed in Background:", err));
+        runSixAgentPipeline(subAccountId, { ...rawAnswers, companyName: officialName })
+            .catch(err => console.error("❌ Hexagon Orchestration Failed in Background:", err));
 
         // 3. Return immediate response
         res.json({

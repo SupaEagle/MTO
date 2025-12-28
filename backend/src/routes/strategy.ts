@@ -10,8 +10,18 @@ router.get('/:subAccountId', authenticate, async (req: Request, res: Response) =
         const { subAccountId } = req.params;
 
         const query = `
-
-            SELECT id, identity_data, brand_core, visual_identity, narrative, competitor_recon, strategic_differentiation, audience_definition, voice_calibration, content_strategy, last_updated_at
+            SELECT
+                id,
+                identity_data,
+                brand_core,
+                visual_identity,
+                narrative,
+                competitor_recon AS competitor_intel,
+                strategic_differentiation,
+                audience_definition AS audience_persona,
+                voice_calibration AS voice_guide,
+                content_strategy AS content_matrix,
+                last_updated_at
             FROM brand_dna
             WHERE sub_account_id = $1
             ORDER BY last_updated_at DESC
